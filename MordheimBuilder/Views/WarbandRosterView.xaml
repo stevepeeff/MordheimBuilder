@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="MordheimBuilder.Views.WarbandRosterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimBuilder.Views"
+             mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="_StackPanelTop">
+        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Visible"   Height="1000" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                      HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
+            <StackPanel>
+                <StackPanel x:Name="_StackPanelWarriors" ></StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

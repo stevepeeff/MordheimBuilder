@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="MordheimBuilder.WarriorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimBuilder"
+             xmlns:Views ="clr-namespace:MordheimBuilder.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="820">
+    <Grid>
+        <StackPanel Margin="2">
+
+            <GroupBox Header="{Binding Path=HeaderText, Mode=OneWay}" BorderBrush="Black">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Name</Label>
+                        <TextBox Width="200" MaxHeight="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+                        <local:StatisticsView x:Name="_StatisticsView" Margin="50,0,0,5"></local:StatisticsView>
+                        <GroupBox Header="Costs" Margin="40,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label>Initial</Label>
+                                <Label FontStyle="Italic" Content="{Binding Path=InitialCost, Mode=OneWay}"></Label>
+                                <Label FontStyle="Italic">Equipment Costs</Label>
+                                <Label FontStyle="Italic" Content="{Binding Path=EquipmentCosts, Mode=OneWay}"></Label>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <GroupBox Header="Equipment" Width="250" MouseDoubleClick="GroupBox_MouseDoubleClick">
+                            <local:EquipWeaponsView x:Name="_EquipWeaponsView"></local:EquipWeaponsView>
+                        </GroupBox>
+                        <GroupBox Header="Special Rules">
+                            <Views:AfflictionsView Width="300" x:Name="_AfflictionsView"></Views:AfflictionsView>
+                        </GroupBox>
+                        <GroupBox Header="Skills, Injuries"></GroupBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <GroupBox Header="Experience">
+                            <StackPanel>
+                                <local:ExpierenceView x:Name="_ExpierenceView"></local:ExpierenceView>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

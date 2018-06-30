@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="MordheimBuilder.WeaponPickerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimBuilder"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <StackPanel>
+            <GroupBox Header="Allowed Equipment" FontWeight="Heavy" Margin="10">
+                <StackPanel>
+                    <GroupBox Header="Close Combat Weapons">
+                        <DataGrid ItemsSource="{Binding Weapons}" x:Name="DataGridCloseCombatWeapons" AutoGenerateColumns="True" SelectionMode="Single">
+                            <DataGrid.InputBindings>
+                                <MouseBinding Gesture="LeftDoubleClick"
+                                              Command="{Binding SelectEquipmentCommand}"
+                                              CommandParameter="{Binding ElementName=DataGridCloseCombatWeapons, Path=SelectedItem}">
+                                </MouseBinding>
+                            </DataGrid.InputBindings>
+                        </DataGrid>
+                    </GroupBox>
+                    <GroupBox Header="Missile Weapons">
+                        <DataGrid ItemsSource="{Binding MissileWeapons}" x:Name="DataGridMissileWeapons" AutoGenerateColumns="True" SelectionMode="Single" MinColumnWidth="80">
+                            <DataGrid.InputBindings>
+                                <MouseBinding Gesture="LeftDoubleClick"
+                                              Command="{Binding SelectEquipmentCommand}"
+                                              CommandParameter="{Binding ElementName=DataGridMissileWeapons, Path=SelectedItem}">
+                                </MouseBinding>
+                            </DataGrid.InputBindings>
+                        </DataGrid>
+                    </GroupBox>
+                    <GroupBox Header="Armour">
+                        <DataGrid ItemsSource="{Binding Armour}" x:Name="DataGridArmour" AutoGenerateColumns="True"  SelectionMode="Single" MinColumnWidth="80">
+                            <DataGrid.InputBindings>
+                                <MouseBinding Gesture="LeftDoubleClick"
+                                              Command="{Binding SelectEquipmentCommand}"
+                                              CommandParameter="{Binding ElementName=DataGridArmour, Path=SelectedItem}">
+                                </MouseBinding>
+                            </DataGrid.InputBindings>
+                        </DataGrid>
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Equipped Weapons" Margin="10">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Label FontStyle="Italic">Equipment Costs</Label>
+                        <Label FontStyle="Italic" Content="{Binding Path=EquipmentCosts, Mode=OneWay}"></Label>
+                    </StackPanel>
+                    <DataGrid ItemsSource="{Binding EquippedWeapons}" x:Name="DataGridEquippedWeapons" AutoGenerateColumns="True"  SelectionMode="Single" MinColumnWidth="80">
+                        <DataGrid.InputBindings>
+                            <MouseBinding Gesture="LeftDoubleClick"
+                                              Command="{Binding RemoveEquipmentCommand}"
+                                              CommandParameter="{Binding ElementName=DataGridEquippedWeapons, Path=SelectedItem}">
+                            </MouseBinding>
+                        </DataGrid.InputBindings>
+                    </DataGrid>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

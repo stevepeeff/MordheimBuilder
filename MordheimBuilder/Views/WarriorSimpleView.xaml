@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="MordheimBuilder.Views.WarriorSimpleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:local="clr-namespace:MordheimBuilder"
+             xmlns:Views ="clr-namespace:MordheimBuilder.Views"
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="2">
+            <GroupBox Header="{Binding Path=HeaderText, Mode=OneWay}" BorderBrush="Black">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Name</Label>
+                        <TextBox Width="150" MaxHeight="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <StackPanel>
+                            <local:StatisticsView x:Name="_StatisticsView" Margin="50,0,0,5"></local:StatisticsView>
+                            <StackPanel Orientation="Horizontal">
+                                <Label FontStyle="Italic" Margin="50,0,0,5">Allowed Skills:</Label>
+                                <Label FontStyle="Italic" Content="{Binding Path=SkillSummary, Mode=OneWay}" ></Label>
+                            </StackPanel>
+                        </StackPanel>
+                        <GroupBox Header="Costs" Width="200" Margin="40,0,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label FontStyle="Italic">Costs Initial</Label>
+                                    <Label FontStyle="Italic" Content="{Binding Path=InitialCost, Mode=OneWay}"></Label>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label FontStyle="Italic">Maximum # allowed:</Label>
+                                    <Label FontStyle="Italic" Content="{Binding Path=MaximumAllowedInWarBand, Mode=OneWay}"></Label>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <StackPanel Width="100">
+                            <StackPanel Margin="5" Orientation="Horizontal"  Visibility="{Binding ShowGroupBuyButtons}" />
+                            <Button Margin="3" Width="80" Command="{Binding BuyWarriorCommand}">Buy</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,23 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MordheimBuilder/.vs/MordheimBuilder/v15/Server/sqlite3
+/MordheimBuilder/bin/Debug
+/MordheimBuilder/obj/Debug
+*.suo
+/MordheimBuilder/bin/Release
+/MordheimBuilder/obj/Release
+/DomainModel/obj/Release
+/MordheimBuilder/DomainModel.Tests/bin/Release
+/MordheimBuilder/DomainModel.Tests/obj/Release
+/MordheimBuilder/packages/MSTest.TestAdapter.1.2.0/build
+/MordheimBuilder/packages/MSTest.TestFramework.1.2.0
+/MordheimBuilder/packages/MSTest.TestAdapter.1.2.0
+/DomainModel/bin/Release
+/MordheimBuilder/bin
+obj
+packages
+bin
+/MordheimBuilder/.vs/MordheimBuilder/DesignTimeBuild/.dtbcache
+/.vs

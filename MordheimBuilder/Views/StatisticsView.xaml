@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="MordheimBuilder.StatisticsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimBuilder"
+             mc:Ignorable="d"
+             d:DesignHeight="45" d:DesignWidth="320">
+    <UserControl.Resources>
+        <!--<Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="FontSize" Value="30" />
+        </Style>-->
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <local:StatisticView x:Name="_1"></local:StatisticView>
+            <local:StatisticView x:Name="_2"></local:StatisticView>
+            <local:StatisticView x:Name="_3"></local:StatisticView>
+            <local:StatisticView x:Name="_4"></local:StatisticView>
+            <local:StatisticView x:Name="_5"></local:StatisticView>
+            <local:StatisticView x:Name="_6"></local:StatisticView>
+            <local:StatisticView x:Name="_7"></local:StatisticView>
+            <local:StatisticView x:Name="_8"></local:StatisticView>
+            <local:StatisticView x:Name="_9"></local:StatisticView>
+            <local:StatisticView x:Name="_10"></local:StatisticView>
+        </StackPanel>
+    </Grid>
+</UserControl>

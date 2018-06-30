@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8ED204A-A5AE-44F6-AFE4-34CB6CB1A949}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DomainModel</RootNamespace>
+    <AssemblyName>DomainModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Equipment\Armour\Barding.cs" />
+    <Compile Include="Equipment\Armour\Buckler.cs" />
+    <Compile Include="Equipment\Armour\GromhilArmour.cs" />
+    <Compile Include="Equipment\Armour\HeavyArmor.cs" />
+    <Compile Include="Equipment\Armour\Helmet.cs" />
+    <Compile Include="Equipment\Armour\IArmour.cs" />
+    <Compile Include="Equipment\Armour\IthilmarArmour.cs" />
+    <Compile Include="Equipment\Armour\LightArmour.cs" />
+    <Compile Include="Equipment\Armour\Shield.cs" />
+    <Compile Include="Equipment\IEquipment.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\Axe.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\ClubMaceHammer.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\DoubleHandedWeapon.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\FightingClaws.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\Flail.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\Halberd.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\MorningStar.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\SigmariteWarhammer.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\Spear.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\SteelWhip.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\WeepingBlades.cs" />
+    <Compile Include="Equipment\Weapons\Missile\BlowPipe.cs" />
+    <Compile Include="Equipment\Weapons\Missile\Blunderbuss.cs" />
+    <Compile Include="Equipment\Weapons\Missile\Bow.cs" />
+    <Compile Include="Equipment\Weapons\Missile\BraceOfPistols.cs" />
+    <Compile Include="Equipment\Weapons\Missile\CrossbowPistol.cs" />
+    <Compile Include="Equipment\Weapons\Missile\DuellingPistol.cs" />
+    <Compile Include="Equipment\Weapons\Missile\ElfBow.cs" />
+    <Compile Include="Equipment\Weapons\Missile\HandGun.cs" />
+    <Compile Include="Equipment\Weapons\Missile\HochlanLongRifle.cs" />
+    <Compile Include="Equipment\Weapons\Missile\LongBow.cs" />
+    <Compile Include="Equipment\Weapons\Missile\Pistol.cs" />
+    <Compile Include="Equipment\Weapons\Missile\RepeaterCrossBow.cs" />
+    <Compile Include="Equipment\Weapons\Missile\ShortBow.cs" />
+    <Compile Include="Equipment\Weapons\Missile\Sling.cs" />
+    <Compile Include="Equipment\Weapons\Missile\ThrowingStarKnive.cs" />
+    <Compile Include="Equipment\Weapons\Missile\WarplockPistol.cs" />
+    <Compile Include="Equipment\VariabeleCosts.cs" />
+    <Compile Include="Equipment\EquipmentBase.cs" />
+    <Compile Include="Injuries\ArmWound.cs" />
+    <Compile Include="Injuries\Detail.cs" />
+    <Compile Include="IWarbandRoster.cs" />
+    <Compile Include="Magic\ISpell.cs" />
+    <Compile Include="Magic\Prayers of Sigmar\HeartsOfSteel.cs" />
+    <Compile Include="Magic\Prayers of Sigmar\TheHammerOfSigmar.cs" />
+    <Compile Include="Magic\Spells.cs" />
+    <Compile Include="Psychology\Animal.cs" />
+    <Compile Include="Psychology\BurnTheWitch.cs" />
+    <Compile Include="Psychology\Fanatical.cs" />
+    <Compile Include="RacialAdvantages\MarienburgAdvantage.cs" />
+    <Compile Include="RacialAdvantages\MiddenheimAdvantage.cs" />
+    <Compile Include="RacialAdvantages\IRacialAdvantage.cs" />
+    <Compile Include="RacialAdvantages\RacialAdvantagesBase.cs" />
+    <Compile Include="RacialAdvantages\ReiklandAdvantage.cs" />
+    <Compile Include="Skills\Academic\AcademicBase.cs" />
+    <Compile Include="Skills\Academic\BattleTongue.cs" />
+    <Compile Include="Skills\Academic\IAcademic.cs" />
+    <Compile Include="Skills\Combat\CombatBase.cs" />
+    <Compile Include="Skills\Combat\ICombat.cs" />
+    <Compile Include="Skills\Combat\StrikeToInjure.cs" />
+    <Compile Include="Skills\Shooting\IShooting.cs" />
+    <Compile Include="Skills\Shooting\QuickShot.cs" />
+    <Compile Include="Skills\Shooting\ShootingBase.cs" />
+    <Compile Include="Skills\SkillProvider.cs" />
+    <Compile Include="Skills\Speed\ISpeed.cs" />
+    <Compile Include="Skills\Speed\Leap.cs" />
+    <Compile Include="Skills\Speed\SpeedBase.cs" />
+    <Compile Include="Skills\Strength\Resilient.cs" />
+    <Compile Include="Skills\Strength\StrengthBase.cs" />
+    <Compile Include="Warbands\BaseClasses\ElfHeroBase.cs" />
+    <Compile Include="Warbands\BaseClasses\HeroBase.cs" />
+    <Compile Include="Warbands\BaseClasses\HumanHeroBase.cs" />
+    <Compile Include="Warbands\BaseClasses\SkavenHeroBase.cs" />
+    <Compile Include="Warbands\BaseClasses\WarbandBase.cs" />
+    <Compile Include="Warbands\Characteristic.cs" />
+    <Compile Include="Warbands\IHenchMan.cs" />
+    <Compile Include="Warbands\IHero.cs" />
+    <Compile Include="Injuries\Dead.cs" />
+    <Compile Include="Injuries\IInjury.cs" />
+    <Compile Include="Injuries\InjuryBase.cs" />
+    <Compile Include="Injuries\NervousCondition.cs" />
+    <Compile Include="Warbands\IWarBand.cs" />
+    <Compile Include="Skills\SkillBase.cs" />
+    <Compile Include="Skills\Strength\IStrength.cs" />
+    <Compile Include="Skills\Strength\MightyBlow.cs" />
+    <Compile Include="Skills\Strength\PitFighter.cs" />
+    <Compile Include="Statistic.cs" />
+    <Compile Include="Psychology\IPsychology.cs" />
+    <Compile Include="Warbands\IWizard.cs" />
+    <Compile Include="Warbands\Middenheimers\Middenheimers.cs" />
+    <Compile Include="Warbands\Middenheimers\MiddenheimMarksmen.cs" />
+    <Compile Include="Warbands\Skaven\AssassinAdept.cs" />
+    <Compile Include="Warbands\Skaven\Skaven.cs" />
+    <Compile Include="Warbands\Skaven\Verminkin.cs" />
+    <Compile Include="Warbands\BaseClasses\WarriorBase.cs" />
+    <Compile Include="Warbands\IWarrior.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skills\ISkill.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\Dagger.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\Fists.cs" />
+    <Compile Include="Equipment\Weapons\ICloseCombatWeapon.cs" />
+    <Compile Include="Equipment\Weapons\CloseCombat\Sword.cs" />
+    <Compile Include="Equipment\Weapons\IWeapon.cs" />
+    <Compile Include="Equipment\Weapons\Missile\CrossBow.cs" />
+    <Compile Include="Equipment\Weapons\IMisseleWeapon.cs" />
+    <Compile Include="Warbands\WitchHunters\Flagellant.cs" />
+    <Compile Include="Warbands\WitchHunters\Warhound.cs" />
+    <Compile Include="Warbands\WitchHunters\WarriorPriest.cs" />
+    <Compile Include="Warbands\WitchHunters\WitchHunter.cs" />
+    <Compile Include="Warbands\WitchHunters\WitchHunterCaptain.cs" />
+    <Compile Include="Warbands\WitchHunters\WitchHunters.cs" />
+    <Compile Include="Warbands\WitchHunters\Zealot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Equipment\Miscellaneous\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

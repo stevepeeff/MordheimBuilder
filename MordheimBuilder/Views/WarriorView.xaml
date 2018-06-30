@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="MordheimBuilder.WarriorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimBuilder"
+             xmlns:Views ="clr-namespace:MordheimBuilder.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="200">
+    <Grid>
+        <StackPanel Margin="2">
+            <GroupBox Header="{Binding Path=HeaderText, Mode=OneWay}" BorderBrush="Black">
+                <StackPanel>
+                    <DockPanel>
+                        <StackPanel VerticalAlignment="Center">
+                            <DockPanel>
+                                <Label>Name</Label>
+                                <TextBox Width="150" MaxHeight="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            </DockPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <local:StatisticsView x:Name="_StatisticsView" Margin="50,0,0,5"></local:StatisticsView>
+                        </StackPanel>
+                        <GroupBox Header="Costs" Width="200" Margin="40,0,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label FontStyle="Italic">Equipment</Label>
+                                    <Label FontStyle="Italic" Content="{Binding Path=EquipmentCosts, Mode=OneWay}"></Label>
+                                    <Label FontStyle="Italic">Total</Label>
+                                    <Label FontStyle="Italic" Content="{Binding Path=GroupCosts, Mode=OneWay}"></Label>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Visibility="{Binding ShowGroupBuyButtons}">
+                                    <Label FontStyle="Italic"># Henchman</Label>
+                                    <Label FontStyle="Italic" Content="{Binding Path=GroupCount, Mode=OneWay}"></Label>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <StackPanel Width="100">
+                            <StackPanel Margin="5" Orientation="Horizontal"  Visibility="{Binding ShowGroupBuyButtons}">
+                                <Button Margin="3" Width="40" FontWeight="Bold" Command="{Binding DecreaseWarriorBuyAmountCommand}">-</Button>
+                                <Button Margin="3" Width="40" FontWeight="Bold" Command="{Binding IncreaseWarriorBuyAmountCommand }">+</Button>
+                            </StackPanel>
+                            <Button Margin="3" Width="80" Command="{Binding RemoveWarriorCommand}" >Remove</Button>
+                        </StackPanel>
+                    </DockPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="100">
+                        <GroupBox Header="Equipment" Width="400">
+                            <GroupBox.InputBindings>
+                                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ShowWeaponsPickerCommand}">
+                                </MouseBinding>
+                            </GroupBox.InputBindings>
+                            <DataGrid ItemsSource="{Binding EquippedWeapons}" x:Name="DataGridEquippedWeapons" AutoGenerateColumns="True" SelectionMode="Single">
+                                <!--<DataGrid.ToolTip>
+                                </DataGrid.ToolTip>-->
+                            </DataGrid>
+                        </GroupBox>
+
+                        <GroupBox Header="Special Rules">
+                            <Views:AfflictionsView Width="300" x:Name="_AfflictionsView"></Views:AfflictionsView>
+                        </GroupBox>
+
+                        <GroupBox Header="Skills">
+                            <GroupBox.InputBindings>
+                                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ShowSkillSelectorCommand}"></MouseBinding>
+                            </GroupBox.InputBindings>
+                            <DataGrid ItemsSource="{Binding SkillsSimple}"  AutoGenerateColumns="True" SelectionMode="Single">
+                            </DataGrid>
+                        </GroupBox>
+
+                        <GroupBox Header="Magic" Width="100" Visibility="{Binding ShowMagicPane}">
+                        </GroupBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <GroupBox Header="Experience">
+                            <StackPanel>
+                                <local:ExpierenceView x:Name="_ExpierenceView"></local:ExpierenceView>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>
