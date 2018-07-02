@@ -81,6 +81,7 @@
     <Compile Include="ViewModels\MissileWeaponViewModel.cs" />
     <Compile Include="ViewModels\SkillViewModel.cs" />
     <Compile Include="ViewModels\SkillViewModelSimple.cs" />
+    <Compile Include="ViewModels\SpellViewModel.cs" />
     <Compile Include="ViewModels\WarBandInformationViewModel.cs" />
     <Compile Include="ViewModels\WarBandRosterViewModel.cs" />
     <Compile Include="ViewModels\WarBandOverallViewModel.cs" />

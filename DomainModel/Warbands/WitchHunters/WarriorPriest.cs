@@ -1,4 +1,5 @@
 ﻿using DomainModel.Magic;
+using DomainModel.Magic.Prayers_of_Sigmar;
 using DomainModel.Warbands.BaseClasses;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,9 @@ namespace DomainModel.Warbands.WitchHunters
         {
             LeaderShip.BaseValue = 8;
             _AllowedWeapons.AddRange(WitchHunters.HeroEquipmentList);
+
+            //TODO TESTING
+            AddSpell(new TheHammerOfSigmar());
         }
 
         public void AddSpell(ISpell spell)

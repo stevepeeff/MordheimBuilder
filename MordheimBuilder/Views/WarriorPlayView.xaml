@@ -62,7 +62,10 @@
                             </GroupBox.InputBindings>
                             <DataGrid ItemsSource="{Binding Injuries}"  AutoGenerateColumns="True" SelectionMode="Single" ></DataGrid>
                         </GroupBox>
-                        <GroupBox Header="Magic" Width="100" Visibility="{Binding ShowMagicPane}"></GroupBox>
+                        <GroupBox Header="Magic" Width="100" Visibility="{Binding ShowMagicPane}">
+                            <DataGrid>
+                            </DataGrid>
+                        </GroupBox>
                     </StackPanel>
                     <StackPanel>
                         <GroupBox Header="Experience">

@@ -17,5 +17,7 @@ namespace DomainModel.Magic
         /// The gain required roll.
         /// </value>
         int GainRequiredRoll { get; }
+
+        string Description { get; }
     }
 }

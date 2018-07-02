@@ -97,6 +97,8 @@ namespace MordheimBuilder
 
         public ObservableCollection<SkillViewModel> AllowedSkills { get; } = new ObservableCollection<SkillViewModel>();
 
+        public ObservableCollection<SpellViewModel> Spells { get; } = new ObservableCollection<SpellViewModel>();
+
         public ObservableCollection<SkillViewModel> Skills { get; } = new ObservableCollection<SkillViewModel>();
 
         public ObservableCollection<SkillViewModelSimple> SkillsSimple { get; } = new ObservableCollection<SkillViewModelSimple>();

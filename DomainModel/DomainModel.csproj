@@ -84,6 +84,7 @@
     <Compile Include="IWarbandRoster.cs" />
     <Compile Include="Magic\ISpell.cs" />
     <Compile Include="Magic\Prayers of Sigmar\HeartsOfSteel.cs" />
+    <Compile Include="Magic\Prayers of Sigmar\IPrayerOfSigmar.cs" />
     <Compile Include="Magic\Prayers of Sigmar\TheHammerOfSigmar.cs" />
     <Compile Include="Magic\Spells.cs" />
     <Compile Include="Psychology\Animal.cs" />
