@@ -11,11 +11,11 @@
         <StackPanel Margin="2">
             <GroupBox Header="{Binding Path=HeaderText, Mode=OneWay}" BorderBrush="Black">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label>Name</Label>
-                        <TextBox Width="150" MaxHeight="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <local:StatisticsView x:Name="_StatisticsView" Margin="50,0,0,5"></local:StatisticsView>
-                        <GroupBox Header="Costs" Width="200" Margin="40,0,0,0">
+                    <DockPanel>
+                        <Label HorizontalAlignment="Left">Name</Label>
+                        <TextBox Width="150" MaxHeight="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"></TextBox>
+                        <local:StatisticsView x:Name="_StatisticsView" HorizontalAlignment="Center" Margin="40,0,5,0" ></local:StatisticsView>
+                        <GroupBox Header="Costs" Width="200" Margin="40,0,0,0" HorizontalAlignment="Right">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Label FontStyle="Italic">Equipment</Label>
@@ -29,12 +29,11 @@
                                 </StackPanel>
                             </StackPanel>
                         </GroupBox>
-                        <StackPanel Width="160">
-
+                        <StackPanel Width="160" HorizontalAlignment="Right">
                             <Button Margin="3" Width="150">Out of Action (Self)</Button>
                             <Button Margin="3" Width="150">Out of Action (Opponent)</Button>
                         </StackPanel>
-                    </StackPanel>
+                    </DockPanel>
                     <StackPanel Orientation="Horizontal">
                         <GroupBox Header="Equipment" Width="350">
                             <GroupBox.InputBindings>
@@ -47,17 +46,17 @@
                             </DataGrid>
                         </GroupBox>
                         <GroupBox Header="Special Rules">
-                            <Views:AfflictionsView Width="300" x:Name="_AfflictionsView"></Views:AfflictionsView>
+                            <Views:AfflictionsView Width="400" x:Name="_AfflictionsView"></Views:AfflictionsView>
                         </GroupBox>
 
-                        <GroupBox Header="Skills" MinWidth="90" Visibility="{Binding ShowSkillPane}">
+                        <GroupBox Header="Skills" MinWidth="90" Width="300" Visibility="{Binding ShowSkillPane}">
                             <GroupBox.InputBindings>
                                 <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ShowSkillSelectorCommand}"></MouseBinding>
                             </GroupBox.InputBindings>
                             <DataGrid ItemsSource="{Binding SkillsSimple}"  AutoGenerateColumns="True" SelectionMode="Single" ></DataGrid>
                         </GroupBox>
 
-                        <GroupBox Header="Injuries" MinWidth="90"  Visibility="{Binding ShowInjuryPane}">
+                        <GroupBox Header="Injuries" MinWidth="90"  Width="300" Visibility="{Binding ShowInjuryPane}">
                             <GroupBox.InputBindings>
                                 <MouseBinding Gesture="LeftDoubleClick"></MouseBinding>
                             </GroupBox.InputBindings>
