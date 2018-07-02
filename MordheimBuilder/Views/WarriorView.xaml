@@ -60,15 +60,17 @@
                             <Views:AfflictionsView Width="300" x:Name="_AfflictionsView"></Views:AfflictionsView>
                         </GroupBox>
 
-                        <GroupBox Header="Skills">
+                        <GroupBox Header="Skills" Visibility="{Binding ShowSkillPane}">
                             <GroupBox.InputBindings>
                                 <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ShowSkillSelectorCommand}"></MouseBinding>
                             </GroupBox.InputBindings>
-                            <DataGrid ItemsSource="{Binding SkillsSimple}"  AutoGenerateColumns="True" SelectionMode="Single">
+                            <DataGrid ItemsSource="{Binding SkillsSimple}"  SelectionMode="Single">
                             </DataGrid>
                         </GroupBox>
 
                         <GroupBox Header="Magic" Width="100" Visibility="{Binding ShowMagicPane}">
+                            <DataGrid ItemsSource="{Binding Spells}" IsReadOnly="True">
+                            </DataGrid>
                         </GroupBox>
                     </StackPanel>
                     <StackPanel>

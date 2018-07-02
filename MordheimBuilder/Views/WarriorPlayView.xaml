@@ -53,17 +53,17 @@
                             <GroupBox.InputBindings>
                                 <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ShowSkillSelectorCommand}"></MouseBinding>
                             </GroupBox.InputBindings>
-                            <DataGrid ItemsSource="{Binding SkillsSimple}"  AutoGenerateColumns="True" SelectionMode="Single" ></DataGrid>
+                            <DataGrid ItemsSource="{Binding SkillsSimple}" SelectionMode="Single" ></DataGrid>
                         </GroupBox>
 
                         <GroupBox Header="Injuries" MinWidth="90"  Width="300" Visibility="{Binding ShowInjuryPane}">
                             <GroupBox.InputBindings>
                                 <MouseBinding Gesture="LeftDoubleClick"></MouseBinding>
                             </GroupBox.InputBindings>
-                            <DataGrid ItemsSource="{Binding Injuries}"  AutoGenerateColumns="True" SelectionMode="Single" ></DataGrid>
+                            <DataGrid ItemsSource="{Binding Injuries}"  SelectionMode="Single" ></DataGrid>
                         </GroupBox>
-                        <GroupBox Header="Magic" Width="100" Visibility="{Binding ShowMagicPane}">
-                            <DataGrid>
+                        <GroupBox Header="Magic" Width="300" Visibility="{Binding ShowMagicPane}">
+                            <DataGrid ItemsSource="{Binding Spells}" IsReadOnly="True">
                             </DataGrid>
                         </GroupBox>
                     </StackPanel>

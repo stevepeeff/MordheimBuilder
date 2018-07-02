@@ -50,6 +50,15 @@ namespace MordheimBuilder
                 //}
             }
 
+            IWizard wizard = warrior as IWizard;
+            if (wizard != null)
+            {
+                foreach (var item in wizard.DrawnSpells)
+                {
+                    Spells.Add(new SpellViewModel(item));
+                }
+            }
+
             IHero hero = warrior as IHero;
             if (hero != null)
             {
@@ -285,7 +294,7 @@ namespace MordheimBuilder
             {
                 if (Warrior is IWizard) { return Visibility.Visible; }
 
-                return Visibility.Hidden;
+                return Visibility.Collapsed;
             }
         }
 
@@ -299,7 +308,7 @@ namespace MordheimBuilder
         {
             get
             {
-                if (Warrior is IHenchMan) { return Visibility.Hidden; }
+                if (Warrior is IHenchMan) { return Visibility.Collapsed; }
 
                 return Visibility.Visible;
             }
