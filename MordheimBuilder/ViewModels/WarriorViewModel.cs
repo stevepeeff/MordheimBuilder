@@ -78,15 +78,15 @@ namespace MordheimBuilder
             {
                 string skillList = String.Empty;
 
-                foreach (Type item in Warrior.AllowedSkills.DistinctSkills<ISkill>())
+                foreach (ISkill skill in Warrior.AllowedSkills.Distinct<ISkill>().ToList())
                 {
                     if (String.IsNullOrEmpty(skillList))
                     {
-                        skillList = $" {item.Name}"; ;
+                        skillList = $" {skill.Name}"; ;
                     }
                     else
                     {
-                        skillList += $" ,{item.Name}";
+                        skillList += $" ,{skill.Name}";
                     }
                 }
 
