@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Injuries;
@@ -26,6 +27,19 @@ namespace DomainModel.Warbands
             _Warrior = (WarriorBase)owner;
             CharacteristicValue = characteristicValue;
             BaseValue = baseValue;
+        }
+
+        public string ModifierSummarry
+        {
+            get
+            {
+                StringBuilder summary = new StringBuilder();
+                foreach (var item in _Warrior.Advantages.Statistics)
+                {
+                    summary.AppendLine(item.Description);
+                }
+                return summary.ToString();
+            }
         }
 
         /// <summary>
@@ -66,7 +80,7 @@ namespace DomainModel.Warbands
         /// <value>
         /// The characteristic value.
         /// </value>
-        public Characteristics CharacteristicValue { get; private set; }
+        public Characteristics CharacteristicValue { get; }
 
         public string LabelName
         {

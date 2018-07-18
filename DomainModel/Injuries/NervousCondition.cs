@@ -14,10 +14,11 @@ namespace DomainModel.Injuries
 
         public override string Description { get; } = "Oooeeh very nervous";
 
-        public override Statistic Result { get; } = new Statistic(Characteristics.Initiative, -1);
+        public override Statistic Result { get; }
 
         public NervousCondition()
         {
+            Result = new Statistic(Characteristics.Initiative, -1, $" Injury: {Description}");
         }
     }
 }

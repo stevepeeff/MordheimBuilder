@@ -33,19 +33,22 @@ namespace DomainModel
 
     public class Statistic
     {
-        public Applications Application { get; private set; }
+        public Applications Application { get; }
 
-        public Characteristics Characteristic { get; private set; }
+        public Characteristics Characteristic { get; }
 
-        public int AppliedValue { get; private set; }
+        public string Description { get; }
 
-        public Statistic(Characteristics characteristic, int appliedValue)
+        public int AppliedValue { get; }
+
+        public Statistic(Characteristics characteristic, int appliedValue, string reason)
         {
             Characteristic = characteristic;
             AppliedValue = appliedValue;
+            Description = $"{AppliedValue} {reason}";
         }
 
-        public Statistic(Characteristics characteristic, int appliedValue, Applications application) : this(characteristic, appliedValue)
+        public Statistic(Characteristics characteristic, int appliedValue, Applications application, string reason) : this(characteristic, appliedValue, reason)
         {
             Application = application;
         }

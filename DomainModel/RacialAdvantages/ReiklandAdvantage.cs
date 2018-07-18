@@ -10,7 +10,7 @@ namespace DomainModel.RacialAdvantages
     {
         public ReiklandAdvantage()
         {
-            _Statistics.Add(new Statistic(Characteristics.Strength, 1));
+            _Statistics.Add(new Statistic(Characteristics.Strength, 1, $" Reikland Racial Advantage;{Description}"));
         }
 
         public override string Description { get; } = "All heroes have a increased Strength";

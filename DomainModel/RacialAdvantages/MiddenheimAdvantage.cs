@@ -10,7 +10,7 @@ namespace DomainModel.RacialAdvantages
     {
         public MiddenheimAdvantage()
         {
-            _Statistics.Add(new Statistic(Characteristics.BallisticSkill, 1, Applications.Shooting));
+            _Statistics.Add(new Statistic(Characteristics.BallisticSkill, 1, Applications.Shooting, $"Middenheim RacialAdvantage : {Description}"));
         }
 
         public override string Description { get; } = "All marksmen have an increased ballistic skill";

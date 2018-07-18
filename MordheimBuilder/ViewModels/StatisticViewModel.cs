@@ -17,7 +17,7 @@ namespace MordheimBuilder
         public StatisticViewModel(Characteristic characteristic)
         {
             _characteristic = characteristic;
-            _characteristic.CharacteristicChanged += _characteristic_CharacteristicChanged;
+            _characteristic.CharacteristicChanged += CharacteristicChanged;
         }
 
         public string ContentValue
@@ -33,20 +33,6 @@ namespace MordheimBuilder
         }
 
         /// <summary>
-        /// Formats the save modifier.
-        /// Light Armour (Sv 1) and a Shield (Sv 1) result in calculatedValue of 2.
-        /// This give a save of (7-2) = 5+
-        /// </summary>
-        /// <param name="calculatedValue">The calculated value.</param>
-        /// <returns></returns>
-        internal static string FormatSaveModifier(int calculatedValue)
-        {
-            if (calculatedValue == Characteristic.ARMOUR_SAVE_NONE) { return String.Empty; }
-
-            return $"{7 - calculatedValue}+";
-        }
-
-        /// <summary>
         /// Gets the header text.
         /// </summary>
         /// <value>
@@ -54,6 +40,22 @@ namespace MordheimBuilder
         /// </value>
         public string HeaderText { get { return _characteristic.LabelName; } }
 
+        public string ToolTipText
+        {
+            get
+            {
+                return _characteristic.ModifierSummarry;
+            }
+        }
+
+        public bool ShowToolTipText { get { return String.IsNullOrEmpty(ToolTipText); } }
+
+        /// <summary>
+        /// Gets the color of the text.
+        /// </summary>
+        /// <value>
+        /// The color of the text.
+        /// </value>
         public Brush TextColor
         {
             get
@@ -73,10 +75,26 @@ namespace MordheimBuilder
             }
         }
 
-        private void _characteristic_CharacteristicChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Formats the save modifier.
+        /// Light Armour (Sv 1) and a Shield (Sv 1) result in calculatedValue of 2.
+        /// This give a save of (7-2) = 5+
+        /// </summary>
+        /// <param name="calculatedValue">The calculated value.</param>
+        /// <returns></returns>
+        internal static string FormatSaveModifier(int calculatedValue)
+        {
+            if (calculatedValue == Characteristic.ARMOUR_SAVE_NONE) { return String.Empty; }
+
+            return $"{7 - calculatedValue}+";
+        }
+
+        private void CharacteristicChanged(object sender, EventArgs e)
         {
             RaisePropertyChangedEvent(nameof(TextColor));
             RaisePropertyChangedEvent(nameof(ContentValue));
+            RaisePropertyChangedEvent(nameof(ToolTipText));
+            RaisePropertyChangedEvent(nameof(ShowToolTipText));
         }
     }
 }

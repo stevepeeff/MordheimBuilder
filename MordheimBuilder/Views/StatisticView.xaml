@@ -15,12 +15,19 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel Orientation="Horizontal">
+
             <StackPanel>
                 <GroupBox Width="35" BorderBrush="Black">
                     <GroupBox.Header>
-                        <TextBlock Text="{Binding Path=HeaderText, Mode=OneWay}"></TextBlock>
+                        <TextBlock Text="{Binding Path=HeaderText, Mode=OneWay}">
+                        </TextBlock>
                     </GroupBox.Header>
-                    <TextBox Foreground="{Binding TextColor, Mode=OneWay}" Text="{Binding ContentValue, Mode=OneWay}" FontWeight="Bold" TextAlignment="Center"></TextBox>
+                    <TextBox Foreground="{Binding TextColor, Mode=OneWay}" Text="{Binding ContentValue, Mode=OneWay}" FontWeight="Bold" TextAlignment="Center">
+                        <TextBox.ToolTip>
+
+                            <TextBlock Text="{Binding ToolTipText, Mode=OneWay}" IsEnabled="{Binding ShowToolTipText}" />
+                        </TextBox.ToolTip>
+                    </TextBox>
                 </GroupBox>
             </StackPanel>
         </StackPanel>
