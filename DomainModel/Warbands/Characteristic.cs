@@ -30,76 +30,6 @@ namespace DomainModel.Warbands
             BaseValue = baseValue;
         }
 
-        public string ModifierSummary
-        {
-            get
-
-            {
-                string summary = String.Empty;
-                List<string> descriptions = new List<string>();
-
-                if (CharacteristicValue == Characteristics.Save)
-                {
-                    foreach (IEquipment item in _Warrior.Equipment)
-                    {
-                        IArmour armour = item as IArmour;
-
-                        if (armour != null)
-                        {
-                            descriptions.Add(armour.Description);
-                        }
-                    }
-                }
-                else
-                {
-                    //TODO proper refactor, we only read the description of 'Statistic'
-                    if (_Warrior.Advantages != null)
-                    {
-                        foreach (Statistic statistic in _Warrior.Advantages.Statistics)
-                        {
-                            if (CharacteristicValue == statistic.Characteristic)
-                            {
-                                descriptions.Add(statistic.Description);
-                            }
-                        }
-                    }
-
-                    foreach (ISkill skill in _Warrior.Skills)
-                    {
-                        foreach (Statistic statistic in skill.Statistics)
-                        {
-                            if (CharacteristicValue == statistic.Characteristic)
-                            {
-                                descriptions.Add(statistic.Description);
-                            }
-                        }
-                    }
-
-                    IHero hero = _Warrior as IHero;
-                    if (hero != null)
-                    {
-                        foreach (Injury injury in hero.Injuries)
-                        {
-                            if (CharacteristicValue == injury.Result.Characteristic)
-                            {
-                                descriptions.Add(injury.Result.Description);
-                            }
-                        }
-                    }
-                }
-
-                foreach (string item in descriptions)
-                {
-                    if (String.IsNullOrEmpty(summary) == false)
-                    {
-                        summary += Environment.NewLine;
-                    }
-                    summary += item;
-                }
-                return summary;
-            }
-        }
-
         /// <summary>
         /// Occurs when [characteristic changed].
         /// </summary>
@@ -123,12 +53,22 @@ namespace DomainModel.Warbands
         {
             get
             {
+                int calculation;
+
                 if (CharacteristicValue == Characteristics.Save)
                 {
-                    return CalculateArmourSave();
+                    calculation = CalculateArmourSave();
                 }
-
-                return CalculateCharactaristic();
+                else
+                {
+                    calculation = CalculateCharactaristic();
+                    if (CharacteristicValue == Characteristics.Movement && EquipmentBase.ListHoldsHeavyArmortAndShield(_Warrior.Equipment))
+                    {
+                        calculation--;
+                        ModifierSummary += "Heavy Armour and Shield causes a movement penalty of -1";
+                    }
+                }
+                return calculation;
             }
         }
 
@@ -227,6 +167,76 @@ namespace DomainModel.Warbands
                 return retval;
             }
             set { _MaximumValue = value; }
+        }
+
+        public string ModifierSummary
+        {
+            get
+            {
+                string summary = String.Empty;
+                List<string> descriptions = new List<string>();
+
+                if (CharacteristicValue == Characteristics.Save)
+                {
+                    foreach (IEquipment item in _Warrior.Equipment)
+                    {
+                        IArmour armour = item as IArmour;
+
+                        if (armour != null)
+                        {
+                            descriptions.Add(armour.Description);
+                        }
+                    }
+                }
+                else
+                {
+                    //TODO proper refactor, we only read the description of 'Statistic'
+                    if (_Warrior.Advantages != null)
+                    {
+                        foreach (Statistic statistic in _Warrior.Advantages.Statistics)
+                        {
+                            if (CharacteristicValue == statistic.Characteristic)
+                            {
+                                descriptions.Add(statistic.Description);
+                            }
+                        }
+                    }
+
+                    foreach (ISkill skill in _Warrior.Skills)
+                    {
+                        foreach (Statistic statistic in skill.Statistics)
+                        {
+                            if (CharacteristicValue == statistic.Characteristic)
+                            {
+                                descriptions.Add(statistic.Description);
+                            }
+                        }
+                    }
+
+                    IHero hero = _Warrior as IHero;
+                    if (hero != null)
+                    {
+                        foreach (Injury injury in hero.Injuries)
+                        {
+                            if (CharacteristicValue == injury.Result.Characteristic)
+                            {
+                                descriptions.Add(injury.Result.Description);
+                            }
+                        }
+                    }
+                }
+
+                foreach (string item in descriptions)
+                {
+                    if (String.IsNullOrEmpty(summary) == false)
+                    {
+                        summary += Environment.NewLine;
+                    }
+                    summary += item;
+                }
+                return summary;
+            }
+            private set { }
         }
 
         public OverallResults OverallResult
