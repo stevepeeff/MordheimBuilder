@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
@@ -29,12 +30,13 @@ namespace DomainModel.Warbands
             BaseValue = baseValue;
         }
 
-        public string ModifierSummarry
+        public string ModifierSummary
         {
             get
 
             {
-                StringBuilder summary = new StringBuilder();
+                string summary = String.Empty;
+                List<string> descriptions = new List<string>();
 
                 if (CharacteristicValue == Characteristics.Save)
                 {
@@ -44,7 +46,7 @@ namespace DomainModel.Warbands
 
                         if (armour != null)
                         {
-                            summary.AppendLine(armour.Description);
+                            descriptions.Add(armour.Description);
                         }
                     }
                 }
@@ -57,7 +59,7 @@ namespace DomainModel.Warbands
                         {
                             if (CharacteristicValue == statistic.Characteristic)
                             {
-                                summary.AppendLine(statistic.Description);
+                                descriptions.Add(statistic.Description);
                             }
                         }
                     }
@@ -68,7 +70,7 @@ namespace DomainModel.Warbands
                         {
                             if (CharacteristicValue == statistic.Characteristic)
                             {
-                                summary.AppendLine(statistic.Description);
+                                descriptions.Add(statistic.Description);
                             }
                         }
                     }
@@ -80,12 +82,21 @@ namespace DomainModel.Warbands
                         {
                             if (CharacteristicValue == injury.Result.Characteristic)
                             {
-                                summary.AppendLine(injury.Result.Description);
+                                descriptions.Add(injury.Result.Description);
                             }
                         }
                     }
                 }
-                return summary.ToString();
+
+                foreach (string item in descriptions)
+                {
+                    if (String.IsNullOrEmpty(summary) == false)
+                    {
+                        summary += Environment.NewLine;
+                    }
+                    summary += item;
+                }
+                return summary;
             }
         }
 

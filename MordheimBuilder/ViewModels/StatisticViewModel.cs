@@ -44,7 +44,7 @@ namespace MordheimBuilder
         {
             get
             {
-                return _characteristic.ModifierSummarry;
+                return _characteristic.ModifierSummary;
             }
         }
 

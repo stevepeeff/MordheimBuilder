@@ -24,8 +24,7 @@
                     </GroupBox.Header>
                     <TextBox Foreground="{Binding TextColor, Mode=OneWay}" Text="{Binding ContentValue, Mode=OneWay}" FontWeight="Bold" TextAlignment="Center">
                         <TextBox.ToolTip>
-
-                            <TextBlock Text="{Binding ToolTipText, Mode=OneWay}" IsEnabled="{Binding ShowToolTipText}" />
+                            <TextBlock Text="{Binding ToolTipText, Mode=OneWay}" IsEnabled="{Binding ShowToolTipText}" TextAlignment="Left" />
                         </TextBox.ToolTip>
                     </TextBox>
                 </GroupBox>

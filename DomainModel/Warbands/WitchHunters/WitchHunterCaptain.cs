@@ -41,6 +41,7 @@ namespace DomainModel.Warbands.WitchHunters
             _Skills.Add(SkillProvider.StrengthSkills.ElementAt(1));
 
             _Weapons.Add((new Shield()));
+            _Weapons.Add((new HeavyArmor()));
 
             AddInjury(new NervousCondition());
         }
