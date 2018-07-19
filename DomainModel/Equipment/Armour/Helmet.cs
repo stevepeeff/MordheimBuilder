@@ -12,6 +12,8 @@ namespace DomainModel.Equipment.Armour
 
         public int Save { get; } = NONE;
 
+        public string Description { get; } = "Helmet, no save. Avoid Stun";
+
         public Helmet()
         {
             _ArmourRules.Add(ArmourRules.AvoidStun);

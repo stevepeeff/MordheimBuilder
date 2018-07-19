@@ -15,6 +15,8 @@ namespace DomainModel.Warbands.BaseClasses
 {
     public abstract class WarriorBase : IWarrior
     {
+        protected List<ISkill> _AllowedSkills = new List<ISkill>();
+        protected List<ISkill> _Skills = new List<ISkill>();
         private List<Characteristic> _Characteristics;
 
         private int _CurrentExperience = 0;
@@ -41,28 +43,23 @@ namespace DomainModel.Warbands.BaseClasses
             _AllowedWeapons.Add(new Dagger());
         }
 
-        protected List<ISkill> _Skills = new List<ISkill>();
-
-        protected List<ISkill> _AllowedSkills = new List<ISkill>();
-
         public event EventHandler PropertiesChanged;
 
         public IRacialAdvantage Advantages { get; protected set; }
         public IReadOnlyCollection<IPsychology> Afflictions { get { return _Afflictions; } }
         public IReadOnlyCollection<IEquipment> AllowedEquipment { get { return _AllowedWeapons; } }
+        public IReadOnlyCollection<ISkill> AllowedSkills { get { return _AllowedSkills; } }
         public Characteristic Attacks { get; private set; }
         public Characteristic BallisticSkill { get; private set; }
         public DateTime? CreationDate { get; private set; } = null;
-
-        public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }
-
-        public IReadOnlyCollection<ISkill> AllowedSkills { get { return _AllowedSkills; } }
 
         public int CurrentExperience
         {
             get { return InitialExperience + _CurrentExperience; }
             protected set { _CurrentExperience = value; }
         }
+
+        public IReadOnlyCollection<IEquipment> Equipment { get { return _Weapons; } }
 
         public int EquipmentCosts
         {
@@ -85,8 +82,6 @@ namespace DomainModel.Warbands.BaseClasses
                 return totalCosts;
             }
         }
-
-        public IReadOnlyCollection<IEquipment> Equipment { get { return _Weapons; } }
 
         public int? GroupCosts
         {
@@ -116,32 +111,19 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
-        public int NumberOffWarriorsOfThisType(IWarrior warrior)
-        {
-            if (this.TypeName.Equals(warrior.TypeName))
-            {
-                IHenchMan henchMan = this as IHenchMan;
-
-                if (henchMan != null)
-                {
-                    return henchMan.NumberOfWarriorsInGroup;
-                }
-                return 1;
-            }
-            return 0;
-        }
-
         public abstract int HireFee { get; }
         public virtual int InitialExperience { get; }
         public Characteristic Initiative { get; private set; }
         public Characteristic LeaderShip { get; private set; }
-        public Characteristic Save { get; private set; }
         public virtual IReadOnlyCollection<int> LevelUpValues { get; }
         public abstract int MaximumAmountInWarBand { get; }
         public virtual int MaximumExperience { get; } = 14;
         public Characteristic Movement { get; private set; }
         public string Name { get; set; }
         public int NumberOfWarriorsInGroup { get; private set; } = 0;
+        public Characteristic Save { get; private set; }
+
+        public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }
         public Characteristic Strength { get; private set; }
 
         public Characteristic Toughness { get; private set; }
@@ -232,6 +214,21 @@ namespace DomainModel.Warbands.BaseClasses
         {
             NumberOfWarriorsInGroup++;
             NotifyPropertiesChangedChanged();
+        }
+
+        public int NumberOffWarriorsOfThisType(IWarrior warrior)
+        {
+            if (this.TypeName.Equals(warrior.TypeName))
+            {
+                IHenchMan henchMan = this as IHenchMan;
+
+                if (henchMan != null)
+                {
+                    return henchMan.NumberOfWarriorsInGroup;
+                }
+                return 1;
+            }
+            return 0;
         }
 
         public void RemoveEquipment(IEquipment equipment)

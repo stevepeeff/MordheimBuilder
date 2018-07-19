@@ -32,11 +32,58 @@ namespace DomainModel.Warbands
         public string ModifierSummarry
         {
             get
+
             {
                 StringBuilder summary = new StringBuilder();
-                foreach (var item in _Warrior.Advantages.Statistics)
+
+                if (CharacteristicValue == Characteristics.Save)
                 {
-                    summary.AppendLine(item.Description);
+                    foreach (IEquipment item in _Warrior.Equipment)
+                    {
+                        IArmour armour = item as IArmour;
+
+                        if (armour != null)
+                        {
+                            summary.AppendLine(armour.Description);
+                        }
+                    }
+                }
+                else
+                {
+                    //TODO proper refactor, we only read the description of 'Statistic'
+                    if (_Warrior.Advantages != null)
+                    {
+                        foreach (Statistic statistic in _Warrior.Advantages.Statistics)
+                        {
+                            if (CharacteristicValue == statistic.Characteristic)
+                            {
+                                summary.AppendLine(statistic.Description);
+                            }
+                        }
+                    }
+
+                    foreach (ISkill skill in _Warrior.Skills)
+                    {
+                        foreach (Statistic statistic in skill.Statistics)
+                        {
+                            if (CharacteristicValue == statistic.Characteristic)
+                            {
+                                summary.AppendLine(statistic.Description);
+                            }
+                        }
+                    }
+
+                    IHero hero = _Warrior as IHero;
+                    if (hero != null)
+                    {
+                        foreach (Injury injury in hero.Injuries)
+                        {
+                            if (CharacteristicValue == injury.Result.Characteristic)
+                            {
+                                summary.AppendLine(injury.Result.Description);
+                            }
+                        }
+                    }
                 }
                 return summary.ToString();
             }

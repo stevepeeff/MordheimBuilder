@@ -11,5 +11,7 @@ namespace DomainModel.Equipment.Armour
         public int Save { get; } = 1;
 
         public override int Cost { get; } = 20;
+
+        public string Description { get; } = "Light Armour 6+ Save";
     }
 }

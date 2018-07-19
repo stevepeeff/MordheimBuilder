@@ -93,8 +93,8 @@ namespace MordheimBuilder
         {
             RaisePropertyChangedEvent(nameof(TextColor));
             RaisePropertyChangedEvent(nameof(ContentValue));
-            RaisePropertyChangedEvent(nameof(ToolTipText));
-            RaisePropertyChangedEvent(nameof(ShowToolTipText));
+            //RaisePropertyChangedEvent(nameof(ToolTipText));
+            //RaisePropertyChangedEvent(nameof(ShowToolTipText));
         }
     }
 }

@@ -12,6 +12,8 @@ namespace DomainModel.Equipment.Armour
 
         public int Save { get; } = NONE;
 
+        public string Description { get; } = "Buckler, no save. Parry";
+
         public Buckler()
         {
             _ArmourRules.Add(ArmourRules.Parry);
