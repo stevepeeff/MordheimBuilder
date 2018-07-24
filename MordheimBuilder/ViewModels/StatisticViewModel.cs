@@ -44,11 +44,14 @@ namespace MordheimBuilder
         {
             get
             {
-                return _characteristic.ModifierSummary;
+                string text = _characteristic.ModifierSummary;
+                if (String.IsNullOrEmpty(text))
+                {
+                    text = "No modifications on this characteristic";
+                }
+                return text;
             }
         }
-
-        public bool ShowToolTipText { get { return String.IsNullOrEmpty(ToolTipText); } }
 
         /// <summary>
         /// Gets the color of the text.
@@ -93,8 +96,6 @@ namespace MordheimBuilder
         {
             RaisePropertyChangedEvent(nameof(TextColor));
             RaisePropertyChangedEvent(nameof(ContentValue));
-            //RaisePropertyChangedEvent(nameof(ToolTipText));
-            //RaisePropertyChangedEvent(nameof(ShowToolTipText));
         }
     }
 }

@@ -19,12 +19,21 @@ namespace DomainModel.Warbands
     public class Characteristic
     {
         public const int ARMOUR_SAVE_NONE = 0;
-        private int? _MaximumValue = null;
 
+        private int? _MaximumValue = null;
         private WarriorBase _Warrior;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Characteristic"/> class.
+        /// </summary>
+        /// <param name="owner">The owner.</param>
+        /// <param name="characteristicValue">The characteristic value.</param>
+        /// <param name="baseValue">The base value.</param>
+        /// <exception cref="ArgumentNullException">IWarrrior is null</exception>
         public Characteristic(IWarrior owner, Characteristics characteristicValue, int baseValue)
         {
+            if (owner == null) { throw new ArgumentNullException("IWarrrior is null"); }
+
             _Warrior = (WarriorBase)owner;
             CharacteristicValue = characteristicValue;
             BaseValue = baseValue;
@@ -53,22 +62,20 @@ namespace DomainModel.Warbands
         {
             get
             {
-                int calculation;
-
                 if (CharacteristicValue == Characteristics.Save)
                 {
-                    calculation = CalculateArmourSave();
+                    return CalculateArmourSave();
                 }
                 else
                 {
-                    calculation = CalculateCharactaristic();
+                    int calculation = CalculateCharacteristic();
+
                     if (CharacteristicValue == Characteristics.Movement && EquipmentBase.ListHoldsHeavyArmortAndShield(_Warrior.Equipment))
                     {
                         calculation--;
-                        ModifierSummary += "Heavy Armour and Shield causes a movement penalty of -1";
                     }
+                    return calculation;
                 }
-                return calculation;
             }
         }
 
@@ -174,59 +181,8 @@ namespace DomainModel.Warbands
             get
             {
                 string summary = String.Empty;
-                List<string> descriptions = new List<string>();
 
-                if (CharacteristicValue == Characteristics.Save)
-                {
-                    foreach (IEquipment item in _Warrior.Equipment)
-                    {
-                        IArmour armour = item as IArmour;
-
-                        if (armour != null)
-                        {
-                            descriptions.Add(armour.Description);
-                        }
-                    }
-                }
-                else
-                {
-                    //TODO proper refactor, we only read the description of 'Statistic'
-                    if (_Warrior.Advantages != null)
-                    {
-                        foreach (Statistic statistic in _Warrior.Advantages.Statistics)
-                        {
-                            if (CharacteristicValue == statistic.Characteristic)
-                            {
-                                descriptions.Add(statistic.Description);
-                            }
-                        }
-                    }
-
-                    foreach (ISkill skill in _Warrior.Skills)
-                    {
-                        foreach (Statistic statistic in skill.Statistics)
-                        {
-                            if (CharacteristicValue == statistic.Characteristic)
-                            {
-                                descriptions.Add(statistic.Description);
-                            }
-                        }
-                    }
-
-                    IHero hero = _Warrior as IHero;
-                    if (hero != null)
-                    {
-                        foreach (Injury injury in hero.Injuries)
-                        {
-                            if (CharacteristicValue == injury.Result.Characteristic)
-                            {
-                                descriptions.Add(injury.Result.Description);
-                            }
-                        }
-                    }
-                }
-
-                foreach (string item in descriptions)
+                foreach (string item in BuildCharacteristicComment())
                 {
                     if (String.IsNullOrEmpty(summary) == false)
                     {
@@ -234,11 +190,17 @@ namespace DomainModel.Warbands
                     }
                     summary += item;
                 }
+
                 return summary;
             }
-            private set { }
         }
 
+        /// <summary>
+        /// Gets the overall result.
+        /// </summary>
+        /// <value>
+        /// The overall result.
+        /// </value>
         public OverallResults OverallResult
         {
             get
@@ -267,6 +229,69 @@ namespace DomainModel.Warbands
             }
         }
 
+        private List<string> BuildCharacteristicComment()
+        {
+            List<string> descriptions = new List<string>();
+
+            //TODO proper refactor, we only read the description of 'Statistic'
+
+            if (CharacteristicValue == Characteristics.Save)
+            {
+                foreach (IEquipment item in _Warrior.Equipment)
+                {
+                    IArmour armour = item as IArmour;
+
+                    if (armour != null)
+                    {
+                        descriptions.Add(armour.Description);
+                    }
+                }
+            }
+            else
+            {
+                if (_Warrior.Advantages != null)
+                {
+                    foreach (Statistic statistic in _Warrior.Advantages.Statistics)
+                    {
+                        if (CharacteristicValue == statistic.Characteristic)
+                        {
+                            descriptions.Add(statistic.Description);
+                        }
+                    }
+                }
+
+                foreach (ISkill skill in _Warrior.Skills)
+                {
+                    foreach (Statistic statistic in skill.Statistics)
+                    {
+                        if (CharacteristicValue == statistic.Characteristic)
+                        {
+                            descriptions.Add(statistic.Description);
+                        }
+                    }
+                }
+
+                IHero hero = _Warrior as IHero;
+                if (hero != null)
+                {
+                    foreach (Injury injury in hero.Injuries)
+                    {
+                        if (CharacteristicValue == injury.Result.Characteristic)
+                        {
+                            descriptions.Add(injury.Result.Description);
+                        }
+                    }
+                }
+            }
+
+            if (CharacteristicValue == Characteristics.Movement && EquipmentBase.ListHoldsHeavyArmortAndShield(_Warrior.Equipment))
+            {
+                descriptions.Add("Heavy Armour and Shield causes a movement penalty of -1");
+            }
+
+            return descriptions;
+        }
+
         private int CalculateArmourSave()
         {
             int calculatedArmorSave = ARMOUR_SAVE_NONE;
@@ -283,7 +308,7 @@ namespace DomainModel.Warbands
             return calculatedArmorSave;
         }
 
-        private int CalculateCharactaristic()
+        private int CalculateCharacteristic()
         {
             int calculation = 0;
 
