@@ -146,6 +146,7 @@
     <Compile Include="Equipment\Weapons\IWeapon.cs" />
     <Compile Include="Equipment\Weapons\Missile\CrossBow.cs" />
     <Compile Include="Equipment\Weapons\IMisseleWeapon.cs" />
+    <Compile Include="Warbands\WarBandProvider.cs" />
     <Compile Include="Warbands\WitchHunters\Flagellant.cs" />
     <Compile Include="Warbands\WitchHunters\Warhound.cs" />
     <Compile Include="Warbands\WitchHunters\WarriorPriest.cs" />
