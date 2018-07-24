@@ -130,10 +130,10 @@
     <Compile Include="Statistic.cs" />
     <Compile Include="Psychology\IPsychology.cs" />
     <Compile Include="Warbands\IWizard.cs" />
-    <Compile Include="Warbands\Middenheimers\Middenheimers.cs" />
+    <Compile Include="Warbands\Middenheimers\MiddenheimerWarband.cs" />
     <Compile Include="Warbands\Middenheimers\MiddenheimMarksmen.cs" />
     <Compile Include="Warbands\Skaven\AssassinAdept.cs" />
-    <Compile Include="Warbands\Skaven\Skaven.cs" />
+    <Compile Include="Warbands\Skaven\SkavenWarband.cs" />
     <Compile Include="Warbands\Skaven\Verminkin.cs" />
     <Compile Include="Warbands\BaseClasses\WarriorBase.cs" />
     <Compile Include="Warbands\IWarrior.cs" />
@@ -152,7 +152,7 @@
     <Compile Include="Warbands\WitchHunters\WarriorPriest.cs" />
     <Compile Include="Warbands\WitchHunters\WitchHunter.cs" />
     <Compile Include="Warbands\WitchHunters\WitchHunterCaptain.cs" />
-    <Compile Include="Warbands\WitchHunters\WitchHunters.cs" />
+    <Compile Include="Warbands\WitchHunters\WitchHunterWarband.cs" />
     <Compile Include="Warbands\WitchHunters\Zealot.cs" />
   </ItemGroup>
   <ItemGroup>

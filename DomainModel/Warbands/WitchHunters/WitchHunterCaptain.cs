@@ -25,7 +25,7 @@ namespace DomainModel.Warbands.WitchHunters
 
             AddAffliction(new BurnTheWitch());
 
-            _AllowedWeapons.AddRange(WitchHunters.HeroEquipmentList);
+            _AllowedWeapons.AddRange(WitchHunterWarband.HeroEquipmentList);
 
             _AllowedSkills.AddRange(SkillProvider.CombatSkills);
             _AllowedSkills.AddRange(SkillProvider.ShootingSkills);

@@ -15,9 +15,9 @@ namespace MordheimBuilderLogic
     {
         private List<IWarBand> _Warbands = new List<IWarBand>()
         {
-            new Skaven(),
-            new WitchHunters(),
-            new Middenheimers()
+            new SkavenWarband(),
+            new WitchHunterWarband(),
+            new MiddenheimerWarband()
          };
 
         public BuilderLogic()

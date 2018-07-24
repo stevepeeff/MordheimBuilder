@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.Skaven
 {
-    public class Skaven : WarbandBase
+    public class SkavenWarband : WarbandBase
     {
-        public Skaven()
+        public SkavenWarband()
         {
             HeroList.Add(new AssassinAdept());
 

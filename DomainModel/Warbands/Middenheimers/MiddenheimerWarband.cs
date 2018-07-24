@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.Middenheimers
 {
-    public class Middenheimers : WarbandBase
+    public class MiddenheimerWarband : WarbandBase
     {
-        public Middenheimers()
+        public MiddenheimerWarband()
         {
             HenchMenList.Add(new MiddenheimMarksmen());
 
