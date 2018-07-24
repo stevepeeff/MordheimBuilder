@@ -57,5 +57,10 @@ namespace MordheimBuilderLogic
                 handler(this, EventArgs.Empty);
             }
         }
+
+        public void SaveWarband()
+        {
+            if (CurrentWarband == null) { throw new ArgumentNullException("No warband selected, cannot save"); }
+        }
     }
 }

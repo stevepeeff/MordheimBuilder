@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DalProvider.cs" />
     <Compile Include="Interface\IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlStorage\XmlDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">

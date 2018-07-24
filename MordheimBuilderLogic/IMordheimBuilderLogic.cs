@@ -29,5 +29,7 @@ namespace MordheimBuilderLogic
         int StartingCash { get; }
 
         Modus PlayModus { get; set; }
+
+        void SaveWarband();
     }
 }

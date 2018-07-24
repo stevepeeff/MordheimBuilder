@@ -7,33 +7,47 @@ using DomainModel.Warbands;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using MordheimBuilderLogic;
 
 namespace MordheimDal.Tests
 {
     [TestClass]
     public class DalTests
     {
+        private IWarBand _ExampleWarband;
+        private WitchHunterCaptain _WitchHunterCaptain;
+
+        public DalTests()
+        {
+            BuilderLogicFactory.Instance.SelectWarBand(new WitchHuntersWarband());
+
+            _WitchHunterCaptain = new WitchHunterCaptain();
+
+            _WitchHunterCaptain.AddEquipment(new Sword());
+            _WitchHunterCaptain.AddEquipment(new CrossBow());
+            _WitchHunterCaptain.AddEquipment(new Shield());
+            _WitchHunterCaptain.AddEquipment(new LightArmour());
+
+            BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(_WitchHunterCaptain);
+
+            //        _ExampleWarband = new WitchHuntersWarband();
+            //_ExampleWarband.a
+            //WitchHunterCaptain witchHunterCaptain = new WitchHunterCaptain();
+        }
+
+        [TestMethod]
+        public void Save()
+        {
+            Assert.IsNotNull(BuilderLogicFactory.Instance.CurrentWarband);
+
+            BuilderLogicFactory.Instance.SaveWarband();
+        }
+
         [TestMethod]
         public void Load()
         {
-            string warriorName = "DomainModel.Warbands.WitchHunters.WitchHunterCaptain";
-
-            WitchHuntersWarband witchHunters = new WitchHuntersWarband();
-            WitchHunterCaptain witchHunterCaptain = new WitchHunterCaptain();
-
-            Assert.IsNotNull(WarBandProvider.Instance.GetWarband("WitchHunters"));
-
-            List<IHero> heroes = new List<IHero>();
-            heroes.AddRange(witchHunters.Heroes);
-
-            //  witchHunters.Heroes;
-
-            string name = witchHunterCaptain.ToString();
-
-            witchHunterCaptain.AddEquipment(new Sword());
-            witchHunterCaptain.AddEquipment(new CrossBow());
-            witchHunterCaptain.AddEquipment(new Shield());
-            witchHunterCaptain.AddEquipment(new LightArmour());
+            Assert.IsNotNull(BuilderLogicFactory.Instance.CurrentWarband);
+            //WarBandProvider.Instance.GetWarband("WitchHunters"));
 
             //_Skills.Add(SkillProvider.StrengthSkills.ElementAt(0));
             //_Skills.Add(SkillProvider.StrengthSkills.ElementAt(1));
