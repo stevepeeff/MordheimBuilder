@@ -13,20 +13,13 @@ namespace MordheimBuilderLogic
 {
     internal class BuilderLogic : IMordheimBuilderLogic
     {
-        private List<IWarBand> _Warbands = new List<IWarBand>()
-        {
-            new SkavenWarband(),
-            new WitchHunterWarband(),
-            new MiddenheimerWarband()
-         };
-
         public BuilderLogic()
         {
         }
 
         public event EventHandler WarBandSelected;
 
-        public IReadOnlyCollection<IWarBand> AvailableWarbands { get { return _Warbands; } }
+        public IReadOnlyCollection<IWarBand> AvailableWarbands { get { return WarBandProvider.Instance.WarBands; } }
 
         public IWarBand CurrentWarband { get; private set; }
 

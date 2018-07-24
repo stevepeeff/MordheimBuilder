@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainModel.Warbands.Middenheimers;
+using DomainModel.Warbands.Skaven;
 using DomainModel.Warbands.WitchHunters;
 
 namespace DomainModel.Warbands
@@ -18,7 +20,9 @@ namespace DomainModel.Warbands
         private WarBandProvider()
         {
             //  DomainModel.Warbands.WitchHunters.WitchHunters witchHunters = new
-            // _Warbands.Add(new WitchHunters());
+            _Warbands.Add(new WitchHunterWarband());
+            _Warbands.Add(new SkavenWarband());
+            _Warbands.Add(new MiddenheimerWarband());
         }
     }
 }
