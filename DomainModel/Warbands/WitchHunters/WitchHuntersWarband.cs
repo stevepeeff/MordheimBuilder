@@ -12,9 +12,9 @@ using DomainModel.Warbands.BaseClasses;
 
 namespace DomainModel.Warbands.WitchHunters
 {
-    public class WitchHunterWarband : WarbandBase
+    public class WitchHuntersWarband : WarbandBase
     {
-        public WitchHunterWarband()
+        public WitchHuntersWarband()
         {
             HeroList.Add(new WitchHunterCaptain());
             HeroList.Add(new WarriorPriest());

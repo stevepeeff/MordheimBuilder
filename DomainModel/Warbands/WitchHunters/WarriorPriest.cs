@@ -14,7 +14,7 @@ namespace DomainModel.Warbands.WitchHunters
         public WarriorPriest()
         {
             LeaderShip.BaseValue = 8;
-            _AllowedWeapons.AddRange(WitchHunterWarband.HeroEquipmentList);
+            _AllowedWeapons.AddRange(WitchHuntersWarband.HeroEquipmentList);
 
             //TODO TESTING
             AddSpell(new TheHammerOfSigmar());

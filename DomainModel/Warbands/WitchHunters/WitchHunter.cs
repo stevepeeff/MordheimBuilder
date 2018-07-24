@@ -13,7 +13,7 @@ namespace DomainModel.Warbands.WitchHunters
         public WitchHunter()
         {
             AddAffliction(new BurnTheWitch());
-            _AllowedWeapons.AddRange(WitchHunterWarband.HeroEquipmentList);
+            _AllowedWeapons.AddRange(WitchHuntersWarband.HeroEquipmentList);
         }
 
         public override int InitialExperience { get; } = 8;

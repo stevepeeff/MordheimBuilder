@@ -17,10 +17,15 @@ namespace DomainModel.Warbands
 
         private List<IWarBand> _Warbands = new List<IWarBand>();
 
+        public IWarBand GetWarband(string name)
+        {
+            return WarBands.Single(x => x.WarBandName.Equals(name));
+        }
+
         private WarBandProvider()
         {
             //  DomainModel.Warbands.WitchHunters.WitchHunters witchHunters = new
-            _Warbands.Add(new WitchHunterWarband());
+            _Warbands.Add(new WitchHuntersWarband());
             _Warbands.Add(new SkavenWarband());
             _Warbands.Add(new MiddenheimerWarband());
         }

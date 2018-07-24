@@ -18,13 +18,10 @@ namespace MordheimDal.Tests
         {
             string warriorName = "DomainModel.Warbands.WitchHunters.WitchHunterCaptain";
 
-            WitchHunterWarband witchHunters = new WitchHunterWarband();
+            WitchHuntersWarband witchHunters = new WitchHuntersWarband();
             WitchHunterCaptain witchHunterCaptain = new WitchHunterCaptain();
 
-            List<IWarBand> warbands = new List<IWarBand>();
-            warbands.Add(new WitchHunterWarband());
-
-            Assert.IsNotNull(warbands.First(x => x.WarBandName.Equals("WitchHunters")));
+            Assert.IsNotNull(WarBandProvider.Instance.GetWarband("WitchHunters"));
 
             List<IHero> heroes = new List<IHero>();
             heroes.AddRange(witchHunters.Heroes);

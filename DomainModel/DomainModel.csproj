@@ -152,7 +152,7 @@
     <Compile Include="Warbands\WitchHunters\WarriorPriest.cs" />
     <Compile Include="Warbands\WitchHunters\WitchHunter.cs" />
     <Compile Include="Warbands\WitchHunters\WitchHunterCaptain.cs" />
-    <Compile Include="Warbands\WitchHunters\WitchHunterWarband.cs" />
+    <Compile Include="Warbands\WitchHunters\WitchHuntersWarband.cs" />
     <Compile Include="Warbands\WitchHunters\Zealot.cs" />
   </ItemGroup>
   <ItemGroup>

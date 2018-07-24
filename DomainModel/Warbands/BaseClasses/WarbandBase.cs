@@ -25,6 +25,6 @@ namespace DomainModel.Warbands.BaseClasses
 
         public virtual int StartingCash { get; } = 500;
 
-        public string WarBandName { get { return this.GetType().Name; } }
+        public string WarBandName { get { return this.GetType().Name.Replace("Warband", String.Empty); } }
     }
 }
