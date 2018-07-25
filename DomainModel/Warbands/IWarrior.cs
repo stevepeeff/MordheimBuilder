@@ -148,6 +148,12 @@ namespace DomainModel.Warbands
         /// </value>
         Characteristic Toughness { get; }
 
+        /// <summary>
+        /// Gets the name of the type.
+        /// </summary>
+        /// <value>
+        /// The name of the type.
+        /// </value>
         string TypeName { get; }
 
         /// <summary>

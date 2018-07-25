@@ -69,7 +69,7 @@ namespace MordheimBuilder
         private void LoadWarBand()
         {
             //TEST CODE
-            BuilderLogicFactory.Instance.SelectWarBand(BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(1));
+            BuilderLogicFactory.Instance.SelectWarBand(BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(0));
 
             BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(BuilderLogicFactory.Instance.CurrentWarband.Heroes.ElementAt(0));
             BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(BuilderLogicFactory.Instance.CurrentWarband.Heroes.ElementAt(1));

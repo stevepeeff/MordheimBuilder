@@ -8,6 +8,8 @@ using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using MordheimBuilderLogic;
+using DomainModel.Skills;
+using DomainModel.Skills.Strength;
 
 namespace MordheimDal.Tests
 {
@@ -27,6 +29,9 @@ namespace MordheimDal.Tests
             _WitchHunterCaptain.AddEquipment(new CrossBow());
             _WitchHunterCaptain.AddEquipment(new Shield());
             _WitchHunterCaptain.AddEquipment(new LightArmour());
+
+            _WitchHunterCaptain.AddSkill(new MightyBlow());
+            _WitchHunterCaptain.AddSkill(new PitFighter());
 
             BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(_WitchHunterCaptain);
 
@@ -49,8 +54,7 @@ namespace MordheimDal.Tests
             Assert.IsNotNull(BuilderLogicFactory.Instance.CurrentWarband);
             //WarBandProvider.Instance.GetWarband("WitchHunters"));
 
-            //_Skills.Add(SkillProvider.StrengthSkills.ElementAt(0));
-            //_Skills.Add(SkillProvider.StrengthSkills.ElementAt(1));
+            ;
         }
     }
 }
