@@ -32,6 +32,6 @@ namespace MordheimBuilderLogic
 
         void SaveWarband();
 
-        //void LoadWarband(IWarBand)
+        void LoadWarband();
     }
 }

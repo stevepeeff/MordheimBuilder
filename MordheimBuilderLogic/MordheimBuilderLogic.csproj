@@ -51,6 +51,10 @@
       <Project>{d8ed204a-a5ae-44f6-afe4-34cb6cb1a949}</Project>
       <Name>DomainModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MordheimDal\MordheimDal.csproj">
+      <Project>{c5efd9b7-adf1-4c48-a0a5-f70607c7536d}</Project>
+      <Name>MordheimDal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@ using DomainModel.Warbands;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using MordheimBuilderLogic;
+
 using DomainModel.Skills;
 using DomainModel.Skills.Strength;
 
@@ -16,11 +16,12 @@ namespace MordheimDal.Tests
     [TestClass]
     public class DalTests
     {
+        private IWarBand _WarBand = null;
         private WitchHunterCaptain _WitchHunterCaptain;
 
         public DalTests()
         {
-            BuilderLogicFactory.Instance.SelectWarBand(new WitchHuntersWarband());
+            _WarBand = new WitchHuntersWarband();
 
             _WitchHunterCaptain = new WitchHunterCaptain();
 
@@ -32,7 +33,7 @@ namespace MordheimDal.Tests
             _WitchHunterCaptain.AddSkill(new MightyBlow());
             _WitchHunterCaptain.AddSkill(new PitFighter());
 
-            BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(_WitchHunterCaptain);
+            //  BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(_WitchHunterCaptain);
 
             //        _ExampleWarband = new WitchHuntersWarband();
             //_ExampleWarband.a
@@ -42,15 +43,16 @@ namespace MordheimDal.Tests
         [TestMethod]
         public void Save()
         {
-            Assert.IsNotNull(BuilderLogicFactory.Instance.CurrentWarband);
+            Assert.IsNotNull(_WarBand);
 
-            BuilderLogicFactory.Instance.SaveWarband();
+            DalProvider.Instance.Save(_WarBand);
         }
 
         [TestMethod]
         public void Load()
         {
-            Assert.IsNotNull(BuilderLogicFactory.Instance.CurrentWarband);
+            IWarBand warBand = DalProvider.Instance.Load();
+            Assert.IsNotNull(warBand);
             //WarBandProvider.Instance.GetWarband("WitchHunters"));
 
             ;

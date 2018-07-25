@@ -10,5 +10,7 @@ namespace MordheimDal.Interface
     public interface IDAL
     {
         void Save(IWarBand warBand);
+
+        IWarBand Load();
     }
 }
