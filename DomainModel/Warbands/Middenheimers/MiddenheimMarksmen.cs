@@ -18,7 +18,7 @@ namespace DomainModel.Warbands.Middenheimers
 
         public override int HireFee { get; } = 25;
 
-        public override int MaximumAmountInWarBand { get; } = 7;
+        public override int MaximumAllowedInWarBand { get; } = 7;
 
         public override IWarrior GetANewInstance()
         {

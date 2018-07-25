@@ -13,15 +13,34 @@ namespace DomainModel.Warbands
 {
     public interface IWarrior
     {
-        int HireFee { get; }
+        /// <summary>
+        /// Occurs when [properties changed].
+        /// </summary>
+        event EventHandler PropertiesChanged;
 
-        int MaximumAmountInWarBand { get; }
+        IReadOnlyCollection<IPsychology> Afflictions { get; }
 
-        IReadOnlyCollection<ISkill> Skills { get; }
+        IReadOnlyCollection<IEquipment> AllowedEquipment { get; }
 
+        /// <summary>
+        /// Gets the allowed skills.
+        /// </summary>
+        /// <value>
+        /// The allowed skills.
+        /// </value>
         IReadOnlyCollection<ISkill> AllowedSkills { get; }
 
-        event EventHandler PropertiesChanged;
+        Characteristic Attacks { get; }
+
+        Characteristic BallisticSkill { get; }
+
+        /// <summary>
+        /// Gets the current experience.
+        /// </summary>
+        /// <value>
+        /// The current experience.
+        /// </value>
+        int CurrentExperience { get; }
 
         /// <summary>
         /// Gets the equipped weapons.
@@ -33,11 +52,45 @@ namespace DomainModel.Warbands
         /// </value>
         IReadOnlyCollection<IEquipment> Equipment { get; }
 
-        IReadOnlyCollection<IEquipment> AllowedEquipment { get; }
+        /// <summary>
+        /// Gets the equipment costs.
+        /// </summary>
+        /// <value>
+        /// The equipment costs.
+        /// </value>
+        int EquipmentCosts { get; }
 
-        IReadOnlyCollection<IPsychology> Afflictions { get; }
+        /// <summary>
+        /// Gets the hire fee.
+        /// </summary>
+        /// <value>
+        /// The hire fee.
+        /// </value>
+        int HireFee { get; }
 
-        int NumberOffWarriorsOfThisType(IWarrior warrior);
+        /// <summary>
+        /// Gets the initiative.
+        /// </summary>
+        /// <value>
+        /// The initiative.
+        /// </value>
+        Characteristic Initiative { get; }
+
+        /// <summary>
+        /// Gets the leader ship.
+        /// </summary>
+        /// <value>
+        /// The leader ship.
+        /// </value>
+        Characteristic LeaderShip { get; }
+
+        /// <summary>
+        /// Gets the maximum allowed in war band.
+        /// </summary>
+        /// <value>
+        /// The maximum allowed in war band.
+        /// </value>
+        int MaximumAllowedInWarBand { get; }
 
         /// <summary>
         /// Gets the maximum experience.
@@ -47,37 +100,71 @@ namespace DomainModel.Warbands
         /// </value>
         int MaximumExperience { get; }
 
-        bool ExperienceIsLevelUp(int experienceValue);
-
-        int CurrentExperience { get; }
-
         /// <summary>
-        /// Gets an instance.
-        /// </summary>
-        /// <returns></returns>
-        IWarrior GetAnInstance();
-
-        bool AreEqual(IWarrior warior);
-
-        /// <summary>
-        /// Gets the creation date.
+        /// Gets the movement.
         /// </summary>
         /// <value>
-        /// The creation date.
+        /// The movement.
         /// </value>
-        DateTime? CreationDate { get; }
+        Characteristic Movement { get; }
 
         /// <summary>
-        /// Gets the equipment costs.
+        /// Gets or sets the name.
         /// </summary>
         /// <value>
-        /// The equipment costs.
+        /// The name.
         /// </value>
-        int EquipmentCosts { get; }
+        string Name { get; set; }
 
-        void RemoveEquipment(IEquipment equipment);
+        /// <summary>
+        /// Gets the save.
+        /// </summary>
+        /// <value>
+        /// The save.
+        /// </value>
+        Characteristic Save { get; }
 
-        void AddEquipment(IEquipment equipment);
+        /// <summary>
+        /// Gets the skills.
+        /// </summary>
+        /// <value>
+        /// The skills.
+        /// </value>
+        IReadOnlyCollection<ISkill> Skills { get; }
+
+        /// <summary>
+        /// Gets the strength.
+        /// </summary>
+        /// <value>
+        /// The strength.
+        /// </value>
+        Characteristic Strength { get; }
+
+        /// <summary>
+        /// Gets the toughness.
+        /// </summary>
+        /// <value>
+        /// The toughness.
+        /// </value>
+        Characteristic Toughness { get; }
+
+        string TypeName { get; }
+
+        /// <summary>
+        /// Gets the weapon skill.
+        /// </summary>
+        /// <value>
+        /// The weapon skill.
+        /// </value>
+        Characteristic WeaponSkill { get; }
+
+        /// <summary>
+        /// Gets the wounds.
+        /// </summary>
+        /// <value>
+        /// The wounds.
+        /// </value>
+        Characteristic Wounds { get; }
 
         /// <summary>
         /// Adds the affliction.
@@ -85,19 +172,47 @@ namespace DomainModel.Warbands
         /// <param name="affliction">The affliction.</param>
         void AddAffliction(IPsychology affliction);
 
-        Characteristic Strength { get; }
-        Characteristic Initiative { get; }
-        Characteristic Movement { get; }
-        Characteristic WeaponSkill { get; }
-        Characteristic BallisticSkill { get; }
-        Characteristic Toughness { get; }
-        Characteristic Wounds { get; }
-        Characteristic Attacks { get; }
-        Characteristic LeaderShip { get; }
-        Characteristic Save { get; }
+        /// <summary>
+        /// Adds the equipment.
+        /// </summary>
+        /// <param name="equipment">The equipment.</param>
+        void AddEquipment(IEquipment equipment);
 
-        string Name { get; set; }
+        /// <summary>
+        /// Amounts the type of the of this.
+        /// </summary>
+        /// <param name="warrior">The warrior.</param>
+        /// <returns></returns>
+        int AmountOfThisType(IWarrior warrior);
 
-        string TypeName { get; }
+        /// <summary>
+        /// Verifies if this and another warrior
+        /// TODO obsolete, so remove
+        /// </summary>
+        /// <param name="warrior">The warrior.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">warrior is null</exception>
+        bool AreEqual(IWarrior warior);
+
+        /// <summary>
+        /// Gets an instance.
+        /// </summary>
+        /// <returns></returns>
+        IWarrior GetAnInstance();
+
+        /// <summary>
+        /// Determines whether [is level up] [the specified experience value].
+        /// </summary>
+        /// <param name="experienceValue">The experience value.</param>
+        /// <returns>
+        ///   <c>true</c> if [is level up] [the specified experience value]; otherwise, <c>false</c>.
+        /// </returns>
+        bool IsLevelUp(int experienceValue);
+
+        /// <summary>
+        /// Removes the equipment.
+        /// </summary>
+        /// <param name="equipment">The equipment.</param>
+        void RemoveEquipment(IEquipment equipment);
     }
 }

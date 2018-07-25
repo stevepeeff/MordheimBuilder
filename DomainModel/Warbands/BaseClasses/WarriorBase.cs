@@ -116,7 +116,7 @@ namespace DomainModel.Warbands.BaseClasses
         public Characteristic Initiative { get; private set; }
         public Characteristic LeaderShip { get; private set; }
         public virtual IReadOnlyCollection<int> LevelUpValues { get; }
-        public abstract int MaximumAmountInWarBand { get; }
+        public abstract int MaximumAllowedInWarBand { get; }
         public virtual int MaximumExperience { get; } = 14;
         public Characteristic Movement { get; private set; }
         public string Name { get; set; }
@@ -169,10 +169,10 @@ namespace DomainModel.Warbands.BaseClasses
         }
 
         /// <summary>
-        /// Are  equal
-        /// How determine???
+        /// Verifies if this and another warrior
+        /// TODO obsolete, so remove
         /// </summary>
-        /// <param name="warrior">The warior.</param>
+        /// <param name="warrior">The warrior.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">warrior is null</exception>
         public bool AreEqual(IWarrior warrior)
@@ -183,7 +183,7 @@ namespace DomainModel.Warbands.BaseClasses
                 warrior.GetType().Name.Equals(this.GetType().Name) &&
                 warrior.CurrentExperience == this.CurrentExperience &&
                 this.CreationDate != null &&
-                this.CreationDate.Equals(warrior.CreationDate);
+                this.GetHashCode() == warrior.GetHashCode();
 
             return areEqual;
         }
@@ -194,7 +194,7 @@ namespace DomainModel.Warbands.BaseClasses
             NotifyPropertiesChangedChanged();
         }
 
-        public virtual bool ExperienceIsLevelUp(int experienceValue)
+        public virtual bool IsLevelUp(int experienceValue)
         {
             return LevelUpCalculationHenchMan(experienceValue);
         }
@@ -216,7 +216,7 @@ namespace DomainModel.Warbands.BaseClasses
             NotifyPropertiesChangedChanged();
         }
 
-        public int NumberOffWarriorsOfThisType(IWarrior warrior)
+        public int AmountOfThisType(IWarrior warrior)
         {
             if (this.TypeName.Equals(warrior.TypeName))
             {

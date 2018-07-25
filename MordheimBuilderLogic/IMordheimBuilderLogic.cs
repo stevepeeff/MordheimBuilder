@@ -31,5 +31,7 @@ namespace MordheimBuilderLogic
         Modus PlayModus { get; set; }
 
         void SaveWarband();
+
+        //void LoadWarband(IWarBand)
     }
 }

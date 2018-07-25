@@ -10,12 +10,24 @@ namespace DomainModel.Warbands
 {
     public interface IHero : IWarrior
     {
+        /// <summary>
+        /// Gets the injuries.
+        /// </summary>
+        /// <value>
+        /// The injuries.
+        /// </value>
         IReadOnlyCollection<Injury> Injuries { get; }
 
+        /// <summary>
+        /// Adds the injury.
+        /// </summary>
+        /// <param name="injury">The injury.</param>
         void AddInjury(Injury injury);
 
+        /// <summary>
+        /// Adds the skill.
+        /// </summary>
+        /// <param name="skill">The skill.</param>
         void AddSkill(ISkill skill);
-
-        //IInjury
     }
 }

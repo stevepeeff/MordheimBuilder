@@ -25,7 +25,7 @@ namespace DomainModel.Warbands.WitchHunters
 
         public override int HireFee { get; } = 40;
 
-        public override int MaximumAmountInWarBand { get; } = 5;
+        public override int MaximumAllowedInWarBand { get; } = 5;
 
         public override IWarrior GetANewInstance()
         {

@@ -232,11 +232,11 @@ namespace MordheimBuilder
         {
             get
             {
-                if (Warrior.MaximumAmountInWarBand == int.MaxValue)
+                if (Warrior.MaximumAllowedInWarBand == int.MaxValue)
                 {
                     return "∞";
                 }
-                return Warrior.MaximumAmountInWarBand.ToString();
+                return Warrior.MaximumAllowedInWarBand.ToString();
             }
         }
 

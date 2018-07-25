@@ -55,7 +55,7 @@ namespace MordheimBuilderLogic
 
                     if (henchMan != null)
                     {
-                        totalwarriors += henchMan.NumberOfWarriorsInGroup; ;
+                        totalwarriors += henchMan.NumberOfWarriorsInGroup;
                     }
                     else
                     {
@@ -125,7 +125,7 @@ namespace MordheimBuilderLogic
 
         public void IncreaseHenchmenInGroup(IHenchMan warrior)
         {
-            if (NumberOffWarriorsOfThisTypeInRoster(warrior) < warrior.MaximumAmountInWarBand)
+            if (NumberOffWarriorsOfThisTypeInRoster(warrior) < warrior.MaximumAllowedInWarBand)
             {
                 warrior.IncreaseGroupCount();
                 InvokeEvent(WarBandChanged);
@@ -134,7 +134,7 @@ namespace MordheimBuilderLogic
 
         public bool MaximumAllowedAmountOfWarriorReached(IWarrior warrior)
         {
-            return (NumberOffWarriorsOfThisTypeInRoster(warrior) == warrior.MaximumAmountInWarBand);
+            return (NumberOffWarriorsOfThisTypeInRoster(warrior) == warrior.MaximumAllowedInWarBand);
         }
 
         public bool MaximumAllowedAmountOfWarriorsReached()
@@ -161,12 +161,13 @@ namespace MordheimBuilderLogic
         {
             InvokeEvent(WarBandChanged);
         }
+
         private int NumberOffWarriorsOfThisTypeInRoster(IWarrior warrior)
         {
             int total = 0;
             foreach (var item in Warriors)
             {
-                total += item.NumberOffWarriorsOfThisType(warrior);
+                total += item.AmountOfThisType(warrior);
             }
             return total;
         }

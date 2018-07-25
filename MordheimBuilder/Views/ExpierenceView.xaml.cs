@@ -50,7 +50,7 @@ namespace MordheimBuilder
                 for (int i = 0; i < warrior.MaximumExperience; i++)
                 {
                     //mmmm TODO logic and knowledge of a domain model
-                    bool hasThickborder = warrior.ExperienceIsLevelUp(overallCounter);
+                    bool hasThickborder = warrior.IsLevelUp(overallCounter);
                     bool isChecked = overallCounter < warrior.CurrentExperience;
                     IExperience exp = new Experience(overallCounter, hasThickborder, isChecked);
                     overallCounter++;

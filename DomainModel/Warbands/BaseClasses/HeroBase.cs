@@ -57,7 +57,7 @@ namespace DomainModel.Warbands.BaseClasses
             Trigger();
         }
 
-        public override bool ExperienceIsLevelUp(int experienceValue)
+        public override bool IsLevelUp(int experienceValue)
         {
             return LevelUpCalculationHero(experienceValue);
         }

@@ -22,7 +22,7 @@ namespace DomainModel.Warbands.WitchHunters
 
         public override int HireFee { get; } = 20;
 
-        public override int MaximumAmountInWarBand { get; } = int.MaxValue;
+        public override int MaximumAllowedInWarBand { get; } = int.MaxValue;
 
         public override IWarrior GetANewInstance()
         {

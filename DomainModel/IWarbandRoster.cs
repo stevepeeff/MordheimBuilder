@@ -13,8 +13,6 @@ namespace DomainModel
 
         IWarBand WarBand { get; }
 
-        //IReadOnlyCollection<IWarrior> Warriors { get; }
-
         event EventHandler WarBandWariorListChanged;
 
         int TotalNumberOfWarriors { get; }
