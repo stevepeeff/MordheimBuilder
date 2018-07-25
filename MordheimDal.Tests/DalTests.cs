@@ -16,7 +16,6 @@ namespace MordheimDal.Tests
     [TestClass]
     public class DalTests
     {
-        private IWarBand _ExampleWarband;
         private WitchHunterCaptain _WitchHunterCaptain;
 
         public DalTests()
@@ -25,10 +24,10 @@ namespace MordheimDal.Tests
 
             _WitchHunterCaptain = new WitchHunterCaptain();
 
-            _WitchHunterCaptain.AddEquipment(new Sword());
-            _WitchHunterCaptain.AddEquipment(new CrossBow());
-            _WitchHunterCaptain.AddEquipment(new Shield());
-            _WitchHunterCaptain.AddEquipment(new LightArmour());
+            _WitchHunterCaptain.AddEquipment(new Sword().Name);
+            _WitchHunterCaptain.AddEquipment(new CrossBow().Name);
+            _WitchHunterCaptain.AddEquipment(new Shield().Name);
+            _WitchHunterCaptain.AddEquipment(new LightArmour().Name);
 
             _WitchHunterCaptain.AddSkill(new MightyBlow());
             _WitchHunterCaptain.AddSkill(new PitFighter());

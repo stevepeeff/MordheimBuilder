@@ -185,6 +185,12 @@ namespace DomainModel.Warbands
         void AddEquipment(IEquipment equipment);
 
         /// <summary>
+        /// Adds the equipment.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        void AddEquipment(string name);
+
+        /// <summary>
         /// Amounts the type of the of this.
         /// </summary>
         /// <param name="warrior">The warrior.</param>

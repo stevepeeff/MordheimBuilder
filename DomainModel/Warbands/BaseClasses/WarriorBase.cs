@@ -158,6 +158,11 @@ namespace DomainModel.Warbands.BaseClasses
             _Afflictions.Add(affliction);
         }
 
+        public void AddEquipment(string name)
+        {
+            AddEquipment(EquipmentProvider.Instance.GetEquipment(name));
+        }
+
         public void AddEquipment(IEquipment equipment)
         {
             _Weapons.Add(equipment);
