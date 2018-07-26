@@ -20,7 +20,6 @@ namespace MordheimDal.Tests
     {
         private IWarbandRoster _WarbandRoster;
 
-        private IWarBand _WarBand = null;
         private WitchHunterCaptain _WitchHunterCaptain;
 
         public DalTests()

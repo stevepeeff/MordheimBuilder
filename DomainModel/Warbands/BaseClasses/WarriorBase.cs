@@ -56,7 +56,7 @@ namespace DomainModel.Warbands.BaseClasses
         public int CurrentExperience
         {
             get { return InitialExperience + _CurrentExperience; }
-            protected set { _CurrentExperience = value; }
+            //   protected set { _CurrentExperience = value; }
         }
 
         public IReadOnlyCollection<IEquipment> Equipment { get { return _Weapons; } }

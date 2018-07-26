@@ -43,6 +43,7 @@
     <Compile Include="BuilderLogic.cs" />
     <Compile Include="BuilderLogicFactory.cs" />
     <Compile Include="IMordheimBuilderLogic.cs" />
+    <Compile Include="IPlayLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WarBandRoster.cs" />
   </ItemGroup>

@@ -47,6 +47,7 @@
     <Compile Include="XmlStorage\XmlHeadNode.cs" />
     <Compile Include="XmlStorage\XMLUtils.cs" />
     <Compile Include="XmlStorage\XmlWarbandRoster.cs" />
+    <Compile Include="XmlStorage\XmlWarrior.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">

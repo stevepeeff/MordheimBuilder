@@ -88,6 +88,14 @@
     <Compile Include="Magic\Prayers of Sigmar\IPrayerOfSigmar.cs" />
     <Compile Include="Magic\Prayers of Sigmar\TheHammerOfSigmar.cs" />
     <Compile Include="Magic\Spells.cs" />
+    <Compile Include="ProgressionLogs\BattleInformation.cs" />
+    <Compile Include="ProgressionLogs\Expierence.cs" />
+    <Compile Include="ProgressionLogs\InjuryGain.cs" />
+    <Compile Include="ProgressionLogs\IProgressionLog.cs" />
+    <Compile Include="ProgressionLogs\ProgressionLogBase.cs" />
+    <Compile Include="ProgressionLogs\SkillGain.cs" />
+    <Compile Include="ProgressionLogs\TimeLog.cs" />
+    <Compile Include="ProgressionLogs\WyrdStone.cs" />
     <Compile Include="Psychology\Animal.cs" />
     <Compile Include="Psychology\BurnTheWitch.cs" />
     <Compile Include="Psychology\Fanatical.cs" />
