@@ -61,8 +61,8 @@ namespace MordheimBuilderLogic
 
         public void SaveWarband()
         {
-            if (CurrentWarband == null) { throw new ArgumentNullException("No warband selected, cannot save"); }
-            DalProvider.Instance.Save(CurrentWarband);
+            if (WarbandRoster == null) { throw new ArgumentNullException("No warband selected, cannot save"); }
+            DalProvider.Instance.Save(WarbandRoster);
         }
 
         public void LoadWarband()

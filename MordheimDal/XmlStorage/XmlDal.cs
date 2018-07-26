@@ -1,4 +1,5 @@
-﻿using DomainModel.Warbands;
+﻿using DomainModel;
+using DomainModel.Warbands;
 using MordheimDal.Interface;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,13 @@ namespace MordheimDal.XmlStorage
             throw new NotImplementedException();
         }
 
-        public void Save(IWarBand warBand)
+        public void Save(IWarbandRoster roster)
         {
-            throw new NotImplementedException();
+            XmlHeadNode xmlHeadNode = new XmlHeadNode();
+
+            xmlHeadNode.WarbandRoster.Name = roster.Name;
+
+            xmlHeadNode.WarbandRoster.Warband = roster.WarBand.WarBandName;
         }
     }
 }

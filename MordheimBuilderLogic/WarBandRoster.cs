@@ -93,6 +93,14 @@ namespace MordheimBuilderLogic
 
         public IList<IWarrior> Warriors { get; private set; } = new List<IWarrior>();
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string Name { get; set; }
+
         public void AddWarrior(IWarrior warrior)
         {
             IWarrior newWarrior = warrior.GetAnInstance();

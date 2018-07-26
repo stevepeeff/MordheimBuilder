@@ -10,19 +10,23 @@ using System.Linq;
 
 using DomainModel.Skills;
 using DomainModel.Skills.Strength;
+using DomainModel;
+using MordheimBuilderLogic;
 
 namespace MordheimDal.Tests
 {
     [TestClass]
     public class DalTests
     {
+        private IWarbandRoster _WarbandRoster;
+
         private IWarBand _WarBand = null;
         private WitchHunterCaptain _WitchHunterCaptain;
 
         public DalTests()
         {
-            _WarBand = new WitchHuntersWarband();
-
+            _WarbandRoster = new WarBandRoster(new WitchHuntersWarband());
+            _WarbandRoster.Name = "MordheimDal.Tests";
             _WitchHunterCaptain = new WitchHunterCaptain();
 
             _WitchHunterCaptain.AddEquipment(new Sword().Name);
@@ -45,7 +49,7 @@ namespace MordheimDal.Tests
         {
             Assert.IsNotNull(_WarBand);
 
-            DalProvider.Instance.Save(_WarBand);
+            DalProvider.Instance.Save(_WarbandRoster);
         }
 
         [TestMethod]

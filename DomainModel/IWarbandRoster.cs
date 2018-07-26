@@ -11,6 +11,8 @@ namespace DomainModel
     {
         IList<IWarrior> Warriors { get; }
 
+        string Name { get; set; }
+
         IWarBand WarBand { get; }
 
         event EventHandler WarBandWariorListChanged;
