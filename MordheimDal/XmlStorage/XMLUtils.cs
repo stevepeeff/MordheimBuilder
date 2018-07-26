@@ -6,7 +6,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Infra.Utils
+namespace MordheimDal.XmlStorage
 {
     public static class XMLUtils
     {

@@ -33,8 +33,8 @@ namespace MordheimDal.XmlStorage
         [XmlAttribute]
         public DateTime LastUpdate { get; set; }
 
-        [XmlAttribute]
-        public XmlWarbandRoster WarbandRoster { get; set; }
+        [XmlElement]
+        public XmlWarbandRoster WarbandRoster { get; set; } = new XmlWarbandRoster();
 
         //[XmlArray]
         //[XmlArrayItem(typeof(XmlCustomerModel))]

@@ -47,7 +47,7 @@ namespace MordheimDal.Tests
         [TestMethod]
         public void Save()
         {
-            Assert.IsNotNull(_WarBand);
+            Assert.IsNotNull(_WarbandRoster);
 
             DalProvider.Instance.Save(_WarbandRoster);
         }
