@@ -3,6 +3,7 @@ using DomainModel.Equipment.Weapons;
 using DomainModel.Psychology;
 using DomainModel.RacialAdvantages;
 using DomainModel.Skills;
+using DomainModel.WarriorStatus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -163,6 +164,10 @@ namespace DomainModel.Warbands
         /// The weapon skill.
         /// </value>
         Characteristic WeaponSkill { get; }
+
+        IWarriorStatus WarriorStatus { get; }
+
+        void ChangeStatus(IWarriorStatus warriorStatus);
 
         /// <summary>
         /// Gets the wounds.

@@ -10,6 +10,7 @@ using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Psychology;
 using DomainModel.RacialAdvantages;
 using DomainModel.Skills;
+using DomainModel.WarriorStatus;
 
 namespace DomainModel.Warbands.BaseClasses
 {
@@ -41,6 +42,13 @@ namespace DomainModel.Warbands.BaseClasses
 
             _Weapons.Add(new Dagger());
             _AllowedWeapons.Add(new Dagger());
+        }
+
+        public IWarriorStatus WarriorStatus { get; private set; } = new InAction();
+
+        public void ChangeStatus(IWarriorStatus warriorStatus)
+        {
+            WarriorStatus = warriorStatus;
         }
 
         public event EventHandler PropertiesChanged;

@@ -93,6 +93,7 @@
     <Compile Include="ProgressionLogs\InjuryGain.cs" />
     <Compile Include="ProgressionLogs\IProgressionLog.cs" />
     <Compile Include="ProgressionLogs\ProgressionLogBase.cs" />
+    <Compile Include="ProgressionLogs\PutDown.cs" />
     <Compile Include="ProgressionLogs\SkillGain.cs" />
     <Compile Include="ProgressionLogs\TimeLog.cs" />
     <Compile Include="ProgressionLogs\WyrdStone.cs" />
@@ -163,6 +164,9 @@
     <Compile Include="Warbands\WitchHunters\WitchHunterCaptain.cs" />
     <Compile Include="Warbands\WitchHunters\WitchHuntersWarband.cs" />
     <Compile Include="Warbands\WitchHunters\Zealot.cs" />
+    <Compile Include="WarriorStatus\InAction.cs" />
+    <Compile Include="WarriorStatus\IWarriorStatus.cs" />
+    <Compile Include="WarriorStatus\OutOfAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Equipment\Miscellaneous\" />
