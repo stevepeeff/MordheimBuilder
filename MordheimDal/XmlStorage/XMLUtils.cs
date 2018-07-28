@@ -69,7 +69,7 @@ namespace MordheimDal.XmlStorage
 
                 using (Stream fileStream = new FileStream(path, FileMode.Create))
                 {
-                    using (XmlWriter xmlWriter = new XmlTextWriter(fileStream, Encoding.UTF8))
+                    using (XmlWriter xmlWriter = XmlWriter.Create(fileStream, new XmlWriterSettings() { Indent = true }))
                     {
                         xmlserializer.Serialize(xmlWriter, objectToSerialize);
                     }
