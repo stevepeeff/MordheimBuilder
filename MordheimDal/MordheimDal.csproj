@@ -44,6 +44,7 @@
     <Compile Include="Interface\IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlDal.cs" />
+    <Compile Include="XmlStorage\XmlExtensionMethods.cs" />
     <Compile Include="XmlStorage\XmlHeadNode.cs" />
     <Compile Include="XmlStorage\XmlModel.cs" />
     <Compile Include="XmlStorage\XmlWarbandRoster.cs" />

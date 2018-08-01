@@ -2,6 +2,7 @@
 using DomainModel.Warbands;
 using MordheimBuilderLogic;
 using MordheimDal.Interface;
+using MordheimDal.XmlStorage;
 using MordheimXmlDal.XmlStorage;
 using System;
 using System.Collections.Generic;
@@ -31,11 +32,32 @@ namespace MordheimDal
 
             string warriorType = "";
             warbandRoster.WarBand.GetWarrior(warriorType);
-            // warbandRoster.AddWarrior();
+            //warbandRoster.AddWarrior(new Witch);
 
             //IWarbandRoster loadResult = new WarBandRoster(warband);
 
             //loadResult.WarBandName = xmlHeadNode.WarbandRoster.Name;
+        }
+
+        public IWarbandRoster LoadWarband(string file)
+        {
+            if (!File.Exists(file)) { throw new FileNotFoundException($"Cannot find file {file}"); }
+
+            XmlHeadNode xmlHeadNode = XMLUtils.Load<XmlHeadNode>(file);
+
+            BuilderLogicFactory.Instance.SelectWarBand(xmlHeadNode.WarbandRoster.Warband);
+
+            IWarbandRoster warbandRoster = BuilderLogicFactory.Instance.WarbandRoster;
+
+            string warriorType = "";
+            warbandRoster.WarBand.GetWarrior(warriorType);
+            //warbandRoster.AddWarrior(new Witch);
+
+            //IWarbandRoster loadResult = new WarBandRoster(warband);
+
+            //loadResult.WarBandName = xmlHeadNode.WarbandRoster.Name;
+
+            return warbandRoster;
         }
 
         public void Save(IWarbandRoster roster)
@@ -46,6 +68,11 @@ namespace MordheimDal
             XmlHeadNode xmlHeadNode = new XmlHeadNode();
             xmlHeadNode.WarbandRoster.Name = rosterName;
             xmlHeadNode.WarbandRoster.Warband = roster.WarBand.WarBandName;
+
+            foreach (IWarrior item in roster.Warriors)
+            {
+                xmlHeadNode.WarbandRoster.WarriorList.Add(item.ToXml());
+            }
 
             XMLUtils.AtomicSave<XmlHeadNode>(xmlHeadNode, Path.Combine(STORAGE_PATH, filename));
         }

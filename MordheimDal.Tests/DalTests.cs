@@ -38,8 +38,9 @@ namespace MordheimDal.Tests
 
             _WitchHunterCaptain.AddSkill(new MightyBlow());
             _WitchHunterCaptain.AddSkill(new PitFighter());
+            _WarbandRoster.AddWarrior(_WitchHunterCaptain);
 
-            //  BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(_WitchHunterCaptain);
+            // BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(_WitchHunterCaptain);
 
             //        _ExampleWarband = new WitchHuntersWarband();
             //_ExampleWarband.a
@@ -50,18 +51,16 @@ namespace MordheimDal.Tests
         public void Save()
         {
             Assert.IsNotNull(_WarbandRoster);
-            // new XmlDal().Save(_WarbandRoster);
+
             DalProvider.Instance.Save(_WarbandRoster);
         }
 
         [TestMethod]
         public void Load()
         {
-            //IWarBand warBand = DalProvider.Instance.Load(Path.Combine(XmlDal.STORAGE_PATH, "Warband Roster MordheimDal.Tests.xml"));
-            //Assert.IsNotNull(warBand);
+            IWarbandRoster roster = new XmlDal().LoadWarband(Path.Combine(XmlDal.STORAGE_PATH, "Warband Roster MordheimDal.Tests.xml"));
+            Assert.IsNotNull(roster);
             //WarBandProvider.Instance.GetWarband("WitchHunters"));
-
-            ;
         }
     }
 }
