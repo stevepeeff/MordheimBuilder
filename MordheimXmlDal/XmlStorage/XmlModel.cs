@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace XmlDal.XmlModel
+namespace MordheimXmlDal.XmlModel
 {
     [XmlRoot("XMLRootTestModel")]
     public class XmlHeadNodeModel

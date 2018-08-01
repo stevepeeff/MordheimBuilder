@@ -1,5 +1,5 @@
 ﻿using MordheimDal.Interface;
-using MordheimDal.XmlStorage;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,6 @@ namespace MordheimDal
 {
     public class DalProvider
     {
-        public static IDAL Instance { get; } = new XmlDal();
+        // public static IDAL Instance { get; } = new XmlDal();
     }
 }

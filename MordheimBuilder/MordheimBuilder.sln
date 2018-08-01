@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MordheimDal", "..\MordheimD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MordheimDal.Tests", "..\MordheimDal.Tests\MordheimDal.Tests.csproj", "{C3E734C2-C280-4E44-9A64-8A051534385D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MordheimXmlDal", "..\MordheimXmlDal\MordheimXmlDal.csproj", "{61730D03-FCFA-435D-85C3-EE786A4DEEEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{C3E734C2-C280-4E44-9A64-8A051534385D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3E734C2-C280-4E44-9A64-8A051534385D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3E734C2-C280-4E44-9A64-8A051534385D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61730D03-FCFA-435D-85C3-EE786A4DEEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61730D03-FCFA-435D-85C3-EE786A4DEEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61730D03-FCFA-435D-85C3-EE786A4DEEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61730D03-FCFA-435D-85C3-EE786A4DEEEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{879D23F4-F09B-41CD-8EA7-ECAC0555BD8F} = {165743FD-912C-485A-8BDA-10DBA37B73DB}
 		{C5EFD9B7-ADF1-4C48-A0A5-F70607C7536D} = {3C2F79AA-42FA-4973-8CCA-E30F5059819E}
 		{C3E734C2-C280-4E44-9A64-8A051534385D} = {243BFF8A-1FC9-41C7-BC6B-28886D7386B1}
+		{61730D03-FCFA-435D-85C3-EE786A4DEEEA} = {3C2F79AA-42FA-4973-8CCA-E30F5059819E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4FBEF319-5435-442F-B435-ED90BD46865E}

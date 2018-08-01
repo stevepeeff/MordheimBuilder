@@ -43,11 +43,6 @@
     <Compile Include="DalProvider.cs" />
     <Compile Include="Interface\IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XmlStorage\XmlDal.cs" />
-    <Compile Include="XmlStorage\XmlHeadNode.cs" />
-    <Compile Include="XmlStorage\XMLUtils.cs" />
-    <Compile Include="XmlStorage\XmlWarbandRoster.cs" />
-    <Compile Include="XmlStorage\XmlWarrior.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">

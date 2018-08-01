@@ -25,6 +25,8 @@ namespace DomainModel
 
         void AddWarrior(IWarrior warrior);
 
+        void AddWarrior(string warrior);
+
         void RemoveWarrior(IWarrior warrior);
 
         void IncreaseHenchmenInGroup(IHenchMan warrior);

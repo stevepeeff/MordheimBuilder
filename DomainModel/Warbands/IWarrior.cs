@@ -141,6 +141,8 @@ namespace DomainModel.Warbands
         /// </value>
         Characteristic Strength { get; }
 
+        IWarrior GetAnInstance(string typeOfWarrior);
+
         /// <summary>
         /// Gets the toughness.
         /// </summary>

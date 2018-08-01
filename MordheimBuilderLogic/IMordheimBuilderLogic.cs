@@ -20,6 +20,8 @@ namespace MordheimBuilderLogic
 
         void SelectWarBand(IWarBand warband);
 
+        void SelectWarBand(string warbandName);
+
         IWarBand CurrentWarband { get; }
 
         IWarbandRoster WarbandRoster { get; }
@@ -30,8 +32,8 @@ namespace MordheimBuilderLogic
 
         Modus PlayModus { get; set; }
 
-        void SaveWarband();
+        // void SaveWarband();
 
-        void LoadWarband(string fileName);
+        // void LoadWarband(string fileName);
     }
 }

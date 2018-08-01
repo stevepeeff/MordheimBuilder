@@ -214,6 +214,16 @@ namespace DomainModel.Warbands.BaseClasses
 
         public abstract IWarrior GetANewInstance();
 
+        public IWarrior GetAnInstance(string typeOfWarrior)
+        {
+            IWarrior result = null;
+            if (TypeName.Equals(typeOfWarrior))
+            {
+                result = GetAnInstance();
+            }
+            return result;
+        }
+
         public IWarrior GetAnInstance()
         {
             IWarrior newInstance = GetANewInstance();

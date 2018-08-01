@@ -3,7 +3,7 @@ using DomainModel.Warbands;
 using DomainModel.Warbands.Middenheimers;
 using DomainModel.Warbands.Skaven;
 using DomainModel.Warbands.WitchHunters;
-using MordheimDal;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,12 +62,17 @@ namespace MordheimBuilderLogic
         public void SaveWarband()
         {
             if (WarbandRoster == null) { throw new ArgumentNullException("No warband selected, cannot save"); }
-            DalProvider.Instance.Save(WarbandRoster);
+            //DalProvider.Instance.Save(WarbandRoster);
         }
 
         public void LoadWarband(string fileName)
         {
-            SelectWarBand(DalProvider.Instance.Load(fileName));
+            // SelectWarBand(DalProvider.Instance.Load(fileName));
+        }
+
+        public void SelectWarBand(string warbandName)
+        {
+            SelectWarBand(WarBandProvider.Instance.GetWarband(warbandName));
         }
     }
 }

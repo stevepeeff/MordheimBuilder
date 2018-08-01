@@ -1,7 +1,8 @@
 ﻿using DomainModel;
 using DomainModel.Warbands;
-
+using MordheimBuilderLogic;
 using MordheimDal.Interface;
+using MordheimXmlDal.XmlStorage;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MordheimDal.XmlStorage
+namespace MordheimXmlDal
 {
     internal class XmlDal : IDAL
     {
@@ -18,24 +19,20 @@ namespace MordheimDal.XmlStorage
         private const string FILE_EXTENSION = ".XML";
         public static string STORAGE_PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), STORAGE_FOLDER);
 
-        public XmlDal()
-        {
-            // Environment.SpecialFolder.MyDocuments;
-        }
-
-        public IWarBand Load(string file)
+        public void Load(string file)
         {
             if (!File.Exists(file)) { throw new FileNotFoundException($"Cannot find file {file}"); }
 
             XmlHeadNode xmlHeadNode = XMLUtils.Load<XmlHeadNode>(file);
 
-            IWarBand warband = WarBandProvider.Instance.GetWarband(xmlHeadNode.WarbandRoster.Warband);
+            BuilderLogicFactory.Instance.SelectWarBand(xmlHeadNode.WarbandRoster.Warband);
 
-            //IWarbandRoster loadResult = new WarBandRoster
+            IWarbandRoster warbandRoster = BuilderLogicFactory.Instance.WarbandRoster;
+            // warbandRoster.AddWarrior();
+
+            //IWarbandRoster loadResult = new WarBandRoster(warband);
 
             //loadResult.WarBandName = xmlHeadNode.WarbandRoster.Name;
-            //return loadResult;
-            return warband;
         }
 
         public void Save(IWarbandRoster roster)
