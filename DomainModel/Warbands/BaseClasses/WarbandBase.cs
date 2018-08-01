@@ -19,6 +19,25 @@ namespace DomainModel.Warbands.BaseClasses
 
         public IReadOnlyCollection<IHenchMan> HenchMen { get { return HenchMenList; } }
 
+        public IWarrior GetWarrior(string typeName)
+        {
+            foreach (IHero hero in Heroes)
+            {
+                if (hero.TypeName.Equals(typeName))
+                {
+                    return hero;
+                }
+            }
+            foreach (IHenchMan henchMen in HenchMen)
+            {
+                if (henchMen.TypeName.Equals(typeName))
+                {
+                    return henchMen;
+                }
+            }
+            return null;
+        }
+
         public IRacialAdvantage Advantages { get; protected set; }
 
         public string Description { get; } = "TODO";

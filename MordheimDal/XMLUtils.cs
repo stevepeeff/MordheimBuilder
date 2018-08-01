@@ -6,9 +6,9 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace MordheimXmlDal
+namespace MordheimDal
 {
-    public static class XMLUtils
+    internal static class XMLUtils
     {
         #region Constants
 

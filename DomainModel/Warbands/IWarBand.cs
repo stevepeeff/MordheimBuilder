@@ -27,6 +27,8 @@ namespace DomainModel.Warbands
         /// </value>
         string WarBandName { get; }
 
+        IWarrior GetWarrior(string typeName);
+
         /// <summary>
         /// Gets the hench men.
         /// </summary>

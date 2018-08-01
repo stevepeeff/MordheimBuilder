@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MordheimXmlDal
+namespace MordheimDal
 {
     internal class XmlDal : IDAL
     {
@@ -28,6 +28,9 @@ namespace MordheimXmlDal
             BuilderLogicFactory.Instance.SelectWarBand(xmlHeadNode.WarbandRoster.Warband);
 
             IWarbandRoster warbandRoster = BuilderLogicFactory.Instance.WarbandRoster;
+
+            string warriorType = "";
+            warbandRoster.WarBand.GetWarrior(warriorType);
             // warbandRoster.AddWarrior();
 
             //IWarbandRoster loadResult = new WarBandRoster(warband);

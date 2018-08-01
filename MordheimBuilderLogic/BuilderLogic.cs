@@ -59,17 +59,6 @@ namespace MordheimBuilderLogic
             }
         }
 
-        public void SaveWarband()
-        {
-            if (WarbandRoster == null) { throw new ArgumentNullException("No warband selected, cannot save"); }
-            //DalProvider.Instance.Save(WarbandRoster);
-        }
-
-        public void LoadWarband(string fileName)
-        {
-            // SelectWarBand(DalProvider.Instance.Load(fileName));
-        }
-
         public void SelectWarBand(string warbandName)
         {
             SelectWarBand(WarBandProvider.Instance.GetWarband(warbandName));

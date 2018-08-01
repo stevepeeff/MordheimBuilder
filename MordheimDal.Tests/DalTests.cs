@@ -14,6 +14,7 @@ using DomainModel;
 using MordheimBuilderLogic;
 
 using System.IO;
+using MordheimXmlDal;
 
 namespace MordheimDal.Tests
 {
@@ -49,8 +50,8 @@ namespace MordheimDal.Tests
         public void Save()
         {
             Assert.IsNotNull(_WarbandRoster);
-
-            // DalProvider.Instance.Save(_WarbandRoster);
+            // new XmlDal().Save(_WarbandRoster);
+            DalProvider.Instance.Save(_WarbandRoster);
         }
 
         [TestMethod]

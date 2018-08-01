@@ -43,11 +43,21 @@
     <Compile Include="DalProvider.cs" />
     <Compile Include="Interface\IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlDal.cs" />
+    <Compile Include="XmlStorage\XmlHeadNode.cs" />
+    <Compile Include="XmlStorage\XmlModel.cs" />
+    <Compile Include="XmlStorage\XmlWarbandRoster.cs" />
+    <Compile Include="XmlStorage\XmlWarrior.cs" />
+    <Compile Include="XMLUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{d8ed204a-a5ae-44f6-afe4-34cb6cb1a949}</Project>
       <Name>DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MordheimBuilderLogic\MordheimBuilderLogic.csproj">
+      <Project>{879d23f4-f09b-41cd-8ea7-ecac0555bd8f}</Project>
+      <Name>MordheimBuilderLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
