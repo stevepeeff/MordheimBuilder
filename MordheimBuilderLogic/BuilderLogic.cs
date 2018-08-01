@@ -65,9 +65,9 @@ namespace MordheimBuilderLogic
             DalProvider.Instance.Save(WarbandRoster);
         }
 
-        public void LoadWarband()
+        public void LoadWarband(string fileName)
         {
-            SelectWarBand(DalProvider.Instance.Load());
+            SelectWarBand(DalProvider.Instance.Load(fileName));
         }
     }
 }

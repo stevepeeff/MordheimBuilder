@@ -12,6 +12,8 @@ using DomainModel.Skills;
 using DomainModel.Skills.Strength;
 using DomainModel;
 using MordheimBuilderLogic;
+using MordheimDal.XmlStorage;
+using System.IO;
 
 namespace MordheimDal.Tests
 {
@@ -54,7 +56,7 @@ namespace MordheimDal.Tests
         [TestMethod]
         public void Load()
         {
-            IWarBand warBand = DalProvider.Instance.Load();
+            IWarBand warBand = DalProvider.Instance.Load(Path.Combine(XmlDal.STORAGE_PATH, "Warband Roster MordheimDal.Tests.xml"));
             Assert.IsNotNull(warBand);
             //WarBandProvider.Instance.GetWarband("WitchHunters"));
 

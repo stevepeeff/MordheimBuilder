@@ -12,6 +12,6 @@ namespace MordheimDal.Interface
     {
         void Save(IWarbandRoster roster);
 
-        IWarBand Load();
+        IWarBand Load(string file);
     }
 }
