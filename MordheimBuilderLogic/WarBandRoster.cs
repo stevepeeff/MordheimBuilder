@@ -179,10 +179,5 @@ namespace MordheimBuilderLogic
             }
             return total;
         }
-
-        public void AddWarrior(string warrior)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

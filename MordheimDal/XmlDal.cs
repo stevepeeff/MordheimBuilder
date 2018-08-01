@@ -22,21 +22,7 @@ namespace MordheimDal
 
         public void Load(string file)
         {
-            if (!File.Exists(file)) { throw new FileNotFoundException($"Cannot find file {file}"); }
-
-            XmlHeadNode xmlHeadNode = XMLUtils.Load<XmlHeadNode>(file);
-
-            BuilderLogicFactory.Instance.SelectWarBand(xmlHeadNode.WarbandRoster.Warband);
-
-            IWarbandRoster warbandRoster = BuilderLogicFactory.Instance.WarbandRoster;
-
-            string warriorType = "";
-            warbandRoster.WarBand.GetWarrior(warriorType);
-            //warbandRoster.AddWarrior(new Witch);
-
-            //IWarbandRoster loadResult = new WarBandRoster(warband);
-
-            //loadResult.WarBandName = xmlHeadNode.WarbandRoster.Name;
+            LoadWarband(file);
         }
 
         public IWarbandRoster LoadWarband(string file)
@@ -48,6 +34,14 @@ namespace MordheimDal
             BuilderLogicFactory.Instance.SelectWarBand(xmlHeadNode.WarbandRoster.Warband);
 
             IWarbandRoster warbandRoster = BuilderLogicFactory.Instance.WarbandRoster;
+
+            foreach (var item in xmlHeadNode.WarbandRoster.WarriorList)
+            {
+                string adsad = item.TypeOfWarrior;
+
+                IWarrior q = warbandRoster.WarBand.GetWarrior(adsad);
+                warbandRoster.AddWarrior(q);
+            }
 
             string warriorType = "";
             warbandRoster.WarBand.GetWarrior(warriorType);
