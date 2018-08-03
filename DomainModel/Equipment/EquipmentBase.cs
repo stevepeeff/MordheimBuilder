@@ -12,6 +12,11 @@ namespace DomainModel.Equipment
 {
     public abstract class EquipmentBase : IEquipment
     {
+        public EquipmentBase()
+        {
+            EquipmentProvider.Instance.AddEquipment(this);
+        }
+
         public static bool ListHoldsHeavyArmortAndShield(IReadOnlyCollection<IEquipment> equipmentList)
         {
             bool holdsHeavyArmor = false;

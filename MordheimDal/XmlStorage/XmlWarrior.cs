@@ -14,5 +14,9 @@ namespace MordheimXmlDal.XmlStorage
 
         [XmlAttributeAttribute()]
         public string TypeOfWarrior { get; set; }
+
+        [XmlArray]
+        [XmlArrayItem(typeof(string))]
+        public List<string> EquipmentList { get; set; } = new List<string>();
     }
 }

@@ -10,6 +10,7 @@ namespace DomainModel.Skills.Strength
     {
         protected StrengthBase()
         {
+            SkillProvider.StrengthSkills.Add(this);
         }
 
         public override string Name { get; } = "Strength";

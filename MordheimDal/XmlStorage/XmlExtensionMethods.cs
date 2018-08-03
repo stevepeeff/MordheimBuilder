@@ -1,4 +1,5 @@
-﻿using DomainModel.Warbands;
+﻿using DomainModel.Equipment;
+using DomainModel.Warbands;
 using MordheimXmlDal.XmlStorage;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,14 @@ namespace MordheimDal.XmlStorage
     {
         public static XmlWarrior ToXml(this IWarrior warrior)
         {
-            return new XmlWarrior()
+            XmlWarrior xmlWarrior = new XmlWarrior()
             {
                 TypeOfWarrior = warrior.TypeName,
                 Name = warrior.Name
             };
+            xmlWarrior.EquipmentList.AddRange(warrior.Equipment.Select(x => x.Name).ToList());
+
+            return xmlWarrior;
         }
     }
 }

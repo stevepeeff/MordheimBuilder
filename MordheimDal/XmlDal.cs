@@ -35,12 +35,14 @@ namespace MordheimDal
 
             IWarbandRoster warbandRoster = BuilderLogicFactory.Instance.WarbandRoster;
 
-            foreach (var item in xmlHeadNode.WarbandRoster.WarriorList)
+            foreach (var xmlWarrior in xmlHeadNode.WarbandRoster.WarriorList)
             {
-                string adsad = item.TypeOfWarrior;
-
-                IWarrior q = warbandRoster.WarBand.GetWarrior(adsad);
-                warbandRoster.AddWarrior(q);
+                IWarrior warrior = warbandRoster.WarBand.GetWarrior(xmlWarrior.TypeOfWarrior);
+                foreach (string item in xmlWarrior.EquipmentList)
+                {
+                    warrior.AddEquipment(item);
+                }
+                warbandRoster.AddWarrior(warrior);
             }
 
             string warriorType = "";
@@ -63,9 +65,9 @@ namespace MordheimDal
             xmlHeadNode.WarbandRoster.Name = rosterName;
             xmlHeadNode.WarbandRoster.Warband = roster.WarBand.WarBandName;
 
-            foreach (IWarrior item in roster.Warriors)
+            foreach (IWarrior warrior in roster.Warriors)
             {
-                xmlHeadNode.WarbandRoster.WarriorList.Add(item.ToXml());
+                xmlHeadNode.WarbandRoster.WarriorList.Add(warrior.ToXml());
             }
 
             XMLUtils.AtomicSave<XmlHeadNode>(xmlHeadNode, Path.Combine(STORAGE_PATH, filename));
