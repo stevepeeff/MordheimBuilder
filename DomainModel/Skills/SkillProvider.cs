@@ -68,7 +68,18 @@ namespace DomainModel.Skills
             }
         }
 
-        internal static IList<IStrength> StrengthSkills { get; } = new List<IStrength>();
+        internal static IList<IStrength> StrengthSkills
+        {
+            get
+            {
+                return new List<IStrength>()
+                {
+                    new MightyBlow(),
+                    new PitFighter(),
+                    new Resilient(),
+                };
+            }
+        }
 
         public static List<Type> DistinctSkills<T>(this IReadOnlyCollection<ISkill> skillList) where T : ISkill
         {
