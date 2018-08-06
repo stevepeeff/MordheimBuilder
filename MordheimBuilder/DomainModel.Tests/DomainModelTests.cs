@@ -60,10 +60,10 @@ namespace DomainModel.Tests
             IHero withchHunterCaptain = new WitchHunterCaptain();
             IReadOnlyCollection<ISkill> skills = withchHunterCaptain.AllowedSkills;
 
-            Assert.AreEqual(5, SkillProvider.DistinctSkills<ISkill>(skills).Count());
+            Assert.AreEqual(5, SkillProviderTools.DistinctSkills<ISkill>(skills).Count());
             Type strength = withchHunterCaptain.AllowedSkills.DistinctSkills<ISkill>().ElementAt(3);
 
-            Assert.AreEqual(3, SkillProvider.GetSkillList(strength).Count(), "This test wil fail when all skills are added");
+            Assert.AreEqual(3, SkillProviderTools.GetSkillList(strength).Count(), "This test wil fail when all skills are added");
         }
 
         [TestMethod]

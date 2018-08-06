@@ -115,6 +115,7 @@
     <Compile Include="Skills\Shooting\QuickShot.cs" />
     <Compile Include="Skills\Shooting\ShootingBase.cs" />
     <Compile Include="Skills\SkillProvider.cs" />
+    <Compile Include="Skills\SkillProviderTools.cs" />
     <Compile Include="Skills\Speed\ISpeed.cs" />
     <Compile Include="Skills\Speed\Leap.cs" />
     <Compile Include="Skills\Speed\SpeedBase.cs" />

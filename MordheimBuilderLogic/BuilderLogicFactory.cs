@@ -9,7 +9,7 @@ namespace MordheimBuilderLogic
 {
     public class BuilderLogicFactory
     {
-        public static IMordheimBuilderLogic Instance { get; private set; } = new BuilderLogic();
+        public static IMordheimBuilderLogic Instance { get; } = new BuilderLogic();
 
         private BuilderLogicFactory()
         {
