@@ -8,6 +8,11 @@ namespace DomainModel.Skills
 {
     public abstract class SkillBase : ISkill
     {
+        public SkillBase()
+        {
+            SkillProvider.Instance.AddSkill(this);
+        }
+
         protected List<Statistic> _Statistics = new List<Statistic>();
         public IReadOnlyCollection<Statistic> Statistics { get { return _Statistics; } }
 
