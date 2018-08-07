@@ -231,6 +231,7 @@ namespace DomainModel.Tests
         [TestMethod]
         public void WitchHunterCaptain()
         {
+            //SkillProvider.Instance.Start();
             var warrior = new WitchHunterCaptain();
 
             Assert.AreEqual(4, warrior.Movement.BaseValue, "Movement.BaseValue");

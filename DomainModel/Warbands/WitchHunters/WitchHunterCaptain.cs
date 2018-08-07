@@ -27,18 +27,18 @@ namespace DomainModel.Warbands.WitchHunters
 
             _AllowedWeapons.AddRange(WitchHuntersWarband.HeroEquipmentList);
 
-            _AllowedSkills.AddRange(SkillProviderTools.CombatSkills);
-            _AllowedSkills.AddRange(SkillProviderTools.ShootingSkills);
-            _AllowedSkills.AddRange(SkillProviderTools.AcademicSkills);
-            _AllowedSkills.AddRange(SkillProviderTools.StrengthSkills);
-            _AllowedSkills.AddRange(SkillProviderTools.SpeedSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.CombatSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.ShootingSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.AcademicSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.StrengthSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
 
             //TODO TESTING
             _Weapons.Add((new Sword()));
             _Weapons.Add((new CrossBow()));
 
-            _Skills.Add(SkillProviderTools.StrengthSkills.ElementAt(0));
-            _Skills.Add(SkillProviderTools.StrengthSkills.ElementAt(1));
+            //_Skills.Add(SkillProviderTools.StrengthSkills.ElementAt(0));
+            //_Skills.Add(SkillProviderTools.StrengthSkills.ElementAt(1));
 
             _Weapons.Add((new Shield()));
             _Weapons.Add((new HeavyArmor()));

@@ -11,17 +11,36 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Skills
 {
+    /// <summary>
+    /// Class responsible for creating the list of all Skills
+    /// </summary>
     internal class SkillProvider
     {
-        public IList<IStrength> StrengthSkills { get; } = new List<IStrength>();
-
         private SkillProvider()
         {
+            AllSkills.Add(new MightyBlow());
+            AllSkills.Add(new PitFighter());
+            AllSkills.Add(new Resilient());
+
+            AllSkills.Add(new BattleTongue());
+
+            AllSkills.Add(new QuickShot());
+
+            AllSkills.Add(new Leap());
+
+            AllSkills.Add(new StrikeToInjure());
         }
 
         public static SkillProvider Instance { get; } = new SkillProvider();
 
-        public void AddSkill(ISkill skill)
+        public IList<IAcademic> AcademicSkills { get; } = new List<IAcademic>();
+        public IList<ISkill> AllSkills { get; } = new List<ISkill>();
+        public IList<ICombat> CombatSkills { get; } = new List<ICombat>();
+        public IList<IShooting> ShootingSkills { get; } = new List<IShooting>();
+        public IList<ISpeed> SpeedSkills { get; } = new List<ISpeed>();
+        public IList<IStrength> StrengthSkills { get; } = new List<IStrength>();
+
+        private void AddSkill(ISkill skill)
         {
             if (skill is IStrength)
             {
@@ -62,14 +81,11 @@ namespace DomainModel.Skills
             {
                 throw new NotImplementedException($"Skill: '{skill.Name}' is not known by the SkillProvider");
             }
+
+            if (AllSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
+            {
+                AllSkills.Add(skill);
+            }
         }
-
-        public IList<IShooting> ShootingSkills { get; } = new List<IShooting>();
-
-        public IList<IAcademic> AcademicSkills { get; } = new List<IAcademic>();
-
-        public IList<ICombat> CombatSkills { get; } = new List<ICombat>();
-
-        public IList<ISpeed> SpeedSkills { get; } = new List<ISpeed>();
     }
 }
