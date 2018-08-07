@@ -34,16 +34,16 @@ namespace DomainModel.Warbands.WitchHunters
             _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
 
             //TODO TESTING
-            _Weapons.Add((new Sword()));
-            _Weapons.Add((new CrossBow()));
+            //_Weapons.Add((new Sword()));
+            //_Weapons.Add((new CrossBow()));
 
             //_Skills.Add(SkillProviderTools.StrengthSkills.ElementAt(0));
             //_Skills.Add(SkillProviderTools.StrengthSkills.ElementAt(1));
 
-            _Weapons.Add((new Shield()));
-            _Weapons.Add((new HeavyArmor()));
+            //_Weapons.Add((new Shield()));
+            //_Weapons.Add((new HeavyArmor()));
 
-            AddInjury(new NervousCondition());
+            //AddInjury(new NervousCondition());
         }
 
         public override int InitialExperience { get; } = 20;

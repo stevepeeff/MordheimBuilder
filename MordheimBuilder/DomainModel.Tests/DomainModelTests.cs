@@ -63,7 +63,7 @@ namespace DomainModel.Tests
             Assert.AreEqual(5, SkillProviderTools.DistinctSkills<ISkill>(skills).Count());
             Type strength = withchHunterCaptain.AllowedSkills.DistinctSkills<ISkill>().ElementAt(3);
 
-            Assert.AreEqual(3, SkillProviderTools.GetSkillList(strength).Count(), "This test wil fail when all skills are added");
+            Assert.AreEqual(3, SkillProviderTools.GetSkillList(strength).Count(), "This test will fail when all skills are added");
         }
 
         [TestMethod]

@@ -18,20 +18,22 @@ namespace DomainModel.Skills
     {
         private SkillProvider()
         {
-            AllSkills.Add(new MightyBlow());
-            AllSkills.Add(new PitFighter());
-            AllSkills.Add(new Resilient());
+            AddSkill(new MightyBlow());
+            AddSkill(new PitFighter());
+            AddSkill(new Resilient());
 
-            AllSkills.Add(new BattleTongue());
+            AddSkill(new BattleTongue());
 
-            AllSkills.Add(new QuickShot());
+            AddSkill(new QuickShot());
 
-            AllSkills.Add(new Leap());
+            AddSkill(new Leap());
 
-            AllSkills.Add(new StrikeToInjure());
+            AddSkill(new StrikeToInjure());
         }
 
         public static SkillProvider Instance { get; } = new SkillProvider();
+
+        //TODO remove specific skill lists, use helper functions in Skill Provider Tools
 
         public IList<IAcademic> AcademicSkills { get; } = new List<IAcademic>();
         public IList<ISkill> AllSkills { get; } = new List<ISkill>();
