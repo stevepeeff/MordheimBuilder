@@ -38,6 +38,12 @@ namespace DomainModel.Skills
             return SkillProvider.Instance.AllSkills.Where(x => x.GetType().GetInterfaces().Contains(skill)).ToList();
         }
 
+        //public static void AtomicSave<T>(T objectToSerialize, string path) where T : class
+        public static IList<IStrength> GetStrengthSkills(this Type skill)
+        {
+            return null;
+        }
+
         public static string SkillName(this ISkill skill)
         {
             return skill.GetType().Name;

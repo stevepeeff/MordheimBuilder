@@ -14,7 +14,7 @@ namespace DomainModel.Skills
     /// <summary>
     /// Class responsible for creating the list of all Skills
     /// </summary>
-    public class SkillProvider
+    internal class SkillProvider
     {
         private SkillProvider()
         {
@@ -40,16 +40,32 @@ namespace DomainModel.Skills
         public IList<ICombat> CombatSkills { get; } = new List<ICombat>();
         public IList<IShooting> ShootingSkills { get; } = new List<IShooting>();
         public IList<ISpeed> SpeedSkills { get; } = new List<ISpeed>();
-        public IList<IStrength> StrengthSkills { get; } = new List<IStrength>();
+
+        public IList<IStrength> StrengthSkills
+        {
+            get
+            {
+                IList<IStrength> retval = new List<IStrength>();
+                foreach (ISkill item in AllSkills)
+                {
+                    if (item is IStrength)
+                    {
+                        retval.Add(item as IStrength);
+                    }
+                }
+
+                return retval;
+            }
+        }
 
         private void AddSkill(ISkill skill)
         {
             if (skill is IStrength)
             {
-                if (StrengthSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
-                {
-                    StrengthSkills.Add(skill as IStrength);
-                }
+                //if (StrengthSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
+                //{
+                //    StrengthSkills.Add(skill as IStrength);
+                //}
             }
             else if (skill is IShooting)
             {
