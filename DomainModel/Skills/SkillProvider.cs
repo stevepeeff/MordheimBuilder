@@ -14,7 +14,7 @@ namespace DomainModel.Skills
     /// <summary>
     /// Class responsible for creating the list of all Skills
     /// </summary>
-    internal class SkillProvider
+    public class SkillProvider
     {
         private SkillProvider()
         {

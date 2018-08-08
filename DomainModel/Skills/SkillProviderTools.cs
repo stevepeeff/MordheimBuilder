@@ -35,18 +35,7 @@ namespace DomainModel.Skills
 
         public static IList<ISkill> GetSkillList(this Type skill)
         {
-            IList<ISkill> resultList = new List<ISkill>();
-
-            //SkillProvider.Instance.AllSkills.Select(x => x.Name.Equals(skill.Name));
-
-            foreach (ISkill item in SkillProvider.Instance.AllSkills)
-            {
-                if (item.GetType().GetInterfaces().Contains(skill))
-                {
-                    resultList.Add(item);
-                }
-            }
-            return resultList;
+            return SkillProvider.Instance.AllSkills.Where(x => x.GetType().GetInterfaces().Contains(skill)).ToList();
         }
 
         public static string SkillName(this ISkill skill)
