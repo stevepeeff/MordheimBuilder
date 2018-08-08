@@ -37,6 +37,8 @@ namespace DomainModel.Skills
         {
             IList<ISkill> resultList = new List<ISkill>();
 
+            //SkillProvider.Instance.AllSkills.Select(x => x.Name.Equals(skill.Name));
+
             foreach (ISkill item in SkillProvider.Instance.AllSkills)
             {
                 if (item.GetType().GetInterfaces().Contains(skill))

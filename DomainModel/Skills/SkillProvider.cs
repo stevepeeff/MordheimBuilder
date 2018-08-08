@@ -84,7 +84,7 @@ namespace DomainModel.Skills
                 throw new NotImplementedException($"Skill: '{skill.Name}' is not known by the SkillProvider");
             }
 
-            if (AllSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
+            if (AllSkills.FirstOrDefault(x => x.SkillName().Equals(skill.SkillName())) == null)
             {
                 AllSkills.Add(skill);
             }
