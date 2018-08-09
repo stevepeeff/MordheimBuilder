@@ -91,7 +91,7 @@ namespace MordheimBuilderLogic
             }
         }
 
-        public IList<IWarrior> Warriors { get; private set; } = new List<IWarrior>();
+        public IList<IWarrior> Warriors { get; } = new List<IWarrior>();
 
         /// <summary>
         /// Gets or sets the name.
@@ -101,7 +101,7 @@ namespace MordheimBuilderLogic
         /// </value>
         public string Name { get; set; }
 
-        public void AddWarrior(IWarrior warrior)
+        public IWarrior AddWarrior(IWarrior warrior)
         {
             IWarrior newWarrior = warrior.GetAnInstance();
             Warriors.Add(newWarrior);
@@ -116,6 +116,8 @@ namespace MordheimBuilderLogic
 
             InvokeEvent(WarBandChanged);
             InvokeEvent(WarBandWariorListChanged);
+
+            return newWarrior;
         }
 
         public void DecreaseHenchmenInGroup(IHenchMan warrior)

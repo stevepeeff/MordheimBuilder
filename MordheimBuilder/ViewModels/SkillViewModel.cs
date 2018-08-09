@@ -11,7 +11,7 @@ namespace MordheimBuilder.ViewModels
     {
         public SkillViewModel(ISkill skill)
         {
-            School = skill.Name;
+            School = skill.SkillTypeName;
             Name = skill.SkillName();
             Description = skill.Description;
         }

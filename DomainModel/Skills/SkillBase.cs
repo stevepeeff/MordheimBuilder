@@ -12,7 +12,9 @@ namespace DomainModel.Skills
 
         public IReadOnlyCollection<Statistic> Statistics { get { return _Statistics; } }
 
-        public abstract string Name { get; }
+        public abstract string SkillTypeName { get; }
+
+        public string SkillName => SkillProviderTools.SkillName(this);
 
         public abstract string Description { get; }
     }

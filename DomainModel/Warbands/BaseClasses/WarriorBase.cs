@@ -119,6 +119,14 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
+        public void AddSkill(ISkill skill)
+        {
+            _Skills.Add(skill);
+            Trigger();
+        }
+
+        public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }
+
         public abstract int HireFee { get; }
         public virtual int InitialExperience { get; }
         public Characteristic Initiative { get; private set; }
@@ -131,7 +139,6 @@ namespace DomainModel.Warbands.BaseClasses
         public int NumberOfWarriorsInGroup { get; private set; } = 0;
         public Characteristic Save { get; private set; }
 
-        public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }
         public Characteristic Strength { get; private set; }
 
         public Characteristic Toughness { get; private set; }

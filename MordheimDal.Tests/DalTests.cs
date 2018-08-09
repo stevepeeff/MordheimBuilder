@@ -23,13 +23,15 @@ namespace MordheimDal.Tests
     {
         private IWarbandRoster _WarbandRoster;
 
-        private WitchHunterCaptain _WitchHunterCaptain;
+        private IHero _WitchHunterCaptain;
 
         public DalTests()
         {
             _WarbandRoster = new WarBandRoster(new WitchHuntersWarband());
             _WarbandRoster.Name = "MordheimDal.Tests";
-            _WitchHunterCaptain = new WitchHunterCaptain();
+
+            //Logic requires to add a new warrior
+            _WitchHunterCaptain = _WarbandRoster.AddWarrior(new WitchHunterCaptain()) as IHero;
 
             _WitchHunterCaptain.AddEquipment(new Sword().Name);
             _WitchHunterCaptain.AddEquipment(new CrossBow().Name);
@@ -38,28 +40,21 @@ namespace MordheimDal.Tests
 
             _WitchHunterCaptain.AddSkill(new MightyBlow());
             _WitchHunterCaptain.AddSkill(new PitFighter());
-            _WarbandRoster.AddWarrior(_WitchHunterCaptain);
-
-            // BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(_WitchHunterCaptain);
-
-            //        _ExampleWarband = new WitchHuntersWarband();
-            //_ExampleWarband.a
-            //WitchHunterCaptain witchHunterCaptain = new WitchHunterCaptain();
         }
 
         [TestMethod]
         public void Save()
         {
-            Assert.IsNotNull(_WarbandRoster);
-
             DalProvider.Instance.Save(_WarbandRoster);
         }
 
         [TestMethod]
-        public void Load()
+        public void SaveAndLoad()
         {
+            DalProvider.Instance.Save(_WarbandRoster);
             IWarbandRoster roster = new XmlDal().LoadWarband(Path.Combine(XmlDal.STORAGE_PATH, "Warband Roster MordheimDal.Tests.xml"));
             Assert.IsNotNull(roster);
+
             //WarBandProvider.Instance.GetWarband("WitchHunters"));
         }
     }

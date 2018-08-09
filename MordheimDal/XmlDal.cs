@@ -58,6 +58,7 @@ namespace MordheimDal
 
         public void Save(IWarbandRoster roster)
         {
+            if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
             string rosterName = roster.Name;
             string filename = BuildFileNameAndCreateStoragerDirectory(rosterName);
 

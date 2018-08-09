@@ -36,12 +36,6 @@ namespace MordheimBuilder
                 EquippedWeapons.Add(new EquipmentSummaryViewModel(item));
             }
 
-            foreach (var item in warrior.Skills)
-            {
-                Skills.Add(new SkillViewModel(item));
-                SkillsSimple.Add(new SkillViewModelSimple(item));
-            }
-
             foreach (var item in warrior.AllowedSkills)
             {
                 //if (!warrior.Skills.Contains(item))
@@ -69,6 +63,12 @@ namespace MordheimBuilder
                     Injuries.Add(injuryModel);
                     InjuriesSimple.Add(injuryModel);
                 }
+
+                foreach (var item in hero.Skills)
+                {
+                    Skills.Add(new SkillViewModel(item));
+                    SkillsSimple.Add(new SkillViewModelSimple(item));
+                }
             }
         }
 
@@ -82,11 +82,11 @@ namespace MordheimBuilder
                 {
                     if (String.IsNullOrEmpty(skillList))
                     {
-                        skillList = $" {skill.Name}"; ;
+                        skillList = $" {skill.SkillTypeName}"; ;
                     }
                     else
                     {
-                        skillList += $" ,{skill.Name}";
+                        skillList += $" ,{skill.SkillTypeName}";
                     }
                 }
 

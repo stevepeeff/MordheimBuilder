@@ -19,6 +19,8 @@ namespace DomainModel.Skills
 
         string Description { get; }
 
-        string Name { get; }
+        string SkillName { get; }
+
+        string SkillTypeName { get; }
     }
 }

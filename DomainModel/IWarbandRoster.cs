@@ -23,7 +23,7 @@ namespace DomainModel
 
         int WarbandRating { get; }
 
-        void AddWarrior(IWarrior warrior);
+        IWarrior AddWarrior(IWarrior warrior);
 
         void RemoveWarrior(IWarrior warrior);
 

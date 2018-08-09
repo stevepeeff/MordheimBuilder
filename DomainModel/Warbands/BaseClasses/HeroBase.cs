@@ -51,12 +51,6 @@ namespace DomainModel.Warbands.BaseClasses
             Trigger();
         }
 
-        public void AddSkill(ISkill skill)
-        {
-            _Skills.Add(skill);
-            Trigger();
-        }
-
         public override bool IsLevelUp(int experienceValue)
         {
             return LevelUpCalculationHero(experienceValue);

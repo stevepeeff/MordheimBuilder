@@ -126,14 +126,6 @@ namespace DomainModel.Warbands
         Characteristic Save { get; }
 
         /// <summary>
-        /// Gets the skills.
-        /// </summary>
-        /// <value>
-        /// The skills.
-        /// </value>
-        IReadOnlyCollection<ISkill> Skills { get; }
-
-        /// <summary>
         /// Gets the strength.
         /// </summary>
         /// <value>

@@ -19,6 +19,14 @@ namespace DomainModel.Warbands
         IReadOnlyCollection<Injury> Injuries { get; }
 
         /// <summary>
+        /// Gets the skills.
+        /// </summary>
+        /// <value>
+        /// The skills.
+        /// </value>
+        IReadOnlyCollection<ISkill> Skills { get; }
+
+        /// <summary>
         /// Adds the injury.
         /// </summary>
         /// <param name="injury">The injury.</param>
