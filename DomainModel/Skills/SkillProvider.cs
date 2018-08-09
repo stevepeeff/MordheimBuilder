@@ -33,73 +33,62 @@ namespace DomainModel.Skills
 
         public static SkillProvider Instance { get; } = new SkillProvider();
 
-        //TODO remove specific skill lists, use helper functions in Skill Provider Tools
+        /// <summary>
+        /// Gets the academic skills.
+        /// </summary>
+        /// <value>
+        /// The academic skills.
+        /// </value>
+        public IList<IAcademic> AcademicSkills => AllSkills.GetSkills<IAcademic>();
 
-        public IList<IAcademic> AcademicSkills { get; } = new List<IAcademic>();
+        /// <summary>
+        /// Gets all skills.
+        /// </summary>
+        /// <value>
+        /// All skills.
+        /// </value>
         public IList<ISkill> AllSkills { get; } = new List<ISkill>();
-        public IList<ICombat> CombatSkills { get; } = new List<ICombat>();
-        public IList<IShooting> ShootingSkills { get; } = new List<IShooting>();
-        public IList<ISpeed> SpeedSkills { get; } = new List<ISpeed>();
 
+        /// <summary>
+        /// Gets the combat skills.
+        /// </summary>
+        /// <value>
+        /// The combat skills.
+        /// </value>
+        public IList<ICombat> CombatSkills => AllSkills.GetSkills<ICombat>();
+
+        /// <summary>
+        /// Gets the shooting skills.
+        /// </summary>
+        /// <value>
+        /// The shooting skills.
+        /// </value>
+        public IList<IShooting> ShootingSkills => AllSkills.GetSkills<IShooting>();
+
+        /// <summary>
+        /// Gets the speed skills.
+        /// </summary>
+        /// <value>
+        /// The speed skills.
+        /// </value>
+        public IList<ISpeed> SpeedSkills => AllSkills.GetSkills<ISpeed>();
+
+        /// <summary>
+        /// Gets the strength skills.
+        /// </summary>
+        /// <value>
+        /// The strength skills.
+        /// </value>
         public IList<IStrength> StrengthSkills
         {
             get
             {
-                IList<IStrength> retval = new List<IStrength>();
-                foreach (ISkill item in AllSkills)
-                {
-                    if (item is IStrength)
-                    {
-                        retval.Add(item as IStrength);
-                    }
-                }
-
-                return retval;
+                return AllSkills.GetSkills<IStrength>();
             }
         }
 
         private void AddSkill(ISkill skill)
         {
-            if (skill is IStrength)
-            {
-                //if (StrengthSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
-                //{
-                //    StrengthSkills.Add(skill as IStrength);
-                //}
-            }
-            else if (skill is IShooting)
-            {
-                if (ShootingSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
-                {
-                    ShootingSkills.Add(skill as IShooting);
-                }
-            }
-            else if (skill is IAcademic)
-            {
-                if (AcademicSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
-                {
-                    AcademicSkills.Add(skill as IAcademic);
-                }
-            }
-            else if (skill is ICombat)
-            {
-                if (CombatSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
-                {
-                    CombatSkills.Add(skill as ICombat);
-                }
-            }
-            else if (skill is ISpeed)
-            {
-                if (ShootingSkills.FirstOrDefault(x => x.Name.Equals(skill.Name)) == null)
-                {
-                    SpeedSkills.Add(skill as ISpeed);
-                }
-            }
-            else
-            {
-                throw new NotImplementedException($"Skill: '{skill.Name}' is not known by the SkillProvider");
-            }
-
             if (AllSkills.FirstOrDefault(x => x.SkillName().Equals(skill.SkillName())) == null)
             {
                 AllSkills.Add(skill);

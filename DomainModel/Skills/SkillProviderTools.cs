@@ -13,35 +13,19 @@ namespace DomainModel.Skills
 {
     public static class SkillProviderTools
     {
-        public static List<Type> DistinctSkills<T>(this IReadOnlyCollection<ISkill> skillList) where T : ISkill
+        internal static IList<T> GetSkills<T>(this IList<ISkill> skills) where T : ISkill
         {
-            List<Type> result = new List<Type>();
+            IList<T> retval = new List<T>();
 
-            foreach (ISkill skill in skillList)
+            foreach (ISkill item in skills)
             {
-                Type[] types = skill.GetType().GetInterfaces();
-
-                foreach (Type interfaceType in types.ToList())
+                if (item is T)
                 {
-                    if (!result.Contains(interfaceType) && !interfaceType.Name.Equals(nameof(ISkill)))
-                    {
-                        result.Add(interfaceType);
-                    }
+                    retval.Add((T)item);
                 }
             }
 
-            return result;
-        }
-
-        public static IList<ISkill> GetSkillList(this Type skill)
-        {
-            return SkillProvider.Instance.AllSkills.Where(x => x.GetType().GetInterfaces().Contains(skill)).ToList();
-        }
-
-        //public static void AtomicSave<T>(T objectToSerialize, string path) where T : class
-        public static IList<IStrength> GetStrengthSkills(this Type skill)
-        {
-            return null;
+            return retval;
         }
 
         public static string SkillName(this ISkill skill)
