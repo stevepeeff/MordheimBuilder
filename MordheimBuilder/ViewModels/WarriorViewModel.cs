@@ -179,7 +179,7 @@ namespace MordheimBuilder
                 if (Warrior is IHenchMan)
                 {
                     IHenchMan henchMen = Warrior as IHenchMan;
-                    return henchMen.NumberOfWarriorsInGroup;
+                    return henchMen.AmountInGroup;
                 }
 
                 return null;

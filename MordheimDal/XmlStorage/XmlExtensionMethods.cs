@@ -21,7 +21,13 @@ namespace MordheimDal.XmlStorage
             };
 
             xmlWarrior.EquipmentList.AddRange(warrior.Equipment.Select(x => x.Name).ToList());
-            if (warrior is IHero)
+
+            if (warrior is IHenchMan)
+            {
+                IHenchMan henchMan = warrior as IHenchMan;
+                xmlWarrior.AmountInGroup = henchMan.AmountInGroup;
+            }
+            else if (warrior is IHero)
             {
                 IHero hero = warrior as IHero;
                 xmlWarrior.SkillList.AddRange(hero.Skills.Select(x => x.SkillName).ToList());

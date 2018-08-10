@@ -97,7 +97,7 @@ namespace DomainModel.Warbands.BaseClasses
                 if (this is IHenchMan)
                 {
                     IHenchMan henchMen = this as IHenchMan;
-                    return (henchMen.NumberOfWarriorsInGroup * (this.EquipmentCosts + this.HireFee));
+                    return (henchMen.AmountInGroup * (this.EquipmentCosts + this.HireFee));
                 }
 
                 return null;
@@ -111,7 +111,7 @@ namespace DomainModel.Warbands.BaseClasses
                 if (this is IHenchMan)
                 {
                     IHenchMan henchMen = this as IHenchMan;
-                    return henchMen.NumberOfWarriorsInGroup;
+                    return henchMen.AmountInGroup;
                 }
 
                 return null;
@@ -140,7 +140,7 @@ namespace DomainModel.Warbands.BaseClasses
         public virtual int MaximumExperience { get; } = 14;
         public Characteristic Movement { get; private set; }
         public string Name { get; set; }
-        public int NumberOfWarriorsInGroup { get; private set; } = 0;
+        public int AmountInGroup { get; private set; } = 0;
         public Characteristic Save { get; private set; }
 
         public Characteristic Strength { get; private set; }
@@ -212,9 +212,9 @@ namespace DomainModel.Warbands.BaseClasses
             return areEqual;
         }
 
-        public void DecreaseGroupCount()
+        public void DecreaseGroupByOne()
         {
-            NumberOfWarriorsInGroup--;
+            AmountInGroup--;
             NotifyPropertiesChangedChanged();
         }
 
@@ -245,9 +245,9 @@ namespace DomainModel.Warbands.BaseClasses
             return newInstance;
         }
 
-        public void IncreaseGroupCount()
+        public void IncreaseGroupByOne()
         {
-            NumberOfWarriorsInGroup++;
+            AmountInGroup++;
             NotifyPropertiesChangedChanged();
         }
 
@@ -259,7 +259,7 @@ namespace DomainModel.Warbands.BaseClasses
 
                 if (henchMan != null)
                 {
-                    return henchMan.NumberOfWarriorsInGroup;
+                    return henchMan.AmountInGroup;
                 }
                 return 1;
             }

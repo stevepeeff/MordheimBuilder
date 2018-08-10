@@ -31,7 +31,7 @@ namespace MordheimBuilderLogic
 
                     if (henchMan != null)
                     {
-                        totalCosts += henchMan.NumberOfWarriorsInGroup * (warrior.HireFee + warrior.EquipmentCosts);
+                        totalCosts += henchMan.AmountInGroup * (warrior.HireFee + warrior.EquipmentCosts);
                     }
                     else
                     {
@@ -55,7 +55,7 @@ namespace MordheimBuilderLogic
 
                     if (henchMan != null)
                     {
-                        totalwarriors += henchMan.NumberOfWarriorsInGroup;
+                        totalwarriors += henchMan.AmountInGroup;
                     }
                     else
                     {
@@ -80,7 +80,7 @@ namespace MordheimBuilderLogic
 
                     if (henchMan != null)
                     {
-                        rating += (henchMan.NumberOfWarriorsInGroup * henchMan.CurrentExperience);
+                        rating += (henchMan.AmountInGroup * henchMan.CurrentExperience);
                     }
                     else
                     {
@@ -111,7 +111,7 @@ namespace MordheimBuilderLogic
             if (newWarrior is IHenchMan)
             {
                 IHenchMan henchMan = newWarrior as IHenchMan;
-                henchMan.IncreaseGroupCount();
+                henchMan.IncreaseGroupByOne();
             }
 
             InvokeEvent(WarBandChanged);
@@ -122,8 +122,8 @@ namespace MordheimBuilderLogic
 
         public void DecreaseHenchmenInGroup(IHenchMan warrior)
         {
-            warrior.DecreaseGroupCount();
-            if (warrior.NumberOfWarriorsInGroup <= 0)
+            warrior.DecreaseGroupByOne();
+            if (warrior.AmountInGroup <= 0)
             {
                 RemoveWarrior(warrior);
             }
@@ -137,7 +137,7 @@ namespace MordheimBuilderLogic
         {
             if (NumberOffWarriorsOfThisTypeInRoster(warrior) < warrior.MaximumAllowedInWarBand)
             {
-                warrior.IncreaseGroupCount();
+                warrior.IncreaseGroupByOne();
                 InvokeEvent(WarBandChanged);
             }
         }

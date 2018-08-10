@@ -44,8 +44,16 @@ namespace MordheimDal
                 {
                     warrior.AddEquipment(item);
                 }
+                if (warrior is IHenchMan)
+                {
+                    IHenchMan henchMan = warrior as IHenchMan;
 
-                if (warrior is IHero)
+                    for (int i = 1; i < xmlWarrior.AmountInGroup; i++)
+                    {
+                        henchMan.IncreaseGroupByOne();
+                    }
+                }
+                else if (warrior is IHero)
                 {
                     IHero hero = warrior as IHero;
 
