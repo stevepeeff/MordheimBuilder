@@ -37,5 +37,7 @@ namespace DomainModel.Warbands
         /// </summary>
         /// <param name="skill">The skill.</param>
         void AddSkill(ISkill skill);
+
+        void AddSkill(string skillName);
     }
 }

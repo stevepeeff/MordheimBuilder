@@ -38,20 +38,23 @@ namespace MordheimDal
             foreach (var xmlWarrior in xmlHeadNode.WarbandRoster.WarriorList)
             {
                 IWarrior warrior = warbandRoster.WarBand.GetWarrior(xmlWarrior.TypeOfWarrior);
+
+                warrior = warbandRoster.AddWarrior(warrior);
                 foreach (string item in xmlWarrior.EquipmentList)
                 {
                     warrior.AddEquipment(item);
                 }
-                warbandRoster.AddWarrior(warrior);
+
+                if (warrior is IHero)
+                {
+                    IHero hero = warrior as IHero;
+
+                    foreach (string skill in xmlWarrior.SkillList)
+                    {
+                        hero.AddSkill(skill);
+                    }
+                }
             }
-
-            string warriorType = "";
-            warbandRoster.WarBand.GetWarrior(warriorType);
-            //warbandRoster.AddWarrior(new Witch);
-
-            //IWarbandRoster loadResult = new WarBandRoster(warband);
-
-            //loadResult.WarBandName = xmlHeadNode.WarbandRoster.Name;
 
             return warbandRoster;
         }

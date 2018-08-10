@@ -94,5 +94,10 @@ namespace DomainModel.Skills
                 AllSkills.Add(skill);
             }
         }
+
+        public ISkill GetSkill(string skillName)
+        {
+            return AllSkills.GetSkill(skillName);
+        }
     }
 }

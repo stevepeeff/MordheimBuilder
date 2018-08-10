@@ -28,6 +28,11 @@ namespace DomainModel.Skills
             return retval;
         }
 
+        internal static ISkill GetSkill(this IList<ISkill> skills, string skillName)
+        {
+            return skills.FirstOrDefault(x => x.SkillName.Equals(skillName));
+        }
+
         public static string SkillName(this ISkill skill)
         {
             return skill.GetType().Name;

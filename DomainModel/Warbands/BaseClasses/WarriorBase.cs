@@ -40,7 +40,6 @@ namespace DomainModel.Warbands.BaseClasses
                 Movement,WeaponSkill, BallisticSkill, Strength, Toughness, Wounds, Initiative, Attacks, LeaderShip, Save
             };
 
-            _Weapons.Add(new Dagger());
             _AllowedWeapons.Add(new Dagger());
         }
 
@@ -123,6 +122,11 @@ namespace DomainModel.Warbands.BaseClasses
         {
             _Skills.Add(skill);
             Trigger();
+        }
+
+        public void AddSkill(string skillName)
+        {
+            _Skills.Add(SkillProvider.Instance.GetSkill(skillName));
         }
 
         public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }

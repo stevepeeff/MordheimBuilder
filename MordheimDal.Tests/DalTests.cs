@@ -54,8 +54,9 @@ namespace MordheimDal.Tests
             DalProvider.Instance.Save(_WarbandRoster);
             IWarbandRoster roster = new XmlDal().LoadWarband(Path.Combine(XmlDal.STORAGE_PATH, "Warband Roster MordheimDal.Tests.xml"));
             Assert.IsNotNull(roster);
-
-            //WarBandProvider.Instance.GetWarband("WitchHunters"));
+            IHero loadedHero = roster.Warriors.First() as IHero;
+            Assert.AreEqual(_WitchHunterCaptain.Equipment.Count, loadedHero.Equipment.Count);
+            Assert.AreEqual(_WitchHunterCaptain.Skills.Count, loadedHero.Skills.Count);
         }
     }
 }
