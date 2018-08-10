@@ -28,6 +28,8 @@ namespace MordheimDal.Tests
         private IHenchMan _ZealotGroup1;
         private IHenchMan _ZealotGroup2;
 
+        private IWizard _WarriorPriest;
+
         public DalTests()
         {
             _WarbandRoster = new WarBandRoster(new WitchHuntersWarband());
@@ -55,6 +57,9 @@ namespace MordheimDal.Tests
             _ZealotGroup2.IncreaseGroupByOne();
             _ZealotGroup2.IncreaseGroupByOne();
             _ZealotGroup2.IncreaseGroupByOne();
+
+            _WarriorPriest = _WarbandRoster.AddWarrior(new WarriorPriest()) as WarriorPriest;
+            // _WarriorPriest.add
         }
 
         [TestMethod]

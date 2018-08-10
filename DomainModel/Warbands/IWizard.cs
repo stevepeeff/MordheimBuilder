@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands
 {
-    public interface IWizard
+    public interface IWizard : IHero
     {
         IList<ISpell> SpellList { get; }
 
