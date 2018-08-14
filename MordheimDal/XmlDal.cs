@@ -15,10 +15,10 @@ namespace MordheimDal
 {
     internal class XmlDal : IDAL
     {
-        private const string STORAGE_FOLDER = "Mordheim Builder";
-        private const string FILENAME = "Warband Roster";
-        private const string FILE_EXTENSION = ".XML";
         public static string STORAGE_PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), STORAGE_FOLDER);
+        private const string FILE_EXTENSION = ".XML";
+        private const string FILENAME = "Warband Roster";
+        private const string STORAGE_FOLDER = "Mordheim Builder";
 
         public void Load(string file)
         {
@@ -37,31 +37,7 @@ namespace MordheimDal
 
             foreach (var xmlWarrior in xmlHeadNode.WarbandRoster.WarriorList)
             {
-                IWarrior warrior = warbandRoster.WarBand.GetWarrior(xmlWarrior.TypeOfWarrior);
-
-                warrior = warbandRoster.AddWarrior(warrior);
-                foreach (string item in xmlWarrior.EquipmentList)
-                {
-                    warrior.AddEquipment(item);
-                }
-                if (warrior is IHenchMan)
-                {
-                    IHenchMan henchMan = warrior as IHenchMan;
-
-                    for (int i = 1; i < xmlWarrior.AmountInGroup; i++)
-                    {
-                        henchMan.IncreaseGroupByOne();
-                    }
-                }
-                else if (warrior is IHero)
-                {
-                    IHero hero = warrior as IHero;
-
-                    foreach (string skill in xmlWarrior.SkillList)
-                    {
-                        hero.AddSkill(skill);
-                    }
-                }
+                IWarrior warrior = warbandRoster.FromXml(xmlWarrior);
             }
 
             return warbandRoster;

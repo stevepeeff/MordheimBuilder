@@ -1,4 +1,5 @@
-﻿using DomainModel.Equipment;
+﻿using DomainModel;
+using DomainModel.Equipment;
 using DomainModel.Warbands;
 using DomainModel.Warbands.BaseClasses;
 using MordheimXmlDal.XmlStorage;
@@ -32,8 +33,52 @@ namespace MordheimDal.XmlStorage
                 IHero hero = warrior as IHero;
                 xmlWarrior.SkillList.AddRange(hero.Skills.Select(x => x.SkillName).ToList());
             }
+            if (warrior is IWizard)
+            {
+                IWizard wizard = warrior as IWizard;
+                xmlWarrior.SpellList.AddRange(wizard.DrawnSpells.Select(x => x.SpellName).ToList());
+            }
 
             return xmlWarrior;
+        }
+
+        public static IWarrior FromXml(this IWarbandRoster warbandRoster, XmlWarrior xmlWarrior)
+        {
+            IWarrior warrior = warbandRoster.WarBand.GetWarrior(xmlWarrior.TypeOfWarrior);
+
+            warrior = warbandRoster.AddWarrior(warrior);
+            foreach (string item in xmlWarrior.EquipmentList)
+            {
+                warrior.AddEquipment(item);
+            }
+            if (warrior is IHenchMan)
+            {
+                IHenchMan henchMan = warrior as IHenchMan;
+
+                for (int i = 1; i < xmlWarrior.AmountInGroup; i++)
+                {
+                    henchMan.IncreaseGroupByOne();
+                }
+            }
+            else if (warrior is IHero)
+            {
+                IHero hero = warrior as IHero;
+
+                foreach (string skill in xmlWarrior.SkillList)
+                {
+                    hero.AddSkill(skill);
+                }
+            }
+            if (warrior is IWizard)
+            {
+                IWizard wizard = warrior as IWizard;
+
+                //foreach (string item in w)
+                //{
+                //}
+            }
+
+            return warrior;
         }
     }
 }

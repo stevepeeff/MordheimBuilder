@@ -8,6 +8,8 @@ namespace DomainModel.Magic
 {
     public interface ISpell
     {
+        string SpellName { get; }
+
         int Difficulty { get; }
 
         /// <summary>

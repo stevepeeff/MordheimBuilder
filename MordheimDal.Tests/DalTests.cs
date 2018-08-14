@@ -15,6 +15,7 @@ using MordheimBuilderLogic;
 
 using System.IO;
 using MordheimXmlDal;
+using DomainModel.Magic.Prayers_of_Sigmar;
 
 namespace MordheimDal.Tests
 {
@@ -59,6 +60,7 @@ namespace MordheimDal.Tests
             _ZealotGroup2.IncreaseGroupByOne();
 
             _WarriorPriest = _WarbandRoster.AddWarrior(new WarriorPriest()) as WarriorPriest;
+            _WarriorPriest.SpellList.Add(new TheHammerOfSigmar());
             // _WarriorPriest.add
         }
 

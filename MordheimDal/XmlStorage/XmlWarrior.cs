@@ -23,6 +23,10 @@ namespace MordheimXmlDal.XmlStorage
         [XmlArrayItem(typeof(string))]
         public List<string> SkillList { get; set; } = new List<string>();
 
+        [XmlArray]
+        [XmlArrayItem(typeof(string))]
+        public List<string> SpellList { get; set; } = new List<string>();
+
         public int AmountInGroup { get; set; }
     }
 }
