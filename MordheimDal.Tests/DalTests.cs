@@ -60,7 +60,9 @@ namespace MordheimDal.Tests
             _ZealotGroup2.IncreaseGroupByOne();
 
             _WarriorPriest = _WarbandRoster.AddWarrior(new WarriorPriest()) as WarriorPriest;
-            _WarriorPriest.SpellList.Add(new TheHammerOfSigmar());
+            _WarriorPriest.AddSpell(new HeartsOfSteel());
+            _WarriorPriest.AddSpell(new TheHammerOfSigmar());
+
             // _WarriorPriest.add
         }
 
@@ -89,6 +91,9 @@ namespace MordheimDal.Tests
             IHenchMan loadedHenchMen2 = roster.Warriors.ElementAt(2) as IHenchMan;
             Assert.AreEqual(_ZealotGroup2.AmountInGroup, loadedHenchMen2.AmountInGroup);
             Assert.AreEqual(_ZealotGroup2.Equipment.Count, loadedHenchMen2.Equipment.Count);
+
+            IWizard loadedWizard = roster.Warriors.ElementAt(3) as IWizard;
+            Assert.IsTrue(loadedWizard.DrawnSpells.Any(x => x.SpellName.Equals(nameof(TheHammerOfSigmar))));
         }
     }
 }

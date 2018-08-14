@@ -88,7 +88,8 @@
     <Compile Include="Magic\Prayers of Sigmar\IPrayerOfSigmar.cs" />
     <Compile Include="Magic\Prayers of Sigmar\TheHammerOfSigmar.cs" />
     <Compile Include="Magic\SpellBase.cs" />
-    <Compile Include="Magic\Spells.cs" />
+    <Compile Include="Magic\SpellProvider.cs" />
+    <Compile Include="Magic\SpellExtesnionMethods.cs" />
     <Compile Include="ProgressionLogs\BattleInformation.cs" />
     <Compile Include="ProgressionLogs\Expierence.cs" />
     <Compile Include="ProgressionLogs\InjuryGain.cs" />

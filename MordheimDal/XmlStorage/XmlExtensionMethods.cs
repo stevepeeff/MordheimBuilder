@@ -73,9 +73,10 @@ namespace MordheimDal.XmlStorage
             {
                 IWizard wizard = warrior as IWizard;
 
-                //foreach (string item in w)
-                //{
-                //}
+                foreach (string item in xmlWarrior.SpellList)
+                {
+                    wizard.AddSpell(item);
+                }
             }
 
             return warrior;

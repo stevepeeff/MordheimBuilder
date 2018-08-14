@@ -13,7 +13,7 @@ namespace DomainModel.Skills
 {
     public static class SkillProviderTools
     {
-        internal static IList<T> GetSkills<T>(this IList<ISkill> skills) where T : ISkill
+        public static IList<T> GetSkills<T>(this IList<ISkill> skills) where T : ISkill
         {
             IList<T> retval = new List<T>();
 
@@ -28,7 +28,7 @@ namespace DomainModel.Skills
             return retval;
         }
 
-        internal static ISkill GetSkill(this IList<ISkill> skills, string skillName)
+        public static ISkill GetSkill(this IList<ISkill> skills, string skillName)
         {
             return skills.FirstOrDefault(x => x.SkillName.Equals(skillName));
         }

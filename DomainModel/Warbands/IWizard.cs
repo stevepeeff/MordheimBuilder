@@ -9,8 +9,12 @@ namespace DomainModel.Warbands
 {
     public interface IWizard : IHero
     {
-        IList<ISpell> SpellList { get; }
+        IReadOnlyList<ISpell> SpellList { get; }
 
-        IList<ISpell> DrawnSpells { get; }
+        IReadOnlyList<ISpell> DrawnSpells { get; }
+
+        void AddSpell(ISpell spell);
+
+        void AddSpell(string spellName);
     }
 }

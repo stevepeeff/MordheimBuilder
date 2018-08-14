@@ -1,4 +1,5 @@
 ﻿using DomainModel.Injuries;
+using DomainModel.Magic;
 using DomainModel.Skills;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace DomainModel.Warbands.BaseClasses
     {
         private List<Injury> _Injuries = new List<Injury>();
 
+        private List<ISpell> _DrawnSpells = new List<ISpell>();
+        public IReadOnlyList<ISpell> DrawnSpells => _DrawnSpells;
         public IReadOnlyCollection<Injury> Injuries { get { return _Injuries; } }
 
         public override int MaximumExperience { get; } = 30;
@@ -49,6 +52,16 @@ namespace DomainModel.Warbands.BaseClasses
         {
             _Injuries.Add(injury);
             Trigger();
+        }
+
+        public void AddSpell(ISpell spell)
+        {
+            _DrawnSpells.Add(spell);
+        }
+
+        public void AddSpell(string spellName)
+        {
+            AddSpell(SpellProvider.Instance.GetSpell(spellName));
         }
 
         public override bool IsLevelUp(int experienceValue)

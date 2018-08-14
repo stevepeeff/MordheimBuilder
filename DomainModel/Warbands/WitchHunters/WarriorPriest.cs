@@ -15,14 +15,6 @@ namespace DomainModel.Warbands.WitchHunters
         {
             LeaderShip.BaseValue = 8;
             _AllowedWeapons.AddRange(WitchHuntersWarband.HeroEquipmentList);
-
-            //TODO TESTING
-            AddSpell(new TheHammerOfSigmar());
-        }
-
-        public void AddSpell(ISpell spell)
-        {
-            DrawnSpells.Add(spell);
         }
 
         public override IWarrior GetANewInstance()
@@ -32,9 +24,7 @@ namespace DomainModel.Warbands.WitchHunters
 
         public override int InitialExperience { get; } = 12;
 
-        public IList<ISpell> SpellList { get; } = Spells.PrayersOfSigmar;
-
-        public IList<ISpell> DrawnSpells { get; } = new List<ISpell>();
+        public IReadOnlyList<ISpell> SpellList { get; } = SpellProvider.Instance.PrayersOfSigmar;
 
         public override int HireFee { get; } = 40;
 

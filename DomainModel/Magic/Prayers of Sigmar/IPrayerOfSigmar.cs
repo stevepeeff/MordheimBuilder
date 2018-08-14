@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Magic.Prayers_of_Sigmar
 {
-    public interface IPrayerOfSigmar
+    public interface IPrayerOfSigmar : ISpell
     {
     }
 }
