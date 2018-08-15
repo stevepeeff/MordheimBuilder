@@ -20,6 +20,8 @@ namespace MordheimDal
         private const string FILENAME = "Warband Roster";
         private const string STORAGE_FOLDER = "Mordheim Builder";
 
+        public string DefaultStorageDirectory => STORAGE_PATH;
+
         public void Load(string file)
         {
             LoadWarband(file);
@@ -45,6 +47,7 @@ namespace MordheimDal
 
         public void Save(IWarbandRoster roster)
         {
+            throw new NotImplementedException("Proper refactor");
             if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
             string rosterName = roster.Name;
             string filename = BuildFileNameAndCreateStoragerDirectory(rosterName);
@@ -75,6 +78,28 @@ namespace MordheimDal
 
             Directory.CreateDirectory(STORAGE_PATH);
             return filename;
+        }
+
+        public void Save(IWarbandRoster roster, string specificFileName)
+        {
+            if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
+
+            string storageName = specificFileName;
+            if (specificFileName.EndsWith(FILE_EXTENSION, StringComparison.CurrentCultureIgnoreCase) == false)
+            {
+                storageName += FILE_EXTENSION;
+            }
+
+            XmlHeadNode xmlHeadNode = new XmlHeadNode();
+            xmlHeadNode.WarbandRoster.Name = roster.Name;
+            xmlHeadNode.WarbandRoster.Warband = roster.WarBand.WarBandName;
+
+            foreach (IWarrior warrior in roster.Warriors)
+            {
+                xmlHeadNode.WarbandRoster.WarriorList.Add(warrior.ToXml());
+            }
+
+            XMLUtils.AtomicSave<XmlHeadNode>(xmlHeadNode, Path.Combine(STORAGE_PATH, storageName));
         }
     }
 }

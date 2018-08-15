@@ -41,6 +41,8 @@ namespace MordheimBuilder
             this.DataContext = this;
         }
 
+        public ICommand SaveCommand { get; } = new SaveWarband();
+        public ICommand LoadCommand { get; } = new LoadWarband();
         public ICommand EditModeCommand { get; private set; }
 
         public ICommand PlayModeCommand { get; private set; }

@@ -26,10 +26,10 @@
                     <Separator />
                     <MenuItem Header="New War band" Command="{Binding ShowNewWarBandCommand}" />
                     <Separator />
-                    <MenuItem Header="_Open..." Click="MenuItem_Load_Click" />
+                    <MenuItem Header="_Load..." Command="{Binding LoadCommand}" />
                     <Separator />
                     <MenuItem Header="_Save" Click="MenuItem_Click_Save" />
-                    <MenuItem Header="_Save As..." />
+                    <MenuItem Header="_Save As..." Command="{Binding SaveCommand}" />
                     <Separator />
                     <MenuItem Header="_Print" Click="MenuItem_Click" />
                     <Separator />

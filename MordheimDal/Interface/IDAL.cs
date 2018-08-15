@@ -12,6 +12,10 @@ namespace MordheimDal.Interface
     {
         void Save(IWarbandRoster roster);
 
+        void Save(IWarbandRoster roster, string specificFileName);
+
+        string DefaultStorageDirectory { get; }
+
         void Load(string file);
     }
 }
