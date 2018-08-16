@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands
 {
+    /// <summary>
+    /// All specifications of a Warrior
+    /// </summary>
     public interface IWarrior
     {
         /// <summary>
@@ -19,8 +22,20 @@ namespace DomainModel.Warbands
         /// </summary>
         event EventHandler PropertiesChanged;
 
+        /// <summary>
+        /// Gets the afflictions.
+        /// </summary>
+        /// <value>
+        /// The afflictions.
+        /// </value>
         IReadOnlyCollection<IPsychology> Afflictions { get; }
 
+        /// <summary>
+        /// Gets the allowed equipment.
+        /// </summary>
+        /// <value>
+        /// The allowed equipment.
+        /// </value>
         IReadOnlyCollection<IEquipment> AllowedEquipment { get; }
 
         /// <summary>
@@ -31,8 +46,20 @@ namespace DomainModel.Warbands
         /// </value>
         IReadOnlyCollection<ISkill> AllowedSkills { get; }
 
+        /// <summary>
+        /// Gets the attacks.
+        /// </summary>
+        /// <value>
+        /// The attacks.
+        /// </value>
         Characteristic Attacks { get; }
 
+        /// <summary>
+        /// Gets the ballistic skill.
+        /// </summary>
+        /// <value>
+        /// The ballistic skill.
+        /// </value>
         Characteristic BallisticSkill { get; }
 
         /// <summary>
@@ -159,8 +186,18 @@ namespace DomainModel.Warbands
         /// </value>
         Characteristic WeaponSkill { get; }
 
+        /// <summary>
+        /// Gets the warrior status.
+        /// </summary>
+        /// <value>
+        /// The warrior status.
+        /// </value>
         IWarriorStatus WarriorStatus { get; }
 
+        /// <summary>
+        /// Changes the status.
+        /// </summary>
+        /// <param name="warriorStatus">The warrior status.</param>
         void ChangeStatus(IWarriorStatus warriorStatus);
 
         /// <summary>
@@ -197,16 +234,7 @@ namespace DomainModel.Warbands
         int AmountOfThisType(IWarrior warrior);
 
         /// <summary>
-        /// Verifies if this and another warrior
-        /// TODO obsolete, so remove
-        /// </summary>
-        /// <param name="warrior">The warrior.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException">warrior is null</exception>
-        bool AreEqual(IWarrior warior);
-
-        /// <summary>
-        /// Gets an instance.
+        /// Gets an instance. Use when adding a warrior to a Roster
         /// </summary>
         /// <returns></returns>
         IWarrior GetAnInstance();

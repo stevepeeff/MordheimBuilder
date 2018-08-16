@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands
 {
+    /// <summary>
+    /// A hero has more abilities the a warrior
+    /// </summary>
+    /// <seealso cref="DomainModel.Warbands.IWarrior" />
     public interface IHero : IWarrior
     {
         /// <summary>
@@ -38,6 +42,10 @@ namespace DomainModel.Warbands
         /// <param name="skill">The skill.</param>
         void AddSkill(ISkill skill);
 
+        /// <summary>
+        /// Adds the skill.
+        /// </summary>
+        /// <param name="skillName">Name of the skill.</param>
         void AddSkill(string skillName);
     }
 }

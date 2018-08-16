@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands
 {
+    /// <summary>
+    /// Provides everything that a warband has
+    /// </summary>
     public interface IWarBand
     {
+        /// <summary>
+        /// Gets the advantages.
+        /// </summary>
+        /// <value>
+        /// The advantages.
+        /// </value>
         IRacialAdvantage Advantages { get; }
 
         /// <summary>
@@ -18,16 +27,6 @@ namespace DomainModel.Warbands
         /// The description.
         /// </value>
         string Description { get; }
-
-        /// <summary>
-        /// Gets the name of the war band.
-        /// </summary>
-        /// <value>
-        /// The name of the war band.
-        /// </value>
-        string WarBandName { get; }
-
-        IWarrior GetWarrior(string typeName);
 
         /// <summary>
         /// Gets the hench men.
@@ -45,7 +44,28 @@ namespace DomainModel.Warbands
         /// </value>
         IReadOnlyCollection<IHero> Heroes { get; }
 
+        /// <summary>
+        /// Gets the maximum number of warriors.
+        /// </summary>
+        /// <value>
+        /// The maximum number of warriors.
+        /// </value>
         int MaximumNumberOfWarriors { get; }
+
+        /// <summary>
+        /// Gets the name of the war band.
+        /// </summary>
+        /// <value>
+        /// The name of the war band.
+        /// </value>
+        string WarBandName { get; }
+
+        /// <summary>
+        /// Gets the warrior.
+        /// </summary>
+        /// <param name="typeName">Name of the type.</param>
+        /// <returns></returns>
+        IWarrior GetWarrior(string typeName);
 
         //TODO Special rules like Reikland Marksen +1 BS
         //A description suffices..

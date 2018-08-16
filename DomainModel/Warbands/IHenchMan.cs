@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands
 {
+    /// <summary>
+    /// Henchmen are bought and maintained in groups
+    /// </summary>
+    /// <seealso cref="DomainModel.Warbands.IWarrior" />
     public interface IHenchMan : IWarrior
     {
         /// <summary>
