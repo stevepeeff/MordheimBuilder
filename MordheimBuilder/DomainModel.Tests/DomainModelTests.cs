@@ -64,23 +64,6 @@ namespace DomainModel.Tests
         }
 
         [TestMethod]
-        public void WarriorAreEqual()
-        {
-            IWarrior warriorFlagelellant = new Flagellant();
-            IWarrior flagelellantNewInstance = new Flagellant().GetAnInstance();
-            IWarrior flagelellantRefernce = flagelellantNewInstance;
-            IWarrior flagelellantOtherNewInsatnce = new Flagellant().GetAnInstance();
-            IWarrior warriorAssassinAdept = new AssassinAdept();
-
-            Assert.IsFalse(warriorFlagelellant.AreEqual(warriorFlagelellant.GetAnInstance()));
-            Assert.IsFalse(warriorFlagelellant.AreEqual(new Flagellant()));
-            Assert.IsFalse(warriorFlagelellant.AreEqual(warriorAssassinAdept));
-            Assert.IsFalse(flagelellantNewInstance.AreEqual(flagelellantOtherNewInsatnce));
-
-            Assert.IsTrue(flagelellantNewInstance.AreEqual(flagelellantRefernce));
-        }
-
-        [TestMethod]
         public void Flagellant()
         {
             var warrior = new Flagellant();
