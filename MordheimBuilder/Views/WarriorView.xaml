@@ -36,11 +36,11 @@
                             </StackPanel>
                         </GroupBox>
                         <StackPanel Width="100">
+                            <Button Margin="10" Width="80" Command="{Binding RemoveWarriorCommand}" >Remove</Button>
                             <StackPanel Margin="5" Orientation="Horizontal"  Visibility="{Binding ShowGroupBuyButtons}">
                                 <Button Margin="3" Width="40" FontWeight="Bold" Command="{Binding DecreaseWarriorBuyAmountCommand}">-</Button>
                                 <Button Margin="3" Width="40" FontWeight="Bold" Command="{Binding IncreaseWarriorBuyAmountCommand }">+</Button>
                             </StackPanel>
-                            <Button Margin="3" Width="80" Command="{Binding RemoveWarriorCommand}" >Remove</Button>
                         </StackPanel>
                     </DockPanel>
 
