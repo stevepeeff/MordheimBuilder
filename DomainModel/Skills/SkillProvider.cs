@@ -31,6 +31,12 @@ namespace DomainModel.Skills
             AddSkill(new StrikeToInjure());
         }
 
+        /// <summary>
+        /// Gets the instance.
+        /// </summary>
+        /// <value>
+        /// The instance.
+        /// </value>
         public static SkillProvider Instance { get; } = new SkillProvider();
 
         /// <summary>

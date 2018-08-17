@@ -1,4 +1,5 @@
 ﻿using DomainModel.Psychology;
+using DomainModel.Skills;
 using DomainModel.Warbands.BaseClasses;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace DomainModel.Warbands.WitchHunters
         {
             AddAffliction(new BurnTheWitch());
             _AllowedWeapons.AddRange(WitchHuntersWarband.HeroEquipmentList);
+
+            _AllowedSkills.AddRange(SkillProvider.Instance.CombatSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.ShootingSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.AcademicSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
         }
 
         public override int InitialExperience { get; } = 8;

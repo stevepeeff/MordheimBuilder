@@ -34,18 +34,42 @@ namespace MordheimBuilder
             //THIS CODE IS BROKEN
             //this.DataContext = new WarBandOverallViewModel();
 
-            EditModeCommand = new EditMode(this);
-            PlayModeCommand = new PlayMode(this);
             //TESTING..
             LoadWarBand();
             this.DataContext = this;
         }
 
+        /// <summary>
+        /// Gets the save command.
+        /// </summary>
+        /// <value>
+        /// The save command.
+        /// </value>
         public ICommand SaveCommand { get; } = new SaveWarband();
-        public ICommand LoadCommand { get; } = new LoadWarband();
-        public ICommand EditModeCommand { get; private set; }
 
-        public ICommand PlayModeCommand { get; private set; }
+        /// <summary>
+        /// Gets the load command.
+        /// </summary>
+        /// <value>
+        /// The load command.
+        /// </value>
+        public ICommand LoadCommand { get; } = new LoadWarband();
+
+        /// <summary>
+        /// Gets the edit mode command.
+        /// </summary>
+        /// <value>
+        /// The edit mode command.
+        /// </value>
+        public ICommand EditModeCommand => new EditMode(this);
+
+        /// <summary>
+        /// Gets the play mode command.
+        /// </summary>
+        /// <value>
+        /// The play mode command.
+        /// </value>
+        public ICommand PlayModeCommand => new PlayMode(this);
 
         //TODO Move all event handlers to ViewModel
 
@@ -79,8 +103,8 @@ namespace MordheimBuilder
             BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(BuilderLogicFactory.Instance.CurrentWarband.HenchMen.ElementAt(1));
             BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(BuilderLogicFactory.Instance.CurrentWarband.HenchMen.ElementAt(2));
 
-            //EditModeCommand.Execute(null);
-            PlayModeCommand.Execute(null);
+            EditModeCommand.Execute(null);
+            //PlayModeCommand.Execute(null);
         }
     }
 }
