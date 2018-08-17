@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Psychology
 {
-    public class Fanatical : IPsychology
+    public class Fanatical : PsychologyBase
     {
-        public Afflictions Affliction { get; } = Afflictions.AutomaticallyPassAllLeadershipTests;
+        public override Afflictions Affliction { get; } = Afflictions.AutomaticallyPassAllLeadershipTests;
 
-        public string Description { get; } = "Self, can never become a warband leader";
+        public override string Description { get; } = "Self, can never become a warband leader";
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Psychology
 {
-    public class BurnTheWitch : IPsychology
+    public class BurnTheWitch : PsychologyBase
     {
-        public Afflictions Affliction { get; } = Afflictions.Fear;
+        public override Afflictions Affliction { get; } = Afflictions.Fear;
 
-        public string Description { get; } = "All models who can cast spells";
+        public override string Description { get; } = "All models who can cast spells";
     }
 }

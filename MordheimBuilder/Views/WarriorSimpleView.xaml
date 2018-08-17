@@ -7,17 +7,22 @@
              xmlns:Views ="clr-namespace:MordheimBuilder.Views"
              mc:Ignorable="d">
     <Grid>
+
         <StackPanel Margin="2">
             <GroupBox Header="{Binding Path=HeaderText, Mode=OneWay}" BorderBrush="Black">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label>Name</Label>
                         <TextBox Width="150" MaxHeight="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <StackPanel>
-                            <local:StatisticsView x:Name="_StatisticsView" Margin="50,0,0,5"></local:StatisticsView>
+                        <StackPanel Margin="30,0,0,0">
+                            <local:StatisticsView x:Name="_StatisticsView" ></local:StatisticsView>
                             <StackPanel Orientation="Horizontal">
-                                <Label FontStyle="Italic" Margin="50,0,0,5">Allowed Skills:</Label>
+                                <Label FontStyle="Italic">Allowed Skills:</Label>
                                 <Label FontStyle="Italic" Content="{Binding Path=SkillSummary, Mode=OneWay}" ></Label>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label FontStyle="Italic">Special Rules:</Label>
+                                <Label FontStyle="Italic" Content="{Binding Path=SpecialRules, Mode=OneWay}"></Label>
                             </StackPanel>
                         </StackPanel>
                         <GroupBox Header="Costs" Width="200" Margin="40,0,0,0">

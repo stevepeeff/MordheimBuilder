@@ -102,6 +102,7 @@
     <Compile Include="Psychology\Animal.cs" />
     <Compile Include="Psychology\BurnTheWitch.cs" />
     <Compile Include="Psychology\Fanatical.cs" />
+    <Compile Include="Psychology\PsychologyBase.cs" />
     <Compile Include="RacialAdvantages\MarienburgAdvantage.cs" />
     <Compile Include="RacialAdvantages\MiddenheimAdvantage.cs" />
     <Compile Include="RacialAdvantages\IRacialAdvantage.cs" />

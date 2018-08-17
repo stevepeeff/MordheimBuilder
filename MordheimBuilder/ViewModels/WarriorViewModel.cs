@@ -72,6 +72,31 @@ namespace MordheimBuilder
             }
         }
 
+        public string SpecialRules
+        {
+            get
+            {
+                string retval = " -";
+
+                bool appendComma = false;
+                foreach (var item in Warrior.Afflictions)
+                {
+                    if (appendComma == false)
+                    {
+                        retval = $" {item.Name.SplitCamelCasing()}";
+                    }
+                    else
+                    {
+                        retval += $" ,{item.Name.SplitCamelCasing()}";
+                    }
+
+                    appendComma = true;
+                }
+
+                return retval;
+            }
+        }
+
         public string SkillSummary
         {
             get

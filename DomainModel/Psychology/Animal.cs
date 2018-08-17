@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Psychology
 {
-    public class Animal : IPsychology
+    public class Animal : PsychologyBase
     {
-        public Afflictions Affliction { get; } = Afflictions.NeverGainExperience;
+        public override Afflictions Affliction { get; } = Afflictions.NeverGainExperience;
 
-        public string Description { get; } = "Can't teach a dog a new trick";
+        public override string Description { get; } = "Can't teach a dog a new trick";
     }
 }

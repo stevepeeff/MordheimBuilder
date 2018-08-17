@@ -32,6 +32,8 @@ namespace DomainModel.Psychology
 
         Afflictions Affliction { get; }
 
+        string Name { get; }
+
         string Description { get; }
     }
 }
