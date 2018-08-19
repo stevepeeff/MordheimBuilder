@@ -25,7 +25,7 @@ namespace DomainModel.Warbands.WitchHunters
             HenchMenList.Add(new Warhound());
         }
 
-        static internal List<IEquipment> HeroEquipmentList { get; } = new List<IEquipment>()
+        static public List<IEquipment> HeroEquipmentList { get; } = new List<IEquipment>()
         {
             new Axe(), new Dagger(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(),
             new CrossBow(), new Pistol(), new BraceOfPistols(), new CrossbowPistol(),

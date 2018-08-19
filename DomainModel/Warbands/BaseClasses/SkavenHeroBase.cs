@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainModel.Equipment;
+using DomainModel.Equipment.Armour;
+using DomainModel.Equipment.Weapons.CloseCombat;
+using DomainModel.Equipment.Weapons.Missile;
 using DomainModel.Injuries;
 using DomainModel.Skills;
 
@@ -13,6 +17,7 @@ namespace DomainModel.Warbands.BaseClasses
         public SkavenHeroBase()
         {
             Movement.BaseValue = 6;
+
             Movement.MaximumValue = 6;
             WeaponSkill.MaximumValue = 6;
             BallisticSkill.MaximumValue = 6;
@@ -22,6 +27,15 @@ namespace DomainModel.Warbands.BaseClasses
             Initiative.MaximumValue = 7;
             Attacks.MaximumValue = 4;
             LeaderShip.MaximumValue = 7;
+
+            _AllowedWeapons.AddRange(HeroEquipmentList);
         }
+
+        static protected List<IEquipment> HeroEquipmentList { get; } = new List<IEquipment>()
+        {
+            new Dagger(), new Sword(), new Flail(), new Spear(), new Halberd(), new WeepingBlades(), new FightingClaws(),
+            new Sling(), new ThrowingStarKnive(), new BlowPipe(), new WarplockPistol(),
+            new LightArmour(),  new Buckler(), new Helmet(),
+        };
     }
 }
