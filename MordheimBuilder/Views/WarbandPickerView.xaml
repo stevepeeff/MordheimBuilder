@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimBuilder.Views"
-xmlns:ViewModels="clr-namespace:MordheimBuilder.ViewModels"
+             xmlns:ViewModels="clr-namespace:MordheimBuilder.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Control.DataContext>
@@ -13,7 +13,7 @@ xmlns:ViewModels="clr-namespace:MordheimBuilder.ViewModels"
     <Grid>
         <GroupBox Header="Warbands" FontWeight="Heavy" Margin="10">
             <DataGrid ItemsSource="{Binding Warbands}" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick"
-                          SelectedItem="{Binding SelectedWarband}">
+                   CanUserAddRows="False" IsReadOnly="True" SelectedItem="{Binding SelectedWarband}">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=OneWay}" Width="150"></DataGridTextColumn>

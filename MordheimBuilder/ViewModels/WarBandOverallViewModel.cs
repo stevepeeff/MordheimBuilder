@@ -18,7 +18,7 @@ namespace MordheimBuilder.ViewModels
 
         public WarBandOverallViewModel()
         {
-            ShowNewWarBandCommand = new ShowNewWarBand();
+            Warbands = new List<WarBandOverallViewModel>();
             foreach (var item in BuilderLogicFactory.Instance.AvailableWarbands)
             {
                 Warbands.Add(new WarBandOverallViewModel(item));
@@ -64,14 +64,6 @@ namespace MordheimBuilder.ViewModels
         /// </value>
         public WarBandOverallViewModel SelectedWarband { get; set; }
 
-        /// <summary>
-        /// Gets the show new war band command.
-        /// </summary>
-        /// <value>
-        /// The show new war band command.
-        /// </value>
-        public ICommand ShowNewWarBandCommand { get; private set; }
-
         public int StartingCash => 100;
 
         /// <summary>
@@ -80,7 +72,7 @@ namespace MordheimBuilder.ViewModels
         /// <value>
         /// The warbands.
         /// </value>
-        public ObservableCollection<WarBandOverallViewModel> Warbands => new ObservableCollection<WarBandOverallViewModel>();
+        public IList<WarBandOverallViewModel> Warbands { get; }
 
         //public int TotalCosts
         //{
