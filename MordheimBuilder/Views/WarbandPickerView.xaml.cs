@@ -25,7 +25,8 @@ namespace MordheimBuilder.Views
         public WarbandPickerView()
         {
             InitializeComponent();
-            this.DataContext = new WarBandOverallViewModel();
+
+            //this.DataContext = new WarBandOverallViewModel();
         }
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)

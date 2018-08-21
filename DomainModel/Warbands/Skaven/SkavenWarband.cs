@@ -13,6 +13,7 @@ namespace DomainModel.Warbands.Skaven
         {
             HeroList.Add(new AssassinAdept());
             HeroList.Add(new BlackSkaven());
+            HeroList.Add(new EshinSorcerer());
             HenchMenList.Add(new Verminkin());
         }
 

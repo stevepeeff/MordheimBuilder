@@ -10,6 +10,13 @@ namespace MordheimBuilder.Commands
 {
     internal class LoadWarband : CommandBase
     {
+        private MainWindow _mainWindow;
+
+        public LoadWarband(MainWindow mainWindow)
+        {
+            this._mainWindow = mainWindow;
+        }
+
         public override void Execute(object parameter)
         {
             OpenFileDialog loadFile = new OpenFileDialog();
@@ -23,7 +30,7 @@ namespace MordheimBuilder.Commands
                 DalProvider.Instance.Load(loadFile.FileName);
             }
 
-            //;
+            _mainWindow.EditModeCommand.Execute(null);
         }
     }
 }

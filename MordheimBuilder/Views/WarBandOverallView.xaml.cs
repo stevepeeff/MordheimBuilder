@@ -24,7 +24,7 @@ namespace MordheimBuilder.Views
         public WarBandOverallView()
         {
             InitializeComponent();
-            this.DataContext = new WarBandOverallViewModel();
+            //this.DataContext = new WarBandOverallViewModel();
         }
     }
 }

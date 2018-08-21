@@ -14,13 +14,20 @@ namespace MordheimBuilder.ViewModels
 {
     public class WarBandOverallViewModel : ViewModelBase
     {
-        private IWarbandRoster m_WarbandRoster;
+        private IWarBand m_Warband;
 
         public WarBandOverallViewModel()
         {
-            ShowNewWarBandCommand = new ShowNewWarBand(this);
-            m_WarbandRoster = BuilderLogicFactory.Instance.WarbandRoster;
-            m_WarbandRoster.WarBandChanged += Instance_WarBandChanged;
+            ShowNewWarBandCommand = new ShowNewWarBand();
+            foreach (var item in BuilderLogicFactory.Instance.AvailableWarbands)
+            {
+                Warbands.Add(new WarBandOverallViewModel(item));
+            }
+        }
+
+        private WarBandOverallViewModel(IWarBand warband)
+        {
+            m_Warband = warband;
         }
 
         public string Description
@@ -28,10 +35,7 @@ namespace MordheimBuilder.ViewModels
             get { return "BROKEN"; }
         }
 
-        public string MaximumWarriorOfNumbers
-        {
-            get { return "BROKEN"; }
-        }
+        public int MaximumWarriorOfNumbers => m_Warband.MaximumNumberOfWarriors;
 
         public string Name
         {
@@ -68,35 +72,45 @@ namespace MordheimBuilder.ViewModels
         /// </value>
         public ICommand ShowNewWarBandCommand { get; private set; }
 
-        public int TotalCosts
-        {
-            get
-            {
-                return m_WarbandRoster.TotalCosts;
-            }
-        }
-
-        public int WarbandRating
-        {
-            get
-            {
-                return m_WarbandRoster.WarbandRating;
-            }
-        }
+        public int StartingCash => 100;
 
         /// <summary>
-        /// Gets the warrior count summary.
+        /// Gets the warbands.
         /// </summary>
         /// <value>
-        /// The warrior count summary.
+        /// The warbands.
         /// </value>
-        public string WarriorCountSummary
-        {
-            get
-            {
-                return $"{m_WarbandRoster.TotalNumberOfWarriors} (out of {m_WarbandRoster.WarBand.MaximumNumberOfWarriors})";
-            }
-        }
+        public ObservableCollection<WarBandOverallViewModel> Warbands => new ObservableCollection<WarBandOverallViewModel>();
+
+        //public int TotalCosts
+        //{
+        //    get
+        //    {
+        //        return m_Warband.;
+        //    }
+        //}
+
+        //public int WarbandRating
+        //{
+        //    get
+        //    {
+        //        return m_Warband.WarbandRating;
+        //    }
+        //}
+
+        /// <summary>
+        ///// Gets the warrior count summary.
+        ///// </summary>
+        ///// <value>
+        ///// The warrior count summary.
+        ///// </value>
+        //public string WarriorCountSummary
+        //{
+        //    get
+        //    {
+        //        return $"{m_Warband.TotalNumberOfWarriors} (out of {m_Warband.WarBand.MaximumNumberOfWarriors})";
+        //    }
+        //}
 
         private void Instance_WarBandChanged(object sender, EventArgs e)
         {
@@ -105,9 +119,9 @@ namespace MordheimBuilder.ViewModels
 
         private void UpdateAllProperties()
         {
-            RaisePropertyChangedEvent(nameof(TotalCosts));
-            RaisePropertyChangedEvent(nameof(WarriorCountSummary));
-            RaisePropertyChangedEvent(nameof(WarbandRating));
+            //RaisePropertyChangedEvent(nameof(TotalCosts));
+            //RaisePropertyChangedEvent(nameof(WarriorCountSummary));
+            //RaisePropertyChangedEvent(nameof(WarbandRating));
             RaisePropertyChangedEvent(nameof(Name));
             RaisePropertyChangedEvent(nameof(MaximumWarriorOfNumbers));
             RaisePropertyChangedEvent(nameof(Description));

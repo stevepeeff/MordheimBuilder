@@ -27,6 +27,8 @@ namespace MordheimBuilder
     /// </summary>
     public partial class MainWindow : Window
     {
+        //  public WarBandOverallViewModel OverallViewModel { get; } = new WarBandOverallViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace MordheimBuilder
             //this.DataContext = new WarBandOverallViewModel();
 
             //TESTING..
-            LoadWarBand();
+            //LoadWarBand();
             this.DataContext = this;
         }
 
@@ -48,12 +50,20 @@ namespace MordheimBuilder
         public ICommand SaveCommand { get; } = new SaveWarband();
 
         /// <summary>
+        /// Gets the show new war band command.
+        /// </summary>
+        /// <value>
+        /// The show new war band command.
+        /// </value>
+        public ICommand ShowNewWarBandCommand => new ShowNewWarBand();
+
+        /// <summary>
         /// Gets the load command.
         /// </summary>
         /// <value>
         /// The load command.
         /// </value>
-        public ICommand LoadCommand { get; } = new LoadWarband();
+        public ICommand LoadCommand => new LoadWarband(this);
 
         /// <summary>
         /// Gets the edit mode command.

@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimBuilder.Views"
+xmlns:ViewModels="clr-namespace:MordheimBuilder.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
+    <Control.DataContext>
+        <ViewModels:WarBandOverallViewModel></ViewModels:WarBandOverallViewModel>
+    </Control.DataContext>
     <Grid>
         <GroupBox Header="Warbands" FontWeight="Heavy" Margin="10">
             <DataGrid ItemsSource="{Binding Warbands}" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick"

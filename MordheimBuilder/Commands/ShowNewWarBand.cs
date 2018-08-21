@@ -11,20 +11,17 @@ namespace MordheimBuilder.Commands
 {
     internal class ShowNewWarBand : CommandBase
     {
-        private WarBandOverallViewModel _WarBandViewModel;
-
-        public ShowNewWarBand(WarBandOverallViewModel viewModel)
+        public ShowNewWarBand()
         {
-            _WarBandViewModel = viewModel;
         }
 
         public override void Execute(object parameter)
         {
-            WarbandPickerView weaponView = new WarbandPickerView();
+            WarbandPickerView pickrViw = new WarbandPickerView();
 
             Window window = new Window()
             {
-                Content = weaponView
+                Content = pickrViw
             };
 
             window.ShowDialog();
