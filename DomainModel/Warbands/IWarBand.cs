@@ -67,6 +67,14 @@ namespace DomainModel.Warbands
         /// <returns></returns>
         IWarrior GetWarrior(string typeName);
 
+        /// <summary>
+        /// Gets the starting cash.
+        /// </summary>
+        /// <value>
+        /// The starting cash.
+        /// </value>
+        int StartingCash { get; }
+
         //TODO Special rules like Reikland Marksen +1 BS
         //A description suffices..
         // because  'Statistic'  can be used to accomplish this.

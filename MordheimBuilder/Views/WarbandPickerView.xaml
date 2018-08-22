@@ -14,10 +14,11 @@
         <GroupBox Header="Warbands" FontWeight="Heavy" Margin="10">
             <DataGrid ItemsSource="{Binding Warbands}" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick"
                    CanUserAddRows="False" IsReadOnly="True" SelectedItem="{Binding SelectedWarband}">
-
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=OneWay}" Width="150"></DataGridTextColumn>
-                    <DataGridTemplateColumn Header="Description" Width="200">
+                    <DataGridTextColumn Header="Maximum Warriors" Binding="{Binding MaximumWarriors, Mode=OneWay}" Width="130"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Initial Cash" Binding="{Binding StartingCash, Mode=OneWay}" Width="100"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="Description" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Description , Mode=OneWay}" TextAlignment="Center">
@@ -25,16 +26,6 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Perks" Width="100">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Perks , Mode=OneWay}" TextAlignment="Center">
-                                </TextBlock>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Maximum Warriors" Binding="{Binding MaximumWarrior, Mode=OneWay}" Width="150"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Initial Cash" Binding="{Binding StartingCash, Mode=OneWay}" Width="100"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>

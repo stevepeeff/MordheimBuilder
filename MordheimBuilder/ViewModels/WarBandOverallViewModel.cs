@@ -30,31 +30,13 @@ namespace MordheimBuilder.ViewModels
             m_Warband = warband;
         }
 
-        public string Description
-        {
-            get { return "BROKEN"; }
-        }
+        public int MaximumWarriors => m_Warband.MaximumNumberOfWarriors;
+
+        public string Description => m_Warband.Description;
 
         public int MaximumWarriorOfNumbers => m_Warband.MaximumNumberOfWarriors;
 
-        public string Name
-        {
-            get { return "Broken"; }
-        }
-
-        public string Perks
-        {
-            get
-            {
-                return "BROKEN";
-                //if (_WarBand.Advantages == null)
-                //{
-                //    return "N/A";
-                //}
-
-                //return _WarBand.Advantages.Description;
-            }
-        }
+        public string Name => m_Warband.WarBandName;
 
         /// <summary>
         /// Gets or sets the selected warband.
@@ -64,7 +46,7 @@ namespace MordheimBuilder.ViewModels
         /// </value>
         public WarBandOverallViewModel SelectedWarband { get; set; }
 
-        public int StartingCash => 100;
+        public int StartingCash => m_Warband.StartingCash;
 
         /// <summary>
         /// Gets the warbands.
@@ -73,50 +55,5 @@ namespace MordheimBuilder.ViewModels
         /// The warbands.
         /// </value>
         public IList<WarBandOverallViewModel> Warbands { get; }
-
-        //public int TotalCosts
-        //{
-        //    get
-        //    {
-        //        return m_Warband.;
-        //    }
-        //}
-
-        //public int WarbandRating
-        //{
-        //    get
-        //    {
-        //        return m_Warband.WarbandRating;
-        //    }
-        //}
-
-        /// <summary>
-        ///// Gets the warrior count summary.
-        ///// </summary>
-        ///// <value>
-        ///// The warrior count summary.
-        ///// </value>
-        //public string WarriorCountSummary
-        //{
-        //    get
-        //    {
-        //        return $"{m_Warband.TotalNumberOfWarriors} (out of {m_Warband.WarBand.MaximumNumberOfWarriors})";
-        //    }
-        //}
-
-        private void Instance_WarBandChanged(object sender, EventArgs e)
-        {
-            UpdateAllProperties();
-        }
-
-        private void UpdateAllProperties()
-        {
-            //RaisePropertyChangedEvent(nameof(TotalCosts));
-            //RaisePropertyChangedEvent(nameof(WarriorCountSummary));
-            //RaisePropertyChangedEvent(nameof(WarbandRating));
-            RaisePropertyChangedEvent(nameof(Name));
-            RaisePropertyChangedEvent(nameof(MaximumWarriorOfNumbers));
-            RaisePropertyChangedEvent(nameof(Description));
-        }
     }
 }
