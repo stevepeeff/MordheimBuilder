@@ -25,13 +25,33 @@ namespace MordheimBuilder.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the select warband command.
+        /// </summary>
+        /// <value>
+        /// The select warband command.
+        /// </value>
+        public ICommand SelectWarbandCommand => new SelectWarband(this);
+
         private WarBandOverallViewModel(IWarBand warband)
         {
             m_Warband = warband;
         }
 
+        /// <summary>
+        /// Gets the maximum warriors.
+        /// </summary>
+        /// <value>
+        /// The maximum warriors.
+        /// </value>
         public int MaximumWarriors => m_Warband.MaximumNumberOfWarriors;
 
+        /// <summary>
+        /// Gets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
         public string Description => m_Warband.Description;
 
         public int MaximumWarriorOfNumbers => m_Warband.MaximumNumberOfWarriors;
@@ -46,6 +66,12 @@ namespace MordheimBuilder.ViewModels
         /// </value>
         public WarBandOverallViewModel SelectedWarband { get; set; }
 
+        /// <summary>
+        /// Gets the starting cash.
+        /// </summary>
+        /// <value>
+        /// The starting cash.
+        /// </value>
         public int StartingCash => m_Warband.StartingCash;
 
         /// <summary>

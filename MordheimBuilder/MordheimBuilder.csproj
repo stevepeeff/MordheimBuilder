@@ -67,6 +67,7 @@
     <Compile Include="Commands\IncreaseBuyAmount.cs" />
     <Compile Include="Commands\MainWindowCommandBase.cs" />
     <Compile Include="Commands\PlayMode.cs" />
+    <Compile Include="Commands\SelectWarband.cs" />
     <Compile Include="Commands\ShowNewWarBand.cs" />
     <Compile Include="Commands\ShowSkillSelector.cs" />
     <Compile Include="Commands\ShowWeaponsPicker.cs" />

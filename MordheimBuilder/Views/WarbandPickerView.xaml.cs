@@ -26,11 +26,5 @@ namespace MordheimBuilder.Views
         {
             InitializeComponent();
         }
-
-        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Window window = Window.GetWindow(this);
-            window.Close();
-        }
     }
 }

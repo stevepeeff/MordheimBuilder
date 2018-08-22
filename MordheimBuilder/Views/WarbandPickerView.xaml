@@ -12,7 +12,7 @@
     </Control.DataContext>
     <Grid>
         <GroupBox Header="Warbands" FontWeight="Heavy" Margin="10">
-            <DataGrid ItemsSource="{Binding Warbands}" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick"
+            <DataGrid ItemsSource="{Binding Warbands}" AutoGenerateColumns="False"
                    CanUserAddRows="False" IsReadOnly="True" SelectedItem="{Binding SelectedWarband}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=OneWay}" Width="150"></DataGridTextColumn>
