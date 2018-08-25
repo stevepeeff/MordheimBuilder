@@ -20,11 +20,24 @@ namespace MordheimBuilder.Views
     /// <summary>
     /// Interaction logic for WarbandPickerView.xaml
     /// </summary>
-    public partial class WarbandPickerView : UserControl
+    public partial class WarbandPickerView : UserControl, IProperViewToViewModel
     {
         public WarbandPickerView()
         {
             InitializeComponent();
+            WarBandOverallViewModel viewModel = (WarBandOverallViewModel)DataContext;
+            viewModel.ViewInterface = this;
+        }
+
+        private bool closCalld = false;
+
+        public void Close()
+        {
+            if (!closCalld)
+            {
+                //closCalld = true;
+                this.Close();
+            }
         }
     }
 }

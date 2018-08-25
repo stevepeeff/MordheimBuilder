@@ -6,16 +6,19 @@
              xmlns:local="clr-namespace:MordheimBuilder.Views"
              xmlns:ViewModels="clr-namespace:MordheimBuilder.ViewModels"
              mc:Ignorable="d"
+
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Control.DataContext>
-        <ViewModels:WarBandOverallViewModel></ViewModels:WarBandOverallViewModel>
+        <ViewModels:WarBandOverallViewModel  ></ViewModels:WarBandOverallViewModel>
     </Control.DataContext>
     <Grid>
         <GroupBox Header="Warbands" FontWeight="Heavy" Margin="10">
-            <DataGrid x:Name="DataGridWarbands" ItemsSource="{Binding Warbands}" AutoGenerateColumns="False"
-                   CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid x:Name="DataGridWarbands" ItemsSource="{Binding Warbands}" SelectedItem="{Binding SelectedWarband}"
+                      AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single">
                 <DataGrid.InputBindings>
-                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding SelectWarbandCommand}" />
+                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding SelectWarbandCommand}"
+                                  CommandParameter="{Binding WarbandPickerViewXXX}" />
                 </DataGrid.InputBindings>
                 <!--CommandParameter="{Binding ElementName=DataGridWarbands, Path=SelectedItem}">-->
                 <!--

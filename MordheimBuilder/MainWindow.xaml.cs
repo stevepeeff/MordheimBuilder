@@ -27,14 +27,9 @@ namespace MordheimBuilder
     /// </summary>
     public partial class MainWindow : Window
     {
-        //  public WarBandOverallViewModel OverallViewModel { get; } = new WarBandOverallViewModel();
-
         public MainWindow()
         {
             InitializeComponent();
-
-            //THIS CODE IS BROKEN
-            //this.DataContext = new WarBandOverallViewModel();
 
             //TESTING..
             //LoadWarBand();

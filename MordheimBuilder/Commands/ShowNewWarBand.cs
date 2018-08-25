@@ -24,7 +24,10 @@ namespace MordheimBuilder.Commands
                 Content = pickrViw
             };
 
-            window.ShowDialog();
+            if (window.ShowDialog() == true)
+            {
+                window.Close();
+            }
         }
     }
 }
