@@ -47,8 +47,8 @@ namespace MordheimDal
 
         public void Save(IWarbandRoster roster)
         {
-            throw new NotImplementedException("Proper refactor");
             if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
+
             string rosterName = roster.Name;
             string filename = BuildFileNameAndCreateStoragerDirectory(rosterName);
 
@@ -64,39 +64,40 @@ namespace MordheimDal
             XMLUtils.AtomicSave<XmlHeadNode>(xmlHeadNode, Path.Combine(STORAGE_PATH, filename));
         }
 
-        private static string BuildFileNameAndCreateStoragerDirectory(string rosterName)
-        {
-            string filename;
-            if (String.IsNullOrEmpty(rosterName))
-            {
-                filename = $"{FILENAME} {DateTime.Now.ToShortDateString()}{FILE_EXTENSION}";
-            }
-            else
-            {
-                filename = $"{FILENAME} {rosterName}{FILE_EXTENSION}";
-            }
-
-            Directory.CreateDirectory(STORAGE_PATH);
-            return filename;
-        }
-
         public void Save(IWarbandRoster roster, string specificFileName)
         {
             if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
 
-            string storageName = specificFileName;
-            if (specificFileName.EndsWith(FILE_EXTENSION, StringComparison.CurrentCultureIgnoreCase) == false)
-            {
-                storageName += FILE_EXTENSION;
-            }
-
-            XmlHeadNode xmlHeadNode = new XmlHeadNode();
-            xmlHeadNode.WarbandRoster.Name = roster.Name;
-            xmlHeadNode.WarbandRoster.Warband = roster.WarBand.WarBandName;
+            XmlHeadNode xmlHeadNode = roster.ToXml();
 
             foreach (IWarrior warrior in roster.Warriors)
             {
                 xmlHeadNode.WarbandRoster.WarriorList.Add(warrior.ToXml());
+            }
+
+            SaveXml(specificFileName, xmlHeadNode);
+        }
+
+        private static string BuildFileNameAndCreateStoragerDirectory(string rosterName)
+        {
+            Directory.CreateDirectory(STORAGE_PATH);
+
+            if (String.IsNullOrEmpty(rosterName))
+            {
+                return $"{FILENAME} {DateTime.Now.ToShortDateString()}{FILE_EXTENSION}";
+            }
+            else
+            {
+                return $"{FILENAME} {rosterName}{FILE_EXTENSION}";
+            }
+        }
+
+        private static void SaveXml(string specificFileName, XmlHeadNode xmlHeadNode)
+        {
+            string storageName = specificFileName;
+            if (specificFileName.EndsWith(FILE_EXTENSION, StringComparison.CurrentCultureIgnoreCase) == false)
+            {
+                storageName += FILE_EXTENSION;
             }
 
             XMLUtils.AtomicSave<XmlHeadNode>(xmlHeadNode, Path.Combine(STORAGE_PATH, storageName));

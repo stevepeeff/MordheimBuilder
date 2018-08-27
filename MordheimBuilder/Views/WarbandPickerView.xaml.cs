@@ -31,10 +31,6 @@ namespace MordheimBuilder.Views
 
         public event EventHandler CloseCalled;
 
-        protected virtual void OnThresholdReached(EventArgs e)
-        {
-        }
-
         public void Close()
         {
             EventHandler handler = CloseCalled;

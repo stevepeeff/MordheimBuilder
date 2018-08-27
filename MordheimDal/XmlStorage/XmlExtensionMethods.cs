@@ -42,6 +42,15 @@ namespace MordheimDal.XmlStorage
             return xmlWarrior;
         }
 
+        public static XmlHeadNode ToXml(this IWarbandRoster roster)
+        {
+            XmlHeadNode xmlHeadNode = new XmlHeadNode();
+            xmlHeadNode.WarbandRoster.Name = roster.Name;
+            xmlHeadNode.WarbandRoster.Warband = roster.WarBand.WarBandName;
+
+            return xmlHeadNode;
+        }
+
         public static IWarrior FromXml(this IWarbandRoster warbandRoster, XmlWarrior xmlWarrior)
         {
             IWarrior warrior = warbandRoster.WarBand.GetWarrior(xmlWarrior.TypeOfWarrior);
