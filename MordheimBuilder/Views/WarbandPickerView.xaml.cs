@@ -29,14 +29,18 @@ namespace MordheimBuilder.Views
             viewModel.ViewInterface = this;
         }
 
-        private bool closCalld = false;
+        public event EventHandler CloseCalled;
+
+        protected virtual void OnThresholdReached(EventArgs e)
+        {
+        }
 
         public void Close()
         {
-            if (!closCalld)
+            EventHandler handler = CloseCalled;
+            if (handler != null)
             {
-                //closCalld = true;
-                this.Close();
+                handler(this, EventArgs.Empty);
             }
         }
     }

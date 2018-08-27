@@ -34,6 +34,34 @@ namespace MordheimBuilder
             //TESTING..
             //LoadWarBand();
             this.DataContext = this;
+
+            BuilderLogicFactory.Instance.WarBandSelected += Instance_WarBandSelected;
+
+            BuilderLogicFactory.Instance.PlayModusChanges += Instance_PlayModusChanges;
+        }
+
+        private void Instance_PlayModusChanges(object sender, EventArgs e)
+        {
+            _StackPanelMainWindowContent.Children.Clear();
+            switch (BuilderLogicFactory.Instance.PlayModus)
+            {
+                case Modus.Play:
+
+                    _StackPanelMainWindowContent.Children.Add(new WarbandRosterView());
+                    break;
+
+                case Modus.Edit:
+                    _StackPanelMainWindowContent.Children.Add(new ModusEditView());
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void Instance_WarBandSelected(object sender, EventArgs e)
+        {
+            // throw new NotImplementedException();
         }
 
         /// <summary>

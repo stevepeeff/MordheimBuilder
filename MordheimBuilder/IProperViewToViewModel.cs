@@ -9,5 +9,7 @@ namespace MordheimBuilder
     public interface IProperViewToViewModel
     {
         void Close();
+
+        event EventHandler CloseCalled;
     }
 }

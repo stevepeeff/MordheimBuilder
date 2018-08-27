@@ -14,11 +14,14 @@ namespace MordheimBuilder.Commands
         {
         }
 
+        public override bool CanExecute(object parameter)
+        {
+            return (BuilderLogicFactory.Instance.WarbandRoster != null);
+        }
+
         public override void Execute(object parameter)
         {
             BuilderLogicFactory.Instance.PlayModus = Modus.Play;
-            _MainWindow._StackPanelMainWindowContent.Children.Clear();
-            _MainWindow._StackPanelMainWindowContent.Children.Add(new WarbandRosterView());
         }
     }
 }

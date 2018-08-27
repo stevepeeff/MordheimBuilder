@@ -10,23 +10,19 @@ namespace MordheimBuilder.Commands
 {
     internal class SelectWarband : CommandBase
     {
-        private WarBandOverallViewModel mWarBandOverallViewModel;
+        private WarBandOverallViewModel _WarBandOverallViewModel;
 
         public SelectWarband(WarBandOverallViewModel warBandOverallViewModel)
         {
-            mWarBandOverallViewModel = warBandOverallViewModel;
+            _WarBandOverallViewModel = warBandOverallViewModel;
         }
 
         public override void Execute(object parameter)
         {
-            // BuilderLogicFactory.Instance.SelectWarBand(mWarBandOverallViewModel.SelectedWarband.Warband);
+            BuilderLogicFactory.Instance.SelectWarBand(_WarBandOverallViewModel.SelectedWarband.Warband);
+            BuilderLogicFactory.Instance.PlayModus = Modus.Edit;
 
-            //TODO proper close, via Interface I'd prefere
-            //DO
-            //Who is goint to close the control??
-            //Window window = Window.GetWindow(this);
-            //window.Close();
-            mWarBandOverallViewModel.ViewInterface.Close();
+            _WarBandOverallViewModel.ViewInterface.Close();
         }
     }
 }

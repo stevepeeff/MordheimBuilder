@@ -61,6 +61,11 @@ namespace MordheimBuilderLogic
         event EventHandler WarBandSelected;
 
         /// <summary>
+        /// Occurs when [play modus changes].
+        /// </summary>
+        event EventHandler PlayModusChanges;
+
+        /// <summary>
         /// Gets the starting cash.
         /// </summary>
         /// <value>
