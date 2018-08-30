@@ -13,8 +13,12 @@ namespace DomainModel.Warbands.Middenheim
         public MiddenheimWarband()
         {
             HeroList.Add(new MiddenheimMercenaryCaptain());
+            HeroList.Add(new MiddenheimChampion());
+            HeroList.Add(new MiddenheimYoungBlood());
 
+            HenchMenList.Add(new MiddenheimWarrior());
             HenchMenList.Add(new MiddenheimMarksmen());
+            HenchMenList.Add(new MiddenheimSwordmen());
 
             Advantages = new MiddenheimAdvantage();
         }

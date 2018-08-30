@@ -110,6 +110,7 @@
     <Compile Include="RacialAdvantages\IRacialAdvantage.cs" />
     <Compile Include="RacialAdvantages\AdvantagesBase.cs" />
     <Compile Include="RacialAdvantages\ReiklandAdvantage.cs" />
+    <Compile Include="RacialAdvantages\ReiklandWarbandAdvantage.cs" />
     <Compile Include="Skills\Academic\AcademicBase.cs" />
     <Compile Include="Skills\Academic\BattleTongue.cs" />
     <Compile Include="Skills\Academic\IAcademic.cs" />
@@ -151,6 +152,13 @@
     <Compile Include="Statistic.cs" />
     <Compile Include="Psychology\IPsychology.cs" />
     <Compile Include="Warbands\IWizard.cs" />
+    <Compile Include="Warbands\Marienburg\MarienburgChampion.cs" />
+    <Compile Include="Warbands\Marienburg\MarienburgMarksmen.cs" />
+    <Compile Include="Warbands\Marienburg\MarienburgMercenaryCaptain.cs" />
+    <Compile Include="Warbands\Marienburg\MarienburgSwordmen.cs" />
+    <Compile Include="Warbands\Marienburg\MarienburgWarband.cs" />
+    <Compile Include="Warbands\Marienburg\MarienburgWarrior.cs" />
+    <Compile Include="Warbands\Marienburg\MarienburgYoungBlood.cs" />
     <Compile Include="Warbands\Middenheim\MiddenheimChampion.cs" />
     <Compile Include="Warbands\Middenheim\MiddenheimMercenaryCaptain.cs" />
     <Compile Include="Warbands\Middenheim\MiddenheimSwordmen.cs" />

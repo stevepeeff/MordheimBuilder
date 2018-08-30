@@ -7,7 +7,7 @@ using DomainModel.Skills;
 using DomainModel.Skills.Strength;
 using DomainModel.Warbands;
 using DomainModel.Warbands.BaseClasses;
-using DomainModel.Warbands.Middenheimers;
+using DomainModel.Warbands.Middenheim;
 using DomainModel.Warbands.Skaven;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

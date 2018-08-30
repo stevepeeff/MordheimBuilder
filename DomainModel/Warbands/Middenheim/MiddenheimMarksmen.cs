@@ -10,10 +10,6 @@ namespace DomainModel.Warbands.Middenheim
 {
     public class MiddenheimMarksmen : Marksmen
     {
-        public MiddenheimMarksmen()
-        {
-        }
-
         public override IWarrior GetANewInstance()
         {
             return new MiddenheimMarksmen();

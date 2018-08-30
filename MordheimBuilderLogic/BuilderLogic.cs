@@ -1,6 +1,5 @@
 ﻿using DomainModel;
 using DomainModel.Warbands;
-using DomainModel.Warbands.Middenheimers;
 using DomainModel.Warbands.Skaven;
 using DomainModel.Warbands.WitchHunters;
 
