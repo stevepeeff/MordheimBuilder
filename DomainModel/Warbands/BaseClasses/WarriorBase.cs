@@ -94,9 +94,9 @@ namespace DomainModel.Warbands.BaseClasses
         {
             get
             {
-                if (this is IHenchMan)
+                if (this is IHenchMen)
                 {
-                    IHenchMan henchMen = this as IHenchMan;
+                    IHenchMen henchMen = this as IHenchMen;
                     return (henchMen.AmountInGroup * (this.EquipmentCosts + this.HireFee));
                 }
 
@@ -108,9 +108,9 @@ namespace DomainModel.Warbands.BaseClasses
         {
             get
             {
-                if (this is IHenchMan)
+                if (this is IHenchMen)
                 {
-                    IHenchMan henchMen = this as IHenchMan;
+                    IHenchMen henchMen = this as IHenchMen;
                     return henchMen.AmountInGroup;
                 }
 
@@ -255,7 +255,7 @@ namespace DomainModel.Warbands.BaseClasses
         {
             if (this.TypeName.Equals(warrior.TypeName))
             {
-                IHenchMan henchMan = this as IHenchMan;
+                IHenchMen henchMan = this as IHenchMen;
 
                 if (henchMan != null)
                 {

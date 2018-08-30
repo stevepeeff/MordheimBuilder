@@ -162,7 +162,7 @@ namespace DomainModel.Warbands
 
             {
                 int retval = 0;
-                if (_Warrior is IHenchMan)
+                if (_Warrior is IHenchMen)
                 {
                     retval = BaseValue + 1;
                 }

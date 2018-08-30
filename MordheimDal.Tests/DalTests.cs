@@ -26,8 +26,8 @@ namespace MordheimDal.Tests
 
         private IHero _WitchHunterCaptain;
 
-        private IHenchMan _ZealotGroup1;
-        private IHenchMan _ZealotGroup2;
+        private IHenchMen _ZealotGroup1;
+        private IHenchMen _ZealotGroup2;
 
         private IWizard _WarriorPriest;
 
@@ -47,13 +47,13 @@ namespace MordheimDal.Tests
             _WitchHunterCaptain.AddSkill(new MightyBlow());
             _WitchHunterCaptain.AddSkill(new PitFighter());
 
-            _ZealotGroup1 = _WarbandRoster.AddWarrior(new Zealot()) as IHenchMan;
+            _ZealotGroup1 = _WarbandRoster.AddWarrior(new Zealot()) as IHenchMen;
             _ZealotGroup1.AddEquipment(new Sword());
             _ZealotGroup1.AddEquipment(new Sword());
             _ZealotGroup1.IncreaseGroupByOne();
             _ZealotGroup1.IncreaseGroupByOne();
 
-            _ZealotGroup2 = _WarbandRoster.AddWarrior(new Zealot()) as IHenchMan;
+            _ZealotGroup2 = _WarbandRoster.AddWarrior(new Zealot()) as IHenchMen;
             _ZealotGroup2.AddEquipment(new Bow());
             _ZealotGroup2.IncreaseGroupByOne();
             _ZealotGroup2.IncreaseGroupByOne();
@@ -84,11 +84,11 @@ namespace MordheimDal.Tests
             Assert.AreEqual(_WitchHunterCaptain.Equipment.Count, loadedHero.Equipment.Count);
             Assert.AreEqual(_WitchHunterCaptain.Skills.Count, loadedHero.Skills.Count);
 
-            IHenchMan loadedHenchMen1 = roster.Warriors.ElementAt(1) as IHenchMan;
+            IHenchMen loadedHenchMen1 = roster.Warriors.ElementAt(1) as IHenchMen;
             Assert.AreEqual(_ZealotGroup1.AmountInGroup, loadedHenchMen1.AmountInGroup);
             Assert.AreEqual(_ZealotGroup1.Equipment.Count, loadedHenchMen1.Equipment.Count);
 
-            IHenchMan loadedHenchMen2 = roster.Warriors.ElementAt(2) as IHenchMan;
+            IHenchMen loadedHenchMen2 = roster.Warriors.ElementAt(2) as IHenchMen;
             Assert.AreEqual(_ZealotGroup2.AmountInGroup, loadedHenchMen2.AmountInGroup);
             Assert.AreEqual(_ZealotGroup2.Equipment.Count, loadedHenchMen2.Equipment.Count);
 

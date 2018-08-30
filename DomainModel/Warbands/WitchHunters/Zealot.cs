@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.WitchHunters
 {
-    public class Zealot : WarriorBase, IHenchMan
+    public class Zealot : WarriorBase, IHenchMen
     {
         public Zealot()
         {

@@ -23,9 +23,9 @@ namespace MordheimDal.XmlStorage
 
             xmlWarrior.EquipmentList.AddRange(warrior.Equipment.Select(x => x.Name).ToList());
 
-            if (warrior is IHenchMan)
+            if (warrior is IHenchMen)
             {
-                IHenchMan henchMan = warrior as IHenchMan;
+                IHenchMen henchMan = warrior as IHenchMen;
                 xmlWarrior.AmountInGroup = henchMan.AmountInGroup;
             }
             else if (warrior is IHero)
@@ -60,9 +60,9 @@ namespace MordheimDal.XmlStorage
             {
                 warrior.AddEquipment(item);
             }
-            if (warrior is IHenchMan)
+            if (warrior is IHenchMen)
             {
-                IHenchMan henchMan = warrior as IHenchMan;
+                IHenchMen henchMan = warrior as IHenchMen;
 
                 for (int i = 1; i < xmlWarrior.AmountInGroup; i++)
                 {

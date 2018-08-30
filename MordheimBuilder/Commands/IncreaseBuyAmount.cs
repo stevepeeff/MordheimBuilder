@@ -16,15 +16,15 @@ namespace MordheimBuilder.Commands
 
         public override void Execute(object parameter)
         {
-            if (WarriorView.Warrior is IHenchMan)
+            if (WarriorView.Warrior is IHenchMen)
             {
-                BuilderLogicFactory.Instance.WarbandRoster.IncreaseHenchmenInGroup(WarriorView.Warrior as IHenchMan);
+                BuilderLogicFactory.Instance.WarbandRoster.IncreaseHenchmenInGroup(WarriorView.Warrior as IHenchMen);
             }
         }
 
         public override bool CanExecute(object parameter)
         {
-            if (WarriorView.Warrior is IHenchMan)
+            if (WarriorView.Warrior is IHenchMen)
             {
                 return
                 BuilderLogicFactory.Instance.WarbandRoster.MaximumAllowedAmountOfWarriorReached(WarriorView.Warrior) == false &&

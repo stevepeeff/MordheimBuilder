@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DomainModel.RacialAdvantages
 {
-    public class ReiklandAdvantage : RacialAdvantagesBase
+    public class ReiklandAdvantage : AdvantagesBase
     {
         public ReiklandAdvantage()
         {
-            _Statistics.Add(new Statistic(Characteristics.Strength, 1, $" Reikland Racial Advantage;{Description}"));
+            _Statistics.Add(new Statistic(Characteristics.BallisticSkill, 1, Applications.Shooting, $"Reikland RacialAdvantage : {Description}"));
         }
 
-        public override string Description { get; } = "All heroes have a increased Strength";
+        public override string Description { get; } = "All marksmen have an increased ballistic skill";
     }
 }

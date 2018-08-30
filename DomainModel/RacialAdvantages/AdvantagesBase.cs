@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.RacialAdvantages
 {
-    public abstract class RacialAdvantagesBase : IRacialAdvantage
+    public abstract class AdvantagesBase : IRacialAdvantage
     {
         protected List<Statistic> _Statistics = new List<Statistic>();
         public IReadOnlyCollection<Statistic> Statistics { get { return _Statistics; } }

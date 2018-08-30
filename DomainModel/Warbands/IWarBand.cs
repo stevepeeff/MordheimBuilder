@@ -34,7 +34,7 @@ namespace DomainModel.Warbands
         /// <value>
         /// The hench men.
         /// </value>
-        IReadOnlyCollection<IHenchMan> HenchMen { get; }
+        IReadOnlyCollection<IHenchMen> HenchMen { get; }
 
         /// <summary>
         /// Gets the heroes.

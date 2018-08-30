@@ -27,7 +27,7 @@ namespace MordheimBuilderLogic
 
                 foreach (IWarrior warrior in Warriors)
                 {
-                    IHenchMan henchMan = warrior as IHenchMan;
+                    IHenchMen henchMan = warrior as IHenchMen;
 
                     if (henchMan != null)
                     {
@@ -51,7 +51,7 @@ namespace MordheimBuilderLogic
 
                 foreach (IWarrior warrior in Warriors)
                 {
-                    IHenchMan henchMan = warrior as IHenchMan;
+                    IHenchMen henchMan = warrior as IHenchMen;
 
                     if (henchMan != null)
                     {
@@ -76,7 +76,7 @@ namespace MordheimBuilderLogic
 
                 foreach (IWarrior warrior in Warriors)
                 {
-                    IHenchMan henchMan = warrior as IHenchMan;
+                    IHenchMen henchMan = warrior as IHenchMen;
 
                     if (henchMan != null)
                     {
@@ -108,9 +108,9 @@ namespace MordheimBuilderLogic
 
             newWarrior.PropertiesChanged += NewWarrior_PropertiesChanged;
 
-            if (newWarrior is IHenchMan)
+            if (newWarrior is IHenchMen)
             {
-                IHenchMan henchMan = newWarrior as IHenchMan;
+                IHenchMen henchMan = newWarrior as IHenchMen;
                 henchMan.IncreaseGroupByOne();
             }
 
@@ -120,7 +120,7 @@ namespace MordheimBuilderLogic
             return newWarrior;
         }
 
-        public void DecreaseHenchmenInGroup(IHenchMan warrior)
+        public void DecreaseHenchmenInGroup(IHenchMen warrior)
         {
             warrior.DecreaseGroupByOne();
             if (warrior.AmountInGroup <= 0)
@@ -133,7 +133,7 @@ namespace MordheimBuilderLogic
             }
         }
 
-        public void IncreaseHenchmenInGroup(IHenchMan warrior)
+        public void IncreaseHenchmenInGroup(IHenchMen warrior)
         {
             if (NumberOffWarriorsOfThisTypeInRoster(warrior) < warrior.MaximumAllowedInWarBand)
             {

@@ -27,9 +27,9 @@ namespace DomainModel
 
         void RemoveWarrior(IWarrior warrior);
 
-        void IncreaseHenchmenInGroup(IHenchMan warrior);
+        void IncreaseHenchmenInGroup(IHenchMen warrior);
 
-        void DecreaseHenchmenInGroup(IHenchMan warrior);
+        void DecreaseHenchmenInGroup(IHenchMen warrior);
 
         bool MaximumAllowedAmountOfWarriorReached(IWarrior warrior);
 

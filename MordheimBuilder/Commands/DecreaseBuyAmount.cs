@@ -16,9 +16,9 @@ namespace MordheimBuilder.Commands
 
         public override void Execute(object parameter)
         {
-            if (WarriorView.Warrior is IHenchMan)
+            if (WarriorView.Warrior is IHenchMen)
             {
-                BuilderLogicFactory.Instance.WarbandRoster.DecreaseHenchmenInGroup(WarriorView.Warrior as IHenchMan);
+                BuilderLogicFactory.Instance.WarbandRoster.DecreaseHenchmenInGroup(WarriorView.Warrior as IHenchMen);
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.RacialAdvantages
 {
-    public class MarienburgAdvantage : RacialAdvantagesBase
+    public class MarienburgAdvantage : AdvantagesBase
     {
         public MarienburgAdvantage()
         {

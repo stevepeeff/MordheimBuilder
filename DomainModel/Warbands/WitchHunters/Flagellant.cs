@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.WitchHunters
 {
-    public class Flagellant : WarriorBase, IHenchMan
+    public class Flagellant : WarriorBase, IHenchMen
     {
         public Flagellant()
         {

@@ -27,7 +27,7 @@ namespace DomainModel.Warbands
             //  DomainModel.Warbands.WitchHunters.WitchHunters witchHunters = new
             _Warbands.Add(new WitchHuntersWarband());
             _Warbands.Add(new SkavenWarband());
-            _Warbands.Add(new MiddenheimerWarband());
+            _Warbands.Add(new MiddenheimWarband());
         }
     }
 }

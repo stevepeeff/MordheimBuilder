@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.Skaven
 {
-    public class Verminkin : WarriorBase, IHenchMan
+    public class Verminkin : WarriorBase, IHenchMen
     {
         public Verminkin()
         {

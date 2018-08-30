@@ -185,9 +185,9 @@ namespace MordheimBuilder
         {
             get
             {
-                if (Warrior is IHenchMan)
+                if (Warrior is IHenchMen)
                 {
-                    IHenchMan henchMen = Warrior as IHenchMan;
+                    IHenchMen henchMen = Warrior as IHenchMen;
                     return (henchMen.GroupCosts);
                 }
                 else
@@ -201,9 +201,9 @@ namespace MordheimBuilder
         {
             get
             {
-                if (Warrior is IHenchMan)
+                if (Warrior is IHenchMen)
                 {
-                    IHenchMan henchMen = Warrior as IHenchMan;
+                    IHenchMen henchMen = Warrior as IHenchMen;
                     return henchMen.AmountInGroup;
                 }
 
@@ -301,7 +301,7 @@ namespace MordheimBuilder
         {
             get
             {
-                if (Warrior is IHenchMan) { return Visibility.Visible; }
+                if (Warrior is IHenchMen) { return Visibility.Visible; }
 
                 return Visibility.Hidden;
             }
@@ -333,7 +333,7 @@ namespace MordheimBuilder
         {
             get
             {
-                if (Warrior is IHenchMan) { return Visibility.Collapsed; }
+                if (Warrior is IHenchMen) { return Visibility.Collapsed; }
 
                 return Visibility.Visible;
             }
@@ -349,7 +349,7 @@ namespace MordheimBuilder
         {
             get
             {
-                if (Warrior is IHenchMan) { return Visibility.Collapsed; }
+                if (Warrior is IHenchMen) { return Visibility.Collapsed; }
 
                 return Visibility.Visible;
             }

@@ -6,17 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainModel.Warbands.Middenheimers
+namespace DomainModel.Warbands.Middenheim
 {
-    public class MiddenheimerWarband : WarbandBase
+    public class MiddenheimMercenaryCaptain : MercenaryCaptain
     {
-        public MiddenheimerWarband()
+        public MiddenheimMercenaryCaptain()
         {
-            HenchMenList.Add(new MiddenheimMarksmen());
-
             Advantages = new MiddenheimAdvantage();
         }
 
-        public override int MaximumNumberOfWarriors { get; } = 15;
+        public override IWarrior GetANewInstance()
+        {
+            return new MiddenheimMercenaryCaptain();
+        }
     }
 }

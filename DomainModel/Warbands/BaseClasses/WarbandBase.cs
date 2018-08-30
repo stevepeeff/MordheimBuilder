@@ -13,11 +13,11 @@ namespace DomainModel.Warbands.BaseClasses
 
         protected List<IHero> HeroList = new List<IHero>();
 
-        protected List<IHenchMan> HenchMenList = new List<IHenchMan>();
+        protected List<IHenchMen> HenchMenList = new List<IHenchMen>();
 
         public IReadOnlyCollection<IHero> Heroes { get { return HeroList; } }
 
-        public IReadOnlyCollection<IHenchMan> HenchMen { get { return HenchMenList; } }
+        public IReadOnlyCollection<IHenchMen> HenchMen { get { return HenchMenList; } }
 
         public IWarrior GetWarrior(string typeName)
         {
@@ -28,7 +28,7 @@ namespace DomainModel.Warbands.BaseClasses
                     return hero;
                 }
             }
-            foreach (IHenchMan henchMen in HenchMen)
+            foreach (IHenchMen henchMen in HenchMen)
             {
                 if (henchMen.TypeName.Equals(typeName))
                 {

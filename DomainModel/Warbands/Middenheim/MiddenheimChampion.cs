@@ -6,23 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainModel.Warbands.Middenheimers
+namespace DomainModel.Warbands.Middenheim
 {
-    public class MiddenheimMarksmen : WarriorBase, IHenchMan
+    public class MiddenheimChampion : Champion
     {
-        public MiddenheimMarksmen()
+        public MiddenheimChampion()
         {
-            Movement.MaximumValue = 4;
             Advantages = new MiddenheimAdvantage();
         }
 
-        public override int HireFee { get; } = 25;
-
-        public override int MaximumAllowedInWarBand { get; } = 7;
-
         public override IWarrior GetANewInstance()
         {
-            return new MiddenheimMarksmen();
+            return new MiddenheimChampion();
         }
     }
 }

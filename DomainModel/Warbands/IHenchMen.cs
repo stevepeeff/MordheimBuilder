@@ -10,7 +10,7 @@ namespace DomainModel.Warbands
     /// Henchmen are bought and maintained in groups
     /// </summary>
     /// <seealso cref="DomainModel.Warbands.IWarrior" />
-    public interface IHenchMan : IWarrior
+    public interface IHenchMen : IWarrior
     {
         /// <summary>
         /// Gets the amount in group.

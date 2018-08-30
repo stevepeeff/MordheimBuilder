@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Equipment.Weapons.Missile
 {
-    internal class DuellingPistol : EquipmentBase, IMisseleWeapon
+    public class DuellingPistol : EquipmentBase, IMisseleWeapon
     {
         public override int Cost { get; } = 30;
 
