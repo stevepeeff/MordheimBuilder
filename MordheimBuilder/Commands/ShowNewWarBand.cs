@@ -11,16 +11,13 @@ namespace MordheimBuilder.Commands
 {
     internal class ShowNewWarBand : CommandBase
     {
+        private Window _window;
         private static WarbandPickerView _pickrView = new WarbandPickerView();
-        private Window _window = new Window() { Content = _pickrView };
-
-        public ShowNewWarBand()
-        {
-        }
 
         public override void Execute(object parameter)
         {
             _pickrView.CloseCalled += PickrView_CloseCalled;
+            _window = new Window() { Content = _pickrView };
             _window.ShowDialog();
         }
 
