@@ -158,9 +158,13 @@
     <Compile Include="Warbands\Middenheim\MiddenheimMarksmen.cs" />
     <Compile Include="Warbands\Middenheim\MiddenheimWarrior.cs" />
     <Compile Include="Warbands\Middenheim\MiddenheimYoungBlood.cs" />
+    <Compile Include="Warbands\Reikland\ReiklandChampion.cs" />
     <Compile Include="Warbands\Reikland\ReiklandMarksmen.cs" />
     <Compile Include="Warbands\Reikland\ReiklandMercenaryCaptain.cs" />
+    <Compile Include="Warbands\Reikland\ReiklandSwordmen.cs" />
     <Compile Include="Warbands\Reikland\ReiklandWarband.cs" />
+    <Compile Include="Warbands\Reikland\ReiklandWarrior.cs" />
+    <Compile Include="Warbands\Reikland\ReiklandYoungBlood.cs" />
     <Compile Include="Warbands\Skaven\AssassinAdept.cs" />
     <Compile Include="Warbands\Skaven\BlackSkaven.cs" />
     <Compile Include="Warbands\Skaven\EshinSorcerer.cs" />
