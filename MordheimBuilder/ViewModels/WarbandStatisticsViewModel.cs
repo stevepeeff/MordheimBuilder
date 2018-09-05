@@ -9,9 +9,15 @@ namespace MordheimBuilder.ViewModels
 {
     public class WarbandStatisticsViewModel : ViewModelBase
     {
+        private static bool _EventIsAttached = false;
+
         public WarbandStatisticsViewModel()
         {
-            BuilderLogicFactory.Instance.WarbandRoster.WarBandChanged += WarbandRoster_WarBandChanged;
+            if (_EventIsAttached == false)
+            {
+                BuilderLogicFactory.Instance.WarbandRoster.WarBandChanged += WarbandRoster_WarBandChanged;
+                _EventIsAttached = true;
+            }
         }
 
         public int TotalCosts => BuilderLogicFactory.Instance.WarbandRoster.TotalCosts;

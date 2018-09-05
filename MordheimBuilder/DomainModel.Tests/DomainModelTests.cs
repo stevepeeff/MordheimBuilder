@@ -8,6 +8,7 @@ using DomainModel.Skills.Strength;
 using DomainModel.Warbands;
 using DomainModel.Warbands.BaseClasses;
 using DomainModel.Warbands.Middenheim;
+using DomainModel.Warbands.Reikland;
 using DomainModel.Warbands.Skaven;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -140,7 +141,7 @@ namespace DomainModel.Tests
         [TestMethod]
         public void MiddenheimMarksmen()
         {
-            var warrior = new MiddenheimMarksmen();
+            var warrior = new ReiklandMarksmen();
 
             Assert.AreEqual(4, warrior.Movement.BaseValue, "Movement.BaseValue");
             Assert.AreEqual(4, warrior.Movement.MaximumValue, "Movement.MaximumValue");
