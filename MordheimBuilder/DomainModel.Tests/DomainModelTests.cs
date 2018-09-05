@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
+using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Injuries;
 using DomainModel.Skills;
 using DomainModel.Skills.Strength;
@@ -179,6 +181,32 @@ namespace DomainModel.Tests
             warrior.AddInjury(new NervousCondition());
 
             Assert.AreEqual(3, warrior.Initiative.CalculatedValue, "Initiative");
+        }
+
+        [TestMethod]
+        public void EquipmentTools()
+        {
+            var warrior = new WitchHunterCaptain();
+            Assert.IsFalse(warrior.Equipment.HoldsHeavyArmortAndShield());
+
+            warrior.AddEquipment(new HeavyArmor());
+            warrior.AddEquipment(new Shield());
+
+            Assert.IsTrue(warrior.Equipment.HoldsHeavyArmortAndShield());
+
+            Assert.IsFalse(warrior.Equipment.TwoIdenticalWeapons());
+            warrior.AddEquipment(new Sword());
+            Assert.IsFalse(warrior.Equipment.TwoIdenticalWeapons());
+
+            warrior.AddEquipment(new Dagger());
+            Assert.IsFalse(warrior.Equipment.TwoIdenticalWeapons());
+
+            warrior.AddEquipment(new Sword());
+            Assert.IsTrue(warrior.Equipment.TwoIdenticalWeapons());
+
+            Assert.IsNull(warrior.Equipment.HasPairSpecialRule());
+            warrior.AddEquipment(new WeepingBlades());
+            Assert.IsNotNull(warrior.Equipment.HasPairSpecialRule());
         }
 
         [TestMethod]

@@ -51,7 +51,7 @@ namespace DomainModel.Warbands.BaseClasses
         public void AddInjury(Injury injury)
         {
             _Injuries.Add(injury);
-            Trigger();
+            TriggerCharacteristicChanged();
         }
 
         public void AddSpell(ISpell spell)

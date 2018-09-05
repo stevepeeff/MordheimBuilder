@@ -63,7 +63,6 @@ namespace DomainModel.Warbands.BaseClasses
         public int CurrentExperience
         {
             get { return InitialExperience + _CurrentExperience; }
-            //   protected set { _CurrentExperience = value; }
         }
 
         public IReadOnlyCollection<IEquipment> Equipment { get { return _Weapons; } }
@@ -121,7 +120,7 @@ namespace DomainModel.Warbands.BaseClasses
         public void AddSkill(ISkill skill)
         {
             _Skills.Add(skill);
-            Trigger();
+            TriggerCharacteristicChanged();
         }
 
         public void AddSkill(string skillName)
@@ -188,7 +187,12 @@ namespace DomainModel.Warbands.BaseClasses
             NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {
-                Trigger();
+                TriggerCharacteristicChanged();
+            }
+            else if (equipment is ICloseCombatWeapon)
+            {
+                ICloseCombatWeapon closeCombatWeapon = equipment as ICloseCombatWeapon;
+                // Attacks.CalculatedValue += closeCombatWeapon.AttackModifier;
             }
         }
 
@@ -224,17 +228,6 @@ namespace DomainModel.Warbands.BaseClasses
         }
 
         public abstract IWarrior GetANewInstance();
-
-        //public IWarrior GetAnInstance(string typeOfWarrior)
-        //{
-        //    IWarrior result = null;
-        //    if (TypeName.Equals(typeOfWarrior))
-        //    {
-        //        result = GetAnInstance();
-        //        //TODO SET THE CREATION DATE
-        //    }
-        //    return result;
-        //}
 
         public IWarrior GetAnInstance()
         {
@@ -272,11 +265,14 @@ namespace DomainModel.Warbands.BaseClasses
             NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {
-                Trigger();
+                TriggerCharacteristicChanged();
             }
         }
 
-        protected void Trigger()
+        /// <summary>
+        /// Triggers the characteristic changed.
+        /// </summary>
+        protected void TriggerCharacteristicChanged()
         {
             foreach (var item in _Characteristics)
             {

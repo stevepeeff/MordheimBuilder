@@ -70,10 +70,30 @@ namespace DomainModel.Warbands
                 {
                     int calculation = CalculateCharacteristic();
 
-                    if (CharacteristicValue == Characteristics.Movement && EquipmentBase.ListHoldsHeavyArmortAndShield(_Warrior.Equipment))
+                    switch (CharacteristicValue)
                     {
-                        calculation--;
+                        case Characteristics.Movement:
+                            {
+                                if (_Warrior.Equipment.HoldsHeavyArmortAndShield())
+                                {
+                                    calculation--;
+                                }
+                            }
+                            break;
+
+                        case Characteristics.Attack:
+                            {
+                                if (_Warrior.Equipment.TwoIdenticalWeapons())
+                                {
+                                    calculation++;
+                                }
+                                //else if (Equipment)
+                                //{
+                                //}
+                            }
+                            break;
                     }
+
                     return calculation;
                 }
             }
@@ -284,7 +304,7 @@ namespace DomainModel.Warbands
                 }
             }
 
-            if (CharacteristicValue == Characteristics.Movement && EquipmentBase.ListHoldsHeavyArmortAndShield(_Warrior.Equipment))
+            if (CharacteristicValue == Characteristics.Movement && _Warrior.Equipment.HoldsHeavyArmortAndShield())
             {
                 descriptions.Add("Heavy Armour and Shield causes a movement penalty of -1");
             }

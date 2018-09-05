@@ -44,12 +44,11 @@ namespace MordheimBuilder
         {
             get
             {
-                string text = _characteristic.ModifierSummary;
-                if (String.IsNullOrEmpty(text))
+                if (String.IsNullOrEmpty(_characteristic.ModifierSummary))
                 {
-                    text = "No modifications on this characteristic";
+                    return "No modifications on this characteristic";
                 }
-                return text;
+                return _characteristic.ModifierSummary;
             }
         }
 

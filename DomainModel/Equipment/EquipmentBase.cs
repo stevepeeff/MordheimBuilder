@@ -17,20 +17,6 @@ namespace DomainModel.Equipment
             EquipmentProvider.Instance.AddEquipment(this);
         }
 
-        public static bool ListHoldsHeavyArmortAndShield(IReadOnlyCollection<IEquipment> equipmentList)
-        {
-            bool holdsHeavyArmor = false;
-            bool holdsShield = false;
-
-            foreach (var item in equipmentList)
-            {
-                if (item is HeavyArmor) { holdsHeavyArmor = true; }
-                if (item is Shield) { holdsShield = true; }
-            }
-
-            return holdsHeavyArmor && holdsShield;
-        }
-
         public const int NONE = 0;
 
         public abstract int Cost { get; }
