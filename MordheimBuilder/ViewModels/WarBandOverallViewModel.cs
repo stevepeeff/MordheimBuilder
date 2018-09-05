@@ -55,6 +55,12 @@ namespace MordheimBuilder.ViewModels
         /// </value>
         public int MaximumWarriors => Warband.MaximumNumberOfWarriors;
 
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name => Warband.WarBandName;
 
         /// <summary>

@@ -89,6 +89,7 @@
     <Compile Include="ViewModels\WarBandInformationViewModel.cs" />
     <Compile Include="ViewModels\WarBandRosterViewModel.cs" />
     <Compile Include="ViewModels\WarBandOverallViewModel.cs" />
+    <Compile Include="ViewModels\WarbandStatisticsViewModel.cs" />
     <Compile Include="Views\AfflictionsView.xaml.cs">
       <DependentUpon>AfflictionsView.xaml</DependentUpon>
     </Compile>
@@ -119,14 +120,14 @@
     <Compile Include="Views\WarBandInformation.xaml.cs">
       <DependentUpon>WarBandInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WarBandOverallView.xaml.cs">
-      <DependentUpon>WarBandOverallView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\WarbandPickerView.xaml.cs">
       <DependentUpon>WarbandPickerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WarbandRosterView.xaml.cs">
       <DependentUpon>WarbandRosterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WarbandStatisticsView.xaml.cs">
+      <DependentUpon>WarbandStatisticsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WarriorPlayView.xaml.cs">
       <DependentUpon>WarriorPlayView.xaml</DependentUpon>
@@ -190,15 +191,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WarBandOverallView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\WarbandPickerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WarbandRosterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WarbandStatisticsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

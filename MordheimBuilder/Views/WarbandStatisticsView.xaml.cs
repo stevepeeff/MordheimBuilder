@@ -1,5 +1,4 @@
-﻿using MordheimBuilder.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,13 @@ using System.Windows.Shapes;
 namespace MordheimBuilder.Views
 {
     /// <summary>
-    /// Interaction logic for WarBandOverallView.xaml
+    /// Interaction logic for WarbandStatisticsView.xaml
     /// </summary>
-    public partial class WarBandOverallView : UserControl
+    public partial class WarbandStatisticsView : UserControl
     {
-        public WarBandOverallView()
+        public WarbandStatisticsView()
         {
             InitializeComponent();
-            //this.DataContext = new WarBandOverallViewModel();
         }
     }
 }

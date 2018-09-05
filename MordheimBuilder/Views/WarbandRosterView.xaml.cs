@@ -26,7 +26,7 @@ namespace MordheimBuilder.Views
         {
             InitializeComponent();
             BuilderLogicFactory.Instance.WarbandRoster.WarBandWariorListChanged += WarbandRoster_WarBandWariorListChanged;
-            _StackPanelTop.Children.Add(new WarBandOverallView());
+            _StackPanelTop.Children.Add(new WarbandStatisticsView());
 
             BuildStackPanel();
         }
