@@ -14,7 +14,10 @@ namespace DomainModel.Warbands.Skaven
             HeroList.Add(new AssassinAdept());
             HeroList.Add(new BlackSkaven());
             HeroList.Add(new EshinSorcerer());
+            HeroList.Add(new NightRunner());
             HenchMenList.Add(new Verminkin());
+            HenchMenList.Add(new GaintRat());
+            HenchMenList.Add(new RatOgre());
         }
 
         public override int MaximumNumberOfWarriors { get; } = 20;

@@ -87,9 +87,6 @@ namespace DomainModel.Warbands
                                 {
                                     calculation++;
                                 }
-                                //else if (Equipment)
-                                //{
-                                //}
                             }
                             break;
                     }

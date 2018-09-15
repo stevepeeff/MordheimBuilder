@@ -19,6 +19,7 @@ namespace DomainModel.Warbands.BaseClasses
         protected List<ISkill> _AllowedSkills = new List<ISkill>();
         protected List<ISkill> _Skills = new List<ISkill>();
         private List<Characteristic> _Characteristics;
+        public const int INFINITE = int.MaxValue;
 
         private int _CurrentExperience = 0;
 
@@ -187,13 +188,13 @@ namespace DomainModel.Warbands.BaseClasses
             NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {
-                TriggerCharacteristicChanged();
             }
             else if (equipment is ICloseCombatWeapon)
             {
                 ICloseCombatWeapon closeCombatWeapon = equipment as ICloseCombatWeapon;
                 // Attacks.CalculatedValue += closeCombatWeapon.AttackModifier;
             }
+            TriggerCharacteristicChanged();
         }
 
         /// <summary>

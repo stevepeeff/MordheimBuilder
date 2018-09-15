@@ -23,6 +23,8 @@ namespace DomainModel.Warbands.Skaven
 
         public override int MaximumAllowedInWarBand => 1;
 
+        public override int InitialExperience { get; } = 8;
+
         public override IWarrior GetANewInstance()
         {
             return new EshinSorcerer();

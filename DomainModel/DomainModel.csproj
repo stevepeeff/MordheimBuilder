@@ -177,6 +177,9 @@
     <Compile Include="Warbands\Skaven\AssassinAdept.cs" />
     <Compile Include="Warbands\Skaven\BlackSkaven.cs" />
     <Compile Include="Warbands\Skaven\EshinSorcerer.cs" />
+    <Compile Include="Warbands\Skaven\GaintRat.cs" />
+    <Compile Include="Warbands\Skaven\NightRunner.cs" />
+    <Compile Include="Warbands\Skaven\RatOgre.cs" />
     <Compile Include="Warbands\Skaven\SkavenWarband.cs" />
     <Compile Include="Warbands\Skaven\Verminkin.cs" />
     <Compile Include="Warbands\BaseClasses\WarriorBase.cs" />
