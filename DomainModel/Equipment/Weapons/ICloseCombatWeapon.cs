@@ -77,14 +77,6 @@ namespace DomainModel.Equipment.Weapons.CloseCombat
         int StrengthModifier { get; }
 
         /// <summary>
-        /// Gets the attack modifier.
-        /// </summary>
-        /// <value>
-        /// The attack modifier.
-        /// </value>
-        int AttackModifier { get; }
-
-        /// <summary>
         /// Gets to hit modifier.
         /// </summary>
         /// <value>

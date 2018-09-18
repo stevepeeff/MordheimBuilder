@@ -43,12 +43,12 @@ namespace MordheimBuilder.ViewModels
         {
             get
             {
-                if (_CloseCombatWeapon != null)
-                {
-                    if (_CloseCombatWeapon.AttackModifier == 0) { return NONE; }
-                    return $"+{_CloseCombatWeapon.AttackModifier}";
-                }
-                return "-";
+                //if (_CloseCombatWeapon != null)
+                //{
+                //    if (_CloseCombatWeapon. == 0) { return NONE; }
+                //    return $"+{_CloseCombatWeapon.AttackModifier}";
+                //}
+                return "TO DO FIX";
             }
         }
 

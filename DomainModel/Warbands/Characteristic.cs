@@ -77,6 +77,7 @@ namespace DomainModel.Warbands
                                 if (_Warrior.Equipment.HoldsHeavyArmortAndShield())
                                 {
                                     calculation--;
+                                    _EquipmentComment = "Heavy Armour and Shield causes a movement penalty of -1";
                                 }
                             }
                             break;
@@ -86,6 +87,14 @@ namespace DomainModel.Warbands
                                 if (_Warrior.Equipment.TwoIdenticalWeapons())
                                 {
                                     calculation++;
+                                    _EquipmentComment = "Attack bonus of +1, when using 2 identical weapons";
+                                }
+                                if (_Warrior.Equipment.TwoCloseCombatWeapons())
+                                {
+                                    calculation++;
+                                    _EquipmentComment =
+                                        "Attack bonus of +1, when using 2 weapons " +
+                                        Environment.NewLine + "(Roll for each weapon separately)";
                                 }
                             }
                             break;
@@ -301,13 +310,15 @@ namespace DomainModel.Warbands
                 }
             }
 
-            if (CharacteristicValue == Characteristics.Movement && _Warrior.Equipment.HoldsHeavyArmortAndShield())
+            if (!String.IsNullOrWhiteSpace(_EquipmentComment))
             {
-                descriptions.Add("Heavy Armour and Shield causes a movement penalty of -1");
+                descriptions.Add(_EquipmentComment);
             }
 
             return descriptions;
         }
+
+        private string _EquipmentComment = String.Empty;
 
         private int CalculateArmourSave()
         {

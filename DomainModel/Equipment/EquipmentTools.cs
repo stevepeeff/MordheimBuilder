@@ -1,4 +1,5 @@
 ﻿using DomainModel.Equipment.Armour;
+using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,12 @@ namespace DomainModel.Equipment
 
             foreach (var item in list)
             {
+                if (item is IWeapon CountAsPair)
+                {
+                    IWeapon weapon = item as IWeapon;
+                    if (weapon.CountsAsPair) { return true; }
+                }
+
                 if (item is ICloseCombatWeapon)
                 {
                     if (closeCombatList.FirstOrDefault(x => x.Name.Equals(item.Name)) != null) { return true; }
@@ -24,6 +31,21 @@ namespace DomainModel.Equipment
             }
 
             return false;
+        }
+
+        public static bool TwoCloseCombatWeapons(this IReadOnlyCollection<IEquipment> list)
+        {
+            int numberOfCloseCombatWeapons = 0;
+
+            foreach (var item in list)
+            {
+                if (item is ICloseCombatWeapon)
+                {
+                    numberOfCloseCombatWeapons++;
+                }
+            }
+
+            return (numberOfCloseCombatWeapons > 2);
         }
 
         public static bool HoldsHeavyArmortAndShield(this IReadOnlyCollection<IEquipment> equipmentList)

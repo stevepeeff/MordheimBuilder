@@ -12,7 +12,7 @@ namespace DomainModel.Equipment.Weapons.CloseCombat
 
         public override Availabilities Availability { get; } = Availabilities.RARE_9;
 
-        public override int AttackModifier { get; } = 1;
+        public override bool CountsAsPair { get; } = true;
 
         public WeepingBlades()
         {

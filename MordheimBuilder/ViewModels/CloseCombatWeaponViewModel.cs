@@ -56,11 +56,11 @@ namespace MordheimBuilder.ViewModels
         {
             get
             {
-                if (CloseCombatWeapon.AttackModifier != 0)
-                {
-                    return CloseCombatWeapon.AttackModifier.ToString();
-                }
-                return "-";
+                //if (CloseCombatWeapon.AttackModifier != 0)
+                //{
+                //    return CloseCombatWeapon.AttackModifier.ToString();
+                //}
+                return "TP DO Where is this used??";
             }
         }
 

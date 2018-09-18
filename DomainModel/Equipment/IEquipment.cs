@@ -22,6 +22,15 @@ namespace DomainModel.Equipment
     public interface IEquipment
     {
         /// <summary>
+        /// Gets the attack modifier.
+        /// Dfault is 0, wn usin pairs this can be 1
+        /// </summary>
+        /// <value>
+        /// The attack modifier.
+        /// </value>
+      //  int AttackModifier { get; }
+
+        /// <summary>
         /// Gets the cost.
         /// </summary>
         /// <value>
