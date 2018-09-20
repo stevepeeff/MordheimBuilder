@@ -14,9 +14,11 @@ namespace DomainModel.Warbands.Skaven
         {
             Movement.BaseValue = 5;
             Initiative.BaseValue = 4;
+            LeaderShip.BaseValue = 6;
 
             _AllowedSkills.AddRange(SkillProvider.Instance.AcademicSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.SkavenSpecialSkills);
         }
 
         public override int HireFee => 45;

@@ -20,8 +20,10 @@ namespace DomainModel.Warbands.Skaven
             Attacks.BaseValue = 3;
             LeaderShip.BaseValue = 4;
 
-            //TODO add stupidy etc.
-            //AddAffliction(new );
+            AddAffliction(new Animal());
+            AddAffliction(new Large());
+            AddAffliction(new Stupid());
+            AddAffliction(new Fear());
         }
 
         public override int HireFee => 210;

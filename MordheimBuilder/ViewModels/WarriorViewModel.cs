@@ -105,13 +105,15 @@ namespace MordheimBuilder
 
                 foreach (string skillName in Warrior.AllowedSkills.DistinctNames())
                 {
+                    string formatttedSkillName = skillName.Remove(0,1).SplitCamelCasing();
+
                     if (String.IsNullOrEmpty(skillList))
                     {
-                        skillList = $" {skillName}"; ;
+                        skillList = $" {formatttedSkillName}"; ;
                     }
                     else
                     {
-                        skillList += $" ,{skillName}";
+                        skillList += $" ,{formatttedSkillName}";
                     }
                 }
 

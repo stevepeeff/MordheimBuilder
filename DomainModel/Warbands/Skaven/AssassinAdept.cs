@@ -24,7 +24,7 @@ namespace DomainModel.Warbands.Skaven
             _AllowedSkills.AddRange(SkillProvider.Instance.AcademicSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.StrengthSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
-            //   _AllowedSkills.AddRange(SkillProvider.Instance.Spe); //TODO add Special
+            _AllowedSkills.AddRange(SkillProvider.Instance.SkavenSpecialSkills);
         }
 
         public override int HireFee { get; } = 60;

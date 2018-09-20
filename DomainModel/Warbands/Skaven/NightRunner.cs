@@ -1,4 +1,5 @@
-﻿using DomainModel.Warbands.BaseClasses;
+﻿using DomainModel.Skills;
+using DomainModel.Warbands.BaseClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace DomainModel.Warbands.Skaven
         {
             WeaponSkill.BaseValue = 2;
             LeaderShip.BaseValue = 4;
+            Initiative.BaseValue = 4;
+
+            _AllowedSkills.AddRange(SkillProvider.Instance.CombatSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.ShootingSkills);
+            _AllowedSkills.AddRange(SkillProvider.Instance.SkavenSpecialSkills);
         }
 
         public override int HireFee => 20;

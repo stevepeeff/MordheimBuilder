@@ -1,6 +1,7 @@
 ﻿using DomainModel.Skills.Academic;
 using DomainModel.Skills.Combat;
 using DomainModel.Skills.Shooting;
+using DomainModel.Skills.SkavenSpecial;
 using DomainModel.Skills.Speed;
 using DomainModel.Skills.Strength;
 using System;
@@ -29,6 +30,8 @@ namespace DomainModel.Skills
             AddSkill(new Leap());
 
             AddSkill(new StrikeToInjure());
+
+            AddSkill(new BlackHunger());
         }
 
         /// <summary>
@@ -78,6 +81,14 @@ namespace DomainModel.Skills
         /// The speed skills.
         /// </value>
         public IList<ISpeed> SpeedSkills => AllSkills.GetSkills<ISpeed>();
+
+        /// <summary>
+        /// Gets the skaven special skills.
+        /// </summary>
+        /// <value>
+        /// The skaven special skills.
+        /// </value>
+        public IList<ISkavenSpecial> SkavenSpecialSkills => AllSkills.GetSkills<ISkavenSpecial>();
 
         /// <summary>
         /// Gets the strength skills.

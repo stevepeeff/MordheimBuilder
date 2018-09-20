@@ -12,13 +12,20 @@ namespace DomainModel.Psychology
         [Description("Re-roll to hit")]
         Hate,
 
+        [Description("TODO TEST on Ld")]
         Fear,
+
+        [Description("On a failed Ld test => In combat does not strike blows or cast any spell")]
         Stupidity,
 
         [Description("Automatically Pass All Leadership Tests")]
         AutomaticallyPassAllLeadershipTests,
 
-        NeverGainExperience
+        [Description("Never gain experience")]
+        NeverGainExperience,
+
+        [Description("Any model may shoot at the create, even if it is not the closest target")]
+        LargeTarget
     }
 
     public interface IPsychology

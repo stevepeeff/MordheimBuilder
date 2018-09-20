@@ -104,7 +104,10 @@
     <Compile Include="Psychology\Animal.cs" />
     <Compile Include="Psychology\BurnTheWitch.cs" />
     <Compile Include="Psychology\Fanatical.cs" />
+    <Compile Include="Psychology\Fear.cs" />
+    <Compile Include="Psychology\Large.cs" />
     <Compile Include="Psychology\PsychologyBase.cs" />
+    <Compile Include="Psychology\Stupid.cs" />
     <Compile Include="RacialAdvantages\ExpertSwordMenAdvantage.cs" />
     <Compile Include="RacialAdvantages\MarienburgAdvantage.cs" />
     <Compile Include="RacialAdvantages\MiddenheimAdvantage.cs" />
@@ -118,6 +121,8 @@
     <Compile Include="Skills\Combat\CombatBase.cs" />
     <Compile Include="Skills\Combat\ICombat.cs" />
     <Compile Include="Skills\Combat\StrikeToInjure.cs" />
+    <Compile Include="Skills\SkavenSpecial\BlackHunger.cs" />
+    <Compile Include="Skills\SkavenSpecial\ISkavenSpecial.cs" />
     <Compile Include="Skills\Shooting\IShooting.cs" />
     <Compile Include="Skills\Shooting\QuickShot.cs" />
     <Compile Include="Skills\Shooting\ShootingBase.cs" />
