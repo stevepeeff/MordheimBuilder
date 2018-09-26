@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Equipment.Weapons.CloseCombat
+﻿namespace DomainModel.Equipment.Weapons.CloseCombat
 {
     /// <summary>
     /// Applies to warriors who lost their weapons.
@@ -12,8 +6,15 @@ namespace DomainModel.Equipment.Weapons.CloseCombat
     /// </summary>
     public class Fists : EquipmentBase, ICloseCombatWeapon
     {
-        public override int Cost { get; }
+        public Fists()
+        {
+            _CloseCombatRules.Add(CloseCombatWeaponRules.LostWeaponsInCombat);
+        }
+
+        public override int StrengthModifier { get; } = -1;
 
         public override int ArmorSaveModifier { get; } = 1;
+
+        public override int Cost { get; }
     }
 }

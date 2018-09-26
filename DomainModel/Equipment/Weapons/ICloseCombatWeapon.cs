@@ -30,6 +30,9 @@ namespace DomainModel.Equipment.Weapons.CloseCombat
         [Description("+1 To wound against any Possessed or Undead (a 6 is still required for critical hit). \n Matriarchs and Sister Superiors may carry 2 war-hammers")]
         Holy,
 
+        [Description("Applies to warriors who lost their weapons. Zombies, animals, etc, ignore these rules")]
+        LostWeaponsInCombat,
+
         [Description("When opponent rolls to hit, roll a D6 roll, if the result > then opponent the blow is parried and the attack is discarded")]
         Parry,
 
