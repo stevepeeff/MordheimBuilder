@@ -48,6 +48,11 @@ namespace DomainModel.Equipment
             return (numberOfCloseCombatWeapons > 2);
         }
 
+        public static bool ToManyCloseCombatWeapons(this IReadOnlyCollection<IEquipment> list)
+        {
+            return false;
+        }
+
         public static bool HoldsHeavyArmortAndShield(this IReadOnlyCollection<IEquipment> equipmentList)
         {
             bool holdsHeavyArmor = false;

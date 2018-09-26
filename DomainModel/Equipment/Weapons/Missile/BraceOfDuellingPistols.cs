@@ -9,5 +9,7 @@ namespace DomainModel.Equipment.Weapons.Missile
     public class BraceOfDuellingPistols : DuellingPistol
     {
         public override int Cost => 50;
+
+        public override bool CountsAsPair => true;
     }
 }

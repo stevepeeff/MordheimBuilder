@@ -184,6 +184,37 @@ namespace DomainModel.Tests
         }
 
         [TestMethod]
+        public void EquipmentToolsToManyCloseCombatWeapons()
+        {
+            var warrior = new WitchHunterCaptain();
+
+            ICloseCombatWeapon singleHandenWeapon = new Dagger();
+            ICloseCombatWeapon twoHandWeapon = new WeepingBlades();
+
+            Assert.IsFalse(warrior.Equipment.ToManyCloseCombatWeapons());
+            warrior.AddEquipment(singleHandenWeapon);
+            Assert.IsFalse(warrior.Equipment.ToManyCloseCombatWeapons());
+
+            warrior.AddEquipment(singleHandenWeapon);
+            warrior.AddEquipment(singleHandenWeapon);
+
+            Assert.IsTrue(warrior.Equipment.ToManyCloseCombatWeapons());
+
+            warrior.RemoveEquipment(singleHandenWeapon);
+            warrior.RemoveEquipment(singleHandenWeapon);
+            warrior.RemoveEquipment(singleHandenWeapon);
+
+            Assert.AreEqual(0, warrior.Equipment.Count);
+
+            warrior.AddEquipment(singleHandenWeapon);
+            warrior.AddEquipment(twoHandWeapon);
+
+            Assert.IsTrue(warrior.Equipment.ToManyCloseCombatWeapons());
+            warrior.RemoveEquipment(singleHandenWeapon);
+            Assert.IsFalse(warrior.Equipment.ToManyCloseCombatWeapons());
+        }
+
+        [TestMethod]
         public void EquipmentTools()
         {
             var warrior = new WitchHunterCaptain();
