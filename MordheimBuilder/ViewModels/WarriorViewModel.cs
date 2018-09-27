@@ -1,4 +1,6 @@
 ﻿using DomainModel.Equipment;
+using DomainModel.Equipment.Weapons;
+using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Skills;
 using DomainModel.Warbands;
 using MordheimBuilder.Commands;
@@ -19,6 +21,8 @@ namespace MordheimBuilder
 {
     public class WarriorViewModel : ViewModelBase
     {
+        public ObservableCollection<InjuryViewModelSimple> InjuriesSimple = new ObservableCollection<InjuryViewModelSimple>();
+
         public WarriorViewModel(IWarrior warrior)
         {
             if (warrior == null) { throw new ArgumentNullException("Warrior is null"); }
@@ -72,76 +76,7 @@ namespace MordheimBuilder
             }
         }
 
-        public string SpecialRules
-        {
-            get
-            {
-                string retval = " -";
-
-                bool appendComma = false;
-                foreach (var item in Warrior.Afflictions)
-                {
-                    if (appendComma == false)
-                    {
-                        retval = $" {item.Name.SplitCamelCasing()}";
-                    }
-                    else
-                    {
-                        retval += $" ,{item.Name.SplitCamelCasing()}";
-                    }
-
-                    appendComma = true;
-                }
-
-                return retval;
-            }
-        }
-
-        public string SkillSummary
-        {
-            get
-            {
-                string skillList = String.Empty;
-
-                foreach (string skillName in Warrior.AllowedSkills.DistinctNames())
-                {
-                    string formatttedSkillName = skillName.Remove(0,1).SplitCamelCasing();
-
-                    if (String.IsNullOrEmpty(skillList))
-                    {
-                        skillList = $" {formatttedSkillName}"; ;
-                    }
-                    else
-                    {
-                        skillList += $" ,{formatttedSkillName}";
-                    }
-                }
-
-                if (String.IsNullOrEmpty(skillList)) { skillList = "-"; }
-                return skillList;
-            }
-        }
-
-        /// <summary>
-        /// Gets the equipped weapons.
-        /// Dot NOT ever remove or add to this list directly, use the appropriate function to ensure the domain model is updated
-        /// </summary>
-        /// <value>
-        /// The equipped weapons.
-        /// </value>
-        public ObservableCollection<EquipmentSummaryViewModel> EquippedWeapons { get; } = new ObservableCollection<EquipmentSummaryViewModel>();
-
         public ObservableCollection<SkillViewModel> AllowedSkills { get; } = new ObservableCollection<SkillViewModel>();
-
-        public ObservableCollection<SpellViewModel> Spells { get; } = new ObservableCollection<SpellViewModel>();
-
-        public ObservableCollection<SkillViewModel> Skills { get; } = new ObservableCollection<SkillViewModel>();
-
-        public ObservableCollection<SkillViewModelSimple> SkillsSimple { get; } = new ObservableCollection<SkillViewModelSimple>();
-
-        public ObservableCollection<InjuryViewModel> Injuries { get; } = new ObservableCollection<InjuryViewModel>();
-
-        public ObservableCollection<InjuryViewModelSimple> InjuriesSimple = new ObservableCollection<InjuryViewModelSimple>();
 
         /// <summary>
         /// Gets the buy warrior command.
@@ -160,20 +95,21 @@ namespace MordheimBuilder
         public ICommand DecreaseWarriorBuyAmountCommand { get; private set; }
 
         /// <summary>
-        /// Gets the show skill selector command.
-        /// </summary>
-        /// <value>
-        /// The show skill selector command.
-        /// </value>
-        public ICommand ShowSkillSelectorCommand { get; }
-
-        /// <summary>
         /// Gets the equipment costs.
         /// </summary>
         /// <value>
         /// The equipment costs.
         /// </value>
         public int EquipmentCosts { get { return Warrior.EquipmentCosts; } }
+
+        /// <summary>
+        /// Gets the equipped weapons.
+        /// Dot NOT ever remove or add to this list directly, use the appropriate function to ensure the domain model is updated
+        /// </summary>
+        /// <value>
+        /// The equipped weapons.
+        /// </value>
+        public ObservableCollection<EquipmentSummaryViewModel> EquippedWeapons { get; } = new ObservableCollection<EquipmentSummaryViewModel>();
 
         /// <summary>
         /// Gets or sets the experience list.
@@ -213,18 +149,6 @@ namespace MordheimBuilder
             }
         }
 
-        public void RemoveEquipment(EquipmentSummaryViewModel equipment)
-        {
-            EquippedWeapons.Remove(equipment);
-            Warrior.RemoveEquipment(equipment.Equipment);
-        }
-
-        public void AddEquipment(EquipmentSummaryViewModel equipment)
-        {
-            EquippedWeapons.Add(equipment);
-            Warrior.AddEquipment(equipment.Equipment);
-        }
-
         /// <summary>
         /// Gets the header text.
         /// </summary>
@@ -248,6 +172,8 @@ namespace MordheimBuilder
         /// The initial cost.
         /// </value>
         public int InitialCost { get { return Warrior.HireFee; } }
+
+        public ObservableCollection<InjuryViewModel> Injuries { get; } = new ObservableCollection<InjuryViewModel>();
 
         /// <summary>
         /// Gets the maximum allowed in war band.
@@ -310,6 +236,22 @@ namespace MordheimBuilder
         }
 
         /// <summary>
+        /// Gets the show injury pane.
+        /// </summary>
+        /// <value>
+        /// The show injury pane.
+        /// </value>
+        public Visibility ShowInjuryPane
+        {
+            get
+            {
+                if (Warrior is IHenchMen) { return Visibility.Collapsed; }
+
+                return Visibility.Visible;
+            }
+        }
+
+        /// <summary>
         /// Gets the show magic pane.
         /// </summary>
         /// <value>
@@ -342,20 +284,12 @@ namespace MordheimBuilder
         }
 
         /// <summary>
-        /// Gets the show injury pane.
+        /// Gets the show skill selector command.
         /// </summary>
         /// <value>
-        /// The show injury pane.
+        /// The show skill selector command.
         /// </value>
-        public Visibility ShowInjuryPane
-        {
-            get
-            {
-                if (Warrior is IHenchMen) { return Visibility.Collapsed; }
-
-                return Visibility.Visible;
-            }
-        }
+        public ICommand ShowSkillSelectorCommand { get; }
 
         /// <summary>
         /// Gets the show weapons picker command.
@@ -365,6 +299,62 @@ namespace MordheimBuilder
         /// </value>
         public ICommand ShowWeaponsPickerCommand { get; private set; }
 
+        public ObservableCollection<SkillViewModel> Skills { get; } = new ObservableCollection<SkillViewModel>();
+
+        public ObservableCollection<SkillViewModelSimple> SkillsSimple { get; } = new ObservableCollection<SkillViewModelSimple>();
+
+        public string SkillSummary
+        {
+            get
+            {
+                string skillList = String.Empty;
+
+                foreach (string skillName in Warrior.AllowedSkills.DistinctNames())
+                {
+                    string formatttedSkillName = skillName.Remove(0, 1).SplitCamelCasing();
+
+                    if (String.IsNullOrEmpty(skillList))
+                    {
+                        skillList = $" {formatttedSkillName}"; ;
+                    }
+                    else
+                    {
+                        skillList += $" ,{formatttedSkillName}";
+                    }
+                }
+
+                if (String.IsNullOrEmpty(skillList)) { skillList = "-"; }
+                return skillList;
+            }
+        }
+
+        public string SpecialRules
+        {
+            get
+            {
+                string retval = " -";
+
+                bool appendComma = false;
+                foreach (var item in Warrior.Afflictions)
+                {
+                    if (appendComma == false)
+                    {
+                        retval = $" {item.Name.SplitCamelCasing()}";
+                    }
+                    else
+                    {
+                        retval += $" ,{item.Name.SplitCamelCasing()}";
+                    }
+
+                    appendComma = true;
+                }
+
+                return retval;
+            }
+        }
+
+        public ObservableCollection<SpellViewModel> Spells { get; } = new ObservableCollection<SpellViewModel>();
+
         /// <summary>
         /// Gets the warrior.
         /// </summary>
@@ -372,6 +362,36 @@ namespace MordheimBuilder
         /// The warrior.
         /// </value>
         public IWarrior Warrior { get; private set; }
+
+        public void AddEquipment(EquipmentSummaryViewModel equipment)
+        {
+            if (equipment.Equipment is ICloseCombatWeapon)
+            {
+                if (Warrior.Equipment.ToManyCloseCombatWeapons() == false)
+                {
+                    EquippedWeapons.Add(equipment);
+                    Warrior.AddEquipment(equipment.Equipment);
+                }
+                return;
+            }
+            else if (equipment.Equipment is IMisseleWeapon)
+            {
+                if (Warrior.Equipment.ToManyRangedWeapons() == false)
+                {
+                    EquippedWeapons.Add(equipment);
+                    Warrior.AddEquipment(equipment.Equipment);
+                }
+            }
+
+            EquippedWeapons.Add(equipment);
+            Warrior.AddEquipment(equipment.Equipment);
+        }
+
+        public void RemoveEquipment(EquipmentSummaryViewModel equipment)
+        {
+            EquippedWeapons.Remove(equipment);
+            Warrior.RemoveEquipment(equipment.Equipment);
+        }
 
         private void Warrior_PropertiesChanged(object sender, EventArgs e)
         {

@@ -177,14 +177,6 @@ namespace DomainModel.Warbands
         string TypeName { get; }
 
         /// <summary>
-        /// Gets the weapon skill.
-        /// </summary>
-        /// <value>
-        /// The weapon skill.
-        /// </value>
-        Characteristic WeaponSkill { get; }
-
-        /// <summary>
         /// Gets the warrior status.
         /// </summary>
         /// <value>
@@ -193,10 +185,12 @@ namespace DomainModel.Warbands
         IWarriorStatus WarriorStatus { get; }
 
         /// <summary>
-        /// Changes the status.
+        /// Gets the weapon skill.
         /// </summary>
-        /// <param name="warriorStatus">The warrior status.</param>
-        void ChangeStatus(IWarriorStatus warriorStatus);
+        /// <value>
+        /// The weapon skill.
+        /// </value>
+        Characteristic WeaponSkill { get; }
 
         /// <summary>
         /// Gets the wounds.
@@ -230,6 +224,12 @@ namespace DomainModel.Warbands
         /// <param name="warrior">The warrior.</param>
         /// <returns></returns>
         int AmountOfThisType(IWarrior warrior);
+
+        /// <summary>
+        /// Changes the status.
+        /// </summary>
+        /// <param name="warriorStatus">The warrior status.</param>
+        void ChangeStatus(IWarriorStatus warriorStatus);
 
         /// <summary>
         /// Gets an instance. Use when adding a warrior to a Roster

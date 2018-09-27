@@ -27,15 +27,15 @@ namespace MordheimBuilder.ViewModels
             _Armor = Equipment as IArmour;
         }
 
+        public IEquipment Equipment { get; }
+
         /// <summary>
         /// Gets the effects description.
         /// </summary>
         /// <value>
         /// The effects description.
         /// </value>
-        internal string EffectsDescription { get; private set; }
-
-        internal IEquipment Equipment { get; private set; }
+        internal string EffectsDescription { get; set; }
 
         #region DO NOT reorganize this ViewModel
 
