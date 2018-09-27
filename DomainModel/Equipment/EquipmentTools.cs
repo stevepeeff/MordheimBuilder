@@ -11,6 +11,66 @@ namespace DomainModel.Equipment
 {
     public static class EquipmentTools
     {
+        public static IEquipment HasPairSpecialRule(this IReadOnlyCollection<IEquipment> equipmentList)
+        {
+            foreach (IEquipment equipment in equipmentList)
+            {
+                if (equipment is ICloseCombatWeapon)
+                {
+                    ICloseCombatWeapon closeCombatWeapon = equipment as ICloseCombatWeapon;
+
+                    foreach (var item in closeCombatWeapon.CloseCombatSpecialRules)
+                    {
+                        if (item == CloseCombatWeaponRules.Pair)
+                        {
+                            return equipment;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public static bool HoldsHeavyArmortAndShield(this IReadOnlyCollection<IEquipment> equipmentList)
+        {
+            bool holdsHeavyArmor = false;
+            bool holdsShield = false;
+
+            foreach (var item in equipmentList)
+            {
+                if (item is HeavyArmor) { holdsHeavyArmor = true; }
+                if (item is Shield) { holdsShield = true; }
+            }
+
+            return holdsHeavyArmor && holdsShield;
+        }
+
+        /// <summary>
+        /// To the many close combat weapons.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <returns>true if the Maximum is 2 exceeded</returns>
+        public static bool ToManyCloseCombatWeapons(this IReadOnlyCollection<IEquipment> list)
+        {
+            return (CountNumberOf<ICloseCombatWeapon>(list) >= 3);
+        }
+
+        /// <summary>
+        /// To the many ranged weapons.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <returns>true if the Maximum is 2 exceeded</returns>
+        public static bool ToManyRangedWeapons(this IReadOnlyCollection<IEquipment> list)
+        {
+            return (CountNumberOf<IMisseleWeapon>(list) >= 3);
+        }
+
+        public static bool TwoCloseCombatWeapons(this IReadOnlyCollection<IEquipment> list)
+        {
+            return (CountNumberOf<ICloseCombatWeapon>(list) > 2);
+        }
+
         public static bool TwoIdenticalWeapons(this IReadOnlyCollection<IEquipment> list)
         {
             List<ICloseCombatWeapon> closeCombatList = new List<ICloseCombatWeapon>();
@@ -33,59 +93,22 @@ namespace DomainModel.Equipment
             return false;
         }
 
-        public static bool TwoCloseCombatWeapons(this IReadOnlyCollection<IEquipment> list)
+        private static int CountNumberOf<T>(this IReadOnlyCollection<IEquipment> list)
         {
-            int numberOfCloseCombatWeapons = 0;
-
+            int numberOfT = 0;
             foreach (var item in list)
             {
-                if (item is ICloseCombatWeapon)
+                if (item is T)
                 {
-                    numberOfCloseCombatWeapons++;
-                }
-            }
-
-            return (numberOfCloseCombatWeapons > 2);
-        }
-
-        public static bool ToManyCloseCombatWeapons(this IReadOnlyCollection<IEquipment> list)
-        {
-            return false;
-        }
-
-        public static bool HoldsHeavyArmortAndShield(this IReadOnlyCollection<IEquipment> equipmentList)
-        {
-            bool holdsHeavyArmor = false;
-            bool holdsShield = false;
-
-            foreach (var item in equipmentList)
-            {
-                if (item is HeavyArmor) { holdsHeavyArmor = true; }
-                if (item is Shield) { holdsShield = true; }
-            }
-
-            return holdsHeavyArmor && holdsShield;
-        }
-
-        public static IEquipment HasPairSpecialRule(this IReadOnlyCollection<IEquipment> equipmentList)
-        {
-            foreach (IEquipment equipment in equipmentList)
-            {
-                if (equipment is ICloseCombatWeapon)
-                {
-                    ICloseCombatWeapon closeCombatWeapon = equipment as ICloseCombatWeapon;
-
-                    foreach (var item in closeCombatWeapon.CloseCombatSpecialRules)
+                    numberOfT++;
+                    if (item is IWeapon)
                     {
-                        if (item == CloseCombatWeaponRules.Pair)
-                        {
-                            return equipment;
-                        }
+                        IWeapon weapon = item as IWeapon;
+                        if (weapon.CountsAsPair) { numberOfT++; }
                     }
                 }
             }
-
-            return null;
+            return numberOfT;
         }
     }
 }
