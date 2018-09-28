@@ -31,8 +31,6 @@ namespace DomainModel.Equipment
 
         public virtual Availabilities Availability { get; } = Availabilities.COMMON;
 
-        public virtual bool CountsAsPair { get; } = false;
-
         public string Name { get { return this.GetType().Name; } }
 
         public virtual int Range { get; }

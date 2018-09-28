@@ -8,8 +8,14 @@ namespace DomainModel.Equipment.Weapons.Missile
 {
     public class BraceOfDuellingPistols : DuellingPistol
     {
-        public override int Cost => 50;
+        public BraceOfDuellingPistols()
+        {
+            _MisseleWeaponRules.Clear();
+            _MisseleWeaponRules.Add(MisseleWeaponRules.Accuracy);
+            _MisseleWeaponRules.Add(MisseleWeaponRules.HandToHand);
+            _MisseleWeaponRules.Add(MisseleWeaponRules.Brace);
+        }
 
-        public override bool CountsAsPair => true;
+        public override int Cost => 50;
     }
 }

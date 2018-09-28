@@ -30,6 +30,9 @@ namespace DomainModel.Equipment.Weapons
         [Description("May fire twice at half range with a -1 to hit")]
         FireTwiceAtHalfRange,
 
+        [Description("May fire every Turn")]
+        Brace,
+
         FireEveryOtherTurn,
         ShootOnceInMelee,
         FireTwice,

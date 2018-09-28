@@ -12,8 +12,6 @@ namespace DomainModel.Equipment.Weapons.CloseCombat
 
         public override Availabilities Availability { get; } = Availabilities.RARE_9;
 
-        public override bool CountsAsPair { get; } = true;
-
         public WeepingBlades()
         {
             _CloseCombatRules.Add(CloseCombatWeaponRules.Pair);

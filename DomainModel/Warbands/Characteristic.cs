@@ -74,7 +74,7 @@ namespace DomainModel.Warbands
                     {
                         case Characteristics.Movement:
                             {
-                                if (_Warrior.Equipment.HoldsHeavyArmortAndShield())
+                                if (_Warrior.Equipment.IsCarryingHeavyArmorAndShield())
                                 {
                                     calculation--;
                                     _EquipmentComment = "Heavy Armour and Shield causes a movement penalty of -1";
@@ -84,12 +84,12 @@ namespace DomainModel.Warbands
 
                         case Characteristics.Attack:
                             {
-                                if (_Warrior.Equipment.TwoIdenticalWeapons())
+                                if (_Warrior.Equipment.HasTwoIdenticalCloseCombatWeapons())
                                 {
                                     calculation++;
                                     _EquipmentComment = "Attack bonus of +1, when using 2 identical weapons";
                                 }
-                                if (_Warrior.Equipment.TwoCloseCombatWeapons())
+                                if (_Warrior.Equipment.HasTwoCloseCombatWeapons())
                                 {
                                     calculation++;
                                     _EquipmentComment =

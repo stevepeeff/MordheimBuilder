@@ -53,19 +53,6 @@ namespace DomainModel.Tests
             Assert.AreEqual(7, warrior.LeaderShip.MaximumValue, "LeadershipMax");
         }
 
-        /// <summary>
-        /// WitchHunterCaptain as all skills
-        /// Therefore perfect for test purposes
-        /// </summary>
-        [TestMethod]
-        public void Skills()
-        {
-            IHero withchHunterCaptain = new WitchHunterCaptain();
-            IReadOnlyCollection<ISkill> skills = withchHunterCaptain.AllowedSkills;
-
-            Assert.AreEqual(3, SkillProvider.Instance.StrengthSkills.Count(), "This test will fail when all skills are added");
-        }
-
         [TestMethod]
         public void Flagellant()
         {
@@ -100,6 +87,24 @@ namespace DomainModel.Tests
         }
 
         [TestMethod]
+        public void HenchMenLevelUpCalculationMarkers()
+        {
+            int[] validvalues = new int[]
+            {
+                2, 5,9,14
+            };
+
+            for (int i = 0; i < 90; i++)
+            {
+                if (i < validvalues.Length)
+                {
+                    int calculationValue = validvalues.ElementAt(i);
+                    Assert.IsTrue(WarriorBase.LevelUpCalculationHenchMan(calculationValue), $"Failed on input {validvalues[i]}");
+                }
+            }
+        }
+
+        [TestMethod]
         public void HeroLevelUpCalculationMarkers()
         {
             int[] validvalues = new int[]
@@ -118,24 +123,6 @@ namespace DomainModel.Tests
                 {
                     int calculationValue = validvalues.ElementAt(i);
                     Assert.IsTrue(HeroBase.LevelUpCalculationHero(calculationValue), $"Failed on input {validvalues[i]}");
-                }
-            }
-        }
-
-        [TestMethod]
-        public void HenchMenLevelUpCalculationMarkers()
-        {
-            int[] validvalues = new int[]
-            {
-                2, 5,9,14
-            };
-
-            for (int i = 0; i < 90; i++)
-            {
-                if (i < validvalues.Length)
-                {
-                    int calculationValue = validvalues.ElementAt(i);
-                    Assert.IsTrue(WarriorBase.LevelUpCalculationHenchMan(calculationValue), $"Failed on input {validvalues[i]}");
                 }
             }
         }
@@ -173,99 +160,17 @@ namespace DomainModel.Tests
             Assert.AreEqual(8, warrior.LeaderShip.MaximumValue, "LeadershipMax");
         }
 
+        /// <summary>
+        /// WitchHunterCaptain as all skills
+        /// Therefore perfect for test purposes
+        /// </summary>
         [TestMethod]
-        public void WitchHunterCaptainInjury()
+        public void Skills()
         {
-            var warrior = new WitchHunterCaptain();
+            IHero withchHunterCaptain = new WitchHunterCaptain();
+            IReadOnlyCollection<ISkill> skills = withchHunterCaptain.AllowedSkills;
 
-            warrior.AddInjury(new NervousCondition());
-
-            Assert.AreEqual(3, warrior.Initiative.CalculatedValue, "Initiative");
-        }
-
-        [TestMethod]
-        public void EquipmentToolsToManyCloseCombatWeapons()
-        {
-            var warrior = new WitchHunterCaptain();
-
-            ICloseCombatWeapon singleHandenWeapon = new Dagger();
-            ICloseCombatWeapon twoHandWeapon = new WeepingBlades();
-
-            Assert.IsFalse(warrior.Equipment.ToManyCloseCombatWeapons());
-            warrior.AddEquipment(singleHandenWeapon);
-            Assert.IsFalse(warrior.Equipment.ToManyCloseCombatWeapons());
-
-            warrior.AddEquipment(singleHandenWeapon);
-            warrior.AddEquipment(singleHandenWeapon);
-
-            Assert.IsTrue(warrior.Equipment.ToManyCloseCombatWeapons());
-
-            warrior.RemoveEquipment(singleHandenWeapon);
-            warrior.RemoveEquipment(singleHandenWeapon);
-            warrior.RemoveEquipment(singleHandenWeapon);
-
-            Assert.AreEqual(0, warrior.Equipment.Count);
-
-            warrior.AddEquipment(singleHandenWeapon);
-            warrior.AddEquipment(twoHandWeapon);
-
-            Assert.IsTrue(warrior.Equipment.ToManyCloseCombatWeapons());
-            warrior.RemoveEquipment(singleHandenWeapon);
-            Assert.IsFalse(warrior.Equipment.ToManyCloseCombatWeapons());
-        }
-
-        [TestMethod]
-        public void EquipmentTools()
-        {
-            var warrior = new WitchHunterCaptain();
-            Assert.IsFalse(warrior.Equipment.HoldsHeavyArmortAndShield());
-
-            warrior.AddEquipment(new HeavyArmor());
-            warrior.AddEquipment(new Shield());
-
-            Assert.IsTrue(warrior.Equipment.HoldsHeavyArmortAndShield());
-
-            Assert.IsFalse(warrior.Equipment.TwoIdenticalWeapons());
-            warrior.AddEquipment(new Sword());
-            Assert.IsFalse(warrior.Equipment.TwoIdenticalWeapons());
-
-            warrior.AddEquipment(new Dagger());
-            Assert.IsFalse(warrior.Equipment.TwoIdenticalWeapons());
-
-            warrior.AddEquipment(new Sword());
-            Assert.IsTrue(warrior.Equipment.TwoIdenticalWeapons());
-
-            Assert.IsNull(warrior.Equipment.HasPairSpecialRule());
-            warrior.AddEquipment(new WeepingBlades());
-            Assert.IsNotNull(warrior.Equipment.HasPairSpecialRule());
-        }
-
-        [TestMethod]
-        public void WarriorArmour()
-        {
-            var warrior = new WitchHunterCaptain();
-            Assert.AreEqual(0, warrior.Save.CalculatedValue, "No armour should default in 0");
-
-            warrior.AddEquipment(new HeavyArmor());
-            Assert.AreEqual(2, warrior.Save.CalculatedValue);
-
-            warrior.AddEquipment(new Shield());
-            Assert.AreEqual(3, warrior.Save.CalculatedValue, "Combination of 2 And 1");
-        }
-
-        [TestMethod]
-        public void WitchHunterCaptainWithSkillMightyBlow()
-        {
-            var warrior = new WitchHunterCaptain();
-
-            warrior.AddSkill(new MightyBlow());
-
-            Assert.AreEqual(4, warrior.Strength.CalculatedValue, "Strength");
-
-            Assert.AreEqual("MightyBlow", warrior.Skills.ElementAt(0).SkillName());
-
-            Assert.AreEqual(warrior.Skills.ElementAt(0).Description,
-                "The warrior knows how to use his strength to maximum effect and has a +1 Strength bonus in close combat.");
+            Assert.AreEqual(3, SkillProvider.Instance.StrengthSkills.Count(), "This test will fail when all skills are added");
         }
 
         [TestMethod]
@@ -300,6 +205,31 @@ namespace DomainModel.Tests
 
             Assert.AreEqual(8, warrior.LeaderShip.BaseValue, "LeaderShip");
             Assert.AreEqual(9, warrior.LeaderShip.MaximumValue, "LeadershipMax");
+        }
+
+        [TestMethod]
+        public void WitchHunterCaptainInjury()
+        {
+            var warrior = new WitchHunterCaptain();
+
+            warrior.AddInjury(new NervousCondition());
+
+            Assert.AreEqual(3, warrior.Initiative.CalculatedValue, "Initiative");
+        }
+
+        [TestMethod]
+        public void WitchHunterCaptainWithSkillMightyBlow()
+        {
+            var warrior = new WitchHunterCaptain();
+
+            warrior.AddSkill(new MightyBlow());
+
+            Assert.AreEqual(4, warrior.Strength.CalculatedValue, "Strength");
+
+            Assert.AreEqual("MightyBlow", warrior.Skills.ElementAt(0).SkillName());
+
+            Assert.AreEqual(warrior.Skills.ElementAt(0).Description,
+                "The warrior knows how to use his strength to maximum effect and has a +1 Strength bonus in close combat.");
         }
     }
 }

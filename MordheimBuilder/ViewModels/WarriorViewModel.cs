@@ -367,7 +367,7 @@ namespace MordheimBuilder
         {
             if (equipment.Equipment is ICloseCombatWeapon)
             {
-                if (Warrior.Equipment.ToManyCloseCombatWeapons() == false)
+                if (Warrior.Equipment.MaximumCloseCombatWeaponsReached() == false)
                 {
                     EquippedWeapons.Add(equipment);
                     Warrior.AddEquipment(equipment.Equipment);
@@ -376,7 +376,7 @@ namespace MordheimBuilder
             }
             else if (equipment.Equipment is IMisseleWeapon)
             {
-                if (Warrior.Equipment.ToManyRangedWeapons() == false)
+                if (Warrior.Equipment.MaximumRangedWeaponsReached() == false)
                 {
                     EquippedWeapons.Add(equipment);
                     Warrior.AddEquipment(equipment.Equipment);
