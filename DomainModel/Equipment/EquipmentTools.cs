@@ -63,6 +63,7 @@ namespace DomainModel.Equipment
         /// <returns>true if the Maximum is 2 exceeded</returns>
         public static bool ToManyRangedWeapons(this IReadOnlyCollection<IEquipment> list)
         {
+            FIX
             return (CountNumberOf<IMisseleWeapon>(list) >= 3);
         }
 
