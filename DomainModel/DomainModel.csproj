@@ -139,8 +139,10 @@
     <Compile Include="Warbands\BaseClasses\HumanHeroBase.cs" />
     <Compile Include="Warbands\BaseClasses\Marksmen.cs" />
     <Compile Include="Warbands\BaseClasses\MercenaryCaptain.cs" />
+    <Compile Include="Warbands\BaseClasses\SistersOfSigmarBase.cs" />
     <Compile Include="Warbands\BaseClasses\SkavenHeroBase.cs" />
     <Compile Include="Warbands\BaseClasses\Swordmen.cs" />
+    <Compile Include="Warbands\BaseClasses\UndeadHeroBase.cs" />
     <Compile Include="Warbands\BaseClasses\WarbandBase.cs" />
     <Compile Include="Warbands\BaseClasses\YoungBlood.cs" />
     <Compile Include="Warbands\Characteristic.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Equipment\Weapons\IWeapon.cs" />
     <Compile Include="Equipment\Weapons\Missile\CrossBow.cs" />
     <Compile Include="Equipment\Weapons\IMisseleWeapon.cs" />
+    <Compile Include="Warbands\Undead\Vampire.cs" />
     <Compile Include="Warbands\WarBandProvider.cs" />
     <Compile Include="Warbands\WitchHunters\Flagellant.cs" />
     <Compile Include="Warbands\WitchHunters\Warhound.cs" />
