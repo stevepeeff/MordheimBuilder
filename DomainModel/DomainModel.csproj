@@ -102,6 +102,7 @@
     <Compile Include="ProgressionLogs\TimeLog.cs" />
     <Compile Include="ProgressionLogs\WyrdStone.cs" />
     <Compile Include="Psychology\Animal.cs" />
+    <Compile Include="Psychology\BlessedSight.cs" />
     <Compile Include="Psychology\BurnTheWitch.cs" />
     <Compile Include="Psychology\Fanatical.cs" />
     <Compile Include="Psychology\Fear.cs" />
