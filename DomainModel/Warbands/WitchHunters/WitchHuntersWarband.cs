@@ -26,14 +26,14 @@ namespace DomainModel.Warbands.WitchHunters
         }
 
         static public List<IEquipment> HeroEquipmentList { get; } = new List<IEquipment>()
-        {
-            new Axe(), new Dagger(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(),
-            new CrossBow(), new Pistol(), new BraceOfPistols(), new CrossbowPistol(),
-            new LightArmour(), new HeavyArmor(), new Shield(), new Buckler(), new Helmet(),
+            {
+                new Axe(), new Dagger(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(),
+                new CrossBow(), new Pistol(), new BraceOfPistols(), new CrossbowPistol(),
+                new LightArmour(), new HeavyArmor(), new Shield(), new Buckler(), new Helmet(),
 
-            //TESTCODE
-            new LongBow(), new WarplockPistol(), new Sling()
-        };
+                //TESTCODE
+                new LongBow(), new WarplockPistol(), new Sling()
+            };
 
         public override int MaximumNumberOfWarriors { get; } = 12;
     }

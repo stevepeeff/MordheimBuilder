@@ -105,7 +105,12 @@
     <Compile Include="Psychology\BurnTheWitch.cs" />
     <Compile Include="Psychology\Fanatical.cs" />
     <Compile Include="Psychology\Fear.cs" />
+    <Compile Include="Psychology\ImmuneToPoison.cs" />
+    <Compile Include="Psychology\ImmuneToPsychology.cs" />
     <Compile Include="Psychology\Large.cs" />
+    <Compile Include="Psychology\MayNotRun.cs" />
+    <Compile Include="Psychology\NoBrain.cs" />
+    <Compile Include="Psychology\NoPain.cs" />
     <Compile Include="Psychology\PsychologyBase.cs" />
     <Compile Include="Psychology\Stupid.cs" />
     <Compile Include="RacialAdvantages\ExpertSwordMenAdvantage.cs" />
@@ -200,7 +205,13 @@
     <Compile Include="Equipment\Weapons\IWeapon.cs" />
     <Compile Include="Equipment\Weapons\Missile\CrossBow.cs" />
     <Compile Include="Equipment\Weapons\IMisseleWeapon.cs" />
+    <Compile Include="Warbands\Undead\DireWolf.cs" />
+    <Compile Include="Warbands\Undead\Dreg.cs" />
+    <Compile Include="Warbands\Undead\Necromancer.cs" />
+    <Compile Include="Warbands\Undead\Ghoul.cs" />
+    <Compile Include="Warbands\Undead\UndeadWarband.cs" />
     <Compile Include="Warbands\Undead\Vampire.cs" />
+    <Compile Include="Warbands\Undead\Zombie.cs" />
     <Compile Include="Warbands\WarBandProvider.cs" />
     <Compile Include="Warbands\WitchHunters\Flagellant.cs" />
     <Compile Include="Warbands\WitchHunters\Warhound.cs" />

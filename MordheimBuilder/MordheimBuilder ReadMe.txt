@@ -6,6 +6,7 @@
 * Miscellaneous Equipment
 * The possesed
 * THe Undead
+* Psychologgy
 * Sisters of Sigmar
 * MarienburgAdvantage Logic
 * Testing modifiers??? E.g. Leader within range, Reikland ld range bonus

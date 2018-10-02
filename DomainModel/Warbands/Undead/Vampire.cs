@@ -1,4 +1,5 @@
-﻿using DomainModel.Skills;
+﻿using DomainModel.Psychology;
+using DomainModel.Skills;
 using DomainModel.Warbands.BaseClasses;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,17 @@ namespace DomainModel.Warbands.Undead
             Attacks.BaseValue = 2;
             LeaderShip.BaseValue = 8;
 
+            _AllowedWeapons.AddRange(UndeadWarband.UndeadEquipmentList);
+
             _AllowedSkills.AddRange(SkillProvider.Instance.CombatSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.AcademicSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.StrengthSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
+
+            AddAffliction(new Fear());
+            AddAffliction(new ImmuneToPsychology());
+            AddAffliction(new ImmuneToPoison());
+            AddAffliction(new NoPain());
         }
 
         public override int HireFee => 110;

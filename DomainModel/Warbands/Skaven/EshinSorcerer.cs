@@ -1,4 +1,5 @@
-﻿using DomainModel.Skills;
+﻿using DomainModel.Magic;
+using DomainModel.Skills;
 using DomainModel.Warbands.BaseClasses;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.Skaven
 {
-    internal class EshinSorcerer : SkavenHeroBase
+    internal class EshinSorcerer : SkavenHeroBase, IWizard
     {
         public EshinSorcerer()
         {
@@ -26,6 +27,8 @@ namespace DomainModel.Warbands.Skaven
         public override int MaximumAllowedInWarBand => 1;
 
         public override int InitialExperience { get; } = 8;
+
+        public IReadOnlyList<ISpell> SpellList { get; }
 
         public override IWarrior GetANewInstance()
         {

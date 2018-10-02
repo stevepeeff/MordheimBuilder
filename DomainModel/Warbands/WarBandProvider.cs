@@ -7,6 +7,7 @@ using DomainModel.Warbands.Marienburg;
 using DomainModel.Warbands.Middenheim;
 using DomainModel.Warbands.Reikland;
 using DomainModel.Warbands.Skaven;
+using DomainModel.Warbands.Undead;
 using DomainModel.Warbands.WitchHunters;
 
 namespace DomainModel.Warbands
@@ -26,12 +27,12 @@ namespace DomainModel.Warbands
 
         private WarBandProvider()
         {
-            //  DomainModel.Warbands.WitchHunters.WitchHunters witchHunters = new
             _Warbands.Add(new MarienburgWarband());
             _Warbands.Add(new MiddenheimWarband());
             _Warbands.Add(new ReiklandWarband());
             _Warbands.Add(new WitchHuntersWarband());
             _Warbands.Add(new SkavenWarband());
+            _Warbands.Add(new UndeadWarband());
         }
     }
 }

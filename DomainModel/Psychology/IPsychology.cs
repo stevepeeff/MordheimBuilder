@@ -24,8 +24,14 @@ namespace DomainModel.Psychology
         [Description("Never gain experience")]
         NeverGainExperience,
 
+        MayNotRun,
+
         [Description("Any model may shoot at the create, even if it is not the closest target")]
-        LargeTarget
+        LargeTarget,
+
+        ImmuneToPsychology,
+        ImmunToPoison,
+        ImmunToPain
     }
 
     public interface IPsychology
