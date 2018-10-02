@@ -90,6 +90,8 @@ namespace DomainModel.Skills
         /// </value>
         public IList<ISkavenSpecial> SkavenSpecialSkills => AllSkills.GetSkills<ISkavenSpecial>();
 
+        public IList<ISkavenSpecial> SistersOfSigmarSpecialSkills => AllSkills.GetSkills<ISkavenSpecial>();
+
         /// <summary>
         /// Gets the strength skills.
         /// </summary>

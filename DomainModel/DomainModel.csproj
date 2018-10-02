@@ -108,6 +108,7 @@
     <Compile Include="Psychology\ImmuneToPoison.cs" />
     <Compile Include="Psychology\ImmuneToPsychology.cs" />
     <Compile Include="Psychology\Large.cs" />
+    <Compile Include="Psychology\Leader.cs" />
     <Compile Include="Psychology\MayNotRun.cs" />
     <Compile Include="Psychology\NoBrain.cs" />
     <Compile Include="Psychology\NoPain.cs" />
@@ -186,6 +187,12 @@
     <Compile Include="Warbands\Reikland\ReiklandWarband.cs" />
     <Compile Include="Warbands\Reikland\ReiklandWarrior.cs" />
     <Compile Include="Warbands\Reikland\ReiklandYoungBlood.cs" />
+    <Compile Include="Warbands\SistersOfSigmar\Augur.cs" />
+    <Compile Include="Warbands\SistersOfSigmar\Novice.cs" />
+    <Compile Include="Warbands\SistersOfSigmar\SigmariteMatriarch.cs" />
+    <Compile Include="Warbands\SistersOfSigmar\SigmariteSister.cs" />
+    <Compile Include="Warbands\SistersOfSigmar\SistersOfSigmarWarband.cs" />
+    <Compile Include="Warbands\SistersOfSigmar\SisterSuperior.cs" />
     <Compile Include="Warbands\Skaven\AssassinAdept.cs" />
     <Compile Include="Warbands\Skaven\BlackSkaven.cs" />
     <Compile Include="Warbands\Skaven\EshinSorcerer.cs" />

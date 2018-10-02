@@ -29,6 +29,9 @@ namespace DomainModel.Psychology
         [Description("Any model may shoot at the create, even if it is not the closest target")]
         LargeTarget,
 
+        [Description("May use the Leadership of this model for all psychology tests")]
+        Leader,
+
         ImmuneToPsychology,
         ImmunToPoison,
         ImmunToPain
