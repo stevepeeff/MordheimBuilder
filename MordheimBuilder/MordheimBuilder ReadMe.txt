@@ -5,9 +5,9 @@
 * Gromril and Itilmar weapons
 * Miscellaneous Equipment
 * The possesed
-* THe Undead
 * Psychologgy
-* Sisters of Sigmar
+* Leader special rule to all captains (See sisters of sigmar)??
+* Add all magic rules, set tist to all wizards
 * MarienburgAdvantage Logic
 * Testing modifiers??? E.g. Leader within range, Reikland ld range bonus
 * Proper MVVM
