@@ -135,6 +135,7 @@
     <Compile Include="Psychology\Animal.cs" />
     <Compile Include="Psychology\BlessedSight.cs" />
     <Compile Include="Psychology\BurnTheWitch.cs" />
+    <Compile Include="Psychology\Crazed.cs" />
     <Compile Include="Psychology\Fanatical.cs" />
     <Compile Include="Psychology\Fear.cs" />
     <Compile Include="Psychology\ImmuneToPoison.cs" />
@@ -184,6 +185,13 @@
     <Compile Include="Warbands\BaseClasses\WarbandBase.cs" />
     <Compile Include="Warbands\BaseClasses\YoungBlood.cs" />
     <Compile Include="Warbands\Characteristic.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\BeastMan.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Brethren.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\CultOfThePossessedWarband.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\DarkSoul.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Magister.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutant.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Possessed.cs" />
     <Compile Include="Warbands\IHenchMen.cs" />
     <Compile Include="Warbands\IHero.cs" />
     <Compile Include="Injuries\Dead.cs" />
