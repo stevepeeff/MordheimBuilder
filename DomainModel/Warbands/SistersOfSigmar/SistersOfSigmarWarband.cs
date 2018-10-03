@@ -15,26 +15,24 @@ namespace DomainModel.Warbands.SistersOfSigmar
     {
         public SistersOfSigmarWarband()
         {
+            HeroList.Add(new SigmariteMatriarch());
             HeroList.Add(new SisterSuperior());
-            //HeroList.Add(new SigmariteMatriarch());
-            //HeroList.Add(new Augur());
+            HeroList.Add(new Augur());
 
-            //HenchMenList.Add(new SigmariteSister());
-            //HenchMenList.Add(new Novice());
+            HenchMenList.Add(new SigmariteSister());
+            HenchMenList.Add(new Novice());
         }
 
         static public List<IEquipment> WeaponList { get; } = new List<IEquipment>()
         {
-             new Dagger(), new Axe(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(), new Spear(), new Halberd(),
-            new Bow(), new ShortBow(),
-            new LightArmour(), new HeavyArmor(), new Shield(), new Helmet(),
+            new Dagger(), new ClubMaceHammer(), new SigmariteWarhammer(), new Flail(), new SteelWhip(), new DoubleHandedWeapon(),
+            new Sling(),
         };
 
+        //TODO add Miscelianes equipment (heroes only)
         static public List<IEquipment> ArmourList { get; } = new List<IEquipment>()
         {
-             new Dagger(), new Axe(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(), new Spear(), new Halberd(),
-            new Bow(), new ShortBow(),
-            new LightArmour(), new HeavyArmor(), new Shield(), new Helmet(),
+            new LightArmour(), new HeavyArmor(), new Shield(), new Buckler(), new Helmet(),
         };
 
         public override int MaximumNumberOfWarriors => 15;

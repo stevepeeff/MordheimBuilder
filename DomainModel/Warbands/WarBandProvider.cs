@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DomainModel.Warbands.Marienburg;
 using DomainModel.Warbands.Middenheim;
 using DomainModel.Warbands.Reikland;
+using DomainModel.Warbands.SistersOfSigmar;
 using DomainModel.Warbands.Skaven;
 using DomainModel.Warbands.Undead;
 using DomainModel.Warbands.WitchHunters;
@@ -32,6 +33,7 @@ namespace DomainModel.Warbands
             _Warbands.Add(new ReiklandWarband());
             _Warbands.Add(new WitchHuntersWarband());
             _Warbands.Add(new SkavenWarband());
+            _Warbands.Add(new SistersOfSigmarWarband());
             _Warbands.Add(new UndeadWarband());
         }
     }
