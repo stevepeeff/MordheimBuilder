@@ -28,7 +28,9 @@ namespace DomainModel
         CloseCombatExcludingPistols,
         InsideBuildings,
         WarbandStartIncome,
-        Shooting
+        Shooting,
+        MagicSpellsAndPrayers,
+        Permenant
     }
 
     public class Statistic

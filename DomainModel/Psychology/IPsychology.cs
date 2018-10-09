@@ -33,8 +33,8 @@ namespace DomainModel.Psychology
         Leader,
 
         ImmuneToPsychology,
-        ImmunToPoison,
-        ImmunToPain,
+        ImmuneToPoison,
+        ImmuneToPain,
 
         [Description("Re-roll any failed characteristic tests(climbing, resisting spells or any other reason), and any rolls to hit in close combat or shooting.You must accept the second result.")]
         ReRollAnyFailedCharasteristicAndToHit

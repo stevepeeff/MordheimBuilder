@@ -191,6 +191,16 @@
     <Compile Include="Warbands\CultOfThePossessed\DarkSoul.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Magister.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutant.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\Blackblood.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\ClovenHoofs.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\DeamonSoul.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\ExtraArm.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\GreatClaw.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\Hideous.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\IMutation.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\ScorpionTail.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\Spines.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\Tentacle.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Possessed.cs" />
     <Compile Include="Warbands\IHenchMen.cs" />
     <Compile Include="Warbands\IHero.cs" />
