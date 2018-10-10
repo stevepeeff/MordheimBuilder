@@ -1,15 +1,15 @@
 ﻿TODO LIST
-* Maximize the number of equipped  weapons (2 CC 2Ms see page 47)
+* Maximize the number of equipped  weapons (2 CC 2Ms see page 47) DONE,
+	=> show user max is reached
 * Save does not override the saved file
 * Improve the Special rules view
 * Gromril and Itilmar weapons
 * Miscellaneous Equipment
-* Add info in the UI (Tooltip) of an afflication
-* Psychologgy
+* Add info in the UI (Tooltip) of an affliction
+* Psychology
 * Leader special rule to all captains (See sisters of sigmar)??
-* Add all magic rules, set tist to all wizards
-* MarienburgAdvantage Logic
-* Testing modifiers??? E.g. Leader within range, Reikland ld range bonus
+		Testing modifiers??? E.g. Leader within range, Reikland ld range bonus
+* Add all magic rules, set lists to all wizards
 * Proper MVVM
 * incorporate the ultimate ref sheet.
 * Warband description

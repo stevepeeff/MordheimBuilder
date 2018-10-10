@@ -18,7 +18,7 @@ namespace DomainModel.Warbands
         /// <value>
         /// The advantages.
         /// </value>
-        IRacialAdvantage Advantages { get; }
+        IRacialAdvantage RacialAdvantages { get; }
 
         /// <summary>
         /// Gets the description.

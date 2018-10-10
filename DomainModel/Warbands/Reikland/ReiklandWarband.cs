@@ -20,7 +20,7 @@ namespace DomainModel.Warbands.Reikland
             HenchMenList.Add(new ReiklandMarksmen());
             HenchMenList.Add(new ReiklandSwordmen());
 
-            Advantages = new ReiklandWarbandAdvantage();
+            RacialAdvantages = new ReiklandWarbandAdvantage();
         }
 
         public override int MaximumNumberOfWarriors => 15;

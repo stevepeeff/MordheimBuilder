@@ -38,13 +38,37 @@ namespace DomainModel.Warbands.BaseClasses
             return null;
         }
 
-        public IRacialAdvantage Advantages { get; protected set; }
+        /// <summary>
+        /// Gets the advantages
+        /// </summary>
+        /// <value>
+        /// The advantages (if applicable)
+        /// </value>
+        public IRacialAdvantage RacialAdvantages { get; protected set; } = null;
 
         public string Description { get; } = "TODO";
 
-        public virtual int StartingCash { get; } = DefaultStartingCash;
+        public int StartingCash => CalculateStartgCash();
 
         public static readonly int DefaultStartingCash = 500;
+
+        private int CalculateStartgCash()
+        {
+            int startingAmount = DefaultStartingCash;
+            double multiplier = 1.0;
+
+            if (RacialAdvantages != null)
+            {
+                foreach (var item in RacialAdvantages.Statistics)
+                {
+                    if (item.Characteristic == Characteristics.Wealth)
+                    {
+                        multiplier += (item.AppliedValue / 100.0);
+                    }
+                }
+            }
+            return (int)(startingAmount * multiplier);
+        }
 
         //if Characteristics.Wealth, 20, Applications.WarbandStartIncome, increase
 

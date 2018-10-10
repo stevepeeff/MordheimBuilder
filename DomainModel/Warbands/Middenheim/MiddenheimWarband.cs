@@ -20,7 +20,7 @@ namespace DomainModel.Warbands.Middenheim
             HenchMenList.Add(new MiddenheimMarksmen());
             HenchMenList.Add(new MiddenheimSwordmen());
 
-            Advantages = new MiddenheimAdvantage();
+            RacialAdvantages = new MiddenheimAdvantage();
         }
 
         public override int MaximumNumberOfWarriors { get; } = 15;

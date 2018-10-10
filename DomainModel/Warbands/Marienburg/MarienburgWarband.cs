@@ -20,7 +20,7 @@ namespace DomainModel.Warbands.Marienburg
             HenchMenList.Add(new MarienburgMarksmen());
             HenchMenList.Add(new MarienburgSwordmen());
 
-            Advantages = new MarienburgAdvantage();
+            RacialAdvantages = new MarienburgAdvantage();
         }
 
         public override int MaximumNumberOfWarriors { get; } = 15;
