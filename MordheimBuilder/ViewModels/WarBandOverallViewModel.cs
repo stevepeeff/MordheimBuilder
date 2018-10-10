@@ -61,7 +61,7 @@ namespace MordheimBuilder.ViewModels
         /// <value>
         /// The name.
         /// </value>
-        public string Name => Warband.WarBandName;
+        public string Name => Warband.WarBandName.SplitCamelCasing();
 
         /// <summary>
         /// Gets or sets the selected warband.

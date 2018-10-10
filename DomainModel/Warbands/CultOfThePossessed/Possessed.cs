@@ -28,7 +28,10 @@ namespace DomainModel.Warbands.CultOfThePossessed
             _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
 
             AddAffliction(new Fear());
+            AddAffliction(new Mutation());
         }
+
+        public override int InitialExperience { get; } = 8;
 
         public override int HireFee => 90;
 

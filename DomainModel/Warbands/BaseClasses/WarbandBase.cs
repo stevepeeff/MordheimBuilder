@@ -42,7 +42,11 @@ namespace DomainModel.Warbands.BaseClasses
 
         public string Description { get; } = "TODO";
 
-        public virtual int StartingCash { get; } = 500;
+        public virtual int StartingCash { get; } = DefaultStartingCash;
+
+        public static readonly int DefaultStartingCash = 500;
+
+        //if Characteristics.Wealth, 20, Applications.WarbandStartIncome, increase
 
         public string WarBandName { get { return this.GetType().Name.Replace("Warband", String.Empty); } }
     }

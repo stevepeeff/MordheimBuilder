@@ -33,6 +33,7 @@ namespace DomainModel.Warbands.CultOfThePossessed
             AddAffliction(new Leader());
         }
 
+        public override int InitialExperience { get; } = 20;
         public override int HireFee => 70;
 
         public override int MaximumAllowedInWarBand => 1;

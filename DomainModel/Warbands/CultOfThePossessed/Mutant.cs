@@ -1,4 +1,5 @@
-﻿using DomainModel.Skills;
+﻿using DomainModel.Psychology;
+using DomainModel.Skills;
 using DomainModel.Warbands.BaseClasses;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace DomainModel.Warbands.CultOfThePossessed
 
             _AllowedSkills.AddRange(SkillProvider.Instance.CombatSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
+
+            AddAffliction(new Mutation());
         }
 
         public override int HireFee => 25;

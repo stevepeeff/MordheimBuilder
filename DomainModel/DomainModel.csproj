@@ -143,6 +143,7 @@
     <Compile Include="Psychology\Large.cs" />
     <Compile Include="Psychology\Leader.cs" />
     <Compile Include="Psychology\MayNotRun.cs" />
+    <Compile Include="Psychology\Mutation.cs" />
     <Compile Include="Psychology\NoBrain.cs" />
     <Compile Include="Psychology\NoPain.cs" />
     <Compile Include="Psychology\PsychologyBase.cs" />

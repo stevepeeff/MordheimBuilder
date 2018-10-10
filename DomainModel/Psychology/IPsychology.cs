@@ -37,7 +37,9 @@ namespace DomainModel.Psychology
         ImmuneToPain,
 
         [Description("Re-roll any failed characteristic tests(climbing, resisting spells or any other reason), and any rolls to hit in close combat or shooting.You must accept the second result.")]
-        ReRollAnyFailedCharasteristicAndToHit
+        ReRollAnyFailedCharasteristicAndToHit,
+
+        Mutations
     }
 
     public interface IPsychology

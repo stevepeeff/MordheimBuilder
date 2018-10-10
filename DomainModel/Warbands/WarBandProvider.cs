@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.Marienburg;
 using DomainModel.Warbands.Middenheim;
 using DomainModel.Warbands.Reikland;
@@ -31,10 +32,11 @@ namespace DomainModel.Warbands
             _Warbands.Add(new MarienburgWarband());
             _Warbands.Add(new MiddenheimWarband());
             _Warbands.Add(new ReiklandWarband());
-            _Warbands.Add(new WitchHuntersWarband());
+            _Warbands.Add(new CultOfThePossessedWarband());
             _Warbands.Add(new SkavenWarband());
             _Warbands.Add(new SistersOfSigmarWarband());
             _Warbands.Add(new UndeadWarband());
+            _Warbands.Add(new WitchHuntersWarband());
         }
     }
 }

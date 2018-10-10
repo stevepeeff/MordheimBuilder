@@ -4,7 +4,7 @@
 * Improve the Special rules view
 * Gromril and Itilmar weapons
 * Miscellaneous Equipment
-* The possesed
+* Add info in the UI (Tooltip) of an afflication
 * Psychologgy
 * Leader special rule to all captains (See sisters of sigmar)??
 * Add all magic rules, set tist to all wizards
