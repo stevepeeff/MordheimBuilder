@@ -16,7 +16,7 @@ namespace MordheimDal
     internal class XmlDal : IDAL
     {
         public static string STORAGE_PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), STORAGE_FOLDER);
-        private const string FILE_EXTENSION = ".XML";
+        private const string FILE_EXTENSION = ".xml";
         private const string FILENAME = "Warband Roster";
         private const string STORAGE_FOLDER = "Mordheim Builder";
 

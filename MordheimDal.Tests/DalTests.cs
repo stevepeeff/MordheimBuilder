@@ -16,6 +16,7 @@ using MordheimBuilderLogic;
 using System.IO;
 using MordheimXmlDal;
 using DomainModel.Magic.Prayers_of_Sigmar;
+using System.Threading;
 
 namespace MordheimDal.Tests
 {
@@ -31,10 +32,13 @@ namespace MordheimDal.Tests
 
         private IWizard _WarriorPriest;
 
-        public DalTests()
+        private readonly string warbandName = "MordheimDalTests";
+
+        [TestInitialize]
+        public void Setup()
         {
             _WarbandRoster = new WarBandRoster(new WitchHuntersWarband());
-            _WarbandRoster.Name = "MordheimDal.Tests";
+            _WarbandRoster.Name = "MordheimDalTests";
 
             //Logic requires to add a new warrior
             _WitchHunterCaptain = _WarbandRoster.AddWarrior(new WitchHunterCaptain()) as IHero;
@@ -62,21 +66,47 @@ namespace MordheimDal.Tests
             _WarriorPriest = _WarbandRoster.AddWarrior(new WarriorPriest()) as WarriorPriest;
             _WarriorPriest.AddSpell(new HeartsOfSteel());
             _WarriorPriest.AddSpell(new TheHammerOfSigmar());
-
-            // _WarriorPriest.add
         }
+
+        //[TestMethod]
+        //public void SaveTwice()
+        //{ TODO Save, extend Warband, Save again. Ensure the first read differs from the second (hash ??)
+        //    _WarbandRoster.Name = $"{nameof(SaveTwice)}";
+        //    string storagePath = Path.Combine(XmlDal.STORAGE_PATH, $"Warband Roster SaveTwice.xml");
+
+        //    DalProvider.Instance.Save(_WarbandRoster);
+        //    File.Delete(storagePath);
+
+        //    Assert.IsFalse(File.Exists(storagePath), "Failed to ensure that the file was deleted");
+        //    FileInfo fileInfo = new FileInfo(storagePath);
+
+        //    DalProvider.Instance.Save(_WarbandRoster);
+        //    Assert.IsTrue(File.Exists(storagePath));
+        //}
 
         [TestMethod]
-        public void Save()
+        public void Overwrite()
         {
+            _WarbandRoster.Name = $"{warbandName}{nameof(Overwrite)}";
+            string storagePath = Path.Combine(XmlDal.STORAGE_PATH, $"{_WarbandRoster.Name}.xml");
+
             DalProvider.Instance.Save(_WarbandRoster);
+            FileInfo file = new FileInfo(storagePath);
+
+            int initialHash = file.GetHashCode();
+            int secondHash = file.GetHashCode();
+
+            Assert.AreEqual(initialHash, secondHash, "Hash of same file should be identical");
+            // _WarbandRoster.a
         }
 
+        [Ignore("Save and Save As use different implementations")]
         [TestMethod]
         public void SaveAndLoad()
         {
+            _WarbandRoster.Name = $"{warbandName}{"SaveAndLoad"}";
             DalProvider.Instance.Save(_WarbandRoster);
-            IWarbandRoster roster = new XmlDal().LoadWarband(Path.Combine(XmlDal.STORAGE_PATH, "Warband Roster MordheimDal.Tests.xml"));
+            IWarbandRoster roster = new XmlDal().LoadWarband(Path.Combine(XmlDal.STORAGE_PATH, $"{_WarbandRoster.Name}.xml"));
             Assert.IsNotNull(roster);
 
             IHero loadedHero = roster.Warriors.First() as IHero;
