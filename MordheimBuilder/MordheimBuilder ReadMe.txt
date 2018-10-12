@@ -3,6 +3,7 @@
 	=> show user max is reached
 * Save does not override the saved file
 * Improve the Special rules view
+* Large creatures like Ratogre increase warband rating +20 + their exp.
 * Gromril and Itilmar weapons
 * Miscellaneous Equipment
 * Add info in the UI (Tooltip) of an affliction

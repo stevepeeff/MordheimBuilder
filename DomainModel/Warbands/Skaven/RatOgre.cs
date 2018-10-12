@@ -28,6 +28,8 @@ namespace DomainModel.Warbands.Skaven
 
         public override int HireFee => 210;
 
+        public override int InitialExperience => 20;
+
         public override int MaximumAllowedInWarBand => 1;
 
         public override IWarrior GetANewInstance()
