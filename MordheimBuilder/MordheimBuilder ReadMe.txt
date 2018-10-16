@@ -1,9 +1,8 @@
 ﻿TODO LIST
 * Maximize the number of equipped  weapons (2 CC 2Ms see page 47) DONE,
-	=> show user max is reached
+	=> show user max is reached, make exception to Extra arm
 * Save does not override the saved file
 * Improve the Special rules view
-* Large creatures like Ratogre increase warband rating +20 + their exp.
 * Gromril and Itilmar weapons
 * Miscellaneous Equipment
 * Add info in the UI (Tooltip) of an affliction

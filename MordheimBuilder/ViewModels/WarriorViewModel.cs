@@ -367,7 +367,7 @@ namespace MordheimBuilder
         {
             if (equipment.Equipment is ICloseCombatWeapon)
             {
-                if (Warrior.Equipment.MaximumCloseCombatWeaponsReached() == false)
+                if (Warrior.MaximumCloseCombatWeaponsReached() == false)
                 {
                     EquippedWeapons.Add(equipment);
                     Warrior.AddEquipment(equipment.Equipment);

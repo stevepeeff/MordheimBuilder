@@ -121,12 +121,28 @@ namespace DomainModel.Warbands
         int MaximumAllowedInWarBand { get; }
 
         /// <summary>
+        /// Gets the maximum close combat weapons.
+        /// </summary>
+        /// <value>
+        /// The maximum close combat weapons.
+        /// </value>
+        int MaximumCloseCombatWeapons { get; }
+
+        /// <summary>
         /// Gets the maximum experience.
         /// </summary>
         /// <value>
         /// The maximum experience.
         /// </value>
         int MaximumExperience { get; }
+
+        /// <summary>
+        /// Gets the maximum missile weapons.
+        /// </summary>
+        /// <value>
+        /// The maximum missile weapons.
+        /// </value>
+        int MaximumMissileWeapons { get; }
 
         /// <summary>
         /// Gets the movement.

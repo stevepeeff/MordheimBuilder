@@ -2,6 +2,8 @@
 using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
+using DomainModel.Warbands.CultOfThePossessed;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -66,14 +68,14 @@ namespace DomainModel.Tests
             ICloseCombatWeapon singleHandenWeapon = new Dagger();
             ICloseCombatWeapon twoHandWeapon = new WeepingBlades();
 
-            Assert.IsFalse(warrior.Equipment.MaximumCloseCombatWeaponsReached());
+            Assert.IsFalse(warrior.MaximumCloseCombatWeaponsReached());
             warrior.AddEquipment(singleHandenWeapon);
-            Assert.IsFalse(warrior.Equipment.MaximumCloseCombatWeaponsReached());
+            Assert.IsFalse(warrior.MaximumCloseCombatWeaponsReached());
 
             warrior.AddEquipment(singleHandenWeapon);
             warrior.AddEquipment(singleHandenWeapon);
 
-            Assert.IsTrue(warrior.Equipment.MaximumCloseCombatWeaponsReached());
+            Assert.IsTrue(warrior.MaximumCloseCombatWeaponsReached());
 
             warrior.RemoveEquipment(singleHandenWeapon);
             warrior.RemoveEquipment(singleHandenWeapon);
@@ -84,10 +86,10 @@ namespace DomainModel.Tests
             warrior.AddEquipment(singleHandenWeapon);
             warrior.AddEquipment(twoHandWeapon);
 
-            Assert.IsTrue(warrior.Equipment.MaximumCloseCombatWeaponsReached());
+            Assert.IsTrue(warrior.MaximumCloseCombatWeaponsReached());
 
             warrior.RemoveEquipment(singleHandenWeapon);
-            Assert.IsTrue(warrior.Equipment.MaximumCloseCombatWeaponsReached(), "Weeping blades is a pair");
+            Assert.IsTrue(warrior.MaximumCloseCombatWeaponsReached(), "Weeping blades is a pair");
         }
 
         [TestMethod]

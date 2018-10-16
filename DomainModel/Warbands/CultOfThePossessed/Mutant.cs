@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.CultOfThePossessed
 {
-    public class Mutant : HeroBase, IHero
+    public class Mutant : MutantBase, IHero, IMutant
     {
         public Mutant()
         {

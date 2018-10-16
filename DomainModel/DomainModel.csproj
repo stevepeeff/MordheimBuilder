@@ -190,8 +190,10 @@
     <Compile Include="Warbands\CultOfThePossessed\Brethren.cs" />
     <Compile Include="Warbands\CultOfThePossessed\CultOfThePossessedWarband.cs" />
     <Compile Include="Warbands\CultOfThePossessed\DarkSoul.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\IMutant.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Magister.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutant.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\MutantBase.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\Blackblood.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\ClovenHoofs.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\DeamonSoul.cs" />

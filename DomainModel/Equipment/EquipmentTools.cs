@@ -1,6 +1,7 @@
 ﻿using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
+using DomainModel.Warbands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DomainModel.Equipment
 {
     public static class EquipmentTools
     {
-        private const int MAXIMUM_NUMBER_OF_WEAPONS = 2;
+        internal const int MAXIMUM_NUMBER_OF_WEAPONS = 2;
 
         public static int CountNumberOf<T>(this IReadOnlyCollection<IEquipment> list)
         {
@@ -104,15 +105,15 @@ namespace DomainModel.Equipment
         /// </summary>
         /// <param name="list">The list.</param>
         /// <returns>true if the Maximum of 2 is reached</returns>
-        public static bool MaximumCloseCombatWeaponsReached(this IReadOnlyCollection<IEquipment> list)
+        public static bool MaximumCloseCombatWeaponsReached(this IWarrior warrior)
         {
-            if (CountNumberOf<ICloseCombatWeapon>(list) >= MAXIMUM_NUMBER_OF_WEAPONS)
+            if (CountNumberOf<ICloseCombatWeapon>(warrior.Equipment) >= warrior.MaximumCloseCombatWeapons)
             {
                 return true;
             }
 
             List<ICloseCombatWeapon> closeCombatList = new List<ICloseCombatWeapon>();
-            foreach (var item in list)
+            foreach (var item in warrior.Equipment)
             {
                 if (item is ICloseCombatWeapon)
                 {

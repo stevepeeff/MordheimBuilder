@@ -16,11 +16,10 @@ namespace DomainModel.Warbands.BaseClasses
 {
     public abstract class WarriorBase : IWarrior
     {
+        public const int INFINITE = int.MaxValue;
         protected List<ISkill> _AllowedSkills = new List<ISkill>();
         protected List<ISkill> _Skills = new List<ISkill>();
         private List<Characteristic> _Characteristics;
-        public const int INFINITE = int.MaxValue;
-
         private int _CurrentExperience = 0;
 
         public WarriorBase()
@@ -44,19 +43,13 @@ namespace DomainModel.Warbands.BaseClasses
             _AllowedWeapons.Add(new Dagger());
         }
 
-        public IWarriorStatus WarriorStatus { get; private set; } = new InAction();
-
-        public void ChangeStatus(IWarriorStatus warriorStatus)
-        {
-            WarriorStatus = warriorStatus;
-        }
-
         public event EventHandler PropertiesChanged;
 
         public IRacialAdvantage Advantages { get; protected set; }
         public IReadOnlyCollection<IPsychology> Afflictions { get { return _Afflictions; } }
         public IReadOnlyCollection<IEquipment> AllowedEquipment { get { return _AllowedWeapons; } }
         public IReadOnlyCollection<ISkill> AllowedSkills { get { return _AllowedSkills; } }
+        public int AmountInGroup { get; private set; } = 0;
         public Characteristic Attacks { get; private set; }
         public Characteristic BallisticSkill { get; private set; }
         public DateTime? CreationDate { get; private set; } = null;
@@ -118,36 +111,31 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
-        public void AddSkill(ISkill skill)
-        {
-            _Skills.Add(skill);
-            TriggerCharacteristicChanged();
-        }
-
-        public void AddSkill(string skillName)
-        {
-            _Skills.Add(SkillProvider.Instance.GetSkill(skillName));
-        }
-
-        public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }
-
         public abstract int HireFee { get; }
         public virtual int InitialExperience { get; }
         public Characteristic Initiative { get; private set; }
         public Characteristic LeaderShip { get; private set; }
         public virtual IReadOnlyCollection<int> LevelUpValues { get; }
         public abstract int MaximumAllowedInWarBand { get; }
+
+        public virtual int MaximumCloseCombatWeapons
+        {
+            get
+            {
+                return EquipmentTools.MAXIMUM_NUMBER_OF_WEAPONS;
+            }
+        }
+
         public virtual int MaximumExperience { get; } = 14;
+        public int MaximumMissileWeapons => EquipmentTools.MAXIMUM_NUMBER_OF_WEAPONS;
         public Characteristic Movement { get; private set; }
         public string Name { get; set; }
-        public int AmountInGroup { get; private set; } = 0;
         public Characteristic Save { get; private set; }
-
+        public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }
         public Characteristic Strength { get; private set; }
-
         public Characteristic Toughness { get; private set; }
-
         public string TypeName { get { return this.GetType().Name; } }
+        public IWarriorStatus WarriorStatus { get; private set; } = new InAction();
 
         public Characteristic WeaponSkill { get; private set; }
 
@@ -197,6 +185,32 @@ namespace DomainModel.Warbands.BaseClasses
             TriggerCharacteristicChanged();
         }
 
+        public void AddSkill(ISkill skill)
+        {
+            _Skills.Add(skill);
+            TriggerCharacteristicChanged();
+        }
+
+        public void AddSkill(string skillName)
+        {
+            _Skills.Add(SkillProvider.Instance.GetSkill(skillName));
+        }
+
+        public int AmountOfThisType(IWarrior warrior)
+        {
+            if (this.TypeName.Equals(warrior.TypeName))
+            {
+                IHenchMen henchMan = this as IHenchMen;
+
+                if (henchMan != null)
+                {
+                    return henchMan.AmountInGroup;
+                }
+                return 1;
+            }
+            return 0;
+        }
+
         /// <summary>
         /// Verifies if this and another warrior
         /// TODO obsolete, so remove
@@ -217,15 +231,15 @@ namespace DomainModel.Warbands.BaseClasses
             return areEqual;
         }
 
+        public void ChangeStatus(IWarriorStatus warriorStatus)
+        {
+            WarriorStatus = warriorStatus;
+        }
+
         public void DecreaseGroupByOne()
         {
             AmountInGroup--;
             NotifyPropertiesChangedChanged();
-        }
-
-        public virtual bool IsLevelUp(int experienceValue)
-        {
-            return LevelUpCalculationHenchMan(experienceValue);
         }
 
         public abstract IWarrior GetANewInstance();
@@ -245,19 +259,9 @@ namespace DomainModel.Warbands.BaseClasses
             NotifyPropertiesChangedChanged();
         }
 
-        public int AmountOfThisType(IWarrior warrior)
+        public virtual bool IsLevelUp(int experienceValue)
         {
-            if (this.TypeName.Equals(warrior.TypeName))
-            {
-                IHenchMen henchMan = this as IHenchMen;
-
-                if (henchMan != null)
-                {
-                    return henchMan.AmountInGroup;
-                }
-                return 1;
-            }
-            return 0;
+            return LevelUpCalculationHenchMan(experienceValue);
         }
 
         public void RemoveEquipment(IEquipment equipment)

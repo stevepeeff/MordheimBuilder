@@ -51,6 +51,7 @@
     <Compile Include="DomainModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EquipmentToolsTests.cs" />
+    <Compile Include="MutationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
