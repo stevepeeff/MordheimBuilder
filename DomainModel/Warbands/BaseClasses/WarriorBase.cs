@@ -22,6 +22,18 @@ namespace DomainModel.Warbands.BaseClasses
         private List<Characteristic> _Characteristics;
         private int _CurrentExperience = 0;
 
+        protected List<CharacteristicModifier> _CharacteristicModifiers = new List<CharacteristicModifier>();
+
+        /// <summary>
+        /// Gets the characteristic modifiers.
+        /// </summary>
+        /// <param name="characteristic">The characteristic.</param>
+        /// <returns></returns>
+        internal List<CharacteristicModifier> GetCharacteristicModifiers(Characteristics characteristic)
+        {
+            return _CharacteristicModifiers.Where(x => x.Characteristic.Equals(characteristic)).ToList();
+        }
+
         public WarriorBase()
         {
             Movement = new Characteristic(this, Characteristics.Movement, 4);
@@ -57,6 +69,17 @@ namespace DomainModel.Warbands.BaseClasses
         public int CurrentExperience
         {
             get { return InitialExperience + _CurrentExperience; }
+        }
+
+        protected virtual void CalculateCharacteristicsModifiers()
+        {
+            if (Advantages != null)
+            {
+                foreach (var statistic in Advantages.Statistics)
+                {
+                    _CharacteristicModifiers.Add(new CharacteristicModifier(statistic));
+                }
+            }
         }
 
         public IReadOnlyCollection<IEquipment> Equipment { get { return _Weapons; } }

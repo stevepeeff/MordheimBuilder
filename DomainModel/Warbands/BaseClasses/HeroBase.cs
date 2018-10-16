@@ -20,6 +20,24 @@ namespace DomainModel.Warbands.BaseClasses
 
         public override int MaximumExperience { get; } = 30;
 
+        protected override void CalculateCharacteristicsModifiers()
+        {
+            base.CalculateCharacteristicsModifiers();
+
+            foreach (ISkill skill in Skills)
+            {
+                foreach (var statistic in skill.Statistics)
+                {
+                    _CharacteristicModifiers.Add(new CharacteristicModifier(statistic));
+                }
+            }
+
+            foreach (Injury injury in Injuries)
+            {
+                _CharacteristicModifiers.Add(new CharacteristicModifier(injury.Result, injury.Description));
+            }
+        }
+
         public static bool LevelUpCalculationHero(int experienceValue)
         {
             int cumulative = 0;

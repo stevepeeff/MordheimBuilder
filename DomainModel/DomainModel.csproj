@@ -186,6 +186,7 @@
     <Compile Include="Warbands\BaseClasses\WarbandBase.cs" />
     <Compile Include="Warbands\BaseClasses\YoungBlood.cs" />
     <Compile Include="Warbands\Characteristic.cs" />
+    <Compile Include="Warbands\CharacteristicModifier.cs" />
     <Compile Include="Warbands\CultOfThePossessed\BeastMan.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Brethren.cs" />
     <Compile Include="Warbands\CultOfThePossessed\CultOfThePossessedWarband.cs" />

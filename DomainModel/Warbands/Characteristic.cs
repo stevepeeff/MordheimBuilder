@@ -6,6 +6,8 @@ using DomainModel.Equipment.Armour;
 using DomainModel.Injuries;
 using DomainModel.Skills;
 using DomainModel.Warbands.BaseClasses;
+using DomainModel.Warbands.CultOfThePossessed;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 
 namespace DomainModel.Warbands
 {
@@ -68,7 +70,15 @@ namespace DomainModel.Warbands
                 }
                 else
                 {
-                    int calculation = CalculateCharacteristic();
+                    //   int calculation = CalculateCharacteristic();
+
+                    int calculation = 0;
+
+                    foreach (var item in _Warrior.GetCharacteristicModifiers(CharacteristicValue))
+                    {
+                        calculation += item.Modifier;
+                        _ModifierSummary.AppendLine(item.Description);
+                    }
 
                     switch (CharacteristicValue)
                     {
@@ -77,6 +87,7 @@ namespace DomainModel.Warbands
                                 if (_Warrior.Equipment.IsCarryingHeavyArmorAndShield())
                                 {
                                     calculation--;
+                                    _ModifierSummary.AppendLine("Heavy Armour and Shield causes a movement penalty of -1");
                                     _EquipmentComment = "Heavy Armour and Shield causes a movement penalty of -1";
                                 }
                             }
@@ -87,11 +98,14 @@ namespace DomainModel.Warbands
                                 if (_Warrior.Equipment.HasTwoIdenticalCloseCombatWeapons())
                                 {
                                     calculation++;
+                                    _ModifierSummary.AppendLine("Attack bonus of +1, when using 2 identical weapons");
                                     _EquipmentComment = "Attack bonus of +1, when using 2 identical weapons";
                                 }
                                 if (_Warrior.Equipment.HasTwoCloseCombatWeapons())
                                 {
                                     calculation++;
+                                    _ModifierSummary.AppendLine("Attack bonus of +1, when using 2 weapons ");
+                                    _ModifierSummary.AppendLine("(Roll for each weapon separately)");
                                     _EquipmentComment =
                                         "Attack bonus of +1, when using 2 weapons " +
                                         Environment.NewLine + "(Roll for each weapon separately)";
@@ -100,7 +114,7 @@ namespace DomainModel.Warbands
                             break;
                     }
 
-                    return calculation;
+                    return BaseValue + calculation;
                 }
             }
         }
@@ -206,6 +220,8 @@ namespace DomainModel.Warbands
         {
             get
             {
+                return _ModifierSummary.ToString();
+
                 string summary = String.Empty;
 
                 foreach (string item in BuildCharacteristicComment())
@@ -220,6 +236,8 @@ namespace DomainModel.Warbands
                 return summary;
             }
         }
+
+        private StringBuilder _ModifierSummary = new StringBuilder();
 
         /// <summary>
         /// Gets the overall result.
@@ -342,10 +360,11 @@ namespace DomainModel.Warbands
 
             if (_Warrior is IHero)
             {
-                IHero hero = (IHero)_Warrior;
+                IHero hero = _Warrior as IHero;
                 calculation += CalculateSkill(hero);
                 calculation += CalculateInjury(hero);
             }
+
             calculation += CalculateRacialAdvantageModifier();
 
             return BaseValue + calculation;

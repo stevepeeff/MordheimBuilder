@@ -37,5 +37,10 @@ namespace DomainModel.Warbands.CultOfThePossessed
         {
             return new Mutant();
         }
+
+        protected override void CalculateCharacteristicsModifiers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

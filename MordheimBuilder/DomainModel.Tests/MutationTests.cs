@@ -22,5 +22,19 @@ namespace DomainModel.Tests
 
             Assert.AreEqual(3, warrior.MaximumCloseCombatWeapons);
         }
+
+        [TestMethod]
+        public void GreatClawMutation()
+        {
+            Mutant warrior = new Mutant();
+
+            Assert.AreEqual(1, warrior.Attacks.CalculatedValue);
+            Assert.AreEqual(3, warrior.Strength.CalculatedValue);
+
+            warrior.AddMutation(new GreatClaw());
+
+            Assert.AreEqual(2, warrior.Attacks.CalculatedValue);
+            Assert.AreEqual(4, warrior.Strength.CalculatedValue);
+        }
     }
 }
