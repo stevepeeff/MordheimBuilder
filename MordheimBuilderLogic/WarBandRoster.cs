@@ -1,4 +1,5 @@
 ﻿using DomainModel;
+using DomainModel.Psychology;
 using DomainModel.Warbands;
 using System;
 using System.Collections.Generic;
@@ -85,6 +86,10 @@ namespace MordheimBuilderLogic
                     else
                     {
                         rating += warrior.CurrentExperience;
+                    }
+                    if (warrior.Afflictions.Any(x => x.Affliction.Equals(Afflictions.LargeTarget)))
+                    {
+                        rating += 20;
                     }
                 }
                 return rating;
