@@ -3,9 +3,8 @@
 	=> show user max is reached, make exception to Extra arm
 * Save does not override the saved file
 * Improve the Special rules view
-* Gromril and Itilmar weapons
+* Gromril and Itilmar weapons, take equipment Tools in account
 * Miscellaneous Equipment
-* TODO , only Heavy or Light Armour allowed
 * Psychology
 * Leader special rule to all captains (See sisters of sigmar)??
 		Testing modifiers??? E.g. Leader within range, Reikland ld range bonus

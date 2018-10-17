@@ -200,8 +200,8 @@ namespace DomainModel.Warbands.BaseClasses
             NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {
-                //TODO , only Heavy or Light Armour allowed
-                if (_EquipmentList.Any(x => x.Name.Equals(equipment.Name)) == false)
+                if (_EquipmentList.Any(x => x.Name.Equals(equipment.Name)) == false &&
+                    _EquipmentList.EquipArmourIsAllowed(equipment))
                 {
                     _EquipmentList.Add(equipment);
                 }

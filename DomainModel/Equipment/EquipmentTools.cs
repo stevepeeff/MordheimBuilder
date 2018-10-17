@@ -94,6 +94,25 @@ namespace DomainModel.Equipment
         }
 
         /// <summary>
+        /// Equips the armour is allowed.
+        /// The Warrior want to add armour
+        /// </summary>
+        /// <param name="equipmentList">The equipment list.</param>
+        /// <param name="equipment">The equipment.</param>
+        /// <returns>true when no armour is already equipped</returns>
+        public static bool EquipArmourIsAllowed(this IReadOnlyCollection<IEquipment> equipmentList, IEquipment equipment)
+        {
+            if (equipment is HeavyArmor || equipment is LightArmour)
+            {
+                foreach (var item in equipmentList)
+                {
+                    if (item is HeavyArmor || item is LightArmour) { return false; }
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Maximums the close combat weapons reached.
         /// </summary>
         /// <param name="list">The list.</param>
