@@ -12,12 +12,6 @@ namespace DomainModel.Warbands
         public int Modifier { get; }
         public string Description { get; }
 
-        //public CharacteristicModifier(Characteristics characteristic, int modifier)
-        //{
-        //    Characteristic = characteristic;
-        //    Modifier = modifier;
-        //}
-
         public CharacteristicModifier(Statistic statistic, string description)
         {
             Characteristic = statistic.Characteristic;

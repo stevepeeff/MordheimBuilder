@@ -31,26 +31,8 @@ namespace DomainModel.Warbands.CultOfThePossessed
                 foreach (var statistic in mutation.Statistics)
                 {
                     _CharacteristicModifiers.Add(new CharacteristicModifier(statistic));
-
-                    // _CharacteristicModifiers.Add(new CharacteristicModifier(statistic.Characteristic, statistic.AppliedValue));
                 }
             }
-        }
-
-        private int CalculateCharacteristicq()
-        {
-            int modifier = 0;
-            foreach (IMutation mutation in Mutations)
-            {
-                //foreach (var statistic in mutation.Statistics)
-                //{
-                //    if (CharacteristicValue == statistic.Characteristic)
-                //    {
-                //        heroModifier += statistic.AppliedValue;
-                //    }
-                //}
-            }
-            return modifier;
         }
 
         public override int MaximumCloseCombatWeapons

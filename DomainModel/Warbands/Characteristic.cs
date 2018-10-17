@@ -70,8 +70,6 @@ namespace DomainModel.Warbands
                 }
                 else
                 {
-                    //   int calculation = CalculateCharacteristic();
-
                     int calculation = 0;
 
                     foreach (var item in _Warrior.GetCharacteristicModifiers(CharacteristicValue))

@@ -31,6 +31,7 @@ namespace DomainModel.Warbands.BaseClasses
         /// <returns></returns>
         internal List<CharacteristicModifier> GetCharacteristicModifiers(Characteristics characteristic)
         {
+            CalculateCharacteristicsModifiers();
             return _CharacteristicModifiers.Where(x => x.Characteristic.Equals(characteristic)).ToList();
         }
 
@@ -73,6 +74,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         protected virtual void CalculateCharacteristicsModifiers()
         {
+            _CharacteristicModifiers.Clear();
             if (Advantages != null)
             {
                 foreach (var statistic in Advantages.Statistics)
