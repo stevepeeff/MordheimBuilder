@@ -47,7 +47,7 @@ namespace DomainModel
         {
             Characteristic = characteristic;
             AppliedValue = appliedValue;
-            Description = $"{AppliedValue} {reason}";
+            Description = reason;
         }
 
         public Statistic(Characteristics characteristic, int appliedValue, Applications application, string reason) : this(characteristic, appliedValue, reason)

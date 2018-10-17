@@ -64,6 +64,7 @@ namespace DomainModel.Warbands
         {
             get
             {
+                ModifierSummary = null;
                 if (CharacteristicValue == Characteristics.Save)
                 {
                     return CalculateArmourSave();
@@ -75,7 +76,7 @@ namespace DomainModel.Warbands
                     foreach (var item in _Warrior.GetCharacteristicModifiers(CharacteristicValue))
                     {
                         calculation += item.Modifier;
-                        _ModifierSummary.AppendLine(item.Description);
+                        AddModifierComment(item.Description);
                     }
 
                     switch (CharacteristicValue)
@@ -85,8 +86,7 @@ namespace DomainModel.Warbands
                                 if (_Warrior.Equipment.IsCarryingHeavyArmorAndShield())
                                 {
                                     calculation--;
-                                    _ModifierSummary.AppendLine("Heavy Armour and Shield causes a movement penalty of -1");
-                                    _EquipmentComment = "Heavy Armour and Shield causes a movement penalty of -1";
+                                    AddModifierComment("Heavy Armour and Shield causes a movement penalty of -1");
                                 }
                             }
                             break;
@@ -96,17 +96,13 @@ namespace DomainModel.Warbands
                                 if (_Warrior.Equipment.HasTwoIdenticalCloseCombatWeapons())
                                 {
                                     calculation++;
-                                    _ModifierSummary.AppendLine("Attack bonus of +1, when using 2 identical weapons");
-                                    _EquipmentComment = "Attack bonus of +1, when using 2 identical weapons";
+                                    AddModifierComment("Attack bonus of +1, when using 2 identical weapons");
                                 }
-                                if (_Warrior.Equipment.HasTwoCloseCombatWeapons())
+                                else if (_Warrior.Equipment.HasTwoCloseCombatWeapons())
                                 {
                                     calculation++;
-                                    _ModifierSummary.AppendLine("Attack bonus of +1, when using 2 weapons ");
-                                    _ModifierSummary.AppendLine("(Roll for each weapon separately)");
-                                    _EquipmentComment =
-                                        "Attack bonus of +1, when using 2 weapons " +
-                                        Environment.NewLine + "(Roll for each weapon separately)";
+                                    AddModifierComment("Attack bonus of +1, when using 2 weapons ");
+                                    AddModifierComment("(Roll for each weapon separately)");
                                 }
                             }
                             break;
@@ -214,28 +210,13 @@ namespace DomainModel.Warbands
             set { _MaximumValue = value; }
         }
 
-        public string ModifierSummary
-        {
-            get
-            {
-                return _ModifierSummary.ToString();
-
-                string summary = String.Empty;
-
-                foreach (string item in BuildCharacteristicComment())
-                {
-                    if (String.IsNullOrEmpty(summary) == false)
-                    {
-                        summary += Environment.NewLine;
-                    }
-                    summary += item;
-                }
-
-                return summary;
-            }
-        }
-
-        private StringBuilder _ModifierSummary = new StringBuilder();
+        /// <summary>
+        /// Gets the modifier summary.
+        /// </summary>
+        /// <value>
+        /// The modifier summary.
+        /// </value>
+        public string ModifierSummary { get; private set; }
 
         /// <summary>
         /// Gets the overall result.
@@ -271,70 +252,14 @@ namespace DomainModel.Warbands
             }
         }
 
-        private List<string> BuildCharacteristicComment()
+        private void AddModifierComment(string comment)
         {
-            List<string> descriptions = new List<string>();
-
-            //TODO proper refactor, we only read the description of 'Statistic'
-
-            if (CharacteristicValue == Characteristics.Save)
+            if (String.IsNullOrEmpty(ModifierSummary) == false)
             {
-                foreach (IEquipment item in _Warrior.Equipment)
-                {
-                    IArmour armour = item as IArmour;
-
-                    if (armour != null)
-                    {
-                        descriptions.Add(armour.Description);
-                    }
-                }
+                ModifierSummary = ModifierSummary + Environment.NewLine;
             }
-            else
-            {
-                if (_Warrior.Advantages != null)
-                {
-                    foreach (Statistic statistic in _Warrior.Advantages.Statistics)
-                    {
-                        if (CharacteristicValue == statistic.Characteristic)
-                        {
-                            descriptions.Add(statistic.Description);
-                        }
-                    }
-                }
-
-                foreach (ISkill skill in _Warrior.Skills)
-                {
-                    foreach (Statistic statistic in skill.Statistics)
-                    {
-                        if (CharacteristicValue == statistic.Characteristic)
-                        {
-                            descriptions.Add(statistic.Description);
-                        }
-                    }
-                }
-
-                IHero hero = _Warrior as IHero;
-                if (hero != null)
-                {
-                    foreach (Injury injury in hero.Injuries)
-                    {
-                        if (CharacteristicValue == injury.Result.Characteristic)
-                        {
-                            descriptions.Add(injury.Result.Description);
-                        }
-                    }
-                }
-            }
-
-            if (!String.IsNullOrWhiteSpace(_EquipmentComment))
-            {
-                descriptions.Add(_EquipmentComment);
-            }
-
-            return descriptions;
+            ModifierSummary += comment;
         }
-
-        private string _EquipmentComment = String.Empty;
 
         private int CalculateArmourSave()
         {
@@ -343,9 +268,9 @@ namespace DomainModel.Warbands
             foreach (IEquipment item in _Warrior.Equipment)
             {
                 IArmour armour = item as IArmour;
-
                 if (armour != null)
                 {
+                    AddModifierComment(armour.Name);
                     calculatedArmorSave += armour.Save;
                 }
             }
@@ -377,6 +302,8 @@ namespace DomainModel.Warbands
                 if (CharacteristicValue == injury.Result.Characteristic)
                 {
                     heroModifier += injury.Result.AppliedValue;
+                    AddModifierComment(injury.Name);
+                    AddModifierComment(injury.Description);
                 }
             }
 
@@ -394,6 +321,7 @@ namespace DomainModel.Warbands
                     if (CharacteristicValue == statistic.Characteristic)
                     {
                         racialAdvantage += statistic.AppliedValue;
+                        AddModifierComment(_Warrior.Advantages.Description);
                     }
                 }
             }
@@ -411,6 +339,7 @@ namespace DomainModel.Warbands
                     if (CharacteristicValue == statistic.Characteristic)
                     {
                         heroModifier += statistic.AppliedValue;
+                        AddModifierComment(skill.SkillName);
                     }
                 }
             }

@@ -11,6 +11,7 @@
 		Testing modifiers??? E.g. Leader within range, Reikland ld range bonus
 * Add all magic rules, set lists to all wizards
 * Proper MVVM
+* Test Comment (tooltip) when adding skills/injuries
 * incorporate the ultimate ref sheet.
 * Warband description
 
