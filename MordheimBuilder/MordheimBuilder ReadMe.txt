@@ -5,7 +5,7 @@
 * Improve the Special rules view
 * Gromril and Itilmar weapons
 * Miscellaneous Equipment
-* Add info in the UI (Tooltip) of an affliction
+* TODO , only Heavy or Light Armour allowed
 * Psychology
 * Leader special rule to all captains (See sisters of sigmar)??
 		Testing modifiers??? E.g. Leader within range, Reikland ld range bonus

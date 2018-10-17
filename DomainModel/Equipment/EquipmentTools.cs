@@ -14,7 +14,13 @@ namespace DomainModel.Equipment
     {
         internal const int MAXIMUM_NUMBER_OF_WEAPONS = 2;
 
-        public static int CountNumberOf<T>(this IReadOnlyCollection<IEquipment> list)
+        /// <summary>
+        /// Counts the number of.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The list.</param>
+        /// <returns></returns>
+        public static int CountNumberOf<T>(this IReadOnlyCollection<IEquipment> list) where T : IEquipment
         {
             int numberOfT = 0;
             foreach (var item in list)
@@ -26,19 +32,6 @@ namespace DomainModel.Equipment
             }
             return numberOfT;
         }
-
-        //private static T Get<T>(this IReadOnlyCollection<IEquipment> list) where : T is IEquipment
-        //{
-        //    int numberOfT = 0;
-        //    foreach (var item in list)
-        //    {
-        //        if (item is T)
-        //        {
-        //            numberOfT++;
-        //        }
-        //    }
-        //    return numberOfT;
-        //}
 
         /// <summary>
         /// Determines whether [has two close combat weapons].

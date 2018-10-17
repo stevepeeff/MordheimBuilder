@@ -84,7 +84,7 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
-        public IReadOnlyCollection<IEquipment> Equipment { get { return _Weapons; } }
+        public IReadOnlyCollection<IEquipment> Equipment { get { return _EquipmentList; } }
 
         public int EquipmentCosts
         {
@@ -168,7 +168,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         protected List<IEquipment> _AllowedWeapons { get; } = new List<IEquipment>();
 
-        protected List<IEquipment> _Weapons { get; } = new List<IEquipment>();
+        protected List<IEquipment> _EquipmentList { get; } = new List<IEquipment>();
 
         private List<IPsychology> _Afflictions { get; } = new List<IPsychology>();
 
@@ -197,16 +197,30 @@ namespace DomainModel.Warbands.BaseClasses
 
         public void AddEquipment(IEquipment equipment)
         {
-            _Weapons.Add(equipment);
             NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {
+                //TODO , only Heavy or Light Armour allowed
+                if (_EquipmentList.Any(x => x.Name.Equals(equipment.Name)) == false)
+                {
+                    _EquipmentList.Add(equipment);
+                }
             }
             else if (equipment is ICloseCombatWeapon)
             {
-                ICloseCombatWeapon closeCombatWeapon = equipment as ICloseCombatWeapon;
-                // Attacks.CalculatedValue += closeCombatWeapon.AttackModifier;
+                if (this.MaximumCloseCombatWeaponsReached() == false)
+                {
+                    _EquipmentList.Add(equipment);
+                }
             }
+            else if (equipment is IMisseleWeapon)
+            {
+                if (_EquipmentList.MaximumRangedWeaponsReached() == false)
+                {
+                    _EquipmentList.Add(equipment);
+                }
+            }
+
             TriggerCharacteristicChanged();
         }
 
@@ -291,7 +305,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         public void RemoveEquipment(IEquipment equipment)
         {
-            _Weapons.Remove(equipment);
+            _EquipmentList.Remove(equipment);
             NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {

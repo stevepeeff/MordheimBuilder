@@ -20,7 +20,7 @@ namespace DomainModel.Warbands.WitchHunters
 
             AddAffliction(new Fanatical());
             _AllowedWeapons.Clear();
-            _Weapons.Clear();
+            _EquipmentList.Clear();
         }
 
         public override int HireFee { get; } = 40;
