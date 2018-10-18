@@ -122,7 +122,9 @@ namespace DomainModel.Equipment
             bool isArmour = false;
 
             if (equipment is HeavyArmour ||
-                equipment is LightArmour)
+                equipment is LightArmour ||
+                equipment is IthilmarArmour ||
+                equipment is GromhilArmour)
             {
                 isArmour = true;
             }

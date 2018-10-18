@@ -1,9 +1,9 @@
 ﻿TODO LIST
 * Maximize the number of equipped  weapons (2 CC 2Ms see page 47) DONE,
-	=> show user max is reached, make exception to Extra arm
+	=> show user max is reached, 
+	=> make exception to Extra arm DONE
 * Save does not override the saved file
 * Improve the Special rules view
-* Gromril and Itilmar weapons, take equipment Tools in account
 * Miscellaneous Equipment
 * Psychology
 * Leader special rule to all captains (See sisters of sigmar)??

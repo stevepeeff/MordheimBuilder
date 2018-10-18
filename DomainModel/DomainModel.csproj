@@ -52,6 +52,28 @@
     <Compile Include="Equipment\EquipmentProvider.cs" />
     <Compile Include="Equipment\EquipmentTools.cs" />
     <Compile Include="Equipment\IEquipment.cs" />
+    <Compile Include="Equipment\Miscellaneous\BlackLotus.cs" />
+    <Compile Include="Equipment\Miscellaneous\BlessedWater.cs" />
+    <Compile Include="Equipment\Miscellaneous\BugmansAle.cs" />
+    <Compile Include="Equipment\Miscellaneous\CathananSilkCloak.cs" />
+    <Compile Include="Equipment\Miscellaneous\CrimsonShade.cs" />
+    <Compile Include="Equipment\Miscellaneous\DarkVenom.cs" />
+    <Compile Include="Equipment\Miscellaneous\ElvenCloak.cs" />
+    <Compile Include="Equipment\Miscellaneous\Garlic.cs" />
+    <Compile Include="Equipment\Miscellaneous\HalflingCookbook.cs" />
+    <Compile Include="Equipment\Miscellaneous\HealingHerbs.cs" />
+    <Compile Include="Equipment\Miscellaneous\HolyTome.cs" />
+    <Compile Include="Equipment\Miscellaneous\HuntingArrows.cs" />
+    <Compile Include="Equipment\Miscellaneous\Lantern.cs" />
+    <Compile Include="Equipment\Miscellaneous\LuckyCharm.cs" />
+    <Compile Include="Equipment\Miscellaneous\MadCapMushrooms.cs" />
+    <Compile Include="Equipment\Miscellaneous\MandrakeRoot.cs" />
+    <Compile Include="Equipment\Miscellaneous\MordheimMap.cs" />
+    <Compile Include="Equipment\Miscellaneous\Net.cs" />
+    <Compile Include="Equipment\Miscellaneous\RopeAndHook.cs" />
+    <Compile Include="Equipment\Miscellaneous\SuperiorBlackPowder.cs" />
+    <Compile Include="Equipment\Miscellaneous\TearsOfShallana.cs" />
+    <Compile Include="Equipment\Miscellaneous\TomeOfMagic.cs" />
     <Compile Include="Equipment\Weapons\CloseCombat\Axe.cs" />
     <Compile Include="Equipment\Weapons\CloseCombat\ClubMaceHammer.cs" />
     <Compile Include="Equipment\Weapons\CloseCombat\DoubleHandedWeapon.cs" />
@@ -285,8 +307,6 @@
     <Compile Include="WarriorStatus\IWarriorStatus.cs" />
     <Compile Include="WarriorStatus\OutOfAction.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Equipment\Miscellaneous\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
