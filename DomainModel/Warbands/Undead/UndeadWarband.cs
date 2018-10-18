@@ -28,7 +28,7 @@ namespace DomainModel.Warbands.Undead
         {
              new Dagger(), new Axe(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(), new Spear(), new Halberd(),
             new Bow(), new ShortBow(),
-            new LightArmour(), new HeavyArmor(), new Shield(), new Helmet(),
+            new LightArmour(), new HeavyArmour(), new Shield(), new Helmet(),
         };
 
         public override int MaximumNumberOfWarriors => 15;

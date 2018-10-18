@@ -29,7 +29,7 @@ namespace DomainModel.Warbands.CultOfThePossessed
         static public List<IEquipment> DarkSoulsEquipmentList { get; } = new List<IEquipment>()
         {
             new Dagger(), new Axe(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(), new Spear(),
-            new LightArmour(), new HeavyArmor(), new Shield(), new Helmet(),
+            new LightArmour(), new HeavyArmour(), new Shield(), new Helmet(),
         };
 
         //Todo proper way use DarkSouls Equipment and  Missle Weapons??
@@ -37,7 +37,7 @@ namespace DomainModel.Warbands.CultOfThePossessed
         {
             new Dagger(), new Axe(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(), new Spear(),
             new Bow(), new ShortBow(),
-            new LightArmour(), new HeavyArmor(), new Shield(), new Helmet(),
+            new LightArmour(), new HeavyArmour(), new Shield(), new Helmet(),
         };
     }
 }

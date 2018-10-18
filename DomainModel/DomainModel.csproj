@@ -43,7 +43,7 @@
     <Compile Include="Equipment\Armour\Barding.cs" />
     <Compile Include="Equipment\Armour\Buckler.cs" />
     <Compile Include="Equipment\Armour\GromhilArmour.cs" />
-    <Compile Include="Equipment\Armour\HeavyArmor.cs" />
+    <Compile Include="Equipment\Armour\HeavyArmour.cs" />
     <Compile Include="Equipment\Armour\Helmet.cs" />
     <Compile Include="Equipment\Armour\IArmour.cs" />
     <Compile Include="Equipment\Armour\IthilmarArmour.cs" />

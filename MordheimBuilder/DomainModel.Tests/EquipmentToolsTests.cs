@@ -16,14 +16,16 @@ namespace DomainModel.Tests
         public void HasTwoIdenticalCloseCombatWeapons()
         {
             var warrior = new WitchHunterCaptain();
+            var dagger = new Dagger();
 
             Assert.IsFalse(warrior.Equipment.HasTwoIdenticalCloseCombatWeapons());
             warrior.AddEquipment(new Sword());
             Assert.IsFalse(warrior.Equipment.HasTwoIdenticalCloseCombatWeapons());
 
-            warrior.AddEquipment(new Dagger());
+            warrior.AddEquipment(dagger);
             Assert.IsFalse(warrior.Equipment.HasTwoIdenticalCloseCombatWeapons());
 
+            warrior.RemoveEquipment(dagger);
             warrior.AddEquipment(new Sword());
             Assert.IsTrue(warrior.Equipment.HasTwoIdenticalCloseCombatWeapons());
         }
@@ -39,25 +41,25 @@ namespace DomainModel.Tests
         }
 
         [TestMethod]
-        public void IsCarryingHeavyArmorAndShieldFalse()
+        public void HasHeavyArmorAndShieldFalse()
         {
             var warrior = new WitchHunterCaptain();
 
             warrior.AddEquipment(new LightArmour());
             warrior.AddEquipment(new Shield());
 
-            Assert.IsFalse(warrior.Equipment.IsCarryingHeavyArmorAndShield());
+            Assert.IsFalse(warrior.Equipment.HasHeavyArmorAndShield());
         }
 
         [TestMethod]
-        public void IsCarryingHeavyArmorAndShieldTrue()
+        public void HasHeavyArmorAndShieldTrue()
         {
             var warrior = new WitchHunterCaptain();
 
             warrior.AddEquipment(new Shield());
-            warrior.AddEquipment(new HeavyArmor());
+            warrior.AddEquipment(new HeavyArmour());
 
-            Assert.IsTrue(warrior.Equipment.IsCarryingHeavyArmorAndShield());
+            Assert.IsTrue(warrior.Equipment.HasHeavyArmorAndShield());
         }
 
         [TestMethod]
@@ -93,17 +95,17 @@ namespace DomainModel.Tests
         }
 
         [TestMethod]
-        public void WarriorArmour()
+        public void WarriorArmourAndShield()
         {
             var warrior = new WitchHunterCaptain();
             Assert.AreEqual(0, warrior.Save.CalculatedValue, "No armour should default in 0");
 
-            warrior.AddEquipment(new HeavyArmor());
+            warrior.AddEquipment(new HeavyArmour());
             Assert.AreEqual(2, warrior.Save.CalculatedValue);
-            Assert.IsFalse(warrior.Equipment.IsCarryingHeavyArmorAndShield());
+            Assert.IsFalse(warrior.Equipment.HasHeavyArmorAndShield());
 
             warrior.AddEquipment(new Shield());
-            Assert.IsTrue(warrior.Equipment.IsCarryingHeavyArmorAndShield());
+            Assert.IsTrue(warrior.Equipment.HasHeavyArmorAndShield());
             Assert.AreEqual(3, warrior.Save.CalculatedValue, "Combination of 2 And 1");
         }
     }

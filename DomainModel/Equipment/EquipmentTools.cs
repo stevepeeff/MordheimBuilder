@@ -34,6 +34,44 @@ namespace DomainModel.Equipment
         }
 
         /// <summary>
+        /// Determines whether [has armour equipped] [the specified equipment].
+        /// </summary>
+        /// <param name="equipmentList">The equipment list.</param>
+        /// <param name="equipment">The equipment.</param>
+        /// <returns>
+        ///   <c>true</c> if [has armour equipped] [the specified equipment]; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool HasArmourEquipped(this IReadOnlyCollection<IEquipment> equipmentList, IEquipment equipment)
+        {
+            if (equipment.IsArmour())
+            {
+                return equipmentList.Any(x => x.IsArmour());
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Determines whether [has heavy armor and shield].
+        /// </summary>
+        /// <param name="equipmentList">The equipment list.</param>
+        /// <returns>
+        ///   <c>true</c> if [has heavy armor and shield] [the specified equipment list]; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool HasHeavyArmorAndShield(this IReadOnlyCollection<IEquipment> equipmentList)
+        {
+            bool holdsHeavyArmor = false;
+            bool holdsShield = false;
+
+            foreach (var item in equipmentList)
+            {
+                if (item is HeavyArmour) { holdsHeavyArmor = true; }
+                if (item is Shield) { holdsShield = true; }
+            }
+
+            return holdsHeavyArmor && holdsShield;
+        }
+
+        /// <summary>
         /// Determines whether [has two close combat weapons].
         /// </summary>
         /// <param name="list">The list.</param>
@@ -73,43 +111,23 @@ namespace DomainModel.Equipment
         }
 
         /// <summary>
-        /// Determines whether [is carrying heavy armor and shield].
+        /// Determines whether this instance is armour.
         /// </summary>
-        /// <param name="equipmentList">The equipment list.</param>
-        /// <returns>
-        ///   <c>true</c> if [is carrying heavy armor and shield] [the specified equipment list]; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsCarryingHeavyArmorAndShield(this IReadOnlyCollection<IEquipment> equipmentList)
-        {
-            bool holdsHeavyArmor = false;
-            bool holdsShield = false;
-
-            foreach (var item in equipmentList)
-            {
-                if (item is HeavyArmor) { holdsHeavyArmor = true; }
-                if (item is Shield) { holdsShield = true; }
-            }
-
-            return holdsHeavyArmor && holdsShield;
-        }
-
-        /// <summary>
-        /// Equips the armour is allowed.
-        /// The Warrior want to add armour
-        /// </summary>
-        /// <param name="equipmentList">The equipment list.</param>
         /// <param name="equipment">The equipment.</param>
-        /// <returns>true when no armour is already equipped</returns>
-        public static bool EquipArmourIsAllowed(this IReadOnlyCollection<IEquipment> equipmentList, IEquipment equipment)
+        /// <returns>
+        ///   <c>true</c> if the specified equipment is armour; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsArmour(this IEquipment equipment)
         {
-            if (equipment is HeavyArmor || equipment is LightArmour)
+            bool isArmour = false;
+
+            if (equipment is HeavyArmour ||
+                equipment is LightArmour)
             {
-                foreach (var item in equipmentList)
-                {
-                    if (item is HeavyArmor || item is LightArmour) { return false; }
-                }
+                isArmour = true;
             }
-            return true;
+
+            return isArmour;
         }
 
         /// <summary>

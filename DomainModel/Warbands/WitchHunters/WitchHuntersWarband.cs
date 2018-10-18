@@ -29,7 +29,7 @@ namespace DomainModel.Warbands.WitchHunters
             {
                 new Axe(), new Dagger(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(),
                 new CrossBow(), new Pistol(), new BraceOfPistols(), new CrossbowPistol(),
-                new LightArmour(), new HeavyArmor(), new Shield(), new Buckler(), new Helmet(),
+                new LightArmour(), new HeavyArmour(), new Shield(), new Buckler(), new Helmet(),
 
                 //TESTCODE
                 new LongBow(), new WarplockPistol(), new Sling()

@@ -83,7 +83,7 @@ namespace DomainModel.Warbands
                     {
                         case Characteristics.Movement:
                             {
-                                if (_Warrior.Equipment.IsCarryingHeavyArmorAndShield())
+                                if (_Warrior.Equipment.HasHeavyArmorAndShield())
                                 {
                                     calculation--;
                                     AddModifierComment("Heavy Armour and Shield causes a movement penalty of -1");

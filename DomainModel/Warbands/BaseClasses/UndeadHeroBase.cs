@@ -20,7 +20,7 @@ namespace DomainModel.Warbands.BaseClasses
         {
             new Dagger(),  new ClubMaceHammer(), new Axe(),  new Sword(),  new DoubleHandedWeapon(),new Spear(), new Halberd(),
             new Bow(), new ShortBow(),
-            new LightArmour(),  new HeavyArmor(),   new Shield(), new Helmet(),
+            new LightArmour(),  new HeavyArmour(),   new Shield(), new Helmet(),
         };
     }
 }

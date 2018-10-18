@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Equipment.Armour
 {
-    public class HeavyArmor : EquipmentBase, IArmour
+    public class HeavyArmour : EquipmentBase, IArmour
     {
         public override int Cost { get; } = 50;
 
@@ -14,7 +14,7 @@ namespace DomainModel.Equipment.Armour
 
         public string Description { get; } = "Heavy Armour 5+ Save";
 
-        public HeavyArmor()
+        public HeavyArmour()
         {
             _ArmourRules.Add(ArmourRules.Movement);
         }

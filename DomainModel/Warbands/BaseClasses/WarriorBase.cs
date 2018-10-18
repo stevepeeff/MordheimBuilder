@@ -201,7 +201,7 @@ namespace DomainModel.Warbands.BaseClasses
             if (equipment is IArmour)
             {
                 if (_EquipmentList.Any(x => x.Name.Equals(equipment.Name)) == false &&
-                    _EquipmentList.EquipArmourIsAllowed(equipment))
+                    _EquipmentList.HasArmourEquipped(equipment) == false)
                 {
                     _EquipmentList.Add(equipment);
                 }

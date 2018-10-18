@@ -32,7 +32,7 @@ namespace DomainModel.Warbands.SistersOfSigmar
         //TODO add Miscelianes equipment (heroes only)
         static public List<IEquipment> ArmourList { get; } = new List<IEquipment>()
         {
-            new LightArmour(), new HeavyArmor(), new Shield(), new Buckler(), new Helmet(),
+            new LightArmour(), new HeavyArmour(), new Shield(), new Buckler(), new Helmet(),
         };
 
         public override int MaximumNumberOfWarriors => 15;
