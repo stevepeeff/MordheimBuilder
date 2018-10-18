@@ -19,16 +19,22 @@ namespace DomainModel.Equipment
         RARE_12 = 12
     }
 
+    public enum Usage
+    {
+        INFINITE,
+        ONE_USE,
+        ONE_BATTLE,
+    }
+
     public interface IEquipment
     {
         /// <summary>
-        /// Gets the attack modifier.
-        /// Dfault is 0, wn usin pairs this can be 1
+        /// Gets the availability.
         /// </summary>
         /// <value>
-        /// The attack modifier.
+        /// The availability.
         /// </value>
-      //  int AttackModifier { get; }
+        Availabilities Availability { get; }
 
         /// <summary>
         /// Gets the cost.
@@ -39,20 +45,28 @@ namespace DomainModel.Equipment
         int Cost { get; }
 
         /// <summary>
+        /// Gets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
+        string Description { get; }
+
+        /// <summary>
+        /// Gets the duration.
+        /// </summary>
+        /// <value>
+        /// The duration.
+        /// </value>
+        Usage Duration { get; }
+
+        /// <summary>
         /// Gets the name.
         /// </summary>
         /// <value>
         /// The name.
         /// </value>
         string Name { get; }
-
-        /// <summary>
-        /// Gets the availability.
-        /// </summary>
-        /// <value>
-        /// The availability.
-        /// </value>
-        Availabilities Availability { get; }
 
         /// <summary>
         /// Gets the variable cost.
