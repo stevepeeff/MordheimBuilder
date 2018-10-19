@@ -49,6 +49,7 @@
     <Compile Include="Equipment\Armour\IthilmarArmour.cs" />
     <Compile Include="Equipment\Armour\LightArmour.cs" />
     <Compile Include="Equipment\Armour\Shield.cs" />
+    <Compile Include="Equipment\Availability.cs" />
     <Compile Include="Equipment\EquipmentProvider.cs" />
     <Compile Include="Equipment\EquipmentTools.cs" />
     <Compile Include="Equipment\IEquipment.cs" />

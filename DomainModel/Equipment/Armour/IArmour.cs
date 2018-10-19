@@ -22,8 +22,6 @@ namespace DomainModel.Equipment.Armour
     public interface IArmour : IEquipment
 
     {
-        string Description { get; }
-
         int Save { get; }
 
         IReadOnlyCollection<ArmourRules> ArmourSpecialRules { get; }

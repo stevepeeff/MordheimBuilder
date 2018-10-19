@@ -32,6 +32,7 @@ namespace DomainModel.Equipment
         public abstract int Cost { get; }
         public virtual string Description { get; }
         public virtual Usage Duration { get; } = Usage.INFINITE;
+        public virtual Availabilities ExceptionAvailability { get; }
         public IReadOnlyCollection<MisseleWeaponRules> MisseleWeaponSpecialRules { get { return _MisseleWeaponRules; } }
         public string Name { get { return this.GetType().Name; } }
         public virtual int Range { get; }
@@ -40,5 +41,7 @@ namespace DomainModel.Equipment
 
         public virtual int ToHitModifier { get; }
         public VariabeleCosts VariableCost { get; protected set; }
+
+        public virtual Availability TradeAvailability { get; } = new Availability(Availabilities.COMMON);
     }
 }

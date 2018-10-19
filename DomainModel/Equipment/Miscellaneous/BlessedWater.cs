@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainModel.Warbands.WitchHunters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,16 @@ namespace DomainModel.Equipment.Miscellaneous
 {
     public class BlessedWater : EquipmentBase
     {
-        public override int Cost => throw new NotImplementedException();
+        public BlessedWater()
+        {
+            VariableCost = new VariabeleCosts(6, 3);
+        }
+
+        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_6, typeof(WitchHuntersWarband));
+
+        public override int Cost => 10;
+
+        public override Availabilities Availability { get; } = Availabilities.RARE_6;
 
         public override Usage Duration => Usage.ONE_USE;
 

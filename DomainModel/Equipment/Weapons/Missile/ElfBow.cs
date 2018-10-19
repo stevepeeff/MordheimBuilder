@@ -8,7 +8,7 @@ namespace DomainModel.Equipment.Weapons.Missile
 {
     public class ElfBow : EquipmentBase, IMisseleWeapon
     {
-        public override int Cost { get; } = 30;
+        public override int Cost { get; } = 35;
 
         public override int Range { get; } = 36;
 

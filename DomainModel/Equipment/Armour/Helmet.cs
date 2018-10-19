@@ -12,7 +12,7 @@ namespace DomainModel.Equipment.Armour
 
         public int Save { get; } = NONE;
 
-        public string Description { get; } = "Helmet, no save. Avoid Stun";
+        public override string Description { get; } = "Helmet, no save. Avoid Stun";
 
         public Helmet()
         {

@@ -11,12 +11,13 @@ namespace DomainModel.Equipment
     {
         COMMON = 0,
         RARE_5 = 5,
-        RARE_7 = 8,
+        RARE_7 = 7,
+        RARE_6 = 6,
         RARE_8 = 8,
         RARE_9 = 9,
         RARE_10 = 10,
         RARE_11 = 11,
-        RARE_12 = 12
+        RARE_12 = 12,
     }
 
     public enum Usage
@@ -29,12 +30,28 @@ namespace DomainModel.Equipment
     public interface IEquipment
     {
         /// <summary>
+        /// Gets the trade availability.
+        /// </summary>
+        /// <value>
+        /// The trade availability.
+        /// </value>
+        Availability TradeAvailability { get; }
+
+        /// <summary>
         /// Gets the availability.
         /// </summary>
         /// <value>
         /// The availability.
         /// </value>
         Availabilities Availability { get; }
+
+        /// <summary>
+        /// Gets the exception availability.
+        /// </summary>
+        /// <value>
+        /// The exception availability.
+        /// </value>
+        Availabilities ExceptionAvailability { get; }
 
         /// <summary>
         /// Gets the cost.

@@ -14,6 +14,6 @@ namespace DomainModel.Equipment.Armour
 
         public override Availabilities Availability { get; } = Availabilities.RARE_11;
 
-        public string Description { get; } = "Gromhil Armour 4+ Save";
+        public override string Description { get; } = "Gromhil Armour 4+ Save";
     }
 }

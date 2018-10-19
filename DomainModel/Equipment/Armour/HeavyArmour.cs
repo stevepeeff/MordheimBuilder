@@ -12,7 +12,7 @@ namespace DomainModel.Equipment.Armour
 
         public int Save { get; } = 2;
 
-        public string Description { get; } = "Heavy Armour 5+ Save";
+        public override string Description { get; } = "Heavy Armour 5+ Save";
 
         public HeavyArmour()
         {
