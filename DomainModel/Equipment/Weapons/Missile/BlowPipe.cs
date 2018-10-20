@@ -23,12 +23,12 @@ namespace DomainModel.Equipment.Weapons.Missile
         public override int ArmorSaveModifier { get; } = 1;
 
         /// <summary>
-        /// Gets the availability.
+        /// Gets the trade availability.
         /// </summary>
         /// <value>
-        /// The availability.
+        /// The trade availability.
         /// </value>
-        public override Availabilities Availability { get; } = Availabilities.RARE_7;
+        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_7);
 
         /// <summary>
         /// Gets the cost.

@@ -22,8 +22,6 @@ namespace DomainModel.Equipment.Miscellaneous
 
         public override int Cost => 10;
 
-        public override Availabilities Availability { get; } = Availabilities.RARE_6;
-
         public override Usage Duration => Usage.ONE_USE;
 
         public override string Description =>

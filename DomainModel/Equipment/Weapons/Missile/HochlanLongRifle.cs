@@ -29,6 +29,6 @@ namespace DomainModel.Equipment.Weapons.Missile
 
         public override int Strength { get; } = 4;
 
-        public override Availabilities Availability { get; } = Availabilities.RARE_11;
+        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_11);
     }
 }

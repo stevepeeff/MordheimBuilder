@@ -38,22 +38,6 @@ namespace DomainModel.Equipment
         Availability TradeAvailability { get; }
 
         /// <summary>
-        /// Gets the availability.
-        /// </summary>
-        /// <value>
-        /// The availability.
-        /// </value>
-        Availabilities Availability { get; }
-
-        /// <summary>
-        /// Gets the exception availability.
-        /// </summary>
-        /// <value>
-        /// The exception availability.
-        /// </value>
-        Availabilities ExceptionAvailability { get; }
-
-        /// <summary>
         /// Gets the cost.
         /// </summary>
         /// <value>

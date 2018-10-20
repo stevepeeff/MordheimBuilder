@@ -14,7 +14,7 @@ namespace DomainModel.Equipment.Weapons.Missile
 
         public override int ArmorSaveModifier { get; } = -3;
 
-        public override Availabilities Availability { get; } = Availabilities.RARE_8;
+        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_8);
 
         public RepeaterCrossBow()
         {

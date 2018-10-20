@@ -12,7 +12,7 @@ namespace DomainModel.Equipment.Armour
 
         public int Save { get; } = 2;
 
-        public override Availabilities Availability { get; } = Availabilities.RARE_11;
+        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_11);
 
         public override string Description { get; } = "Ithilmar Armour 5+ Save";
     }

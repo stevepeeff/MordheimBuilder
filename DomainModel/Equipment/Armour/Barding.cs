@@ -12,7 +12,7 @@ namespace DomainModel.Equipment.Armour
 
         public int Save { get; } = 80;
 
-        public override Availabilities Availability { get; } = Availabilities.RARE_8;
+        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_8);
 
         public override string Description { get; } = "Barding +1 Save";
     }

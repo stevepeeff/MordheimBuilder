@@ -27,12 +27,12 @@ namespace DomainModel.Equipment
 
         public virtual int ArmorSaveModifier { get; }
         public IReadOnlyCollection<ArmourRules> ArmourSpecialRules { get { return _ArmourRules; } }
-        public virtual Availabilities Availability { get; } = Availabilities.COMMON;
+
         public IReadOnlyCollection<CloseCombatWeaponRules> CloseCombatSpecialRules { get { return _CloseCombatRules; } }
         public abstract int Cost { get; }
         public virtual string Description { get; }
         public virtual Usage Duration { get; } = Usage.INFINITE;
-        public virtual Availabilities ExceptionAvailability { get; }
+
         public IReadOnlyCollection<MisseleWeaponRules> MisseleWeaponSpecialRules { get { return _MisseleWeaponRules; } }
         public string Name { get { return this.GetType().Name; } }
         public virtual int Range { get; }

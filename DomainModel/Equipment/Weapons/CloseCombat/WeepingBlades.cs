@@ -10,7 +10,7 @@ namespace DomainModel.Equipment.Weapons.CloseCombat
     {
         public override int Cost { get; } = 50;
 
-        public override Availabilities Availability { get; } = Availabilities.RARE_9;
+        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_9);
 
         public WeepingBlades()
         {
