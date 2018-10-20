@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.SistersOfSigmar
 {
-    public class Novice : WarriorBase, IHenchMen
+    public class Novice : WarriorBase, IHenchMen, ISistersOfSigmar
     {
         public Novice()
         {

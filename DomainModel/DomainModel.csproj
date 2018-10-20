@@ -202,7 +202,6 @@
     <Compile Include="Warbands\BaseClasses\HumanHeroBase.cs" />
     <Compile Include="Warbands\BaseClasses\Marksmen.cs" />
     <Compile Include="Warbands\BaseClasses\MercenaryCaptain.cs" />
-    <Compile Include="Warbands\BaseClasses\SistersOfSigmarBase.cs" />
     <Compile Include="Warbands\BaseClasses\SkavenHeroBase.cs" />
     <Compile Include="Warbands\BaseClasses\Swordmen.cs" />
     <Compile Include="Warbands\BaseClasses\UndeadHeroBase.cs" />
@@ -265,6 +264,7 @@
     <Compile Include="Warbands\Reikland\ReiklandWarrior.cs" />
     <Compile Include="Warbands\Reikland\ReiklandYoungBlood.cs" />
     <Compile Include="Warbands\SistersOfSigmar\Augur.cs" />
+    <Compile Include="Warbands\SistersOfSigmar\ISistersOfSigmar.cs" />
     <Compile Include="Warbands\SistersOfSigmar\Novice.cs" />
     <Compile Include="Warbands\SistersOfSigmar\SigmariteMatriarch.cs" />
     <Compile Include="Warbands\SistersOfSigmar\SigmariteSister.cs" />

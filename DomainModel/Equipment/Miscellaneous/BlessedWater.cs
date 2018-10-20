@@ -1,4 +1,5 @@
-﻿using DomainModel.Warbands.WitchHunters;
+﻿using DomainModel.Warbands.SistersOfSigmar;
+using DomainModel.Warbands.WitchHunters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,12 @@ namespace DomainModel.Equipment.Miscellaneous
         public BlessedWater()
         {
             VariableCost = new VariabeleCosts(6, 3);
+
+            TradeAvailability.AddException(Availabilities.COMMON, typeof(WarriorPriest));
+            TradeAvailability.AddException(Availabilities.COMMON, typeof(ISistersOfSigmar));
         }
 
-        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_6, typeof(WitchHuntersWarband));
+        public override Availability TradeAvailability { get; } = new Availability(Availabilities.RARE_6);
 
         public override int Cost => 10;
 

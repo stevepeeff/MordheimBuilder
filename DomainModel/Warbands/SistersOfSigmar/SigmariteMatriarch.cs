@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.SistersOfSigmar
 {
-    public class SigmariteMatriarch : HeroBase, IHero, IWizard
+    public class SigmariteMatriarch : HeroBase, IHero, IWizard, ISistersOfSigmar
     {
         public SigmariteMatriarch()
         {

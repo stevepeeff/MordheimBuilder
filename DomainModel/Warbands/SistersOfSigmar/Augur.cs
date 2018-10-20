@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.SistersOfSigmar
 {
-    public class Augur : HeroBase, IHero
+    public class Augur : HeroBase, IHero, ISistersOfSigmar
     {
         public Augur()
         {

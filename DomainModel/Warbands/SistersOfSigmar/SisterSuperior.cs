@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.SistersOfSigmar
 {
-    public class SisterSuperior : HeroBase, IHero
+    public class SisterSuperior : HeroBase, IHero, ISistersOfSigmar
     {
         public SisterSuperior()
         {
