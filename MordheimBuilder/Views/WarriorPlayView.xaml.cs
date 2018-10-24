@@ -34,7 +34,6 @@ namespace MordheimBuilder
         {
             _ViewModel = new WarriorViewModel(warrior);
             this.DataContext = _ViewModel;
-            _StatisticsView.Warrior = _ViewModel.Warrior;
             _ExpierenceView.BuildRoster(_ViewModel.Warrior);
 
             _AfflictionsView.ViewModel = new AfflictionsViewModel(_ViewModel.Warrior.Afflictions);

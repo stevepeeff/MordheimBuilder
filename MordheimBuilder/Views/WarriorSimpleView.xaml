@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
               xmlns:local="clr-namespace:MordheimBuilder"
              xmlns:Views ="clr-namespace:MordheimBuilder.Views"
+             xmlns:viewmodels="clr-namespace:MordheimBuilder.ViewModels"
+             d:DataContext="{d:DesignData viewmodels:WarriorViewModel}"
              mc:Ignorable="d">
     <Grid>
-
         <StackPanel Margin="2">
             <GroupBox Header="{Binding Path=HeaderText, Mode=OneWay}" BorderBrush="Black">
                 <StackPanel>
@@ -15,7 +16,7 @@
                         <Label>Name</Label>
                         <TextBox Width="150" MaxHeight="20" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         <StackPanel Margin="30,0,0,0">
-                            <local:StatisticsView x:Name="_StatisticsView" ></local:StatisticsView>
+                            <local:StatisticsView  DataContext="{Binding WarriorVM}"></local:StatisticsView>
                             <StackPanel Orientation="Horizontal">
                                 <Label FontStyle="Italic">Allowed Skills:</Label>
                                 <Label FontStyle="Italic" Content="{Binding Path=SkillSummary, Mode=OneWay}" ></Label>

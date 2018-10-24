@@ -1,4 +1,5 @@
 ﻿using DomainModel.Warbands;
+using MordheimBuilder.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace MordheimBuilder.Views
     /// </summary>
     public partial class WarriorSimpleView : UserControl
     {
-        private WarriorViewModel _ViewModel = null;
+        public WarriorViewModel WarriorVM { get; }
 
         public WarriorSimpleView()
         {
@@ -30,9 +31,7 @@ namespace MordheimBuilder.Views
 
         public WarriorSimpleView(IWarrior warrior) : this()
         {
-            _ViewModel = new WarriorViewModel(warrior);
-            this.DataContext = _ViewModel;
-            _StatisticsView.Warrior = _ViewModel.Warrior;
+            WarriorVM = new WarriorViewModel(warrior);
         }
     }
 }

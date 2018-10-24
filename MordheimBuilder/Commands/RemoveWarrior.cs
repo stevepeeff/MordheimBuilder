@@ -1,4 +1,5 @@
 ﻿using MordheimBuilder.Commands;
+using MordheimBuilder.ViewModels;
 using MordheimBuilderLogic;
 using System;
 using System.Collections.Generic;

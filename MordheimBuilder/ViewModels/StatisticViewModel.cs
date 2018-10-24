@@ -40,18 +40,6 @@ namespace MordheimBuilder
         /// </value>
         public string HeaderText { get { return _characteristic.LabelName; } }
 
-        public string ToolTipText
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(_characteristic.ModifierSummary))
-                {
-                    return "No modifications on this characteristic";
-                }
-                return _characteristic.ModifierSummary;
-            }
-        }
-
         /// <summary>
         /// Gets the color of the text.
         /// </summary>
@@ -74,6 +62,18 @@ namespace MordheimBuilder
                     case OverallResults.Negative:
                         return Brushes.Red;
                 }
+            }
+        }
+
+        public string ToolTipText
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_characteristic.ModifierSummary))
+                {
+                    return "No modifications on this characteristic";
+                }
+                return _characteristic.ModifierSummary;
             }
         }
 

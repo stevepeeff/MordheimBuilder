@@ -17,11 +17,13 @@ using System.Windows.Input;
 /// <summary>
 ///
 /// </summary>
-namespace MordheimBuilder
+namespace MordheimBuilder.ViewModels
 {
     public class WarriorViewModel : ViewModelBase
     {
         public ObservableCollection<InjuryViewModelSimple> InjuriesSimple = new ObservableCollection<InjuryViewModelSimple>();
+
+        public WarriorViewModel WarriorVM { get { return this; } }
 
         public WarriorViewModel(IWarrior warrior)
         {
@@ -34,6 +36,17 @@ namespace MordheimBuilder
             IncreaseWarriorBuyAmountCommand = new IncreaseBuyAmount(this);
             DecreaseWarriorBuyAmountCommand = new DecreaseBuyAmount(this);
             ShowSkillSelectorCommand = new ShowSkillSelector(this);
+
+            Movement = new StatisticViewModel(Warrior.Movement);
+            WeaponSkill = new StatisticViewModel(Warrior.WeaponSkill);
+            BallisticSkill = new StatisticViewModel(Warrior.BallisticSkill);
+            Strength = new StatisticViewModel(Warrior.Strength);
+            Toughness = new StatisticViewModel(Warrior.Toughness);
+            Wounds = new StatisticViewModel(Warrior.Wounds);
+            Initiative = new StatisticViewModel(Warrior.Initiative);
+            Attacks = new StatisticViewModel(Warrior.Attacks);
+            LeaderShip = new StatisticViewModel(Warrior.LeaderShip);
+            Save = new StatisticViewModel(Warrior.Save);
 
             foreach (IEquipment item in warrior.Equipment)
             {
@@ -75,6 +88,21 @@ namespace MordheimBuilder
                 }
             }
         }
+
+        public StatisticViewModel Movement { get; }
+
+        public StatisticViewModel BallisticSkill { get; }
+
+        public StatisticViewModel WeaponSkill { get; }
+
+        public StatisticViewModel Strength { get; }
+
+        public StatisticViewModel Toughness { get; }
+        public StatisticViewModel Wounds { get; }
+        public StatisticViewModel Initiative { get; }
+        public StatisticViewModel Attacks { get; }
+        public StatisticViewModel LeaderShip { get; }
+        public StatisticViewModel Save { get; }
 
         public ObservableCollection<SkillViewModel> AllowedSkills { get; } = new ObservableCollection<SkillViewModel>();
 

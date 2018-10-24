@@ -4,8 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimBuilder"
+             xmlns:viewmodels="clr-namespace:MordheimBuilder.ViewModels"
+
              mc:Ignorable="d"
-             d:DesignHeight="45" d:DesignWidth="320">
+             d:DesignHeight="45" d:DesignWidth="350"
+             d:DataContext="{d:DesignInstance viewmodels:WarriorViewModel}">
     <UserControl.Resources>
         <!--<Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="Gray" />
@@ -13,17 +16,18 @@
         </Style>-->
     </UserControl.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <local:StatisticView x:Name="_1"></local:StatisticView>
-            <local:StatisticView x:Name="_2"></local:StatisticView>
-            <local:StatisticView x:Name="_3"></local:StatisticView>
-            <local:StatisticView x:Name="_4"></local:StatisticView>
-            <local:StatisticView x:Name="_5"></local:StatisticView>
-            <local:StatisticView x:Name="_6"></local:StatisticView>
-            <local:StatisticView x:Name="_7"></local:StatisticView>
-            <local:StatisticView x:Name="_8"></local:StatisticView>
-            <local:StatisticView x:Name="_9"></local:StatisticView>
-            <local:StatisticView x:Name="_10"></local:StatisticView>
-        </StackPanel>
+        <DockPanel>
+            <local:StatisticView DataContext="{Binding Movement}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding WeaponSkill}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding BallisticSkill}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding Strength}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding Toughness}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding Wounds}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding Initiative}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding Attacks}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding Attacks}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding LeaderShip}"></local:StatisticView>
+            <local:StatisticView DataContext="{Binding Save}"></local:StatisticView>
+        </DockPanel>
     </Grid>
 </UserControl>

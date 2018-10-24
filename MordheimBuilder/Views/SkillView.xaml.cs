@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using MordheimBuilder.ViewModels;
+using System.Windows.Controls;
 
 namespace MordheimBuilder.Views
 {

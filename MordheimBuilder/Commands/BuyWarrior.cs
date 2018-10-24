@@ -1,4 +1,5 @@
 ﻿using DomainModel.Warbands;
+using MordheimBuilder.ViewModels;
 using MordheimBuilderLogic;
 using System;
 using System.Collections.Generic;

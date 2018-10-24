@@ -1,4 +1,5 @@
-﻿using MordheimBuilder.Views;
+﻿using MordheimBuilder.ViewModels;
+using MordheimBuilder.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
