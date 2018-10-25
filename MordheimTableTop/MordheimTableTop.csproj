@@ -70,6 +70,13 @@
     <Compile Include="Warband\WarbandPlayView.xaml.cs">
       <DependentUpon>WarbandPlayView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Warrior\ExperienceCheckBox.xaml.cs">
+      <DependentUpon>ExperienceCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warrior\ExperienceView.xaml.cs">
+      <DependentUpon>ExperienceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warrior\ExperienceViewModel.cs" />
     <Compile Include="Warrior\StatisticsView.xaml.cs">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
@@ -108,6 +115,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Warband\WarbandPlayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warrior\ExperienceCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warrior\ExperienceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

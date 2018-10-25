@@ -43,5 +43,6 @@
             <!--<selection:WarbandSelectionView></selection:WarbandSelectionView>-->
             <ContentControl Content="{Binding MainWindowContent}"></ContentControl>
         </StackPanel>
+        <warrior:ExperienceCheckBox></warrior:ExperienceCheckBox>
     </Grid>
 </Window>
