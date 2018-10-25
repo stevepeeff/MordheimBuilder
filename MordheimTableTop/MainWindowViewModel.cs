@@ -67,7 +67,11 @@ namespace MordheimTableTop
         {
             IWarrior warrior = new WitchHunterCaptain();
 
-            MainWindowContent = new WarBandBuyViewModel(BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(0));
+            var rndWarband = BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(new Random().Next(0, 5));
+
+            BuilderLogicFactory.Instance.SelectWarBand(rndWarband);
+
+            MainWindowContent = new WarBandBuyViewModel();
             MainWindowRightContent = new WarriorViewModel(warrior);
         }
 

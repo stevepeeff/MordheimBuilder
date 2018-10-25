@@ -1,5 +1,6 @@
 ﻿using DomainModel.Skills;
 using DomainModel.Warbands;
+using MordheimBuilderLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,10 @@ namespace MordheimTableTop.Warrior
         public WarriorBuyViewModel(IWarrior warrior)
         {
             _Warrior = warrior;
+
+            BuyWarriorCommand = new RelayCommand(
+                        x => BuilderLogicFactory.Instance.WarbandRoster.AddWarrior(_Warrior),
+                        x => PurchaseAllowed());
         }
 
         /// <summary>
@@ -22,7 +27,7 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The buy warrior command.
         /// </value>
-        public ICommand BuyWarriorCommand => new RelayCommand(x => BuyWarrior());
+        public ICommand BuyWarriorCommand { get; }
 
         /// <summary>
         /// Gets the hire fee.
@@ -120,8 +125,13 @@ namespace MordheimTableTop.Warrior
 
         private IWarrior _Warrior { get; }
 
-        private void BuyWarrior()
+        private bool PurchaseAllowed()
         {
+            return
+                (
+                BuilderLogicFactory.Instance.WarbandRoster.MaximumAllowedAmountOfWarriorReached(_Warrior) == false &&
+                BuilderLogicFactory.Instance.WarbandRoster.MaximumAllowedAmountOfWarriorsReached() == false
+                );
         }
     }
 }

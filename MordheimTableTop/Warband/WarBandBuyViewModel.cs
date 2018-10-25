@@ -1,4 +1,5 @@
 ﻿using DomainModel.Warbands;
+using MordheimBuilderLogic;
 using MordheimTableTop.Warrior;
 using System;
 using System.Collections.Generic;
@@ -13,21 +14,19 @@ namespace MordheimTableTop.Warband
     {
         public ObservableCollection<WarriorBuyViewModel> Warriors { get; } = new ObservableCollection<WarriorBuyViewModel>();
 
-        public WarBandBuyViewModel(IWarBand warBand)
+        public WarBandBuyViewModel()
         {
-            Warband = warBand;
-
-            foreach (var item in warBand.Heroes)
+            foreach (var item in Warband.Heroes)
             {
                 Warriors.Add(new WarriorBuyViewModel(item));
             }
-            foreach (var item in warBand.HenchMen)
+            foreach (var item in Warband.HenchMen)
             {
                 Warriors.Add(new WarriorBuyViewModel(item));
             }
         }
 
-        public IWarBand Warband { get; }
+        public IWarBand Warband { get; } = BuilderLogicFactory.Instance.WarbandRoster.WarBand;
 
         public string WarbandName => Warband.WarBandName.SplitCamelCasing();
     }
