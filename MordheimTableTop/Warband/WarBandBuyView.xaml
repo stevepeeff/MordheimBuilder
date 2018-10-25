@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimTableTop.Warband"
              xmlns:warrior="clr-namespace:MordheimTableTop.Warrior"
+             xmlns:domainmodel="clr-namespace:DomainModel;assembly=DomainModel"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="1000" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance local:WarBandBuyViewModel}">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type warrior:WarriorBuyViewModel}">
@@ -15,19 +16,23 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel>
-            <GroupBox Header="Warband Information">
+            <GroupBox Header="Warband Information" FontWeight="Bold" BorderBrush="Black">
                 <StackPanel>
                     <DockPanel>
                         <Label FontStyle="Oblique" Width="200">Name</Label>
-                        <Label>E.g. Undead</Label>
+                        <Label Content="{Binding WarbandName}"></Label>
                     </DockPanel>
                     <DockPanel>
                         <Label FontStyle="Oblique" Width="200">Maximum number of Warriors</Label>
-                        <Label>15</Label>
+                        <Label Content="{Binding Warband.MaximumNumberOfWarriors}"></Label>
                     </DockPanel>
                 </StackPanel>
             </GroupBox>
-            <StackPanel DataContext="{Binding Warriors}"></StackPanel>
+            <Line Height="10"></Line>
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+                <ItemsControl ItemsSource="{Binding Warriors}">
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </UserControl>

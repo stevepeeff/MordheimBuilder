@@ -15,6 +15,8 @@ namespace MordheimTableTop.Warband
 
         public WarBandBuyViewModel(IWarBand warBand)
         {
+            Warband = warBand;
+
             foreach (var item in warBand.Heroes)
             {
                 Warriors.Add(new WarriorBuyViewModel(item));
@@ -24,5 +26,9 @@ namespace MordheimTableTop.Warband
                 Warriors.Add(new WarriorBuyViewModel(item));
             }
         }
+
+        public IWarBand Warband { get; }
+
+        public string WarbandName => Warband.WarBandName.SplitCamelCasing();
     }
 }
