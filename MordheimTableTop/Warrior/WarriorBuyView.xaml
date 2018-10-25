@@ -7,40 +7,47 @@
              mc:Ignorable="d"
              d:DesignHeight="140" Width="780"
              d:DataContext="{d:DesignInstance local:WarriorBuyViewModel}">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type local:ExperienceViewModel}">
+            <local:ExperienceView />
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <GroupBox Header="{Binding WarriorTypeName}" BorderBrush="Black">
-            <DockPanel>
-                <StackPanel Width="180">
-                    <Label>Name</Label>
-                    <TextBox Text="{Binding Name}" Width="150"></TextBox>
-                </StackPanel>
-                <StackPanel>
-                    <local:StatisticsView DataContext="{Binding StatisticsVM}"></local:StatisticsView>
-                    <DockPanel>
-                        <Label FontStyle="Oblique">Allowed Skills:</Label>
-                        <Label Content="{Binding SkillSummary}" FontStyle="Oblique"></Label>
-                    </DockPanel>
-                    <DockPanel>
-                        <Label FontStyle="Oblique">Special Rules:</Label>
-                        <Label Content="{Binding SpecialRulesSummary}" FontStyle="Oblique"></Label>
-                    </DockPanel>
-                </StackPanel>
-                <StackPanel>
-                    <GroupBox Header="Details" Width="120" Margin="5">
-                        <StackPanel>
-                            <DockPanel>
-                                <Label FontStyle="Oblique">Hire Fee</Label>
-                                <Label Content="{Binding HireFee}" HorizontalAlignment="Right"></Label>
-                            </DockPanel>
-                            <DockPanel>
-                                <Label FontStyle="Oblique">Maximum #</Label>
-                                <Label Content="{Binding MaximumInWarband}" HorizontalAlignment="Right"></Label>
-                            </DockPanel>
-                        </StackPanel>
-                    </GroupBox>
-                </StackPanel>
-                <Button Command="{Binding BuyWarriorCommand}" Width="80" Height="20" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Top">Buy</Button>
-            </DockPanel>
+            <StackPanel>
+                <DockPanel>
+                    <StackPanel Width="180">
+                        <Label>Name</Label>
+                        <TextBox Text="{Binding Name}" Width="150"></TextBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <local:StatisticsView DataContext="{Binding StatisticsVM}"></local:StatisticsView>
+                        <DockPanel>
+                            <Label FontStyle="Oblique">Allowed Skills:</Label>
+                            <Label Content="{Binding SkillSummary}" FontStyle="Oblique"></Label>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label FontStyle="Oblique">Special Rules:</Label>
+                            <Label Content="{Binding SpecialRulesSummary}" FontStyle="Oblique"></Label>
+                        </DockPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <GroupBox Header="Details" Width="120" Margin="5">
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label FontStyle="Oblique">Hire Fee</Label>
+                                    <Label Content="{Binding HireFee}" HorizontalAlignment="Right"></Label>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label FontStyle="Oblique">Maximum #</Label>
+                                    <Label Content="{Binding MaximumInWarband}" HorizontalAlignment="Right"></Label>
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                    <Button Command="{Binding BuyWarriorCommand}" Width="80" Height="20" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Top">Buy</Button>
+                </DockPanel>
+            </StackPanel>
         </GroupBox>
     </Grid>
 </UserControl>

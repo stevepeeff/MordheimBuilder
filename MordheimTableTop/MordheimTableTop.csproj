@@ -89,6 +89,9 @@
       <DependentUpon>WarriorBuyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Warrior\WarriorBuyViewModel.cs" />
+    <Compile Include="Warrior\WarriorEditView.xaml.cs">
+      <DependentUpon>WarriorEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Warrior\WarriorPlayView.xaml.cs">
       <DependentUpon>WarriorPlayView.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Warrior\WarriorBuyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warrior\WarriorEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

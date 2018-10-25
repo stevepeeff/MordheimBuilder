@@ -13,10 +13,24 @@ namespace MordheimTableTop.Warrior
     {
         public WarriorBuyViewModel(IWarrior warrior)
         {
-            Warrior = warrior;
+            _Warrior = warrior;
         }
 
+        /// <summary>
+        /// Gets the buy warrior command.
+        /// </summary>
+        /// <value>
+        /// The buy warrior command.
+        /// </value>
         public ICommand BuyWarriorCommand => new RelayCommand(x => BuyWarrior());
+
+        /// <summary>
+        /// Gets the hire fee.
+        /// </summary>
+        /// <value>
+        /// The hire fee.
+        /// </value>
+        public int HireFee { get { return _Warrior.HireFee; } }
 
         /// <summary>
         /// Gets the maximum in warband.
@@ -24,11 +38,15 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The maximum in warband.
         /// </value>
-        public int MaximumInWarband { get { return Warrior.MaximumAllowedInWarBand; } }
+        public int MaximumInWarband { get { return _Warrior.MaximumAllowedInWarBand; } }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
-
-        public int HireFee { get { return Warrior.HireFee; } }
 
         /// <summary>
         /// Gets the skill summary.
@@ -42,7 +60,7 @@ namespace MordheimTableTop.Warrior
             {
                 string skillList = String.Empty;
 
-                foreach (string skillName in Warrior.AllowedSkills.DistinctNames())
+                foreach (string skillName in _Warrior.AllowedSkills.DistinctNames())
                 {
                     string formatttedSkillName = skillName.Remove(0, 1).SplitCamelCasing();
 
@@ -74,7 +92,7 @@ namespace MordheimTableTop.Warrior
                 string retval = " -";
 
                 bool appendComma = false;
-                foreach (var item in Warrior.Afflictions)
+                foreach (var item in _Warrior.Afflictions)
                 {
                     if (appendComma == false)
                     {
@@ -98,15 +116,7 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The statistics vm.
         /// </value>
-        public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(Warrior); } }
-
-        /// <summary>
-        /// Gets the warrior.
-        /// </summary>
-        /// <value>
-        /// The warrior.
-        /// </value>
-        public IWarrior Warrior { get; }
+        public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(_Warrior); } }
 
         /// <summary>
         /// Gets the name of the warrior type.
@@ -114,7 +124,9 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The name of the warrior type.
         /// </value>
-        public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
+        public string WarriorTypeName { get { return _Warrior.TypeName.SplitCamelCasing(); } }
+
+        private IWarrior _Warrior { get; }
 
         private void BuyWarrior()
         {
