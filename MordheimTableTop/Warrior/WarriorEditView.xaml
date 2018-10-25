@@ -39,8 +39,13 @@
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
-                    <Button Command="{Binding RemoveWarriorCommand}" Width="80" Height="20" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Top">Remove
-                    </Button>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
+                        <Button Command="{Binding RemoveWarriorCommand}" Width="80" Height="20" Margin="3">Remove</Button>
+                        <DockPanel>
+                            <Button Command="{Binding DecreaseHenchmenCommand}" Width="35" Height="20" Margin="3" >-</Button>
+                            <Button Command="{Binding IncreaseHenchmenCommand}" Width="35" Height="20" Margin="3" HorizontalAlignment="Right">+</Button>
+                        </DockPanel>
+                    </StackPanel>
                 </DockPanel>
             </StackPanel>
         </GroupBox>
