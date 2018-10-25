@@ -1,6 +1,8 @@
 ﻿using DomainModel.Warbands;
 using DomainModel.Warbands.WitchHunters;
+using MordheimBuilderLogic;
 using MordheimTableTop.Selection;
+using MordheimTableTop.Warband;
 using MordheimTableTop.Warrior;
 using System;
 using System.Collections.Generic;
@@ -64,7 +66,8 @@ namespace MordheimTableTop
         private void Test()
         {
             IWarrior warrior = new WitchHunterCaptain();
-            MainWindowContent = new WarriorBuyViewModel(warrior);
+
+            MainWindowContent = new WarBandBuyViewModel(BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(0));
             MainWindowRightContent = new WarriorViewModel(warrior);
         }
 

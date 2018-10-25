@@ -28,16 +28,19 @@
                             <StackPanel>
                                 <DockPanel>
                                     <Label FontStyle="Oblique">Hire Fee</Label>
-                                    <Label Content="{Binding HireFee}" HorizontalAlignment="Right"></Label>
                                 </DockPanel>
                                 <DockPanel>
-                                    <Label FontStyle="Oblique">Maximum #</Label>
-                                    <Label Content="{Binding MaximumInWarband}" HorizontalAlignment="Right"></Label>
+                                    <Label FontStyle="Oblique">Equipment</Label>
+                                </DockPanel>
+                                <Line Width="50" ></Line>
+                                <DockPanel>
+                                    <Label FontStyle="Oblique">Total</Label>
                                 </DockPanel>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
-                    <Button Command="{Binding RemoveWarriorCommand}" Width="80" Height="20" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Top">Remove</Button>
+                    <Button Command="{Binding RemoveWarriorCommand}" Width="80" Height="20" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Top">Remove
+                    </Button>
                 </DockPanel>
             </StackPanel>
         </GroupBox>

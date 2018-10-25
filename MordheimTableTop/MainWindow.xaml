@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MordheimTableTop"
         xmlns:selection="clr-namespace:MordheimTableTop.Selection"
         xmlns:warrior="clr-namespace:MordheimTableTop.Warrior"
+        xmlns:warband="clr-namespace:MordheimTableTop.Warband"
         mc:Ignorable="d"
         Title="Mordheim Table Top Builder" Height="1920" Width="1080" WindowState="Maximized">
     <Window.DataContext>
@@ -22,6 +23,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type warrior:WarriorViewModel}">
             <warrior:WarriorEditView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type warband:WarBandBuyViewModel}">
+            <warband:WarBandBuyView />
         </DataTemplate>
     </Window.Resources>
     <Grid>
