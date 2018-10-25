@@ -13,6 +13,7 @@ namespace MordheimTableTop.Warrior
 
         public StatisticsViewModel(IWarrior warrior)
         {
+            if (warrior == null) { throw new ArgumentNullException("warrior is null"); }
             _Warrior = warrior;
         }
 

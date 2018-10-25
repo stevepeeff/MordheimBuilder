@@ -75,6 +75,7 @@
     <Compile Include="EnumUtils.cs" />
     <Compile Include="Commands\RemoveWarrior.cs" />
     <Compile Include="FormattingTools.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IProperViewToViewModel.cs" />
     <Compile Include="ViewModels\AfflictionsViewModel.cs" />
     <Compile Include="ViewModels\ArmorViewModel.cs" />

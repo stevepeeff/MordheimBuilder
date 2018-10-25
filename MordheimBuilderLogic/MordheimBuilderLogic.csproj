@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BuilderLogic.cs" />
     <Compile Include="BuilderLogicFactory.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IMordheimBuilderLogic.cs" />
     <Compile Include="IPlayLogic.cs" />
     <Compile Include="PlayLogic.cs" />
