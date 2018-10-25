@@ -18,7 +18,17 @@ namespace MordheimTableTop.Warrior
 
         public ICommand BuyWarriorCommand => new RelayCommand(x => BuyWarrior());
 
+        /// <summary>
+        /// Gets the maximum in warband.
+        /// </summary>
+        /// <value>
+        /// The maximum in warband.
+        /// </value>
+        public int MaximumInWarband { get { return Warrior.MaximumAllowedInWarBand; } }
+
         public string Name { get; set; }
+
+        public int HireFee { get { return Warrior.HireFee; } }
 
         /// <summary>
         /// Gets the skill summary.
@@ -82,6 +92,12 @@ namespace MordheimTableTop.Warrior
             }
         }
 
+        /// <summary>
+        /// Gets the statistics vm.
+        /// </summary>
+        /// <value>
+        /// The statistics vm.
+        /// </value>
         public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(Warrior); } }
 
         /// <summary>

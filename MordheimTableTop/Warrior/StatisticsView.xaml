@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimTableTop.Warrior"
              mc:Ignorable="d"
-             d:DesignHeight="45" d:DesignWidth="320"
+             d:DesignHeight="45" d:DesignWidth="400"
              d:DataContext="{d:DesignInstance local:StatisticsViewModel}">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type local:StatisticViewModel}">

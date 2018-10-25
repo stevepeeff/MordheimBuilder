@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimTableTop.Warrior"
              mc:Ignorable="d"
-             d:DesignHeight="45" d:DesignWidth="40"
+             Height="45" Width="40"
              d:DataContext="{d:DesignInstance local:StatisticViewModel}">
     <UserControl.Resources>
         <Style TargetType="TextBox">
@@ -14,10 +14,10 @@
             <!--<Setter Property="Foreground" Value="Blue" />-->
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="1">
         <DockPanel>
             <StackPanel>
-                <GroupBox Width="35" BorderBrush="Black">
+                <GroupBox BorderBrush="Black">
                     <GroupBox.Header>
                         <TextBlock Text="{Binding Path=HeaderText, Mode=OneWay, FallbackValue=Xx}">
                         </TextBlock>

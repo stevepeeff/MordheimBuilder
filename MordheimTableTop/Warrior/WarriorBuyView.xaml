@@ -5,12 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimTableTop.Warrior"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="800"
+             d:DesignHeight="140" Width="780"
              d:DataContext="{d:DesignInstance local:WarriorBuyViewModel}">
     <Grid>
         <GroupBox Header="{Binding WarriorTypeName}" BorderBrush="Black">
             <DockPanel>
-                <StackPanel>
+                <StackPanel Width="180">
                     <Label>Name</Label>
                     <TextBox Text="{Binding Name}" Width="150"></TextBox>
                 </StackPanel>
@@ -25,7 +25,21 @@
                         <Label Content="{Binding SpecialRulesSummary}" FontStyle="Oblique"></Label>
                     </DockPanel>
                 </StackPanel>
-                <StackPanel></StackPanel>
+                <StackPanel>
+                    <GroupBox Header="Details" Width="120" Margin="5">
+                        <StackPanel>
+                            <DockPanel>
+                                <Label FontStyle="Oblique">Hire Fee</Label>
+                                <Label Content="{Binding HireFee}" HorizontalAlignment="Right"></Label>
+                            </DockPanel>
+                            <DockPanel>
+                                <Label FontStyle="Oblique">Maximum #</Label>
+                                <Label Content="{Binding MaximumInWarband}" HorizontalAlignment="Right"></Label>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+                <Button Command="{Binding BuyWarriorCommand}" Width="80" Height="20" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Top">Buy</Button>
             </DockPanel>
         </GroupBox>
     </Grid>
