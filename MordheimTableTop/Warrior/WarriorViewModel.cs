@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MordheimTableTop.Warrior
 {
@@ -15,6 +16,8 @@ namespace MordheimTableTop.Warrior
         {
             _Warrior = warrior;
         }
+
+        public ICommand RemoveWarriorCommand { get; }
 
         /// <summary>
         /// Gets or sets the name.

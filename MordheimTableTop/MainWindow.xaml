@@ -20,6 +20,9 @@
         <DataTemplate DataType="{x:Type warrior:WarriorBuyViewModel}">
             <warrior:WarriorBuyView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type warrior:WarriorViewModel}">
+            <warrior:WarriorEditView />
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <StackPanel>
@@ -40,9 +43,12 @@
                     <MenuItem Header="_Exit" />
                 </MenuItem>
             </Menu>
-            <!--<selection:WarbandSelectionView></selection:WarbandSelectionView>-->
-            <ContentControl Content="{Binding MainWindowContent}"></ContentControl>
+            <DockPanel>
+                <!--<selection:WarbandSelectionView></selection:WarbandSelectionView>-->
+                <ContentControl Content="{Binding MainWindowContent}"></ContentControl>
+                <ContentControl Content="{Binding MainWindowRightContent}"></ContentControl>
+            </DockPanel>
         </StackPanel>
-        <warrior:ExperienceCheckBox></warrior:ExperienceCheckBox>
+        <!--<warrior:ExperienceCheckBox></warrior:ExperienceCheckBox>-->
     </Grid>
 </Window>

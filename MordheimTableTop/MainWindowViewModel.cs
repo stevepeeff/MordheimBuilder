@@ -15,6 +15,7 @@ namespace MordheimTableTop
     internal class MainWindowViewModel : ViewModelBase
     {
         private ViewModelBase _MainWindowContent;
+        private ViewModelBase _MainWindowRightContent;
 
         public MainWindowViewModel()
         {
@@ -37,6 +38,19 @@ namespace MordheimTableTop
             }
         }
 
+        public ViewModelBase MainWindowRightContent
+        {
+            get { return _MainWindowRightContent; }
+            private set
+            {
+                if (_MainWindowRightContent != value)
+                {
+                    _MainWindowRightContent = value;
+                    NotifiyPropertyChangedEvent();
+                }
+            }
+        }
+
         public ICommand NewWarbandCommand => new RelayCommand(x => ShowWarbandSelection());
         public ICommand PlayModeCommand { get; set; }
 
@@ -51,6 +65,7 @@ namespace MordheimTableTop
         {
             IWarrior warrior = new WitchHunterCaptain();
             MainWindowContent = new WarriorBuyViewModel(warrior);
+            MainWindowRightContent = new WarriorViewModel(warrior);
         }
 
         private void WarbandSelectionViewModel_WarbandSelected(object sender, WarbandEventArgs e)

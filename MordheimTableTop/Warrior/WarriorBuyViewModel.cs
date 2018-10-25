@@ -41,14 +41,6 @@ namespace MordheimTableTop.Warrior
         public int MaximumInWarband { get { return _Warrior.MaximumAllowedInWarBand; } }
 
         /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets the skill summary.
         /// </summary>
         /// <value>
