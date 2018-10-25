@@ -1,4 +1,7 @@
-﻿using MordheimTableTop.Selection;
+﻿using DomainModel.Warbands;
+using DomainModel.Warbands.WitchHunters;
+using MordheimTableTop.Selection;
+using MordheimTableTop.Warrior;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +14,15 @@ namespace MordheimTableTop
 {
     internal class MainWindowViewModel : ViewModelBase
     {
-        public ICommand EditModeCommand { get; set; }
-
-        public ICommand PlayModeCommand { get; set; }
-
-        public ICommand NewWarbandCommand => new RelayCommand(x => ShowWarbandSelection());
-
         private ViewModelBase _MainWindowContent;
+
+        public MainWindowViewModel()
+        {
+            Test();
+            //NewWarbandCommand.Execute(null);
+        }
+
+        public ICommand EditModeCommand { get; set; }
 
         public ViewModelBase MainWindowContent
         {
@@ -32,6 +37,9 @@ namespace MordheimTableTop
             }
         }
 
+        public ICommand NewWarbandCommand => new RelayCommand(x => ShowWarbandSelection());
+        public ICommand PlayModeCommand { get; set; }
+
         private void ShowWarbandSelection()
         {
             var warbandSelectionViewModel = new WarbandSelectionViewModel();
@@ -39,14 +47,15 @@ namespace MordheimTableTop
             warbandSelectionViewModel.WarbandSelected += WarbandSelectionViewModel_WarbandSelected;
         }
 
+        private void Test()
+        {
+            IWarrior warrior = new WitchHunterCaptain();
+            MainWindowContent = new WarriorBuyViewModel(warrior);
+        }
+
         private void WarbandSelectionViewModel_WarbandSelected(object sender, WarbandEventArgs e)
         {
             MainWindowContent = null;
-        }
-
-        public MainWindowViewModel()
-        {
-            NewWarbandCommand.Execute(null);
         }
     }
 }

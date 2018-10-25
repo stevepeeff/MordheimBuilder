@@ -81,6 +81,7 @@
     <Compile Include="Warrior\WarriorBuyView.xaml.cs">
       <DependentUpon>WarriorBuyView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Warrior\WarriorBuyViewModel.cs" />
     <Compile Include="Warrior\WarriorPlayView.xaml.cs">
       <DependentUpon>WarriorPlayView.xaml</DependentUpon>
     </Compile>

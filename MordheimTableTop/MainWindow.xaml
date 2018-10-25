@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MordheimTableTop"
         xmlns:selection="clr-namespace:MordheimTableTop.Selection"
+        xmlns:warrior="clr-namespace:MordheimTableTop.Warrior"
         mc:Ignorable="d"
         Title="Mordheim Table Top Builder" Height="1920" Width="1080" WindowState="Maximized">
     <Window.DataContext>
@@ -15,6 +16,9 @@
         <!--Map ViewModels to it's corresponding View-->
         <DataTemplate DataType="{x:Type selection:WarbandSelectionViewModel}">
             <selection:WarbandSelectionView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type warrior:WarriorBuyViewModel}">
+            <warrior:WarriorBuyView />
         </DataTemplate>
     </Window.Resources>
     <Grid>
