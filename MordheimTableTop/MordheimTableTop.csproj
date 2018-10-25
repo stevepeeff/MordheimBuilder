@@ -95,6 +95,7 @@
     <Compile Include="Warrior\WarriorPlayView.xaml.cs">
       <DependentUpon>WarriorPlayView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Warrior\WarriorViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
