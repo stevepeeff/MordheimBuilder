@@ -8,9 +8,11 @@
         mc:Ignorable="d"
         Title="Mordheim Table Top Builder" Height="1920" Width="1080" WindowState="Maximized">
     <Window.DataContext>
+        <!--Bind this view to the ViewModel (this initiates the VM)-->
         <local:MainWindowViewModel></local:MainWindowViewModel>
     </Window.DataContext>
     <Window.Resources>
+        <!--Map ViewModels to it's corresponding View-->
         <DataTemplate DataType="{x:Type selection:WarbandSelectionViewModel}">
             <selection:WarbandSelectionView />
         </DataTemplate>
