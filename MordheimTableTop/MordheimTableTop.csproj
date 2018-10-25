@@ -63,6 +63,26 @@
     <Compile Include="Selection\WarbandSelectionViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="WarbandEventArgs.cs" />
+    <Compile Include="Warband\WarbandBuilderView.xaml.cs">
+      <DependentUpon>WarbandBuilderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warband\WarbandPlayView.xaml.cs">
+      <DependentUpon>WarbandPlayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warrior\StatisticsView.xaml.cs">
+      <DependentUpon>StatisticsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warrior\StatisticsViewModel.cs" />
+    <Compile Include="Warrior\StatisticView.xaml.cs">
+      <DependentUpon>StatisticView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warrior\StatisticViewModel.cs" />
+    <Compile Include="Warrior\WarriorBuyView.xaml.cs">
+      <DependentUpon>WarriorBuyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warrior\WarriorPlayView.xaml.cs">
+      <DependentUpon>WarriorPlayView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +98,30 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Selection\WarbandSelectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warband\WarbandBuilderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warband\WarbandPlayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warrior\StatisticsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warrior\StatisticView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warrior\WarriorBuyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warrior\WarriorPlayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

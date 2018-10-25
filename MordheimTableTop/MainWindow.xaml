@@ -22,7 +22,7 @@
                     <MenuItem Header="Edit Modus" Command="{Binding EditModeCommand}" />
                     <MenuItem Header="Play Modus" Command="{Binding PlayModeCommand}" />
                     <Separator />
-                    <MenuItem Header="New War band" Command="{Binding NewWabandCommand}" />
+                    <MenuItem Header="New War band" Command="{Binding NewWarbandCommand}" />
                     <Separator />
                     <MenuItem Header="_Load..." />
                     <Separator />
@@ -34,6 +34,8 @@
                     <MenuItem Header="_Exit" />
                 </MenuItem>
             </Menu>
+            <!--<selection:WarbandSelectionView></selection:WarbandSelectionView>-->
+            <ContentControl Content="{Binding MainWindowContent}"></ContentControl>
         </StackPanel>
     </Grid>
 </Window>

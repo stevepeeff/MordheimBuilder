@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MordheimTableTop.Selection
+namespace MordheimTableTop.Warrior
 {
     /// <summary>
-    /// Interaction logic for WarbandSelectionView.xaml
+    /// Interaction logic for WarriorPlayView.xaml
     /// </summary>
-    public partial class WarbandSelectionView : UserControl
+    public partial class WarriorPlayView : UserControl
     {
-        public WarbandSelectionView()
+        public WarriorPlayView()
         {
             InitializeComponent();
         }
