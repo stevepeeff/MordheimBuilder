@@ -21,6 +21,7 @@ namespace MordheimTableTop
 
         public MainWindowViewModel()
         {
+            //TODO remove
             Test();
             //NewWarbandCommand.Execute(null);
         }
@@ -71,8 +72,8 @@ namespace MordheimTableTop
 
             BuilderLogicFactory.Instance.SelectWarBand(rndWarband);
 
-            MainWindowContent = new WarBandBuyViewModel();
-            MainWindowRightContent = new WarriorViewModel(warrior);
+            MainWindowContent = new WarbandBuilderViewModel();
+            //MainWindowRightContent = new WarriorViewModel(warrior);
         }
 
         private void WarbandSelectionViewModel_WarbandSelected(object sender, WarbandEventArgs e)
