@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MordheimTableTop.Warrior
@@ -66,14 +67,18 @@ namespace MordheimTableTop.Warrior
         public ICommand IncreaseHenchmenCommand => new IncreaseBuyAmount(_Warrior);
 
         /// <summary>
-        /// Gets a value indicating whether this instance is henchmen.
+        /// Gets the show increase decrease buttons.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if this instance is henchmen; otherwise, <c>false</c>.
+        /// The show increase decrease buttons.
         /// </value>
-        public bool IsHenchmen
+        public Visibility ShowIncreaseDecreaseButtons
         {
-            get { return _Warrior is IHenchMen; }
+            get
+            {
+                if (_Warrior is IHenchMen) { return Visibility.Visible; }
+                return Visibility.Collapsed;
+            }
         }
 
         /// <summary>
