@@ -18,7 +18,25 @@ namespace MordheimTableTop.Selection
         }
 
         public int Costs => CloseCombatWeapon.Cost;
-        public string Description => CloseCombatWeapon.Description;
+
+        public string Description
+        {
+            get
+            {
+                string description = String.Empty;
+                foreach (var item in CloseCombatWeapon.CloseCombatSpecialRules)
+                {
+                    if (!String.IsNullOrEmpty(description))
+                    {
+                        description += ",";
+                    }
+                    description += item.GetDescription();
+                }
+
+                return description;
+            }
+        }
+
         public string Name => CloseCombatWeapon.Name.SplitCamelCasing();
         public int StrengthModifier => CloseCombatWeapon.StrengthModifier;
         public int ToHitModifier => CloseCombatWeapon.ToHitModifier;

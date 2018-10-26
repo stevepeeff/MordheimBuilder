@@ -58,10 +58,12 @@
     <Compile Include="CommandBase.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="RelayCommand.cs" />
+    <Compile Include="Selection\ArmourViewModel.cs" />
     <Compile Include="Selection\EquipmentSelectionView.xaml.cs">
       <DependentUpon>EquipmentSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Selection\EquipmentSelectionViewModel.cs" />
+    <Compile Include="Selection\MissleWeaponViewModel.cs" />
     <Compile Include="Selection\WarbandSelectionView.xaml.cs">
       <DependentUpon>WarbandSelectionView.xaml</DependentUpon>
     </Compile>

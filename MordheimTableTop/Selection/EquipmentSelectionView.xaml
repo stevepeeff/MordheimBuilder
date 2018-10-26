@@ -12,7 +12,7 @@
         <StackPanel>
             <GroupBox Header="Close Combat Weapons">
                 <DataGrid ItemsSource="{Binding CloseCombatWeapons}" SelectedItem="{Binding SelectedCloseCombatWeapon}"
-                      AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+                      AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:CloseCombatWeaponViewModel}">
                     <DataGrid.InputBindings>
                         <MouseBinding Gesture="LeftDoubleClick" />
                     </DataGrid.InputBindings>
