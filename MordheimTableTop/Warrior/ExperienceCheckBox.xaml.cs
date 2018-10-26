@@ -18,23 +18,35 @@ namespace MordheimTableTop.Warrior
     /// <summary>
     /// Interaction logic for ExperienceCheckBox.xaml
     /// </summary>
-    public partial class ExperienceCheckBox : CheckBox
+    public partial class ExperienceCheckBox : UserControl
     {
         public ExperienceCheckBox()
         {
             InitializeComponent();
-            //BorderThickness = new Thickness(2.5);
-        }
 
-        public int Index { get; }
+            _ChechkBox.IsChecked = false;
+        }
 
         public ExperienceCheckBox(int index, bool thickBorder) : this()
         {
             Index = index;
-
             if (thickBorder)
             {
-                //BorderBrush = System.Windows.Media.Brushes.Red;
+                _ChechkBox.BorderThickness = new Thickness(2.5);
+            }
+        }
+
+        public int Index { get; }
+
+        public bool IsChecked
+        {
+            get
+            {
+                return _ChechkBox.IsChecked.Value;
+            }
+            set
+            {
+                _ChechkBox.IsChecked = value;
             }
         }
     }
