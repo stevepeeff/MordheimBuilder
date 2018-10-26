@@ -20,7 +20,7 @@
                         <local:StatisticsView DataContext="{Binding StatisticsVM}"></local:StatisticsView>
                         <DockPanel>
                             <Label FontStyle="Oblique">Allowed Skills:</Label>
-                            <Label Content="{Binding SkillSummary}" FontStyle="Oblique"></Label>
+                            <Label Content="{Binding SkillSummary}" Width="400" FontStyle="Oblique"></Label>
                         </DockPanel>
                         <DockPanel>
                             <Label FontStyle="Oblique">Special Rules:</Label>
