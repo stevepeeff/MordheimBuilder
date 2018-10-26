@@ -83,7 +83,6 @@
     <Compile Include="Warrior\ExperienceView.xaml.cs">
       <DependentUpon>ExperienceView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Warrior\ExperienceViewModel.cs" />
     <Compile Include="Warrior\StatisticsView.xaml.cs">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>

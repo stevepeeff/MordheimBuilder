@@ -64,11 +64,7 @@ namespace MordheimTableTop
             warbandSelectionViewModel.WarbandSelected += WarbandSelectionViewModel_WarbandSelected;
         }
 
-        public ExperienceViewModel ExperienceVM => new ExperienceViewModel(TestWarrior);
-
         public IWarrior TestWarrior => new WitchHunterCaptain();
-
-        public DependencyObject App { get; set; }
 
         private void Test()
         {
