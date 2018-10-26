@@ -19,7 +19,7 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel>
-            <GroupBox Header="Warband Information" FontWeight="Bold" BorderBrush="Black">
+            <GroupBox Header="Warband Information" FontWeight="Bold" BorderBrush="Black" Height="100">
                 <StackPanel>
                     <DockPanel>
                         <Label FontStyle="Oblique" Width="200">Name</Label>

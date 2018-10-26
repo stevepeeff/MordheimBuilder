@@ -9,9 +9,6 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance local:WarBandEditViewModel}">
-    <UserControl.DataContext>
-        <local:WarBandEditViewModel />
-    </UserControl.DataContext>
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type warrior:WarriorViewModel}">
             <warrior:WarriorEditView />
@@ -19,12 +16,22 @@
     </UserControl.Resources>
     <Grid>
         <DockPanel>
-            <local:WarBandBuyView></local:WarBandBuyView>
             <StackPanel>
-                <GroupBox Header="Warband Statistics" FontWeight="Bold" BorderBrush="Black" Height="80">
-                    <DockPanel>
-                        <Label Content="{Binding WarbandStatistics}" FontStyle="Oblique"></Label>
-                    </DockPanel>
+                <GroupBox Header="Warband Statistics" FontWeight="Bold" BorderBrush="Black" Height="100">
+                    <StackPanel>
+                        <DockPanel>
+                            <Label FontStyle="Oblique" Width="150">Total Costs</Label>
+                            <Label Content="{Binding TotalCosts}" FontStyle="Oblique"></Label>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label FontStyle="Oblique" Width="150">Rating</Label>
+                            <Label Content="{Binding WarbandRating}" FontStyle="Oblique"></Label>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label FontStyle="Oblique" Width="150">Number of Warriors</Label>
+                            <Label Content="{Binding TotalNumberOfWarriors}" FontStyle="Oblique"></Label>
+                        </DockPanel>
+                    </StackPanel>
                 </GroupBox>
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" Height="800">
                     <ItemsControl ItemsSource="{Binding Warriors}">

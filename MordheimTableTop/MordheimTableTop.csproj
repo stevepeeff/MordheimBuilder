@@ -64,10 +64,6 @@
     <Compile Include="Selection\WarbandSelectionViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="WarbandEventArgs.cs" />
-    <Compile Include="Warband\WarbandBuilderView.xaml.cs">
-      <DependentUpon>WarbandBuilderView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Warband\WarbandBuilderViewModel.cs" />
     <Compile Include="Warband\WarBandBuyView.xaml.cs">
       <DependentUpon>WarBandBuyView.xaml</DependentUpon>
     </Compile>
@@ -122,10 +118,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Selection\WarbandSelectionView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Warband\WarbandBuilderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

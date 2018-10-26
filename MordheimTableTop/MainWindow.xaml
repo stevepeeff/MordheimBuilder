@@ -27,8 +27,8 @@
         <DataTemplate DataType="{x:Type warband:WarBandBuyViewModel}">
             <warband:WarBandBuyView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type warband:WarbandBuilderViewModel}">
-            <warband:WarbandBuilderView />
+        <DataTemplate DataType="{x:Type warband:WarBandEditViewModel}">
+            <warband:WarBandEditView />
         </DataTemplate>
     </Window.Resources>
     <Grid>

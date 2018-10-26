@@ -25,21 +25,9 @@ namespace MordheimTableTop.Warband
         /// </value>
         public IWarbandRoster Roster { get; } = BuilderLogicFactory.Instance.WarbandRoster;
 
-        /// <summary>
-        /// Gets the warband statistics.
-        /// </summary>
-        /// <value>
-        /// The warband statistics.
-        /// </value>
-        public string WarbandStatistics
-        {
-            get
-            {
-                return $"Number of Warriors: {Roster.TotalNumberOfWarriors} \t" +
-                    $"Costs: {Roster.TotalCosts} \t" +
-                    $"Rating {Roster.WarbandRating}";
-            }
-        }
+        public int TotalNumberOfWarriors { get { return Roster.TotalNumberOfWarriors; } }
+        public int TotalCosts { get { return Roster.TotalCosts; } }
+        public int WarbandRating { get { return Roster.WarbandRating; } }
 
         /// <summary>
         /// Gets the warriors.
@@ -56,7 +44,9 @@ namespace MordheimTableTop.Warband
             {
                 Warriors.Add(new WarriorViewModel(item));
             }
-            NotifiyPropertyChangedEvent(nameof(WarbandStatistics));
+            NotifiyPropertyChangedEvent(nameof(TotalNumberOfWarriors));
+            NotifiyPropertyChangedEvent(nameof(TotalCosts));
+            NotifiyPropertyChangedEvent(nameof(WarbandRating));
         }
     }
 }
