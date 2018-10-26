@@ -8,6 +8,6 @@
              Width="20" Height="20">
 
     <Grid>
-        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Name="_ChechkBox" />
+        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Name="_ChechkBox" IsEnabled="False" />
     </Grid>
 </UserControl>

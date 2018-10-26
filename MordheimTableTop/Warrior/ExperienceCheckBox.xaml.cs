@@ -27,9 +27,10 @@ namespace MordheimTableTop.Warrior
             _ChechkBox.IsChecked = false;
         }
 
-        public ExperienceCheckBox(int index, bool thickBorder) : this()
+        public ExperienceCheckBox(int index, bool thickBorder, bool isChecked) : this()
         {
             Index = index;
+            IsChecked = isChecked;
             if (thickBorder)
             {
                 _ChechkBox.BorderThickness = new Thickness(2.5);
