@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="MordheimTableTop.Warband.WarBandEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimTableTop.Warband"
+             xmlns:warrior="clr-namespace:MordheimTableTop.Warrior"
+             xmlns:domainmodel="clr-namespace:DomainModel;assembly=DomainModel"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance local:WarBandEditViewModel}">
+    <UserControl.DataContext>
+        <local:WarBandEditViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type warrior:WarriorViewModel}">
+            <warrior:WarriorEditView />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <DockPanel>
+            <local:WarBandBuyView></local:WarBandBuyView>
+            <StackPanel>
+                <GroupBox Header="Warband Statistics" FontWeight="Bold" BorderBrush="Black" Height="80">
+                    <DockPanel>
+                        <Label Content="{Binding WarbandStatistics}" FontStyle="Oblique"></Label>
+                    </DockPanel>
+                </GroupBox>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" Height="800">
+                    <ItemsControl ItemsSource="{Binding Warriors}">
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>

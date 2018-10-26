@@ -72,6 +72,10 @@
       <DependentUpon>WarBandBuyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Warband\WarBandBuyViewModel.cs" />
+    <Compile Include="Warband\WarBandEditView.xaml.cs">
+      <DependentUpon>WarBandEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warband\WarBandEditViewModel.cs" />
     <Compile Include="Warband\WarbandPlayView.xaml.cs">
       <DependentUpon>WarbandPlayView.xaml</DependentUpon>
     </Compile>
@@ -126,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Warband\WarBandBuyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warband\WarBandEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
