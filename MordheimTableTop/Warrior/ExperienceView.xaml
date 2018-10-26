@@ -8,7 +8,7 @@
              d:DesignHeight="100" d:DesignWidth="300">
     <Grid>
         <GroupBox Header="Experience">
-            <StackPanel Name="_StackPanel"></StackPanel>
+            <StackPanel HorizontalAlignment="Left" Name="_StackPanel" ></StackPanel>
         </GroupBox>
     </Grid>
 </UserControl>

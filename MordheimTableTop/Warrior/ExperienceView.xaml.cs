@@ -43,6 +43,8 @@ namespace MordheimTableTop.Warrior
             int numberOFRows = warrior.MaximumExperience / 10;
             int overallCounter = 1;
 
+            _StackPanel.Width = 280;
+            if (numberOFRows > 1) { _StackPanel.Width = 600; }
             for (int rowCounter = 0; rowCounter < numberOFRows; rowCounter++)
             {
                 DockPanel dockPanel = new DockPanel();
@@ -50,10 +52,7 @@ namespace MordheimTableTop.Warrior
                 {
                     bool hasThickborder = warrior.IsLevelUp(overallCounter);
                     bool isChecked = overallCounter < warrior.CurrentExperience;
-                    var experienceCheckBox = new ExperienceCheckBox(overallCounter, hasThickborder)
-                    {
-                        IsChecked = isChecked
-                    };
+                    var experienceCheckBox = new ExperienceCheckBox(overallCounter, hasThickborder, isChecked);
                     overallCounter++;
                     dockPanel.Children.Add(experienceCheckBox);
                 }
