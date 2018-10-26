@@ -43,6 +43,7 @@
                     </StackPanel>
                     <Button Command="{Binding BuyWarriorCommand}" Width="80" Height="20" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Top">Buy</Button>
                 </DockPanel>
+                <ContentControl DataContext="{Binding ExperienceView}"></ContentControl>
             </StackPanel>
         </GroupBox>
     </Grid>

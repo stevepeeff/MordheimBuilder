@@ -64,17 +64,21 @@ namespace MordheimTableTop
             warbandSelectionViewModel.WarbandSelected += WarbandSelectionViewModel_WarbandSelected;
         }
 
+        public ExperienceViewModel ExperienceVM => new ExperienceViewModel(TestWarrior);
+
+        public IWarrior TestWarrior => new WitchHunterCaptain();
+
+        public DependencyObject App { get; set; }
+
         private void Test()
         {
-            IWarrior warrior = new WitchHunterCaptain();
-
             var rndWarband = BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(new Random().Next(0, 5));
 
             BuilderLogicFactory.Instance.SelectWarBand(rndWarband);
 
             //MainWindowContent = new WarbandBuilderViewModel();
-            MainWindowContent = new WarBandBuyViewModel();
-            MainWindowRightContent = new WarBandEditViewModel();
+            //MainWindowContent = new WarBandBuyViewModel();
+            //MainWindowRightContent = new WarBandEditViewModel();
             //MainWindowRightContent =
         }
 

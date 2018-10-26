@@ -21,7 +21,7 @@
                         <TextBox Text="{Binding Name}" Width="150"></TextBox>
                     </StackPanel>
                     <StackPanel>
-                        <local:StatisticsView DataContext="{Binding StatisticsVM}"></local:StatisticsView>
+                        <local:StatisticsView DataContext="{Binding StatisticsVM}" />
                     </StackPanel>
                     <StackPanel>
                         <GroupBox Header="Details" Width="120" Margin="5">

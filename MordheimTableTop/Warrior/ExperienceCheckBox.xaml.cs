@@ -23,7 +23,7 @@ namespace MordheimTableTop.Warrior
         public ExperienceCheckBox()
         {
             InitializeComponent();
-            BorderThickness = new Thickness(1.0);
+            //BorderThickness = new Thickness(2.5);
         }
 
         public int Index { get; }
@@ -34,7 +34,7 @@ namespace MordheimTableTop.Warrior
 
             if (thickBorder)
             {
-                BorderThickness = new Thickness(2.5);
+                //BorderBrush = System.Windows.Media.Brushes.Red;
             }
         }
     }

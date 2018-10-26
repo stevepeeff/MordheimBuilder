@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimTableTop.Warrior"
              mc:Ignorable="d"
-             Width="19" Height="19"
-             IsEnabled="False">
+             Width="20" Height="20"
+             IsEnabled="False"
+             BorderThickness="2.5">
 </CheckBox>

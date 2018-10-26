@@ -10,10 +10,12 @@ namespace MordheimTableTop.Warrior
 {
     internal class ExperienceViewModel : ViewModelBase
     {
-        public StackPanel ExperienceViewContent { get; } = new StackPanel();
+        public StackPanel ExperienceViewContent { get; }
 
         public ExperienceViewModel(IWarrior warrior)
         {
+            ExperienceViewContent = new StackPanel();
+
             int numberOFRows = warrior.MaximumExperience / 10;
 
             int overallCounter = 1;
@@ -35,7 +37,7 @@ namespace MordheimTableTop.Warrior
                 ExperienceViewContent.Children.Add(dockPanel);
             }
 
-            NotifiyPropertyChangedEvent(nameof(ExperienceViewContent));
+            //   NotifiyPropertyChangedEvent(nameof(ExperienceViewContent));
         }
     }
 }

@@ -22,6 +22,14 @@ namespace MordheimTableTop.Warrior
         }
 
         /// <summary>
+        /// Gets the experience vm.
+        /// </summary>
+        /// <value>
+        /// The experience vm.
+        /// </value>
+       // public ExperienceViewModel ExperienceVM => new ExperienceViewModel(_Warrior);
+
+        /// <summary>
         /// Gets the buy warrior command.
         /// </summary>
         /// <value>
@@ -107,6 +115,8 @@ namespace MordheimTableTop.Warrior
             }
         }
 
+        // public ExperienceView ExperienceView => new ExperienceView(_Warrior);
+
         /// <summary>
         /// Gets the statistics vm.
         /// </summary>
@@ -123,7 +133,7 @@ namespace MordheimTableTop.Warrior
         /// </value>
         public string WarriorTypeName { get { return _Warrior.TypeName.SplitCamelCasing(); } }
 
-        private IWarrior _Warrior { get; }
+        public IWarrior _Warrior { get; }
 
         private bool PurchaseAllowed()
         {
