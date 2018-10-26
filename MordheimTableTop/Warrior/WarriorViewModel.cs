@@ -13,11 +13,11 @@ namespace MordheimTableTop.Warrior
 {
     internal class WarriorViewModel : ViewModelBase
     {
-        private readonly IWarrior _Warrior;
+        public IWarrior Warrior { get; }
 
         public WarriorViewModel(IWarrior warrior)
         {
-            _Warrior = warrior;
+            Warrior = warrior;
         }
 
         /// <summary>
@@ -26,20 +26,20 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The decrease henchmen command.
         /// </value>
-        public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(_Warrior);
+        public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(Warrior);
 
         public int? GroupCosts
         {
             get
             {
-                if (_Warrior is IHenchMen)
+                if (Warrior is IHenchMen)
                 {
-                    IHenchMen henchMen = _Warrior as IHenchMen;
+                    IHenchMen henchMen = Warrior as IHenchMen;
                     return (henchMen.GroupCosts);
                 }
                 else
                 {
-                    return (_Warrior.HireFee + _Warrior.EquipmentCosts);
+                    return (Warrior.HireFee + Warrior.EquipmentCosts);
                 }
             }
         }
@@ -48,9 +48,9 @@ namespace MordheimTableTop.Warrior
         {
             get
             {
-                if (_Warrior is IHenchMen)
+                if (Warrior is IHenchMen)
                 {
-                    IHenchMen henchMen = _Warrior as IHenchMen;
+                    IHenchMen henchMen = Warrior as IHenchMen;
                     return henchMen.AmountInGroup;
                 }
 
@@ -64,7 +64,7 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The increase henchmen command.
         /// </value>
-        public ICommand IncreaseHenchmenCommand => new IncreaseBuyAmount(_Warrior);
+        public ICommand IncreaseHenchmenCommand => new IncreaseBuyAmount(Warrior);
 
         /// <summary>
         /// Gets the show increase decrease buttons.
@@ -76,7 +76,7 @@ namespace MordheimTableTop.Warrior
         {
             get
             {
-                if (_Warrior is IHenchMen) { return Visibility.Visible; }
+                if (Warrior is IHenchMen) { return Visibility.Visible; }
                 return Visibility.Collapsed;
             }
         }
@@ -89,9 +89,9 @@ namespace MordheimTableTop.Warrior
         /// </value>
         public string Name { get; set; }
 
-        public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(_Warrior));
-        public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(_Warrior); } }
+        public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
+        public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(Warrior); } }
 
-        public string WarriorTypeName { get { return _Warrior.TypeName.SplitCamelCasing(); } }
+        public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
     }
 }

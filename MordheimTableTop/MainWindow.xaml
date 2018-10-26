@@ -31,9 +31,6 @@
             <warband:WarBandEditView />
         </DataTemplate>
         <!--TESTING-->
-        <DataTemplate DataType="{x:Type warrior:ExperienceViewModel}">
-            <warrior:ExperienceView />
-        </DataTemplate>
     </Window.Resources>
     <Grid>
         <StackPanel>
@@ -56,10 +53,6 @@
             </Menu>
             <DockPanel>
                 <!--<selection:WarbandSelectionView></selection:WarbandSelectionView>-->
-                <warrior:ExperienceView DataContext="{Binding TestWarrior}" />
-                <warrior:ExperienceCheckBox></warrior:ExperienceCheckBox>
-                <warrior:ExperienceCheckBox></warrior:ExperienceCheckBox>
-                <warrior:ExperienceCheckBox></warrior:ExperienceCheckBox>
                 <ContentControl Content="{Binding MainWindowContent}"></ContentControl>
                 <ContentControl Content="{Binding MainWindowRightContent}"></ContentControl>
             </DockPanel>
