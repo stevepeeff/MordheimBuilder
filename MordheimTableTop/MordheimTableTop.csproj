@@ -65,6 +65,7 @@
     <Compile Include="Selection\WarbandSelectionView.xaml.cs">
       <DependentUpon>WarbandSelectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Selection\CloseCombatWeaponViewModel.cs" />
     <Compile Include="Selection\WarbandSelectionViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="WarbandEventArgs.cs" />

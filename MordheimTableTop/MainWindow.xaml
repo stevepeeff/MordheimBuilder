@@ -30,6 +30,9 @@
         <DataTemplate DataType="{x:Type warband:WarBandEditViewModel}">
             <warband:WarBandEditView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type selection:EquipmentSelectionViewModel}">
+            <selection:EquipmentSelectionView />
+        </DataTemplate>
         <!--TESTING-->
     </Window.Resources>
     <Grid>
