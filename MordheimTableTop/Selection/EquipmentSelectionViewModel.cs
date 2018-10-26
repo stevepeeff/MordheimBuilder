@@ -20,15 +20,18 @@ namespace MordheimTableTop.Selection
             foreach (IEquipment item in Warrior.AllowedEquipment)
             {
                 if (item is ICloseCombatWeapon) { CloseCombatWeapons.Add(new CloseCombatWeaponViewModel(item as ICloseCombatWeapon)); }
+                if (item is IMisseleWeapon) { MisseleWeapons.Add(new MissleWeaponViewModel(item as IMisseleWeapon)); }
+                if (item is IArmour) { Armours.Add(new ArmourViewModel(item as IArmour)); }
             }
         }
 
-        public List<IArmour> Armours { get; } = new List<IArmour>();
-
-        public CloseCombatWeaponViewModel SelectedCloseCombatWeapon { get; set; }
+        public List<ArmourViewModel> Armours { get; } = new List<ArmourViewModel>();
 
         public List<CloseCombatWeaponViewModel> CloseCombatWeapons { get; } = new List<CloseCombatWeaponViewModel>();
-        public List<IMisseleWeapon> MisseleWeapons { get; } = new List<IMisseleWeapon>();
+        public List<MissleWeaponViewModel> MisseleWeapons { get; } = new List<MissleWeaponViewModel>();
+        public ArmourViewModel SelectedArmour { get; set; }
+        public CloseCombatWeaponViewModel SelectedCloseCombatWeapon { get; set; }
+        public MissleWeaponViewModel SelectedMissleWeapon { get; set; }
         public IWarrior Warrior { get; }
     }
 }

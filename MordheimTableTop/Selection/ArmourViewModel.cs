@@ -11,6 +11,7 @@ namespace MordheimTableTop.Selection
     {
         public ArmourViewModel(IArmour armour)
         {
+            Armour = armour;
         }
 
         public IArmour Armour { get; set; }

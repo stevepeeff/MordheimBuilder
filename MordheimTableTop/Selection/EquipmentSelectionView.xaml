@@ -26,8 +26,34 @@
                 </DataGrid>
             </GroupBox>
             <GroupBox Header="Missile Weapons">
+                <DataGrid ItemsSource="{Binding MisseleWeapons}" SelectedItem="{Binding SelectedMissleWeapon}"
+                      AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:MissleWeaponViewModel}">
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"></DataGridTextColumn>
+                        <!--<DataGridTextColumn Header="Str Mod" Binding="{Binding StrengthModifier}" ></DataGridTextColumn>
+                        <DataGridTextColumn Header="Hit Mod" Binding="{Binding ToHitModifier}"></DataGridTextColumn>-->
+                    </DataGrid.Columns>
+                </DataGrid>
             </GroupBox>
             <GroupBox Header="Armour">
+                <DataGrid ItemsSource="{Binding Armours}" SelectedItem="{Binding SelectedArmour}"
+                      AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:ArmourViewModel}">
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"></DataGridTextColumn>
+                        <!--<DataGridTextColumn Header="Str Mod" Binding="{Binding StrengthModifier}" ></DataGridTextColumn>
+                        <DataGridTextColumn Header="Hit Mod" Binding="{Binding ToHitModifier}"></DataGridTextColumn>-->
+                    </DataGrid.Columns>
+                </DataGrid>
             </GroupBox>
         </StackPanel>
     </Grid>
