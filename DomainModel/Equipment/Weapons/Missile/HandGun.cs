@@ -10,7 +10,7 @@ namespace DomainModel.Equipment.Weapons.Missile
     {
         public HandGun()
         {
-            _MisseleWeaponRules.Add(MisseleWeaponRules.Prepare);
+            _MisseleWeaponRules.Add(MisseleWeaponRules.PrepareShot);
             _MisseleWeaponRules.Add(MisseleWeaponRules.MoveOrFire);
         }
 

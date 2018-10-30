@@ -18,6 +18,23 @@ namespace MordheimTableTop.Selection
 
         public int Costs => Armour.Cost;
 
+        public string Save
+        {
+            get
+            {
+                if (Armour is Shield)
+                {
+                    return $"+{Armour.Save}";
+                }
+                if (Armour.Save > 0)
+                {
+                    return $"{6 - Armour.Save}+";
+                }
+
+                return "None";
+            }
+        }
+
         public string Description
         {
             get
@@ -37,6 +54,5 @@ namespace MordheimTableTop.Selection
         }
 
         public string Name => Armour.Name.SplitCamelCasing();
-        public int Save => Armour.Save;
     }
 }

@@ -27,7 +27,7 @@ namespace DomainModel.Equipment.Weapons.Missile
         public DuellingPistol()
         {
             _MisseleWeaponRules.Add(MisseleWeaponRules.Accuracy);
-            _MisseleWeaponRules.Add(MisseleWeaponRules.Prepare);
+            _MisseleWeaponRules.Add(MisseleWeaponRules.PrepareShot);
             _MisseleWeaponRules.Add(MisseleWeaponRules.HandToHand);
         }
     }

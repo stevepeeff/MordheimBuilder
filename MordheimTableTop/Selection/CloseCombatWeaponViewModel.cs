@@ -38,8 +38,37 @@ namespace MordheimTableTop.Selection
         }
 
         public string Name => CloseCombatWeapon.Name.SplitCamelCasing();
-        public int StrengthModifier => CloseCombatWeapon.StrengthModifier;
+
+        public string StrengthModifier
+        {
+            get
+            {
+                if (CloseCombatWeapon.StrengthModifier > 0)
+                {
+                    return $"+{CloseCombatWeapon.StrengthModifier}";
+                }
+                return "As User";
+            }
+        }
+
+        public string ArmourSaveModifier
+        {
+            get
+            {
+                if (CloseCombatWeapon.ArmorSaveModifier > 0)
+                {
+                    return $"+{CloseCombatWeapon.ArmorSaveModifier}";
+                }
+                if (CloseCombatWeapon.ArmorSaveModifier < 0)
+                {
+                    return $"{CloseCombatWeapon.ArmorSaveModifier}";
+                }
+                return "None";
+            }
+        }
+
         public int ToHitModifier => CloseCombatWeapon.ToHitModifier;
+
         internal ICloseCombatWeapon CloseCombatWeapon { get; }
     }
 }

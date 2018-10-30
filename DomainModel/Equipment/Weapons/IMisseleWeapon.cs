@@ -34,9 +34,15 @@ namespace DomainModel.Equipment.Weapons
         Brace,
 
         FireEveryOtherTurn,
+
+        [Description("Always shoot first in close combat with a -2 To hit penalty")]
         ShootOnceInMelee,
+
         FireTwice,
-        Prepare,
+
+        [Description("Take a whole turn to reload")]
+        PrepareShot,
+
         HandToHand,
         PickTarget
     }

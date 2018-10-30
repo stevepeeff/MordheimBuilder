@@ -20,7 +20,7 @@ namespace DomainModel.Equipment.Weapons.Missile
 
         public Pistol()
         {
-            _MisseleWeaponRules.Add(MisseleWeaponRules.Prepare);
+            _MisseleWeaponRules.Add(MisseleWeaponRules.PrepareShot);
         }
     }
 }

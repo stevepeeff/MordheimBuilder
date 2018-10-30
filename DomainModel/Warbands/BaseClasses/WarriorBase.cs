@@ -52,8 +52,6 @@ namespace DomainModel.Warbands.BaseClasses
             {
                 Movement,WeaponSkill, BallisticSkill, Strength, Toughness, Wounds, Initiative, Attacks, LeaderShip, Save
             };
-
-            _AllowedWeapons.Add(new Dagger());
         }
 
         public event EventHandler PropertiesChanged;
