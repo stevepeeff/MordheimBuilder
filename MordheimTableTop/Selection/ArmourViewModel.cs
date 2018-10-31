@@ -16,8 +16,6 @@ namespace MordheimTableTop.Selection
 
         internal IArmour Armour { get; set; }
 
-        #region DO Not Change Order
-
         public string Name => Armour.Name.SplitCamelCasing();
 
         public int Costs => Armour.Cost;
@@ -56,7 +54,5 @@ namespace MordheimTableTop.Selection
                 return "None";
             }
         }
-
-        #endregion DO Not Change Order
     }
 }

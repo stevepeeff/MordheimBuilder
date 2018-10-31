@@ -5,6 +5,7 @@ using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Warbands;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace MordheimTableTop.Selection
                 if (item is IMisseleWeapon) { MisseleWeapons.Add(new MissleWeaponViewModel(item as IMisseleWeapon)); }
                 if (item is IArmour) { Armours.Add(new ArmourViewModel(item as IArmour)); }
             }
+            Equipment.Add(new ArmourViewModel(new LightArmour()));
         }
 
         public List<ArmourViewModel> Armours { get; } = new List<ArmourViewModel>();
@@ -32,6 +34,9 @@ namespace MordheimTableTop.Selection
         public ArmourViewModel SelectedArmour { get; set; }
         public CloseCombatWeaponViewModel SelectedCloseCombatWeapon { get; set; }
         public MissleWeaponViewModel SelectedMissleWeapon { get; set; }
+
+        public ObservableCollection<ViewModelBase> Equipment { get; } = new ObservableCollection<ViewModelBase>();
+
         public IWarrior Warrior { get; }
     }
 }
