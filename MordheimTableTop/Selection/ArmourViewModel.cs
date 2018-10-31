@@ -14,7 +14,7 @@ namespace MordheimTableTop.Selection
             Armour = armour;
         }
 
-        public IArmour Armour { get; set; }
+        internal IArmour Armour { get; set; }
 
         public int Costs => Armour.Cost;
 

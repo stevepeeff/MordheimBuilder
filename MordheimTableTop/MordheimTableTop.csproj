@@ -63,6 +63,7 @@
       <DependentUpon>EquipmentSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Selection\EquipmentSelectionViewModel.cs" />
+    <Compile Include="Selection\EquipmentViewModel.cs" />
     <Compile Include="Selection\MissleWeaponViewModel.cs" />
     <Compile Include="Selection\WarbandSelectionView.xaml.cs">
       <DependentUpon>WarbandSelectionView.xaml</DependentUpon>
