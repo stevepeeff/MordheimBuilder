@@ -16,24 +16,11 @@ namespace MordheimTableTop.Selection
 
         internal IArmour Armour { get; set; }
 
+        #region DO Not Change Order
+
+        public string Name => Armour.Name.SplitCamelCasing();
+
         public int Costs => Armour.Cost;
-
-        public string Save
-        {
-            get
-            {
-                if (Armour is Shield)
-                {
-                    return $"+{Armour.Save}";
-                }
-                if (Armour.Save > 0)
-                {
-                    return $"{6 - Armour.Save}+";
-                }
-
-                return "None";
-            }
-        }
 
         public string Description
         {
@@ -53,6 +40,23 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public string Name => Armour.Name.SplitCamelCasing();
+        public string Save
+        {
+            get
+            {
+                if (Armour is Shield)
+                {
+                    return $"+{Armour.Save}";
+                }
+                if (Armour.Save > 0)
+                {
+                    return $"{6 - Armour.Save}+";
+                }
+
+                return "None";
+            }
+        }
+
+        #endregion DO Not Change Order
     }
 }
