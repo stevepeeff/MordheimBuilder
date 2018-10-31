@@ -17,11 +17,11 @@
                         <MouseBinding Gesture="LeftDoubleClick" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Str Mod" Binding="{Binding StrengthModifier}" ></DataGridTextColumn>
-                        <DataGridTextColumn Header="Arm Mod" Binding="{Binding ArmourSaveModifier}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="180"/>
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50"/>
+                        <DataGridTextColumn Header="Str Mod" Binding="{Binding StrengthModifier}" Width="60"/>
+                        <DataGridTextColumn Header="Arm Mod" Binding="{Binding ArmourSaveModifier}" Width="60"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
@@ -34,11 +34,11 @@
                         <MouseBinding Gesture="LeftDoubleClick" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" />
-                        <DataGridTextColumn Header="Strength" Binding="{Binding Strength}" />
-                        <DataGridTextColumn Header="Armour Save Modifier" Binding="{Binding ArmourSaveModifier}" />
-                        <DataGridTextColumn Header="Range" Binding="{Binding Range}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="180"/>
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="Strength" Binding="{Binding Strength}" Width="60" />
+                        <DataGridTextColumn Header="Sv Mod" Binding="{Binding ArmourSaveModifier}" Width="60" />
+                        <DataGridTextColumn Header="Range" Binding="{Binding Range}" Width="60" />
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"></DataGridTextColumn>
                         <!--<DataGridTextColumn Header="Str Mod" Binding="{Binding StrengthModifier}" ></DataGridTextColumn>
                         <DataGridTextColumn Header="Hit Mod" Binding="{Binding ToHitModifier}"></DataGridTextColumn>-->
@@ -54,9 +54,9 @@
                         <MouseBinding Gesture="LeftDoubleClick" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" />
-                        <DataGridTextColumn Header="Save" Binding="{Binding Save}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"  MinWidth="180" />
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="Save" Binding="{Binding Save}" Width="60"/>
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
                         <!--<DataGridTextColumn Header="Str Mod" Binding="{Binding StrengthModifier}" ></DataGridTextColumn>
                         <DataGridTextColumn Header="Hit Mod" Binding="{Binding ToHitModifier}"></DataGridTextColumn>-->
