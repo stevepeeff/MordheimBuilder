@@ -11,12 +11,12 @@
     <Grid>
         <StackPanel>
             <GroupBox Header="Close Combat Weapons">
-                <DataGrid ItemsSource="{Binding CloseCombatWeapons}" SelectedItem="{Binding SelectedCloseCombatWeapon}"
-                      AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:CloseCombatWeaponViewModel}">
+                <DataGrid ItemsSource="{Binding CloseCombatWeapons}"  Name="DgCCW"
+                          AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:CloseCombatWeaponViewModel}">
                     <DataGrid.InputBindings>
                         <MouseBinding Gesture="LeftDoubleClick"
                                       Command="{Binding BuyEqpuimentCommand}"
-                                      CommandParameter="BANNANA" />
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgCCW}" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="180" />
@@ -29,11 +29,13 @@
             </GroupBox>
             <GroupBox Header="Missile Weapons">
                 <DataGrid
-                    ItemsSource="{Binding MisseleWeapons}" SelectedItem="{Binding SelectedMissleWeapon}"
+                    Name="DgMssWpn" ItemsSource="{Binding MisseleWeapons}"
                     AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
                     d:DataContext="{d:DesignInstance local:MissleWeaponViewModel}">
                     <DataGrid.InputBindings>
-                        <MouseBinding Gesture="LeftDoubleClick" />
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgMssWpn}" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="180" />
@@ -49,11 +51,13 @@
             </GroupBox>
             <GroupBox Header="Armour">
                 <DataGrid
-                    ItemsSource="{Binding Armours}" SelectedItem="{Binding SelectedArmour}"
-                    AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
+                    Name="DgArmr" ItemsSource="{Binding Armours}" AutoGenerateColumns="False"
+                    IsReadOnly="True" SelectionMode="Single"
                     d:DataContext="{d:DesignInstance local:ArmourViewModel}">
                     <DataGrid.InputBindings>
-                        <MouseBinding Gesture="LeftDoubleClick" />
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgArmr}" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}"  MinWidth="180" />
