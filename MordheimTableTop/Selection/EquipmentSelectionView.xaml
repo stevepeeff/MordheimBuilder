@@ -14,7 +14,9 @@
                 <DataGrid ItemsSource="{Binding CloseCombatWeapons}" SelectedItem="{Binding SelectedCloseCombatWeapon}"
                       AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:CloseCombatWeaponViewModel}">
                     <DataGrid.InputBindings>
-                        <MouseBinding Gesture="LeftDoubleClick" />
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="BANNANA" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="180" />

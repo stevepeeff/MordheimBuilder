@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MordheimTableTop.Selection
 {
@@ -28,14 +29,40 @@ namespace MordheimTableTop.Selection
         }
 
         public List<ArmourViewModel> Armours { get; } = new List<ArmourViewModel>();
-
         public List<CloseCombatWeaponViewModel> CloseCombatWeapons { get; } = new List<CloseCombatWeaponViewModel>();
         public List<MissleWeaponViewModel> MisseleWeapons { get; } = new List<MissleWeaponViewModel>();
+
+        /// <summary>
+        /// Gets or sets the selected armour.
+        /// </summary>
+        /// <value>
+        /// The selected armour.
+        /// </value>
         public ArmourViewModel SelectedArmour { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected close combat weapon.
+        /// </summary>
+        /// <value>
+        /// The selected close combat weapon.
+        /// </value>
         public CloseCombatWeaponViewModel SelectedCloseCombatWeapon { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected missle weapon.
+        /// </summary>
+        /// <value>
+        /// The selected missle weapon.
+        /// </value>
         public MissleWeaponViewModel SelectedMissleWeapon { get; set; }
 
         public ObservableCollection<ViewModelBase> Equipment { get; } = new ObservableCollection<ViewModelBase>();
+
+        public ICommand BuyEqpuimentCommand => new RelayCommand((parameter) => BuyEquipment(parameter));
+
+        private void BuyEquipment(object parameter)
+        {
+        }
 
         public IWarrior Warrior { get; }
     }
