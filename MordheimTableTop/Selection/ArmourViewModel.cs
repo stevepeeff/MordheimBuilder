@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MordheimTableTop.Selection
 {
-    internal class ArmourViewModel : ViewModelBase
+    internal class ArmourViewModel : EquipmentViewModel
     {
         public ArmourViewModel(IArmour armour)
         {
@@ -16,11 +16,11 @@ namespace MordheimTableTop.Selection
 
         internal IArmour Armour { get; set; }
 
-        public string Name => Armour.Name.SplitCamelCasing();
+        public override string Name => Armour.Name.SplitCamelCasing();
 
-        public int Costs => Armour.Cost;
+        public override int Costs => Armour.Cost;
 
-        public string Description
+        public override string Description
         {
             get
             {
@@ -38,7 +38,7 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public string Save
+        public override string Save
         {
             get
             {

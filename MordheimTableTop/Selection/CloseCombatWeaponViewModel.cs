@@ -10,16 +10,18 @@ using System.Windows.Input;
 
 namespace MordheimTableTop.Selection
 {
-    internal class CloseCombatWeaponViewModel : ViewModelBase
+    internal class CloseCombatWeaponViewModel : EquipmentViewModel
     {
         public CloseCombatWeaponViewModel(ICloseCombatWeapon closeCombatWeapon)
         {
             CloseCombatWeapon = closeCombatWeapon;
         }
 
-        public int Costs => CloseCombatWeapon.Cost;
+        internal ICloseCombatWeapon CloseCombatWeapon { get; }
 
-        public string Description
+        public override int Costs => CloseCombatWeapon.Cost;
+
+        public override string Description
         {
             get
             {
@@ -37,9 +39,9 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public string Name => CloseCombatWeapon.Name.SplitCamelCasing();
+        public override string Name => CloseCombatWeapon.Name.SplitCamelCasing();
 
-        public string StrengthModifier
+        public override string StrengthModifier
         {
             get
             {
@@ -51,7 +53,7 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public string ArmourSaveModifier
+        public override string ArmourSaveModifier
         {
             get
             {
@@ -67,8 +69,6 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public int ToHitModifier => CloseCombatWeapon.ToHitModifier;
-
-        internal ICloseCombatWeapon CloseCombatWeapon { get; }
+        public override int ToHitModifier => CloseCombatWeapon.ToHitModifier;
     }
 }

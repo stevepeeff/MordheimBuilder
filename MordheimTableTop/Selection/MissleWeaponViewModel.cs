@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace MordheimTableTop.Selection
 {
-    internal class MissleWeaponViewModel : ViewModelBase
+    internal class MissleWeaponViewModel : EquipmentViewModel
     {
         public MissleWeaponViewModel(IMisseleWeapon misseleWeapon)
         {
             MisseleWeapon = misseleWeapon;
         }
 
-        public int Costs => MisseleWeapon.Cost;
+        public override int Costs => MisseleWeapon.Cost;
 
-        public string ArmourSaveModifier
+        public override string ArmourSaveModifier
         {
             get
             {
@@ -32,7 +32,7 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public string Description
+        public override string Description
         {
             get
             {
@@ -50,9 +50,9 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public string Name => MisseleWeapon.Name.SplitCamelCasing();
-        public int Range => MisseleWeapon.Range;
-        public int Strength => MisseleWeapon.Strength;
+        public override string Name => MisseleWeapon.Name.SplitCamelCasing();
+        public override int Range => MisseleWeapon.Range;
+        public override int Strength => MisseleWeapon.Strength;
         internal IMisseleWeapon MisseleWeapon { get; }
     }
 }

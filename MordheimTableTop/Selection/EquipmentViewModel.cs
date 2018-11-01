@@ -9,16 +9,22 @@ using System.Threading.Tasks;
 
 namespace MordheimTableTop.Selection
 {
-    internal class EquipmentViewModel : ViewModelBase
+    internal abstract class EquipmentViewModel : ViewModelBase
     {
-        public EquipmentViewModel(IWarrior warrior)
-        {
-            Warrior = warrior;
-            Equipment.Add(new ArmourViewModel(new LightArmour()));
-        }
+        public virtual string Save { get; } = "-";
+        public abstract string Name { get; }
 
-        public ObservableCollection<ViewModelBase> Equipment { get; } = new ObservableCollection<ViewModelBase>();
+        public abstract int Costs { get; }
 
-        internal IWarrior Warrior { get; }
+        public abstract string Description { get; }
+
+        public virtual string StrengthModifier { get; } = "-";
+        public virtual string ArmourSaveModifier { get; } = "-";
+
+        public virtual int ToHitModifier { get; }
+
+        public virtual int Range { get; }
+
+        public virtual int Strength { get; }
     }
 }
