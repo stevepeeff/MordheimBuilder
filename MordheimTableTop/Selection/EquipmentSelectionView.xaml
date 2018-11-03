@@ -71,19 +71,19 @@
                 <DataGrid
                     ItemsSource="{Binding Equipment}"
                     AutoGenerateColumns="True" IsReadOnly="True" SelectionMode="Single"
-                    d:DataContext="{d:DesignInstance local:EquipmentSelectionViewModel}">
+                    d:DataContext="{d:DesignInstance local:EquipmentViewModel}">
                     <DataGrid.InputBindings>
                         <MouseBinding Gesture="LeftDoubleClick" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name"  MinWidth="180" />
-                        <DataGridTextColumn Header="Cost"  Width="50" />
-                        <DataGridTextColumn Header="St Md"  Width="60" />
-                        <DataGridTextColumn Header="A Md"  Width="60" />
-                        <DataGridTextColumn Header="S"  Width="60" />
-                        <DataGridTextColumn Header="Sv Md"  Width="60" />
-                        <DataGridTextColumn Header="R"  Width="60" />
-                        <DataGridTextColumn Header="Sv"  Width="60" />
+                        <DataGridTextColumn Header="Name"  Binding="{Binding Name}" MinWidth="180" />
+                        <DataGridTextColumn Header="Cost"  Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="St Md" Binding="{Binding StrengthModifier}" Width="60" />
+                        <!--<DataGridTextColumn Header="A Md"  Binding="{Binding }" Width="60" />-->
+                        <DataGridTextColumn Header="S" Binding="{Binding Strength}" Width="60" />
+                        <DataGridTextColumn Header="Sv Md" Binding="{Binding ArmourSaveModifier}" Width="60" />
+                        <DataGridTextColumn Header="R"  Binding="{Binding Range}" Width="60" />
+                        <DataGridTextColumn Header="Sv" Binding="{Binding Save}"  Width="60" />
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
                     </DataGrid.Columns>
                 </DataGrid>

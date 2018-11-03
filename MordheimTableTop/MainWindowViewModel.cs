@@ -74,7 +74,7 @@ namespace MordheimTableTop
 
             //MainWindowContent = new WarbandBuilderViewModel();
             MainWindowContent = new EquipmentSelectionViewModel(TestWarrior);
-            MainWindowRightContent = new WarBandEditViewModel();
+            //MainWindowRightContent = new WarBandEditViewModel();
             //MainWindowRightContent =
         }
 
