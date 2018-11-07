@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MordheimTableTop.Selection
 {
-    internal class ArmourViewModel : EquipmentViewModel
+    public class ArmourViewModel : EquipmentViewModel
     {
         public ArmourViewModel(IArmour armour)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MordheimTableTop.Selection
 {
-    internal class MissleWeaponViewModel : EquipmentViewModel
+    public class MissleWeaponViewModel : EquipmentViewModel
     {
         public MissleWeaponViewModel(IMisseleWeapon misseleWeapon)
         {

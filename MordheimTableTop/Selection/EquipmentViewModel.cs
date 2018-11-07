@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MordheimTableTop.Selection
 {
-    internal abstract class EquipmentViewModel : ViewModelBase
+    public abstract class EquipmentViewModel : ViewModelBase
     {
         public virtual string Save { get; } = "-";
         public abstract string Name { get; }

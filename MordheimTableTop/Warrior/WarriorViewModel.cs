@@ -1,5 +1,6 @@
 ﻿using DomainModel.Warbands;
 using MordheimBuilderLogic;
+using MordheimTableTop.Selection;
 using MordheimTableTop.Warrior.Commands;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,6 @@ namespace MordheimTableTop.Warrior
 {
     internal class WarriorViewModel : ViewModelBase
     {
-        public IWarrior Warrior { get; }
-
         public WarriorViewModel(IWarrior warrior)
         {
             Warrior = warrior;
@@ -27,6 +26,14 @@ namespace MordheimTableTop.Warrior
         /// The decrease henchmen command.
         /// </value>
         public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(Warrior);
+
+        /// <summary>
+        /// Gets the equipment selection vm.
+        /// </summary>
+        /// <value>
+        /// The equipment selection vm.
+        /// </value>
+        public EquipmentSelectionViewModel EquipmentSelectionVM => new EquipmentSelectionViewModel(Warrior);
 
         public int? GroupCosts
         {
@@ -67,6 +74,17 @@ namespace MordheimTableTop.Warrior
         public ICommand IncreaseHenchmenCommand => new IncreaseBuyAmount(Warrior);
 
         /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string Name { get; set; }
+
+        public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
+        public ICommand ShowEquipementSelectionCommand => new ShowEquipmentSelection(EquipmentSelectionVM);
+
+        /// <summary>
         /// Gets the show increase decrease buttons.
         /// </summary>
         /// <value>
@@ -81,17 +99,8 @@ namespace MordheimTableTop.Warrior
             }
         }
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
-
-        public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
         public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(Warrior); } }
-
+        public IWarrior Warrior { get; }
         public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
     }
 }

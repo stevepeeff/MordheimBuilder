@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace MordheimTableTop.Selection
 {
-    internal class CloseCombatWeaponViewModel : EquipmentViewModel
+    public class CloseCombatWeaponViewModel : EquipmentViewModel
     {
         public CloseCombatWeaponViewModel(ICloseCombatWeapon closeCombatWeapon)
         {

@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace MordheimTableTop.Selection
 {
-    internal class EquipmentSelectionViewModel : ViewModelBase
+    public class EquipmentSelectionViewModel : ViewModelBase
     {
         public EquipmentSelectionViewModel(IWarrior warrior)
         {

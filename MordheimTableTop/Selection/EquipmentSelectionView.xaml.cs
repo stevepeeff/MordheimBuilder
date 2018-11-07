@@ -24,5 +24,10 @@ namespace MordheimTableTop.Selection
         {
             InitializeComponent();
         }
+
+        public EquipmentSelectionView(EquipmentSelectionViewModel equipmentSelectionViewModel) : this()
+        {
+            this.DataContext = equipmentSelectionViewModel;
+        }
     }
 }
