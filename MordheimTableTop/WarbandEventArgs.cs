@@ -9,7 +9,7 @@ namespace MordheimTableTop
 {
     internal class WarbandEventArgs : EventArgs
     {
-        private IWarBand SelectedWarband { get; }
+        public IWarBand SelectedWarband { get; }
 
         public WarbandEventArgs(IWarBand warBand)
         {

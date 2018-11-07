@@ -23,7 +23,6 @@ namespace MordheimTableTop
         {
             //TODO remove
             Test();
-            //NewWarbandCommand.Execute(null);
         }
 
         public ICommand EditModeCommand { get; set; }
@@ -68,19 +67,20 @@ namespace MordheimTableTop
 
         private void Test()
         {
+            //Invoke warband selected
             var rndWarband = BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(new Random().Next(0, 5));
+            WarbandSelectionViewModel_WarbandSelected(this, new WarbandEventArgs(rndWarband));
 
-            BuilderLogicFactory.Instance.SelectWarBand(rndWarband);
-
-            //MainWindowContent = new WarbandBuilderViewModel();
-            MainWindowContent = new EquipmentSelectionViewModel(TestWarrior);
-            //MainWindowRightContent = new WarBandEditViewModel();
-            //MainWindowRightContent =
+            //Show EquipmentSelection
+            //MainWindowContent = new EquipmentSelectionViewModel(TestWarrior);
         }
 
         private void WarbandSelectionViewModel_WarbandSelected(object sender, WarbandEventArgs e)
         {
-            MainWindowContent = null;
+            BuilderLogicFactory.Instance.SelectWarBand(e.SelectedWarband);
+
+            MainWindowContent = new WarBandBuyViewModel();
+            MainWindowRightContent = new WarBandEditViewModel();
         }
     }
 }
