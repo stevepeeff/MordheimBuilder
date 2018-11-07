@@ -21,15 +21,14 @@
                     <StackPanel>
                         <local:StatisticsView DataContext="{Binding StatisticsVM}" />
                         <GroupBox Header="Equipment" Width="400">
-                            <!--<GroupBox.InputBindings>
-                                <MouseBinding Gesture="L" />
-                            </GroupBox.InputBindings>-->
+                            <GroupBox.InputBindings>
+                                <MouseBinding Gesture="LeftClick" Command="{Binding ShowEquipementSelectionCommand}" />
+                            </GroupBox.InputBindings>
                             <DataGrid
-                                ItemsSource="{Binding Equipment}"
-                    AutoGenerateColumns="True" IsReadOnly="True" d:DataContext="{d:DesignInstance selection:EquipmentViewModel}">
-                                <DataGrid.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" />
-                                </DataGrid.InputBindings>
+                                ItemsSource="{Binding EquipmentSelectionVM.Equipment}" AutoGenerateColumns="False" IsReadOnly="True" d:DataContext="{d:DesignInstance selection:EquipmentViewModel}">
+                                <!--<DataGrid.InputBindings>
+                                    <MouseBinding Gesture="LeftClick" Command="{Binding ShowEquipementSelectionCommand}" />
+                                </DataGrid.InputBindings>-->
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Name"  Binding="{Binding Name}" />
                                     <DataGridTextColumn Header="St Md" Binding="{Binding StrengthModifier}" />
@@ -61,13 +60,15 @@
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
                         <Button Command="{Binding RemoveWarriorCommand}" Width="80" Height="20" Margin="3">Remove</Button>
+                        <Button Command="{Binding ShowEquipementSelectionCommand}" Width="80" Height="20" Margin="3">Equipment</Button>
                         <DockPanel Visibility="{Binding ShowIncreaseDecreaseButtons}">
+
                             <Button Command="{Binding DecreaseHenchmenCommand}" Width="35" Height="20" Margin="3" >-</Button>
                             <Button Command="{Binding IncreaseHenchmenCommand}" Width="35" Height="20" Margin="3" HorizontalAlignment="Right">+</Button>
                         </DockPanel>
                     </StackPanel>
                 </DockPanel>
-                <local:ExperienceView DataContext="{Binding Warrior}"></local:ExperienceView>
+                <local:ExperienceView DataContext="{Binding Warrior}" />
             </StackPanel>
         </GroupBox>
     </Grid>

@@ -82,6 +82,7 @@ namespace MordheimTableTop.Warrior
         public string Name { get; set; }
 
         public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
+
         public ICommand ShowEquipementSelectionCommand => new ShowEquipmentSelection(EquipmentSelectionVM);
 
         /// <summary>
