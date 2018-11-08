@@ -25,7 +25,8 @@
                                 <MouseBinding Gesture="LeftClick" Command="{Binding ShowEquipementSelectionCommand}" />
                             </GroupBox.InputBindings>
                             <DataGrid
-                                ItemsSource="{Binding EquipmentSelectionVM.Equipment}" AutoGenerateColumns="False" IsReadOnly="True" d:DataContext="{d:DesignInstance selection:EquipmentViewModel}">
+                                ItemsSource="{Binding EquipmentSelectionVM.Equipment}" AutoGenerateColumns="False" IsReadOnly="True">
+                                <!--d:DataContext="{d:DesignInstance selection:EquipmentViewModel}">-->
                                 <!--<DataGrid.InputBindings>
                                     <MouseBinding Gesture="LeftClick" Command="{Binding ShowEquipementSelectionCommand}" />
                                 </DataGrid.InputBindings>-->
