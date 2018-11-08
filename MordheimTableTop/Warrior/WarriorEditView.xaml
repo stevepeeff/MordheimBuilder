@@ -25,15 +25,17 @@
                                 <MouseBinding Gesture="LeftClick" Command="{Binding ShowEquipementSelectionCommand}" />
                             </GroupBox.InputBindings>
                             <DataGrid
-                                ItemsSource="{Binding EquipmentSelectionVM.Equipment}" AutoGenerateColumns="False" IsReadOnly="True">
-                                <!--d:DataContext="{d:DesignInstance selection:EquipmentViewModel}">-->
+                                ItemsSource="{Binding Equipment}" AutoGenerateColumns="False" IsReadOnly="True"
+                                d:DataContext="{d:DesignInstance selection:EquipmentViewModel}">
+
                                 <!--<DataGrid.InputBindings>
                                     <MouseBinding Gesture="LeftClick" Command="{Binding ShowEquipementSelectionCommand}" />
                                 </DataGrid.InputBindings>-->
+
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Name"  Binding="{Binding Name}" />
                                     <DataGridTextColumn Header="St Md" Binding="{Binding StrengthModifier}" />
-                                    <DataGridTextColumn Header="A Md"  Binding="{Binding }" />
+                                    <!--<DataGridTextColumn Header="A Md"  Binding="{Binding  Att}" />-->
                                     <DataGridTextColumn Header="S" Binding="{Binding Strength}" />
                                     <DataGridTextColumn Header="Sv Md" Binding="{Binding ArmourSaveModifier}" />
                                     <DataGridTextColumn Header="R"  Binding="{Binding Range}" />

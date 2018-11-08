@@ -1,9 +1,11 @@
-﻿using DomainModel.Warbands;
+﻿using DomainModel.Equipment.Weapons.CloseCombat;
+using DomainModel.Warbands;
 using MordheimBuilderLogic;
 using MordheimTableTop.Selection;
 using MordheimTableTop.Warrior.Commands;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace MordheimTableTop.Warrior
         public WarriorViewModel(IWarrior warrior)
         {
             Warrior = warrior;
+            Equipment.Add(new CloseCombatWeaponViewModel(new Dagger()));
         }
 
         /// <summary>
@@ -84,6 +87,8 @@ namespace MordheimTableTop.Warrior
         public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
 
         public ICommand ShowEquipementSelectionCommand => new ShowEquipmentSelection(EquipmentSelectionVM);
+
+        public ObservableCollection<EquipmentViewModel> Equipment { get; } = new ObservableCollection<EquipmentViewModel>();
 
         /// <summary>
         /// Gets the show increase decrease buttons.
