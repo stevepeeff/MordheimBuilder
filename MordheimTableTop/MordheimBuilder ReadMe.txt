@@ -26,3 +26,6 @@ Version X.0
 Random Happenings
 Apply dark style to the Views, Font styles
 
+
+Lesson learned during development:
+- Never ever declare a UI (Windows) component if it is not directly shown (E.g. Show a user control in a Window on a Execute). Instead initiate and use in when needed;

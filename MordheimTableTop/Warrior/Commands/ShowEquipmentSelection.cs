@@ -11,15 +11,19 @@ namespace MordheimTableTop.Warrior.Commands
 {
     internal class ShowEquipmentSelection : CommandBase
     {
-        private Window _Window = new Window();
+        private EquipmentSelectionViewModel _EquipmentSelectionViewModel;
 
         public ShowEquipmentSelection(EquipmentSelectionViewModel equipmentSelectionViewModel)
         {
-            _Window.Content = new EquipmentSelectionView(equipmentSelectionViewModel);
+            _EquipmentSelectionViewModel = equipmentSelectionViewModel;
         }
 
         public override void Execute(object parameter)
         {
+            Window _Window = new Window()
+            {
+                Content = new EquipmentSelectionView(_EquipmentSelectionViewModel)
+            };
             _Window.Show();
         }
     }
