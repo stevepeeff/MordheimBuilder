@@ -24,7 +24,12 @@ namespace MordheimTableTop.Warband
             {
                 Warriors.Add(new WarriorBuyViewModel(item));
             }
+
+            Advantages = Warband.RacialAdvantages.Description;
+            if (String.IsNullOrEmpty(Advantages)) { Advantages = "-"; }
         }
+
+        public string Advantages { get; }
 
         public IWarBand Warband { get; } = BuilderLogicFactory.Instance.WarbandRoster.WarBand;
 

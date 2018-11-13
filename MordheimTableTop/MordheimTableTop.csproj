@@ -85,7 +85,6 @@
     </Compile>
     <Compile Include="Warrior\Commands\DecreaseBuyAmount.cs" />
     <Compile Include="Warrior\Commands\IncreaseBuyAmount.cs" />
-    <Compile Include="Warrior\Commands\ShowEquipmentSelection.cs" />
     <Compile Include="Warrior\ExperienceCheckBox.xaml.cs">
       <DependentUpon>ExperienceCheckBox.xaml</DependentUpon>
     </Compile>

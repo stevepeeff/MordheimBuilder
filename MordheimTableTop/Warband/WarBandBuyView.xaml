@@ -22,19 +22,30 @@
             <GroupBox Header="Warband Information" FontWeight="Bold" BorderBrush="Black" Height="100">
                 <StackPanel>
                     <DockPanel>
-                        <Label FontStyle="Oblique" Width="200">Name</Label>
-                        <Label Content="{Binding WarbandName}"></Label>
+                        <DockPanel Width="320">
+                            <Label FontStyle="Oblique" Width="200">Name</Label>
+                            <Label Content="{Binding WarbandName}"></Label>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label FontStyle="Oblique" Width="100">Starting Cash</Label>
+                            <Label Content="{Binding Warband.StartingCash}"></Label>
+                        </DockPanel>
                     </DockPanel>
                     <DockPanel>
-                        <Label FontStyle="Oblique" Width="200">Maximum number of Warriors</Label>
-                        <Label Content="{Binding Warband.MaximumNumberOfWarriors}"></Label>
+                        <DockPanel Width="320">
+                            <Label FontStyle="Oblique" Width="200">Maximum number of Warriors</Label>
+                            <Label Content="{Binding Warband.MaximumNumberOfWarriors}"></Label>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label FontStyle="Oblique" Width="100">Advantages</Label>
+                            <Label Content="{Binding Advantages}"></Label>
+                        </DockPanel>
                     </DockPanel>
                 </StackPanel>
             </GroupBox>
             <Line Height="10"></Line>
             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
-                <ItemsControl ItemsSource="{Binding Warriors}">
-                </ItemsControl>
+                <ItemsControl ItemsSource="{Binding Warriors}" />
             </ScrollViewer>
         </StackPanel>
     </Grid>

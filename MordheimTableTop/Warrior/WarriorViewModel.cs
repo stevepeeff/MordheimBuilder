@@ -20,7 +20,6 @@ namespace MordheimTableTop.Warrior
         {
             Warrior = warrior;
             EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
-            ShowEquipementSelectionCommand = new ShowEquipmentSelection(EquipmentSelectionVM);
         }
 
         /// <summary>
@@ -30,6 +29,8 @@ namespace MordheimTableTop.Warrior
         /// The decrease henchmen command.
         /// </value>
         public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(Warrior);
+
+        public ObservableCollection<EquipmentViewModel> Equipment { get; } = new ObservableCollection<EquipmentViewModel>();
 
         /// <summary>
         /// Gets the equipment selection vm.
@@ -87,9 +88,7 @@ namespace MordheimTableTop.Warrior
 
         public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
 
-        public ICommand ShowEquipementSelectionCommand { get; }
-
-        public ObservableCollection<EquipmentViewModel> Equipment { get; } = new ObservableCollection<EquipmentViewModel>();
+        public ICommand ShowEquipementSelectionCommand => new RelayCommand(x => ShowEquipmentSeelection());
 
         /// <summary>
         /// Gets the show increase decrease buttons.
@@ -107,8 +106,18 @@ namespace MordheimTableTop.Warrior
         }
 
         public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(Warrior); } }
+
         public IWarrior Warrior { get; }
 
         public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
+
+        private void ShowEquipmentSeelection()
+        {
+            Window window = new Window()
+            {
+                Content = new EquipmentSelectionView(EquipmentSelectionVM)
+            };
+            window.Show();
+        }
     }
 }
