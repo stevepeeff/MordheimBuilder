@@ -18,7 +18,7 @@ namespace MordheimBuilderLogic
 
         public event EventHandler WarBandChanged;
 
-        public event EventHandler WarBandWariorListChanged;
+        //public event EventHandler WarBandWariorListChanged;
 
         public int TotalCosts
         {
@@ -111,7 +111,7 @@ namespace MordheimBuilderLogic
             IWarrior newWarrior = warrior.GetAnInstance();
             Warriors.Add(newWarrior);
 
-            newWarrior.PropertiesChanged += NewWarrior_PropertiesChanged;
+            // newWarrior.PropertiesChanged += NewWarrior_PropertiesChanged;
 
             if (newWarrior is IHenchMen)
             {
@@ -120,7 +120,7 @@ namespace MordheimBuilderLogic
             }
 
             InvokeEvent(WarBandChanged);
-            InvokeEvent(WarBandWariorListChanged);
+            // InvokeEvent(WarBandWariorListChanged);
 
             return newWarrior;
         }
@@ -161,7 +161,7 @@ namespace MordheimBuilderLogic
         {
             Warriors.Remove(warrior);
             InvokeEvent(WarBandChanged);
-            InvokeEvent(WarBandWariorListChanged);
+            //InvokeEvent(WarBandWariorListChanged);
         }
 
         private void InvokeEvent(EventHandler handler)

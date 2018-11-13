@@ -34,8 +34,7 @@
                     </StackPanel>
                 </GroupBox>
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" Height="800">
-                    <ItemsControl ItemsSource="{Binding Warriors}">
-                    </ItemsControl>
+                    <ItemsControl ItemsSource="{Binding Warriors}" />
                 </ScrollViewer>
             </StackPanel>
         </DockPanel>

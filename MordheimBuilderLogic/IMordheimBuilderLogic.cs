@@ -56,11 +56,6 @@ namespace MordheimBuilderLogic
         IWarbandRoster WarbandRoster { get; }
 
         /// <summary>
-        /// Occurs when [war band selected].
-        /// </summary>
-        event EventHandler WarBandSelected;
-
-        /// <summary>
         /// Occurs when [play modus changes].
         /// </summary>
         event EventHandler PlayModusChanges;

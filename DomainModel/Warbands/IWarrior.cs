@@ -20,7 +20,7 @@ namespace DomainModel.Warbands
         /// <summary>
         /// Occurs when [properties changed].
         /// </summary>
-        event EventHandler PropertiesChanged;
+        //event EventHandler PropertiesChanged;
 
         /// <summary>
         /// Gets the afflictions.

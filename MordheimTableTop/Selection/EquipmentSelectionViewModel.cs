@@ -3,6 +3,7 @@ using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Warbands;
+using MordheimTableTop.Warrior;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,9 +16,9 @@ namespace MordheimTableTop.Selection
 {
     public class EquipmentSelectionViewModel : ViewModelBase
     {
-        public EquipmentSelectionViewModel(IWarrior warrior)
+        internal EquipmentSelectionViewModel(WarriorViewModel warrior)
         {
-            Warrior = warrior;
+            WarriorVM = warrior;
 
             foreach (IEquipment item in Warrior.AllowedEquipment)
             {
@@ -31,7 +32,7 @@ namespace MordheimTableTop.Selection
         public List<CloseCombatWeaponViewModel> CloseCombatWeapons { get; } = new List<CloseCombatWeaponViewModel>();
         public List<MissleWeaponViewModel> MisseleWeapons { get; } = new List<MissleWeaponViewModel>();
 
-        public ObservableCollection<ViewModelBase> Equipment { get; } = new ObservableCollection<ViewModelBase>();
+        public ObservableCollection<EquipmentViewModel> Equipment { get { return WarriorVM.Equipment; } }
 
         public ICommand BuyEqpuimentCommand => new RelayCommand((parameter) => BuyEquipment(parameter));
 
@@ -57,6 +58,8 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public IWarrior Warrior { get; }
+        internal WarriorViewModel WarriorVM { get; }
+
+        public IWarrior Warrior { get { return WarriorVM.Warrior; } }
     }
 }

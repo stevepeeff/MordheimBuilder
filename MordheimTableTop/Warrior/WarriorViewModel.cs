@@ -20,6 +20,7 @@ namespace MordheimTableTop.Warrior
         {
             Warrior = warrior;
             Equipment.Add(new CloseCombatWeaponViewModel(new Dagger()));
+            EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
         }
 
         /// <summary>
@@ -28,7 +29,7 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The decrease henchmen command.
         /// </value>
-        public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(Warrior);
+      //  public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(Warrior);
 
         /// <summary>
         /// Gets the equipment selection vm.
@@ -36,7 +37,7 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The equipment selection vm.
         /// </value>
-        public EquipmentSelectionViewModel EquipmentSelectionVM => new EquipmentSelectionViewModel(Warrior);
+        public EquipmentSelectionViewModel EquipmentSelectionVM { get; }
 
         public int? GroupCosts
         {
@@ -74,7 +75,7 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The increase henchmen command.
         /// </value>
-        public ICommand IncreaseHenchmenCommand => new IncreaseBuyAmount(Warrior);
+     //   public ICommand IncreaseHenchmenCommand => new IncreaseBuyAmount(Warrior);
 
         /// <summary>
         /// Gets or sets the name.
@@ -84,9 +85,9 @@ namespace MordheimTableTop.Warrior
         /// </value>
         public string Name { get; set; }
 
-        public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
+        //    public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
 
-        public ICommand ShowEquipementSelectionCommand => new ShowEquipmentSelection(EquipmentSelectionVM);
+        //    public ICommand ShowEquipementSelectionCommand => new ShowEquipmentSelection(EquipmentSelectionVM);
 
         public ObservableCollection<EquipmentViewModel> Equipment { get; } = new ObservableCollection<EquipmentViewModel>();
 
@@ -107,6 +108,7 @@ namespace MordheimTableTop.Warrior
 
         public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(Warrior); } }
         public IWarrior Warrior { get; }
+
         public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
     }
 }

@@ -15,8 +15,6 @@ namespace DomainModel
 
         IWarBand WarBand { get; }
 
-        event EventHandler WarBandWariorListChanged;
-
         int TotalNumberOfWarriors { get; }
 
         int TotalCosts { get; }

@@ -54,7 +54,7 @@ namespace DomainModel.Warbands.BaseClasses
             };
         }
 
-        public event EventHandler PropertiesChanged;
+        //  public event EventHandler PropertiesChanged;
 
         public IRacialAdvantage Advantages { get; protected set; }
         public IReadOnlyCollection<IPsychology> Afflictions { get { return _Afflictions; } }
@@ -195,7 +195,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         public void AddEquipment(IEquipment equipment)
         {
-            NotifyPropertiesChangedChanged();
+            //NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {
                 if (_EquipmentList.Any(x => x.Name.Equals(equipment.Name)) == false &&
@@ -276,7 +276,7 @@ namespace DomainModel.Warbands.BaseClasses
         public void DecreaseGroupByOne()
         {
             AmountInGroup--;
-            NotifyPropertiesChangedChanged();
+            //NotifyPropertiesChangedChanged();
         }
 
         public abstract IWarrior GetANewInstance();
@@ -293,7 +293,7 @@ namespace DomainModel.Warbands.BaseClasses
         public void IncreaseGroupByOne()
         {
             AmountInGroup++;
-            NotifyPropertiesChangedChanged();
+            //NotifyPropertiesChangedChanged();
         }
 
         public virtual bool IsLevelUp(int experienceValue)
@@ -304,7 +304,7 @@ namespace DomainModel.Warbands.BaseClasses
         public void RemoveEquipment(IEquipment equipment)
         {
             _EquipmentList.Remove(equipment);
-            NotifyPropertiesChangedChanged();
+            // NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {
                 TriggerCharacteristicChanged();
@@ -322,13 +322,13 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
-        private void NotifyPropertiesChangedChanged()
-        {
-            EventHandler handler = PropertiesChanged;
-            if (handler != null)
-            {
-                handler(this, EventArgs.Empty);
-            }
-        }
+        //private void NotifyPropertiesChangedChanged()
+        //{
+        //    EventHandler handler = PropertiesChanged;
+        //    if (handler != null)
+        //    {
+        //        handler(this, EventArgs.Empty);
+        //    }
+        //}
     }
 }

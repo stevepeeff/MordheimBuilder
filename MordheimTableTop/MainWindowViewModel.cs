@@ -80,6 +80,7 @@ namespace MordheimTableTop
             BuilderLogicFactory.Instance.SelectWarBand(e.SelectedWarband);
 
             MainWindowContent = new WarBandBuyViewModel();
+            //  MainWindowRightContent = new WarBandBuyViewModel();
             MainWindowRightContent = new WarBandEditViewModel();
         }
     }
