@@ -13,6 +13,8 @@ namespace DomainModel.Warbands.BaseClasses
             WeaponSkill.BaseValue = 2;
             BallisticSkill.BaseValue = 2;
             LeaderShip.BaseValue = 6;
+
+            _AllowedWeapons.AddRange(MercenaryCaptain.MercenaryEquipmentList);
         }
 
         public override int HireFee { get; } = 15;

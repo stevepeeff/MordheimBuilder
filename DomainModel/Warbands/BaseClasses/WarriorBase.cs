@@ -164,7 +164,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         public Characteristic Wounds { get; private set; }
 
-        protected List<IEquipment> _AllowedWeapons { get; } = new List<IEquipment>();
+        protected List<IEquipment> _AllowedWeapons { get; set; } = new List<IEquipment>();
 
         protected List<IEquipment> _EquipmentList { get; } = new List<IEquipment>();
 

@@ -20,7 +20,22 @@ namespace MordheimTableTop.Warrior
         {
             Warrior = warrior;
             EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
+            Equipment.CollectionChanged += Equipment_CollectionChanged;
         }
+
+        private void Equipment_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            NotifiyPropertyChangedEvent(nameof(GroupCosts));
+            NotifiyPropertyChangedEvent(nameof(EquipmentCosts));
+        }
+
+        /// <summary>
+        /// Gets the equipment costs.
+        /// </summary>
+        /// <value>
+        /// The equipment costs.
+        /// </value>
+        public int EquipmentCosts { get { return Warrior.EquipmentCosts; } }
 
         /// <summary>
         /// Gets the decrease henchmen command.
@@ -53,6 +68,18 @@ namespace MordheimTableTop.Warrior
                 {
                     return (Warrior.HireFee + Warrior.EquipmentCosts);
                 }
+            }
+        }
+
+        public string GroupCountFormatted
+        {
+            get
+            {
+                if (Warrior is IHenchMen)
+                {
+                    return $"({GroupCount})";
+                }
+                return String.Empty;
             }
         }
 

@@ -1,4 +1,8 @@
-﻿using DomainModel.RacialAdvantages;
+﻿using DomainModel.Equipment;
+using DomainModel.Equipment.Armour;
+using DomainModel.Equipment.Weapons.CloseCombat;
+using DomainModel.Equipment.Weapons.Missile;
+using DomainModel.RacialAdvantages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +19,8 @@ namespace DomainModel.Warbands.BaseClasses
             Movement.MaximumValue = 4;
 
             Advantages = new ExpertSwordMenAdvantage();
+
+            _AllowedWeapons.AddRange(MercenaryCaptain.MercenaryEquipmentList);
         }
 
         public override int HireFee { get; } = 25;
