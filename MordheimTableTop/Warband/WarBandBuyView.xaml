@@ -22,24 +22,22 @@
             <GroupBox Header="Warband Information" FontWeight="Bold" BorderBrush="Black" Height="100">
                 <StackPanel>
                     <DockPanel>
-                        <DockPanel Width="320">
-                            <Label FontStyle="Oblique" Width="200">Name</Label>
+                        <DockPanel Width="280">
+                            <Label FontStyle="Oblique" Width="100">Name</Label>
                             <Label Content="{Binding WarbandName}"></Label>
                         </DockPanel>
-                        <DockPanel>
+                        <DockPanel Width="200">
                             <Label FontStyle="Oblique" Width="100">Starting Cash</Label>
                             <Label Content="{Binding Warband.StartingCash}"></Label>
                         </DockPanel>
-                    </DockPanel>
-                    <DockPanel>
-                        <DockPanel Width="320">
+                        <DockPanel>
                             <Label FontStyle="Oblique" Width="200">Maximum number of Warriors</Label>
                             <Label Content="{Binding Warband.MaximumNumberOfWarriors}"></Label>
                         </DockPanel>
-                        <DockPanel>
-                            <Label FontStyle="Oblique" Width="100">Advantages</Label>
-                            <Label Content="{Binding Advantages}"></Label>
-                        </DockPanel>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label FontStyle="Oblique" Width="100">Advantages</Label>
+                        <Label Content="{Binding Advantages}"></Label>
                     </DockPanel>
                 </StackPanel>
             </GroupBox>
