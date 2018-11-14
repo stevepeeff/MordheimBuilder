@@ -27,6 +27,11 @@ namespace MordheimTableTop.Warrior
         {
             NotifiyPropertyChangedEvent(nameof(GroupCosts));
             NotifiyPropertyChangedEvent(nameof(EquipmentCosts));
+
+            if (EquipmentListChanged != null)
+            {
+                EquipmentListChanged.Invoke(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
@@ -46,6 +51,8 @@ namespace MordheimTableTop.Warrior
         public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(Warrior);
 
         public ObservableCollection<EquipmentViewModel> Equipment { get; } = new ObservableCollection<EquipmentViewModel>();
+
+        public event EventHandler EquipmentListChanged;
 
         /// <summary>
         /// Gets the equipment selection vm.

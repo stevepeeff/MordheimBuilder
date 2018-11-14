@@ -39,14 +39,28 @@ namespace MordheimTableTop.Warband
 
         private void WarbandRoster_WarBandChanged(object sender, EventArgs e)
         {
+            foreach (var item in Warriors)
+            {
+                item.EquipmentListChanged -= WarriorViewModel_EquipmentListChanged;
+            }
+
             Warriors.Clear();
+
             foreach (var item in Roster.Warriors)
             {
-                Warriors.Add(new WarriorViewModel(item));
+                var warriorViewModel = new WarriorViewModel(item);
+                warriorViewModel.EquipmentListChanged += WarriorViewModel_EquipmentListChanged;
+                Warriors.Add(warriorViewModel);
             }
+
             NotifiyPropertyChangedEvent(nameof(TotalNumberOfWarriors));
             NotifiyPropertyChangedEvent(nameof(TotalCosts));
             NotifiyPropertyChangedEvent(nameof(WarbandRating));
+        }
+
+        private void WarriorViewModel_EquipmentListChanged(object sender, EventArgs e)
+        {
+            NotifiyPropertyChangedEvent(nameof(TotalCosts));
         }
     }
 }

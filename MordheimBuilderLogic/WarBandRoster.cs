@@ -18,8 +18,6 @@ namespace MordheimBuilderLogic
 
         public event EventHandler WarBandChanged;
 
-        //public event EventHandler WarBandWariorListChanged;
-
         public int TotalCosts
         {
             get
