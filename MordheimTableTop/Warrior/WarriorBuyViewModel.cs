@@ -22,14 +22,6 @@ namespace MordheimTableTop.Warrior
         }
 
         /// <summary>
-        /// Gets the experience vm.
-        /// </summary>
-        /// <value>
-        /// The experience vm.
-        /// </value>
-       // public ExperienceViewModel ExperienceVM => new ExperienceViewModel(_Warrior);
-
-        /// <summary>
         /// Gets the buy warrior command.
         /// </summary>
         /// <value>
@@ -51,7 +43,14 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The maximum in warband.
         /// </value>
-        public int MaximumInWarband { get { return _Warrior.MaximumAllowedInWarBand; } }
+        public string MaximumInWarband
+        {
+            get
+            {
+                if (_Warrior.MaximumAllowedInWarBand == int.MaxValue) { return "∞"; }
+                return _Warrior.MaximumAllowedInWarBand.ToString();
+            }
+        }
 
         /// <summary>
         /// Gets the skill summary.
