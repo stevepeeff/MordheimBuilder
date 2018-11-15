@@ -1,4 +1,5 @@
 ﻿using DomainModel.Warbands;
+using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.WitchHunters;
 using MordheimBuilderLogic;
 using MordheimTableTop.Selection;
@@ -68,7 +69,8 @@ namespace MordheimTableTop
         private void Test()
         {
             //Invoke warband selected
-            var rndWarband = BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(new Random().Next(0, 5));
+            // var rndWarband = BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(new Random().Next(0, 5));
+            var rndWarband = new CultOfThePossessedWarband();
             WarbandSelectionViewModel_WarbandSelected(this, new WarbandEventArgs(rndWarband));
 
             //Show EquipmentSelection

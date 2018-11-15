@@ -14,7 +14,7 @@ namespace DomainModel.Warbands.CultOfThePossessed
 
         public IReadOnlyCollection<IMutation> Mutations => _Mutations;
 
-        public void AddMutation(IMutation mutation)
+        public override void AddMutation(IMutation mutation)
         {
             if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
             {

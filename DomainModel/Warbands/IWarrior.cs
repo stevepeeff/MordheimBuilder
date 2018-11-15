@@ -3,6 +3,7 @@ using DomainModel.Equipment.Weapons;
 using DomainModel.Psychology;
 using DomainModel.RacialAdvantages;
 using DomainModel.Skills;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using DomainModel.WarriorStatus;
 using System;
 using System.Collections.Generic;
@@ -227,6 +228,12 @@ namespace DomainModel.Warbands
         /// </summary>
         /// <param name="equipment">The equipment.</param>
         void AddEquipment(IEquipment equipment);
+
+        /// <summary>
+        /// Adds the mutation.
+        /// </summary>
+        /// <param name="mutation">The mutation.</param>
+        void AddMutation(IMutation mutation);
 
         /// <summary>
         /// Adds the equipment.

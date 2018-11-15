@@ -67,6 +67,23 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
+            <GroupBox Header="Mutations">
+                <DataGrid
+                    Name="DgMutations" ItemsSource="{Binding Mutations}" AutoGenerateColumns="False"
+                    IsReadOnly="True" SelectionMode="Single"
+                    d:DataContext="{d:DesignInstance local:MutationViewModel}">
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgMutations}" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"  MinWidth="180" />
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
             <GroupBox Header="Equipped">
                 <DataGrid
                     ItemsSource="{Binding Equipment}"

@@ -10,6 +10,7 @@ using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Psychology;
 using DomainModel.RacialAdvantages;
 using DomainModel.Skills;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using DomainModel.WarriorStatus;
 
 namespace DomainModel.Warbands.BaseClasses
@@ -320,6 +321,10 @@ namespace DomainModel.Warbands.BaseClasses
             {
                 item.InvokeCharacteristicChanged();
             }
+        }
+
+        public virtual void AddMutation(IMutation mutation)
+        {
         }
 
         //private void NotifyPropertiesChangedChanged()

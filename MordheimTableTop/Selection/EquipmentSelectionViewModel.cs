@@ -29,7 +29,7 @@ namespace MordheimTableTop.Selection
                 if (item is IArmour) { Armours.Add(new ArmourViewModel(item as IArmour)); }
             }
 
-            if (WarriorVM.Warrior is MutantBase)
+            if (WarriorVM.Warrior is IMutant)
             {
                 foreach (var item in MutationsProvider.Instance.Mutations)
                 {
@@ -43,7 +43,6 @@ namespace MordheimTableTop.Selection
         public List<CloseCombatWeaponViewModel> CloseCombatWeapons { get; } = new List<CloseCombatWeaponViewModel>();
         public ObservableCollection<EquipmentViewModel> Equipment { get { return WarriorVM.Equipment; } }
         public List<MissleWeaponViewModel> MisseleWeapons { get; } = new List<MissleWeaponViewModel>();
-
         public List<MutationViewModel> Mutations { get; } = new List<MutationViewModel>();
         public IWarrior Warrior { get { return WarriorVM.Warrior; } }
 
@@ -72,8 +71,8 @@ namespace MordheimTableTop.Selection
             if (parameter is MutationViewModel)
             {
                 var mutation = parameter as MutationViewModel;
-                //Warrior.AddEquipment(mutattion.Armour);
-                //Equipment.Add(mutattion);
+                Warrior.AddMutation(mutation.Mutation);
+                Equipment.Add(mutation);
             }
         }
     }
