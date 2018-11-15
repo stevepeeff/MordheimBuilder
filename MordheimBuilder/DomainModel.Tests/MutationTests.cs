@@ -24,6 +24,12 @@ namespace DomainModel.Tests
         }
 
         [TestMethod]
+        public void CountNumberOfMutations()
+        {
+            Assert.AreEqual(9, MutationsProvider.Instance.Mutations.Count);
+        }
+
+        [TestMethod]
         public void GreatClawMutation()
         {
             Mutant warrior = new Mutant();

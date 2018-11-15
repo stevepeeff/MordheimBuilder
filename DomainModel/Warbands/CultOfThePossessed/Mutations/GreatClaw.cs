@@ -18,7 +18,7 @@ namespace DomainModel.Warbands.CultOfThePossessed.Mutations
 
         public int Cost { get; } = 50;
 
-        public string Description { get; } = "The mutant has an extra arm, giving him +1 attack and Strnt bonus";
+        public string Description { get; } = "The mutant has an extra arm, giving him +1 attack and strength bonus";
         public IReadOnlyCollection<Statistic> Statistics { get { return _Statistics; } }
     }
 }

@@ -3,6 +3,8 @@ using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Warbands;
+using DomainModel.Warbands.CultOfThePossessed;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using MordheimTableTop.Warrior;
 using System;
 using System.Collections.Generic;
@@ -26,15 +28,26 @@ namespace MordheimTableTop.Selection
                 if (item is IMisseleWeapon) { MisseleWeapons.Add(new MissleWeaponViewModel(item as IMisseleWeapon)); }
                 if (item is IArmour) { Armours.Add(new ArmourViewModel(item as IArmour)); }
             }
+
+            if (WarriorVM.Warrior is MutantBase)
+            {
+                foreach (var item in MutationsProvider.Instance.Mutations)
+                {
+                    Mutations.Add(new MutationViewModel(item));
+                }
+            }
         }
 
         public List<ArmourViewModel> Armours { get; } = new List<ArmourViewModel>();
+        public ICommand BuyEqpuimentCommand => new RelayCommand((parameter) => BuyEquipment(parameter));
         public List<CloseCombatWeaponViewModel> CloseCombatWeapons { get; } = new List<CloseCombatWeaponViewModel>();
+        public ObservableCollection<EquipmentViewModel> Equipment { get { return WarriorVM.Equipment; } }
         public List<MissleWeaponViewModel> MisseleWeapons { get; } = new List<MissleWeaponViewModel>();
 
-        public ObservableCollection<EquipmentViewModel> Equipment { get { return WarriorVM.Equipment; } }
+        public List<MutationViewModel> Mutations { get; } = new List<MutationViewModel>();
+        public IWarrior Warrior { get { return WarriorVM.Warrior; } }
 
-        public ICommand BuyEqpuimentCommand => new RelayCommand((parameter) => BuyEquipment(parameter));
+        internal WarriorViewModel WarriorVM { get; }
 
         private void BuyEquipment(object parameter)
         {
@@ -56,10 +69,12 @@ namespace MordheimTableTop.Selection
                 Warrior.AddEquipment(armr.Armour);
                 Equipment.Add(armr);
             }
+            if (parameter is MutationViewModel)
+            {
+                var mutation = parameter as MutationViewModel;
+                //Warrior.AddEquipment(mutattion.Armour);
+                //Equipment.Add(mutattion);
+            }
         }
-
-        internal WarriorViewModel WarriorVM { get; }
-
-        public IWarrior Warrior { get { return WarriorVM.Warrior; } }
     }
 }
