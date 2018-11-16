@@ -10,7 +10,7 @@
               d:DataContext="{d:DesignInstance local:EquipmentSelectionViewModel}">
     <Grid>
         <StackPanel>
-            <GroupBox Header="Close Combat Weapons">
+            <GroupBox Header="Close Combat Weapons"  Visibility="{Binding ShowCloseCombatWeaponSelection}">
                 <DataGrid ItemsSource="{Binding CloseCombatWeapons}"  Name="DgCCW"
                           AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:CloseCombatWeaponViewModel}">
                     <DataGrid.InputBindings>
@@ -27,7 +27,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
-            <GroupBox Header="Missile Weapons">
+            <GroupBox Header="Missile Weapons"  Visibility="{Binding ShowMissileWeaponSelection}">
                 <DataGrid
                     Name="DgMssWpn" ItemsSource="{Binding MisseleWeapons}"
                     AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
@@ -49,7 +49,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
-            <GroupBox Header="Armour">
+            <GroupBox Header="Armour" Visibility="{Binding ShowArmourSelection}">
                 <DataGrid
                     Name="DgArmr" ItemsSource="{Binding Armours}" AutoGenerateColumns="False"
                     IsReadOnly="True" SelectionMode="Single"
@@ -67,7 +67,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
-            <GroupBox Header="Mutations">
+            <GroupBox Header="Mutations" Visibility="{Binding ShowMutationsSelection}">
                 <DataGrid
                     Name="DgMutations" ItemsSource="{Binding Mutations}" AutoGenerateColumns="False"
                     IsReadOnly="True" SelectionMode="Single"

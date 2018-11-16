@@ -1,4 +1,5 @@
-﻿using DomainModel.Warbands.BaseClasses;
+﻿using DomainModel.Psychology;
+using DomainModel.Warbands.BaseClasses;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using System;
 using System.Collections.Generic;
@@ -12,27 +13,9 @@ namespace DomainModel.Warbands.CultOfThePossessed
     {
         private List<IMutation> _Mutations = new List<IMutation>();
 
-        public IReadOnlyCollection<IMutation> Mutations => _Mutations;
-
-        public override void AddMutation(IMutation mutation)
+        public MutantBase()
         {
-            if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
-            {
-                _Mutations.Add(mutation);
-            }
-        }
-
-        protected override void CalculateCharacteristicsModifiers()
-        {
-            base.CalculateCharacteristicsModifiers();
-
-            foreach (IMutation mutation in Mutations)
-            {
-                foreach (var statistic in mutation.Statistics)
-                {
-                    _CharacteristicModifiers.Add(new CharacteristicModifier(statistic));
-                }
-            }
+            AddAffliction(new Mutation());
         }
 
         public override int MaximumCloseCombatWeapons
@@ -50,9 +33,32 @@ namespace DomainModel.Warbands.CultOfThePossessed
             }
         }
 
+        public IReadOnlyCollection<IMutation> Mutations => _Mutations;
+
+        public override void AddMutation(IMutation mutation)
+        {
+            if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
+            {
+                _Mutations.Add(mutation);
+            }
+        }
+
         public void RemoveMutation(IMutation mutation)
         {
             _Mutations.Remove(mutation);
+        }
+
+        protected override void CalculateCharacteristicsModifiers()
+        {
+            base.CalculateCharacteristicsModifiers();
+
+            foreach (IMutation mutation in Mutations)
+            {
+                foreach (var statistic in mutation.Statistics)
+                {
+                    _CharacteristicModifiers.Add(new CharacteristicModifier(statistic));
+                }
+            }
         }
     }
 }

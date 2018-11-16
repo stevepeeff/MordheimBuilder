@@ -23,10 +23,10 @@ namespace DomainModel.Warbands.CultOfThePossessed
             Attacks.BaseValue = 1;
             LeaderShip.BaseValue = 7;
 
+            _AllowedWeapons.AddRange(CultOfThePossessedWarband.PossessedEquipmentList);
+
             _AllowedSkills.AddRange(SkillProvider.Instance.CombatSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
-
-            AddAffliction(new Mutation());
         }
 
         public override int HireFee => 25;
