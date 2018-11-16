@@ -326,14 +326,5 @@ namespace DomainModel.Warbands.BaseClasses
         public virtual void AddMutation(IMutation mutation)
         {
         }
-
-        //private void NotifyPropertiesChangedChanged()
-        //{
-        //    EventHandler handler = PropertiesChanged;
-        //    if (handler != null)
-        //    {
-        //        handler(this, EventArgs.Empty);
-        //    }
-        //}
     }
 }

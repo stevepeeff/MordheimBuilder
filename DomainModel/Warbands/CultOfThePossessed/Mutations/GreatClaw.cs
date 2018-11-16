@@ -13,7 +13,7 @@ namespace DomainModel.Warbands.CultOfThePossessed.Mutations
         public GreatClaw()
         {
             _Statistics.Add(new Statistic(Characteristics.Attack, 1, Applications.CloseCombat, Description));
-            _Statistics.Add(new Statistic(Characteristics.Strength, 1, Applications.CloseCombat, "Only for t attack mad wit tis arm"));
+            _Statistics.Add(new Statistic(Characteristics.Strength, 1, Applications.CloseCombat, "Only for attack made with this arm"));
         }
 
         public int Cost { get; } = 50;

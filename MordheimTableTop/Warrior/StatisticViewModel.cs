@@ -70,6 +70,12 @@ namespace MordheimTableTop.Warrior
         /// </value>
         public string HeaderText { get { return _characteristic.LabelName; } }
 
+        /// <summary>
+        /// Gets the tool tip text.
+        /// </summary>
+        /// <value>
+        /// The tool tip text.
+        /// </value>
         public string ToolTipText
         {
             get

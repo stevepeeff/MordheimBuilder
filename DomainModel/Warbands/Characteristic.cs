@@ -245,10 +245,9 @@ namespace DomainModel.Warbands
         /// </summary>
         public void InvokeCharacteristicChanged()
         {
-            EventHandler handler = CharacteristicChanged;
-            if (handler != null)
+            if (CharacteristicChanged != null)
             {
-                handler(this, EventArgs.Empty);
+                CharacteristicChanged.Invoke(this, EventArgs.Empty);
             }
         }
 

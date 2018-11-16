@@ -40,6 +40,7 @@ namespace DomainModel.Warbands.CultOfThePossessed
             if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
             {
                 _Mutations.Add(mutation);
+                TriggerCharacteristicChanged();
             }
         }
 
