@@ -11,7 +11,12 @@ namespace DomainModel.Warbands.CultOfThePossessed
     {
         IReadOnlyCollection<IMutation> Mutations { get; }
 
-        void AddMutation(IMutation mutation);
+        /// <summary>
+        /// Adds the mutation.
+        /// </summary>
+        /// <param name="mutation">The mutation.</param>
+        /// <returns>true if allowed</returns>
+        bool AddMutation(IMutation mutation);
 
         void RemoveMutation(IMutation mutation);
     }

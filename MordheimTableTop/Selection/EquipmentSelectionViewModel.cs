@@ -120,26 +120,34 @@ namespace MordheimTableTop.Selection
             if (parameter is CloseCombatWeaponViewModel)
             {
                 var ccWpn = parameter as CloseCombatWeaponViewModel;
-                Warrior.AddEquipment(ccWpn.CloseCombatWeapon);
-                Equipment.Add(ccWpn);
+                if (Warrior.AddEquipment(ccWpn.CloseCombatWeapon))
+                {
+                    Equipment.Add(ccWpn);
+                }
             }
             if (parameter is MissleWeaponViewModel)
             {
                 var mslWpn = parameter as MissleWeaponViewModel;
-                Warrior.AddEquipment(mslWpn.MisseleWeapon);
-                Equipment.Add(mslWpn);
+                if (Warrior.AddEquipment(mslWpn.MisseleWeapon))
+                {
+                    Equipment.Add(mslWpn);
+                }
             }
             if (parameter is ArmourViewModel)
             {
                 var armr = parameter as ArmourViewModel;
-                Warrior.AddEquipment(armr.Armour);
-                Equipment.Add(armr);
+                if (Warrior.AddEquipment(armr.Armour))
+                {
+                    Equipment.Add(armr);
+                }
             }
             if (parameter is MutationViewModel)
             {
                 var mutation = parameter as MutationViewModel;
-                Warrior.AddMutation(mutation.Mutation);
-                Equipment.Add(mutation);
+                if (Warrior.AddMutation(mutation.Mutation))
+                {
+                    Equipment.Add(mutation);
+                }
             }
         }
     }

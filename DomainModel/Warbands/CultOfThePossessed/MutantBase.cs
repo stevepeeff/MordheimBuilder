@@ -35,13 +35,15 @@ namespace DomainModel.Warbands.CultOfThePossessed
 
         public IReadOnlyCollection<IMutation> Mutations => _Mutations;
 
-        public override void AddMutation(IMutation mutation)
+        public override bool AddMutation(IMutation mutation)
         {
             if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
             {
                 _Mutations.Add(mutation);
                 TriggerCharacteristicChanged();
+                return true;
             }
+            return false;
         }
 
         public void RemoveMutation(IMutation mutation)

@@ -19,11 +19,6 @@ namespace DomainModel.Warbands
     public interface IWarrior
     {
         /// <summary>
-        /// Occurs when [properties changed].
-        /// </summary>
-        //event EventHandler PropertiesChanged;
-
-        /// <summary>
         /// Gets the afflictions.
         /// </summary>
         /// <value>
@@ -227,19 +222,21 @@ namespace DomainModel.Warbands
         /// Adds the equipment.
         /// </summary>
         /// <param name="equipment">The equipment.</param>
-        void AddEquipment(IEquipment equipment);
-
-        /// <summary>
-        /// Adds the mutation.
-        /// </summary>
-        /// <param name="mutation">The mutation.</param>
-        void AddMutation(IMutation mutation);
+        /// <returns>true if allowed</returns>
+        bool AddEquipment(IEquipment equipment);
 
         /// <summary>
         /// Adds the equipment.
         /// </summary>
         /// <param name="name">The name.</param>
         void AddEquipment(string name);
+
+        /// <summary>
+        /// Adds the mutation.
+        /// </summary>
+        /// <param name="mutation">The mutation.</param>
+        /// <returns>true if allowed</returns>
+        bool AddMutation(IMutation mutation);
 
         /// <summary>
         /// Amounts the type of the of this.

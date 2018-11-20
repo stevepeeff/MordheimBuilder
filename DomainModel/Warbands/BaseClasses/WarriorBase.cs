@@ -194,15 +194,16 @@ namespace DomainModel.Warbands.BaseClasses
             AddEquipment(EquipmentProvider.Instance.GetEquipment(name));
         }
 
-        public void AddEquipment(IEquipment equipment)
+        public bool AddEquipment(IEquipment equipment)
         {
-            //NotifyPropertiesChangedChanged();
+            bool addOfquipmntIsAllowd = false;
             if (equipment is IArmour)
             {
                 if (_EquipmentList.Any(x => x.Name.Equals(equipment.Name)) == false &&
                     _EquipmentList.HasArmourEquipped(equipment) == false)
                 {
                     _EquipmentList.Add(equipment);
+                    addOfquipmntIsAllowd = true;
                 }
             }
             else if (equipment is ICloseCombatWeapon)
@@ -210,6 +211,7 @@ namespace DomainModel.Warbands.BaseClasses
                 if (this.MaximumCloseCombatWeaponsReached() == false)
                 {
                     _EquipmentList.Add(equipment);
+                    addOfquipmntIsAllowd = true;
                 }
             }
             else if (equipment is IMisseleWeapon)
@@ -217,10 +219,12 @@ namespace DomainModel.Warbands.BaseClasses
                 if (_EquipmentList.MaximumRangedWeaponsReached() == false)
                 {
                     _EquipmentList.Add(equipment);
+                    addOfquipmntIsAllowd = true;
                 }
             }
 
             TriggerCharacteristicChanged();
+            return addOfquipmntIsAllowd;
         }
 
         public void AddSkill(ISkill skill)
@@ -323,8 +327,9 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
-        public virtual void AddMutation(IMutation mutation)
+        public virtual bool AddMutation(IMutation mutation)
         {
+            return false;
         }
     }
 }
