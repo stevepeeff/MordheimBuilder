@@ -86,11 +86,13 @@
             </GroupBox>
             <GroupBox Header="Equipped">
                 <DataGrid
-                    ItemsSource="{Binding Equipment}"
+                    ItemsSource="{Binding Equipment}" x:Name="Dgqpmnt"
                     AutoGenerateColumns="True" IsReadOnly="True" SelectionMode="Single"
                     d:DataContext="{d:DesignInstance local:EquipmentViewModel}">
                     <DataGrid.InputBindings>
-                        <MouseBinding Gesture="LeftDoubleClick" />
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=Dgqpmnts}" />
                     </DataGrid.InputBindings>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name"  Binding="{Binding Name}" MinWidth="180" />
