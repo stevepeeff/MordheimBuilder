@@ -85,7 +85,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         public IReadOnlyCollection<IEquipment> Equipment { get { return _EquipmentList; } }
 
-        public int EquipmentCosts
+        public virtual int EquipmentCosts
         {
             get
             {
@@ -329,7 +329,12 @@ namespace DomainModel.Warbands.BaseClasses
 
         public virtual bool AddMutation(IMutation mutation)
         {
-            return false;
+            throw new NotImplementedException();
+        }
+
+        public virtual void RemoveMutation(IMutation mutation)
+        {
+            throw new NotImplementedException();
         }
     }
 }

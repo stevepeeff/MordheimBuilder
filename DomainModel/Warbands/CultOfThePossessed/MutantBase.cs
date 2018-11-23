@@ -18,6 +18,20 @@ namespace DomainModel.Warbands.CultOfThePossessed
             AddAffliction(new Mutation());
         }
 
+        public override int EquipmentCosts
+        {
+            get
+            {
+                int totalCosts = base.EquipmentCosts;
+
+                foreach (var item in _Mutations)
+                {
+                    totalCosts += item.Cost;
+                }
+                return totalCosts;
+            }
+        }
+
         public override int MaximumCloseCombatWeapons
         {
             get
@@ -37,6 +51,7 @@ namespace DomainModel.Warbands.CultOfThePossessed
 
         public override bool AddMutation(IMutation mutation)
         {
+            // base.AddMutation(mutation);
             if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
             {
                 _Mutations.Add(mutation);
@@ -46,9 +61,10 @@ namespace DomainModel.Warbands.CultOfThePossessed
             return false;
         }
 
-        public void RemoveMutation(IMutation mutation)
+        public override void RemoveMutation(IMutation mutation)
         {
             _Mutations.Remove(mutation);
+            TriggerCharacteristicChanged();
         }
 
         protected override void CalculateCharacteristicsModifiers()
