@@ -33,7 +33,9 @@
                         </DockPanel>
                     </StackPanel>
                 </GroupBox>
-                <ScrollViewer HorizontalScrollBarVisibility="Disabled" Height="800">
+                <ScrollViewer 
+                    HorizontalScrollBarVisibility="Disabled" Height="700"
+                    VerticalScrollBarVisibility="Auto">
                     <ItemsControl ItemsSource="{Binding Warriors}" />
                 </ScrollViewer>
             </StackPanel>
