@@ -24,6 +24,18 @@ namespace DomainModel.Tests
         }
 
         [TestMethod]
+        public void MutationCosts()
+        {
+            Mutant warrior = new Mutant();
+
+            Assert.AreEqual(0, warrior.EquipmentCosts);
+
+            warrior.AddMutation(new GreatClaw());
+
+            Assert.AreNotEqual(0, warrior.EquipmentCosts);
+        }
+
+        [TestMethod]
         public void CountNumberOfMutations()
         {
             Assert.AreEqual(9, MutationsProvider.Instance.Mutations.Count);
