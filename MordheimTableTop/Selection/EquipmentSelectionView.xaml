@@ -10,8 +10,8 @@
               d:DataContext="{d:DesignInstance local:EquipmentSelectionViewModel}">
     <Grid>
         <StackPanel>
-            <GroupBox Header="Close Combat Weapons"  Visibility="{Binding ShowCloseCombatWeaponSelection}">
-                <DataGrid ItemsSource="{Binding CloseCombatWeapons}"  Name="DgCCW"
+            <GroupBox Header="Close Combat Weapons"  Visibility="{Binding ShowCloseCombatWeaponSelection, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid ItemsSource="{Binding CloseCombatWeapons}"  IsEnabled="{Binding MaximumCloseCombatCapNotReached, Mode=OneWay}"  Name="DgCCW"
                           AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:CloseCombatWeaponViewModel}">
                     <DataGrid.InputBindings>
                         <MouseBinding Gesture="LeftDoubleClick"
@@ -29,7 +29,7 @@
             </GroupBox>
             <GroupBox Header="Missile Weapons"  Visibility="{Binding ShowMissileWeaponSelection}">
                 <DataGrid
-                    Name="DgMssWpn" ItemsSource="{Binding MisseleWeapons}"
+                    IsEnabled="{Binding MaximumMisselleWeaponCapNotReached, Mode=OneWay}" Name="DgMssWpn" ItemsSource="{Binding MisseleWeapons}"
                     AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
                     d:DataContext="{d:DesignInstance local:MissleWeaponViewModel}">
                     <DataGrid.InputBindings>
@@ -67,7 +67,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
-            <GroupBox Header="Mutations" Visibility="{Binding ShowMutationsSelection}">
+            <GroupBox Header="Mutations" Visibility="{Binding ShowMutationsSelection}" ToolTip="Not tat mutations cannot b bout aftr caractr cration">
                 <DataGrid
                     Name="DgMutations" ItemsSource="{Binding Mutations}" AutoGenerateColumns="False"
                     IsReadOnly="True" SelectionMode="Single"

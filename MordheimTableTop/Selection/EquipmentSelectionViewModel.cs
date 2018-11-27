@@ -65,6 +65,28 @@ namespace MordheimTableTop.Selection
         }
 
         /// <summary>
+        /// Gets a value indicating whether [maximum close combat cap not reached].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [maximum close combat cap not reached]; otherwise, <c>false</c>.
+        /// </value>
+        public bool MaximumCloseCombatCapNotReached
+        {
+            get { return Warrior.Equipment.CountNumberOf<ICloseCombatWeapon>() < 2; }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether [maximum misselle weapon cap not reached].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [maximum misselle weapon cap not reached]; otherwise, <c>false</c>.
+        /// </value>
+        public bool MaximumMisselleWeaponCapNotReached
+        {
+            get { return Warrior.Equipment.CountNumberOf<IMisseleWeapon>() < 1; }
+        }
+
+        /// <summary>
         /// Gets the show close combat weapon selection.
         /// </summary>
         /// <value>
@@ -121,6 +143,7 @@ namespace MordheimTableTop.Selection
                 if (Warrior.AddEquipment(ccWpn.CloseCombatWeapon))
                 {
                     Equipment.Add(ccWpn);
+                    NotifiyPropertyChangedEvent(nameof(MaximumCloseCombatCapNotReached));
                 }
             }
             if (parameter is MissleWeaponViewModel)
@@ -129,6 +152,7 @@ namespace MordheimTableTop.Selection
                 if (Warrior.AddEquipment(mslWpn.MisseleWeapon))
                 {
                     Equipment.Add(mslWpn);
+                    NotifiyPropertyChangedEvent(nameof(MaximumMisselleWeaponCapNotReached));
                 }
             }
             if (parameter is ArmourViewModel)
@@ -159,6 +183,7 @@ namespace MordheimTableTop.Selection
                 equipment = ccWpn.CloseCombatWeapon;
                 Warrior.RemoveEquipment(equipment);
                 Equipment.Remove(ccWpn);
+                NotifiyPropertyChangedEvent(nameof(MaximumCloseCombatCapNotReached));
             }
             if (parameter is MissleWeaponViewModel)
             {
@@ -166,6 +191,7 @@ namespace MordheimTableTop.Selection
                 equipment = mslWpn.MisseleWeapon;
                 Warrior.RemoveEquipment(equipment);
                 Equipment.Remove(mslWpn);
+                NotifiyPropertyChangedEvent(nameof(MaximumMisselleWeaponCapNotReached));
             }
             if (parameter is ArmourViewModel)
             {
