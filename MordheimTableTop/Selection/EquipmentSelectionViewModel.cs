@@ -72,7 +72,7 @@ namespace MordheimTableTop.Selection
         /// </value>
         public bool MaximumCloseCombatCapNotReached
         {
-            get { return Warrior.Equipment.CountNumberOf<ICloseCombatWeapon>() < 2; }
+            get { return !Warrior.MaximumCloseCombatWeaponsReached(); }
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace MordheimTableTop.Selection
         /// </value>
         public bool MaximumMisselleWeaponCapNotReached
         {
-            get { return Warrior.Equipment.CountNumberOf<IMisseleWeapon>() < 1; }
+            get { return !Warrior.Equipment.MaximumRangedWeaponsReached(); }
         }
 
         /// <summary>
