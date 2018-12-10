@@ -84,6 +84,10 @@
     <Compile Include="Warband\WarbandPlayView.xaml.cs">
       <DependentUpon>WarbandPlayView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Warrior\AfflictionView.xaml.cs">
+      <DependentUpon>AfflictionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Warrior\AfflictionViewModel.cs" />
     <Compile Include="Warrior\Commands\DecreaseBuyAmount.cs" />
     <Compile Include="Warrior\Commands\IncreaseBuyAmount.cs" />
     <Compile Include="Warrior\ExperienceCheckBox.xaml.cs">
@@ -142,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Warband\WarbandPlayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Warrior\AfflictionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

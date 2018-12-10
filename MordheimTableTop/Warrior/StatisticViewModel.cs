@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace MordheimTableTop.Warrior
 {
-    internal class StatisticViewModel : ViewModelBase
+    public class StatisticViewModel : ViewModelBase
     {
         private Characteristic _characteristic;
 
