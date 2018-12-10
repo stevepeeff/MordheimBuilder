@@ -9,10 +9,10 @@
              d:DesignHeight="200" d:DesignWidth="100">
     <Grid>
         <GroupBox Header="Afflictions">
-            <DataGrid ItemsSource="{Binding Equipment}" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid ItemsSource="{Binding Afflictions}" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name"  Binding="{Binding Name}"
-                                        ToolTipService.ToolTip =" sdfds" />
+                    <DataGridTextColumn Header="Name"  Binding="{Binding Name}" Width="*"
+                                         ToolTipService.IsEnabled="True"  ToolTipService.ToolTip =" sdfds" />
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>

@@ -61,10 +61,7 @@
                                 </StackPanel>
                             </GroupBox>
 
-                            <GroupBox Header="Special Rules">
-                                <DataGrid>
-                                </DataGrid>
-                            </GroupBox>
+                            <local:AfflictionView DataContext="{Binding AfflictionVM}"></local:AfflictionView>
                         </DockPanel>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
