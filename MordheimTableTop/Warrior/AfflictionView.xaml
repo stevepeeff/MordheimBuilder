@@ -11,8 +11,13 @@
         <GroupBox Header="Afflictions">
             <DataGrid ItemsSource="{Binding Afflictions}" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name"  Binding="{Binding Name}" Width="*"
-                                         ToolTipService.IsEnabled="True"  ToolTipService.ToolTip =" sdfds" />
+                    <DataGridTextColumn Header="Name"  Binding="{Binding Name}" Width="*">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Description}" />
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
