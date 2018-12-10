@@ -97,16 +97,15 @@ namespace MordheimDal.Tests
             int secondHash = file.GetHashCode();
 
             Assert.AreEqual(initialHash, secondHash, "Hash of same file should be identical");
-            // _WarbandRoster.a
         }
 
-        [Ignore("Save and Save As use different implementations")]
         [TestMethod]
         public void SaveAndLoad()
         {
             _WarbandRoster.Name = $"{warbandName}{"SaveAndLoad"}";
-            DalProvider.Instance.Save(_WarbandRoster);
-            IWarbandRoster roster = new XmlDal().LoadWarband(Path.Combine(XmlDal.STORAGE_PATH, $"{_WarbandRoster.Name}.xml"));
+            string storagePath = DalProvider.Instance.Save(_WarbandRoster);
+
+            IWarbandRoster roster = new XmlDal().LoadWarband(storagePath);
             Assert.IsNotNull(roster);
 
             IHero loadedHero = roster.Warriors.First() as IHero;
