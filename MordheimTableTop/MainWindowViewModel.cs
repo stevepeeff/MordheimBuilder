@@ -1,7 +1,9 @@
 ﻿using DomainModel.Warbands;
 using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.WitchHunters;
+using Microsoft.Win32;
 using MordheimBuilderLogic;
+using MordheimDal;
 using MordheimTableTop.Selection;
 using MordheimTableTop.Warband;
 using MordheimTableTop.Warrior;
@@ -55,6 +57,36 @@ namespace MordheimTableTop
         }
 
         public ICommand NewWarbandCommand => new RelayCommand(x => ShowWarbandSelection());
+
+        public ICommand LoadCommand => new RelayCommand(x => Load());
+
+        private void Load()
+        {
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = DalProvider.Instance.DefaultStorageDirectory;
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                //txtEditor.Text = File.ReadAllText(openFileDialog.FileName);
+
+                //DalProvider.Instance.Load
+            }
+        }
+
+        public ICommand SaveCommand => new RelayCommand(x => Save());
+
+        private void Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICommand SaveAsCommand => new RelayCommand(x => SaveAs());
+
+        private void SaveAs()
+        {
+            throw new NotImplementedException();
+        }
+
         public ICommand PlayModeCommand { get; set; }
 
         private void ShowWarbandSelection()
