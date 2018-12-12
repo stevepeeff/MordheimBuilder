@@ -20,13 +20,21 @@ namespace MordheimTableTop.Warrior
 
         private AfflictionViewModel(IPsychology psychology)
         {
-            Name = psychology.Name;
-            Description = psychology.Description;
+            Name = psychology.Name.SplitCamelCasing();
+            TooltipText = FormatIPsychologyAfflicationDescription(psychology);
         }
 
         public ObservableCollection<AfflictionViewModel> Afflictions { get; } = new ObservableCollection<AfflictionViewModel>();
 
-        public string Description { get; }
         public string Name { get; }
+
+        public string TooltipText { get; }
+
+        private string FormatIPsychologyAfflicationDescription(IPsychology psychology)
+        {
+            return EnumUtils.GetDescription(psychology.Affliction) +
+                    Environment.NewLine +
+                    psychology.Description;
+        }
     }
 }

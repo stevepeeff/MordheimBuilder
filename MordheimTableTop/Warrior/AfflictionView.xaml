@@ -14,7 +14,7 @@
                     <DataGridTextColumn Header="Name"  Binding="{Binding Name}" Width="*">
                         <DataGridTextColumn.CellStyle>
                             <Style TargetType="DataGridCell">
-                                <Setter Property="ToolTip" Value="{Binding Description}" />
+                                <Setter Property="ToolTip" Value="{Binding TooltipText}" />
                             </Style>
                         </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>

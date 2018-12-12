@@ -61,7 +61,7 @@
                                 </StackPanel>
                             </GroupBox>
 
-                            <local:AfflictionView DataContext="{Binding AfflictionVM}"></local:AfflictionView>
+                            <local:AfflictionView DataContext="{Binding AfflictionVM}" Width="80"></local:AfflictionView>
                         </DockPanel>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
