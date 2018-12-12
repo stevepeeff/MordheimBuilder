@@ -1,4 +1,5 @@
-﻿using DomainModel.Warbands;
+﻿using DomainModel;
+using DomainModel.Warbands;
 using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.Win32;
@@ -26,9 +27,12 @@ namespace MordheimTableTop
         {
             //TODO remove
             Test();
+            //BuilderLogicFactory.Instance.
         }
 
         public ICommand EditModeCommand { get; set; }
+
+        public ICommand LoadCommand => new RelayCommand(x => Load());
 
         public ViewModelBase MainWindowContent
         {
@@ -57,37 +61,37 @@ namespace MordheimTableTop
         }
 
         public ICommand NewWarbandCommand => new RelayCommand(x => ShowWarbandSelection());
+        public ICommand PlayModeCommand { get; set; }
 
-        public ICommand LoadCommand => new RelayCommand(x => Load());
+        public ICommand SaveAsCommand => new RelayCommand(x => SaveAs());
+
+        public ICommand SaveCommand => new RelayCommand(x => Save());
+
+        public IWarrior TestWarrior => new WitchHunterCaptain();
 
         private void Load()
         {
             var openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = false;
             openFileDialog.InitialDirectory = DalProvider.Instance.DefaultStorageDirectory;
+            openFileDialog.Filter = "XML files (*.xml)|*.xml";
 
             if (openFileDialog.ShowDialog() == true)
             {
-                //txtEditor.Text = File.ReadAllText(openFileDialog.FileName);
-
-                //DalProvider.Instance.Load
+                DalProvider.Instance.Load(openFileDialog.FileName);
+                //  WarbandSelectionViewModel_WarbandSelected(this, new WarbandEventArgs(roster.WarBand));
             }
         }
-
-        public ICommand SaveCommand => new RelayCommand(x => Save());
 
         private void Save()
         {
             throw new NotImplementedException();
         }
 
-        public ICommand SaveAsCommand => new RelayCommand(x => SaveAs());
-
         private void SaveAs()
         {
             throw new NotImplementedException();
         }
-
-        public ICommand PlayModeCommand { get; set; }
 
         private void ShowWarbandSelection()
         {
@@ -95,8 +99,6 @@ namespace MordheimTableTop
             MainWindowContent = warbandSelectionViewModel;
             warbandSelectionViewModel.WarbandSelected += WarbandSelectionViewModel_WarbandSelected;
         }
-
-        public IWarrior TestWarrior => new WitchHunterCaptain();
 
         private void Test()
         {

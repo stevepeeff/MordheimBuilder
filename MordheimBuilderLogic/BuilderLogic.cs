@@ -21,7 +21,7 @@ namespace MordheimBuilderLogic
 
         public event EventHandler PlayModusChanges;
 
-        //public event EventHandler WarBandSelected;
+        public event EventHandler<WarBandRosterEventArgs> WarbandRosterChanged;
 
         public IReadOnlyCollection<IWarBand> AvailableWarbands { get { return WarBandProvider.Instance.WarBands; } }
 
