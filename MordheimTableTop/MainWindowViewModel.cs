@@ -25,9 +25,10 @@ namespace MordheimTableTop
 
         public MainWindowViewModel()
         {
+            BuilderLogicFactory.Instance.WarbandRosterChanged += Instance_WarbandRosterChanged;
+
             //TODO remove
             Test();
-            //BuilderLogicFactory.Instance.
         }
 
         public ICommand EditModeCommand { get; set; }
@@ -109,6 +110,14 @@ namespace MordheimTableTop
 
             //Show EquipmentSelection
             //MainWindowContent = new EquipmentSelectionViewModel(TestWarrior);
+        }
+
+        private void Instance_WarbandRosterChanged(object sender, WarBandRosterEventArgs e)
+        {
+            //Hier testen
+            MainWindowContent = new WarBandBuyViewModel();
+            //  MainWindowRightContent = new WarBandBuyViewModel();
+            MainWindowRightContent = new WarBandEditViewModel();
         }
 
         private void WarbandSelectionViewModel_WarbandSelected(object sender, WarbandEventArgs e)

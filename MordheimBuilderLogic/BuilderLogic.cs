@@ -55,7 +55,23 @@ namespace MordheimBuilderLogic
             }
         }
 
-        public IWarbandRoster WarbandRoster { get; private set; }
+        private IWarbandRoster _WarbandRoster;
+
+        public IWarbandRoster WarbandRoster
+        {
+            get
+            {
+                return _WarbandRoster;
+            }
+            private set
+            {
+                _WarbandRoster = value;
+                if (WarbandRosterChanged != null)
+                {
+                    WarbandRosterChanged.Invoke(this, new WarBandRosterEventArgs(_WarbandRoster));
+                }
+            }
+        }
 
         public void SelectWarBand(IWarBand warband)
         {

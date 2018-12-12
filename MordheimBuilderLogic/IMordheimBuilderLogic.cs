@@ -60,6 +60,8 @@ namespace MordheimBuilderLogic
         /// </summary>
         event EventHandler PlayModusChanges;
 
+        event EventHandler<WarBandRosterEventArgs> WarbandRosterChanged;
+
         /// <summary>
         /// Gets the starting cash.
         /// </summary>
