@@ -24,6 +24,12 @@ namespace MordheimTableTop
             this.canExecute = canExecute;
         }
 
+        public RelayCommand(Action<object> execute, bool canExecute)
+        {
+            this.execute = execute;
+            this.canExecute = x => canExecute;
+        }
+
         public bool CanExecute(object parameter)
         {
             return this.canExecute == null || this.canExecute(parameter);

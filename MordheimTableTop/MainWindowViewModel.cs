@@ -62,13 +62,22 @@ namespace MordheimTableTop
         }
 
         public ICommand NewWarbandCommand => new RelayCommand(x => ShowWarbandSelection());
+
         public ICommand PlayModeCommand { get; set; }
 
-        public ICommand SaveAsCommand => new RelayCommand(x => SaveAs());
+        public ICommand SaveAsCommand => new RelayCommand(x => SaveAs(), WarbandRosterIsSet());
 
-        public ICommand SaveCommand => new RelayCommand(x => Save());
+        public ICommand SaveCommand => new RelayCommand(x => Save(), WarbandRosterIsSet());
 
         public IWarrior TestWarrior => new WitchHunterCaptain();
+
+        private void Instance_WarbandRosterChanged(object sender, WarBandRosterEventArgs e)
+        {
+            //Hier testen
+            MainWindowContent = new WarBandBuyViewModel();
+            //  MainWindowRightContent = new WarBandBuyViewModel();
+            MainWindowRightContent = new WarBandEditViewModel();
+        }
 
         private void Load()
         {
@@ -86,12 +95,26 @@ namespace MordheimTableTop
 
         private void Save()
         {
-            throw new NotImplementedException();
+            ShowSaveSuccessMessage(DalProvider.Instance.Save(BuilderLogicFactory.Instance.WarbandRoster));
         }
 
         private void SaveAs()
         {
-            throw new NotImplementedException();
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = DalProvider.Instance.DefaultStorageDirectory
+            };
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                ShowSaveSuccessMessage(
+                DalProvider.Instance.Save(BuilderLogicFactory.Instance.WarbandRoster, saveFileDialog.FileName)
+                );
+            }
+        }
+
+        private void ShowSaveSuccessMessage(string storagePath)
+        {
+            MessageBox.Show($"Roster saved as: {Environment.NewLine}{storagePath}", "Save success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void ShowWarbandSelection()
@@ -112,12 +135,9 @@ namespace MordheimTableTop
             //MainWindowContent = new EquipmentSelectionViewModel(TestWarrior);
         }
 
-        private void Instance_WarbandRosterChanged(object sender, WarBandRosterEventArgs e)
+        private bool WarbandRosterIsSet()
         {
-            //Hier testen
-            MainWindowContent = new WarBandBuyViewModel();
-            //  MainWindowRightContent = new WarBandBuyViewModel();
-            MainWindowRightContent = new WarBandEditViewModel();
+            return BuilderLogicFactory.Instance.WarbandRoster != null;
         }
 
         private void WarbandSelectionViewModel_WarbandSelected(object sender, WarbandEventArgs e)
