@@ -122,7 +122,7 @@ namespace MordheimTableTop.Warrior
 
         public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
 
-        public ICommand ShowEquipmentSelectionCommand => new RelayCommand(x => ShowEquipmentSeelection());
+        public ICommand ShowEquipmentSelectionCommand => new RelayCommand(x => ShowEquipmentSelection());
 
         /// <summary>
         /// Gets the show increase decrease buttons.
@@ -147,7 +147,7 @@ namespace MordheimTableTop.Warrior
 
         public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
 
-        private void ShowEquipmentSeelection()
+        private void ShowEquipmentSelection()
         {
             Window window = new Window()
             {

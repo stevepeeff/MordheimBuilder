@@ -60,7 +60,6 @@
                                     </DockPanel>
                                 </StackPanel>
                             </GroupBox>
-
                             <local:AfflictionView DataContext="{Binding AfflictionVM}" Width="80"></local:AfflictionView>
                         </DockPanel>
                     </StackPanel>
