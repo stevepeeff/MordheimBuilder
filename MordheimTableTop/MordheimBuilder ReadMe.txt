@@ -5,6 +5,7 @@
 * Save does not override the saved file
 * Improve the Special rules view
 * Miscellaneous Equipment
+* Solve event handler, selecting new warband, remove previous subscription
 * Psychology
 * Leader special rule to all captains (See sisters of sigmar)??
 		Testing modifiers??? E.g. Leader within range, Reikland ld range bonus

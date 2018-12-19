@@ -73,7 +73,6 @@ namespace MordheimTableTop
 
         private void Instance_WarbandRosterChanged(object sender, WarBandRosterEventArgs e)
         {
-            //Hier testen
             MainWindowContent = new WarBandBuyViewModel();
             //  MainWindowRightContent = new WarBandBuyViewModel();
             MainWindowRightContent = new WarBandEditViewModel();
@@ -142,6 +141,7 @@ namespace MordheimTableTop
 
         private void WarbandSelectionViewModel_WarbandSelected(object sender, WarbandEventArgs e)
         {
+            // TODO fix this=>  warbandSelectionViewModel.WarbandSelected -= WarbandSelectionViewModel_WarbandSelected;
             BuilderLogicFactory.Instance.SelectWarBand(e.SelectedWarband);
 
             MainWindowContent = new WarBandBuyViewModel();
