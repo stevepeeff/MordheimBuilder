@@ -129,7 +129,7 @@ namespace MordheimTableTop
             //Invoke warband selected
             // var rndWarband = BuilderLogicFactory.Instance.AvailableWarbands.ElementAt(new Random().Next(0, 5));
             var rndWarband = new CultOfThePossessedWarband();
-            WarbandSelectionViewModel_WarbandSelected(this, new WarbandEventArgs(rndWarband));
+            BuilderLogicFactory.Instance.SelectWarBand(rndWarband);
 
             //Show EquipmentSelection
             //MainWindowContent = new EquipmentSelectionViewModel(TestWarrior);

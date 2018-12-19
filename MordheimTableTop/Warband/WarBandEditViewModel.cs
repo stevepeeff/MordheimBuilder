@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MordheimTableTop.Warband
 {
-    internal class WarBandEditViewModel : ViewModelBase
+    internal class WarBandEditViewModel : ViewModelBase, IDisposable
     {
         public WarBandEditViewModel()
         {
@@ -36,6 +36,11 @@ namespace MordheimTableTop.Warband
         /// The warriors.
         /// </value>
         public ObservableCollection<WarriorViewModel> Warriors { get; } = new ObservableCollection<WarriorViewModel>();
+
+        public void Dispose()
+        {
+            BuilderLogicFactory.Instance.WarbandRoster.WarBandChanged -= WarbandRoster_WarBandChanged;
+        }
 
         private void WarbandRoster_WarBandChanged(object sender, EventArgs e)
         {

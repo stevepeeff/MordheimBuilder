@@ -14,7 +14,7 @@ using System.Windows.Input;
 
 namespace MordheimTableTop.Warrior
 {
-    public class WarriorViewModel : ViewModelBase
+    public class WarriorViewModel : ViewModelBase, IDisposable
     {
         public WarriorViewModel(IWarrior warrior)
         {
@@ -23,24 +23,9 @@ namespace MordheimTableTop.Warrior
             Equipment.CollectionChanged += Equipment_CollectionChanged;
         }
 
-        private void Equipment_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            NotifiyPropertyChangedEvent(nameof(GroupCosts));
-            NotifiyPropertyChangedEvent(nameof(EquipmentCosts));
+        public event EventHandler EquipmentListChanged;
 
-            if (EquipmentListChanged != null)
-            {
-                EquipmentListChanged.Invoke(this, EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Gets the equipment costs.
-        /// </summary>
-        /// <value>
-        /// The equipment costs.
-        /// </value>
-        public int EquipmentCosts { get { return Warrior.EquipmentCosts; } }
+        public AfflictionViewModel AfflictionVM { get { return new AfflictionViewModel(this); } }
 
         /// <summary>
         /// Gets the decrease henchmen command.
@@ -52,7 +37,13 @@ namespace MordheimTableTop.Warrior
 
         public ObservableCollection<EquipmentViewModel> Equipment { get; } = new ObservableCollection<EquipmentViewModel>();
 
-        public event EventHandler EquipmentListChanged;
+        /// <summary>
+        /// Gets the equipment costs.
+        /// </summary>
+        /// <value>
+        /// The equipment costs.
+        /// </value>
+        public int EquipmentCosts { get { return Warrior.EquipmentCosts; } }
 
         /// <summary>
         /// Gets the equipment selection vm.
@@ -78,18 +69,6 @@ namespace MordheimTableTop.Warrior
             }
         }
 
-        public string GroupCountFormatted
-        {
-            get
-            {
-                if (Warrior is IHenchMen)
-                {
-                    return $"({GroupCount})";
-                }
-                return String.Empty;
-            }
-        }
-
         public int? GroupCount
         {
             get
@@ -101,6 +80,18 @@ namespace MordheimTableTop.Warrior
                 }
 
                 return null;
+            }
+        }
+
+        public string GroupCountFormatted
+        {
+            get
+            {
+                if (Warrior is IHenchMen)
+                {
+                    return $"({GroupCount})";
+                }
+                return String.Empty;
             }
         }
 
@@ -139,13 +130,27 @@ namespace MordheimTableTop.Warrior
             }
         }
 
-        public AfflictionViewModel AfflictionVM { get { return new AfflictionViewModel(this); } }
-
         public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(Warrior); } }
 
         public IWarrior Warrior { get; }
 
         public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
+
+        public void Dispose()
+        {
+            Equipment.CollectionChanged -= Equipment_CollectionChanged;
+        }
+
+        private void Equipment_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            NotifiyPropertyChangedEvent(nameof(GroupCosts));
+            NotifiyPropertyChangedEvent(nameof(EquipmentCosts));
+
+            if (EquipmentListChanged != null)
+            {
+                EquipmentListChanged.Invoke(this, EventArgs.Empty);
+            }
+        }
 
         private void ShowEquipmentSelection()
         {

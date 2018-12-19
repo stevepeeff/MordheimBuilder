@@ -109,8 +109,6 @@ namespace MordheimBuilderLogic
             IWarrior newWarrior = warrior.GetAnInstance();
             Warriors.Add(newWarrior);
 
-            // newWarrior.PropertiesChanged += NewWarrior_PropertiesChanged;
-
             if (newWarrior is IHenchMen)
             {
                 IHenchMen henchMan = newWarrior as IHenchMen;
@@ -118,7 +116,6 @@ namespace MordheimBuilderLogic
             }
 
             InvokeEvent(WarBandChanged);
-            // InvokeEvent(WarBandWariorListChanged);
 
             return newWarrior;
         }
@@ -159,7 +156,6 @@ namespace MordheimBuilderLogic
         {
             Warriors.Remove(warrior);
             InvokeEvent(WarBandChanged);
-            //InvokeEvent(WarBandWariorListChanged);
         }
 
         private void InvokeEvent(EventHandler handler)
@@ -172,7 +168,7 @@ namespace MordheimBuilderLogic
 
         private void NewWarrior_PropertiesChanged(object sender, EventArgs e)
         {
-            InvokeEvent(WarBandChanged);
+            // InvokeEvent(WarBandChanged);
         }
 
         private int NumberOffWarriorsOfThisTypeInRoster(IWarrior warrior)
