@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="Selection\EquipmentSelectionViewModel.cs" />
     <Compile Include="Selection\EquipmentViewModel.cs" />
+    <Compile Include="Selection\EquipmentViewModelFactory.cs" />
     <Compile Include="Selection\MissleWeaponViewModel.cs" />
     <Compile Include="Selection\MutationViewModel.cs" />
     <Compile Include="Selection\WarbandSelectionView.xaml.cs">

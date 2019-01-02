@@ -19,8 +19,9 @@ namespace MordheimTableTop.Warrior
         public WarriorViewModel(IWarrior warrior)
         {
             Warrior = warrior;
-            EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
+            Equipment = warrior.Equipment.ConvertToViewModelCollection();
             Equipment.CollectionChanged += Equipment_CollectionChanged;
+            EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
         }
 
         public event EventHandler EquipmentListChanged;
@@ -35,7 +36,7 @@ namespace MordheimTableTop.Warrior
         /// </value>
         public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(Warrior);
 
-        public ObservableCollection<EquipmentViewModel> Equipment { get; } = new ObservableCollection<EquipmentViewModel>();
+        public ObservableCollection<EquipmentViewModel> Equipment { get; }
 
         /// <summary>
         /// Gets the equipment costs.
