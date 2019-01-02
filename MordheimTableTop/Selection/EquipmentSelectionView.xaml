@@ -29,7 +29,7 @@
             </GroupBox>
             <GroupBox Header="Missile Weapons"  Visibility="{Binding ShowMissileWeaponSelection}">
                 <DataGrid
-                    IsEnabled="{Binding MaximumMisselleWeaponCapNotReached, Mode=OneWay}" Name="DgMssWpn" ItemsSource="{Binding MisseleWeapons}"
+                    IsEnabled="{Binding MaximumMisseleWeaponCapNotReached, Mode=OneWay}" Name="DgMssWpn" ItemsSource="{Binding MisseleWeapons}"
                     AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
                     d:DataContext="{d:DesignInstance local:MissleWeaponViewModel}">
                     <DataGrid.InputBindings>

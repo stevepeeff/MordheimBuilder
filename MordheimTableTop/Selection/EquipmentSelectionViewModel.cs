@@ -44,8 +44,10 @@ namespace MordheimTableTop.Selection
         public ICommand BuyEqpuimentCommand => new RelayCommand((parameter) => BuyEquipment(parameter));
 
         public List<CloseCombatWeaponViewModel> CloseCombatWeapons { get; } = new List<CloseCombatWeaponViewModel>();
+
         public ObservableCollection<EquipmentViewModel> Equipment { get { return WarriorVM.Equipment; } }
         public List<MissleWeaponViewModel> MisseleWeapons { get; } = new List<MissleWeaponViewModel>();
+
         public List<MutationViewModel> Mutations { get; } = new List<MutationViewModel>();
         public ICommand RmovEqpuimentCommand => new RelayCommand((parameter) => RmEquipment(parameter));
 
@@ -75,13 +77,10 @@ namespace MordheimTableTop.Selection
             get { return !Warrior.MaximumCloseCombatWeaponsReached(); }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether [maximum misselle weapon cap not reached].
-        /// </summary>
+        /// <summary>Gets a value indicating whether [maximum missile weapon cap not reached].</summary>
         /// <value>
-        ///   <c>true</c> if [maximum misselle weapon cap not reached]; otherwise, <c>false</c>.
-        /// </value>
-        public bool MaximumMisselleWeaponCapNotReached
+        ///   <c>true</c> if [maximum missile weapon cap not reached]; otherwise, <c>false</c>.</value>
+        public bool MaximumMisseleWeaponCapNotReached
         {
             get { return !Warrior.Equipment.MaximumRangedWeaponsReached(); }
         }
@@ -133,7 +132,7 @@ namespace MordheimTableTop.Selection
 
         public IWarrior Warrior { get { return WarriorVM.Warrior; } }
 
-        internal WarriorViewModel WarriorVM { get; }
+        public WarriorViewModel WarriorVM { get; }
 
         private void BuyEquipment(object parameter)
         {
@@ -152,7 +151,7 @@ namespace MordheimTableTop.Selection
                 if (Warrior.AddEquipment(mslWpn.MisseleWeapon))
                 {
                     Equipment.Add(mslWpn);
-                    NotifiyPropertyChangedEvent(nameof(MaximumMisselleWeaponCapNotReached));
+                    NotifiyPropertyChangedEvent(nameof(MaximumMisseleWeaponCapNotReached));
                 }
             }
             if (parameter is ArmourViewModel)
@@ -191,7 +190,7 @@ namespace MordheimTableTop.Selection
                 equipment = mslWpn.MisseleWeapon;
                 Warrior.RemoveEquipment(equipment);
                 Equipment.Remove(mslWpn);
-                NotifiyPropertyChangedEvent(nameof(MaximumMisselleWeaponCapNotReached));
+                NotifiyPropertyChangedEvent(nameof(MaximumMisseleWeaponCapNotReached));
             }
             if (parameter is ArmourViewModel)
             {
