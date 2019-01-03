@@ -224,6 +224,7 @@
     <Compile Include="Warbands\CultOfThePossessed\Mutations\GreatClaw.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\Hideous.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\IMutation.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\MutationBase.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\MutationsProvider.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\ScorpionTail.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\Spines.cs" />

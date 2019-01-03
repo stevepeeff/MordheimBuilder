@@ -17,6 +17,8 @@ using System.IO;
 using MordheimXmlDal;
 using DomainModel.Magic.Prayers_of_Sigmar;
 using System.Threading;
+using DomainModel.Warbands.CultOfThePossessed;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 
 namespace MordheimDal.Tests
 {
@@ -100,6 +102,34 @@ namespace MordheimDal.Tests
         }
 
         [TestMethod]
+        public void SaveAndLoadCultOfThePossed()
+        {
+            var cultRoster = new WarBandRoster(new CultOfThePossessedWarband());
+            cultRoster.Name = $"{warbandName}{"SaveAndLoad Cult Of the Possessed"}";
+
+            IHero mutant = cultRoster.AddWarrior(new Mutant()) as IHero;
+            mutant.AddMutation(new GreatClaw());
+            mutant.AddEquipment(new Axe());
+
+            string storagePath = DalProvider.Instance.Save(cultRoster);
+            IWarbandRoster roster = new XmlDal().LoadWarband(storagePath);
+            Assert.IsNotNull(roster);
+
+            IMutant loadedMutant = roster.Warriors.First() as IMutant;
+
+            //IMutant mutant = null;
+            //foreach (var item in roster.Warriors)
+            //{
+            //    if (item is IMutant)
+            //    {
+            //        mutant = item as IMutant;
+            //        break;
+            //    }
+            //}
+            //Assert.IsNotNull(mutant);
+        }
+
+        [TestMethod]
         public void SaveAndLoad()
         {
             _WarbandRoster.Name = $"{warbandName}{"SaveAndLoad"}";
@@ -112,6 +142,17 @@ namespace MordheimDal.Tests
 
             Assert.AreEqual(_WitchHunterCaptain.Equipment.Count, loadedHero.Equipment.Count);
             Assert.AreEqual(_WitchHunterCaptain.Skills.Count, loadedHero.Skills.Count);
+
+            IMutant mutant = null;
+            foreach (var item in roster.Warriors)
+            {
+                if (item is IMutant)
+                {
+                    mutant = item as IMutant;
+                    break;
+                }
+            }
+            Assert.IsNotNull(mutant);
 
             IHenchMen loadedHenchMen1 = roster.Warriors.ElementAt(1) as IHenchMen;
             Assert.AreEqual(_ZealotGroup1.AmountInGroup, loadedHenchMen1.AmountInGroup);

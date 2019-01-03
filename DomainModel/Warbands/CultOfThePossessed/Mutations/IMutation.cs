@@ -13,5 +13,7 @@ namespace DomainModel.Warbands.CultOfThePossessed.Mutations
         IReadOnlyCollection<Statistic> Statistics { get; }
 
         string Description { get; }
+
+        string Name { get; }
     }
 }
