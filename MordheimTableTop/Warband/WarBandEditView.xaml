@@ -20,7 +20,7 @@
                 <GroupBox Header="Warband Statistics" FontWeight="Bold" BorderBrush="Black" Height="100">
                     <StackPanel>
                         <DockPanel>
-                            <Label FontStyle="Oblique" Width="150">Total Costs</Label>
+                            <Label FontStyle="Oblique" Width="150" Foreground="{Binding CostsColour, UpdateSourceTrigger=PropertyChanged}">Total Costs</Label>
                             <Label Content="{Binding TotalCosts}" FontStyle="Oblique"></Label>
                         </DockPanel>
                         <DockPanel>
@@ -33,7 +33,7 @@
                         </DockPanel>
                     </StackPanel>
                 </GroupBox>
-                <ScrollViewer 
+                <ScrollViewer
                     HorizontalScrollBarVisibility="Disabled" Height="700"
                     VerticalScrollBarVisibility="Auto">
                     <ItemsControl ItemsSource="{Binding Warriors}" />

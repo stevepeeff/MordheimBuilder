@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace MordheimTableTop.Warband
 {
@@ -28,6 +29,15 @@ namespace MordheimTableTop.Warband
         public int TotalNumberOfWarriors { get { return Roster.TotalNumberOfWarriors; } }
         public int TotalCosts { get { return Roster.TotalCosts; } }
         public int WarbandRating { get { return Roster.WarbandRating; } }
+
+        public SolidColorBrush CostsColour
+        {
+            get
+            {
+                if (Roster.CostsExceedMaximum) { return Brushes.Red; }
+                return Brushes.Black;
+            }
+        }
 
         /// <summary>
         /// Gets the warriors.
@@ -60,12 +70,14 @@ namespace MordheimTableTop.Warband
 
             NotifiyPropertyChangedEvent(nameof(TotalNumberOfWarriors));
             NotifiyPropertyChangedEvent(nameof(TotalCosts));
+            NotifiyPropertyChangedEvent(nameof(CostsColour));
             NotifiyPropertyChangedEvent(nameof(WarbandRating));
         }
 
         private void WarriorViewModel_EquipmentListChanged(object sender, EventArgs e)
         {
             NotifiyPropertyChangedEvent(nameof(TotalCosts));
+            NotifiyPropertyChangedEvent(nameof(CostsColour));
         }
     }
 }

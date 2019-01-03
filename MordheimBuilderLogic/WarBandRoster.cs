@@ -104,6 +104,14 @@ namespace MordheimBuilderLogic
         /// </value>
         public string Name { get; set; }
 
+        public bool CostsExceedMaximum
+        {
+            get
+            {
+                return TotalCosts > WarBand.StartingCash;
+            }
+        }
+
         public IWarrior AddWarrior(IWarrior warrior)
         {
             IWarrior newWarrior = warrior.GetAnInstance();
@@ -164,11 +172,6 @@ namespace MordheimBuilderLogic
             {
                 handler(this, EventArgs.Empty);
             }
-        }
-
-        private void NewWarrior_PropertiesChanged(object sender, EventArgs e)
-        {
-            // InvokeEvent(WarBandChanged);
         }
 
         private int NumberOffWarriorsOfThisTypeInRoster(IWarrior warrior)

@@ -9,30 +9,30 @@ namespace DomainModel
 {
     public interface IWarbandRoster
     {
-        IList<IWarrior> Warriors { get; }
+        event EventHandler WarBandChanged;
+
+        /// <summary>Gets a value indicating whether [costs exceed maximum].</summary>
+        /// <value>
+        ///   <c>true</c> if [costs exceed maximum]; otherwise, <c>false</c>.</value>
+        bool CostsExceedMaximum { get; }
 
         string Name { get; set; }
-
-        IWarBand WarBand { get; }
-
-        int TotalNumberOfWarriors { get; }
-
         int TotalCosts { get; }
-
+        int TotalNumberOfWarriors { get; }
+        IWarBand WarBand { get; }
         int WarbandRating { get; }
+        IList<IWarrior> Warriors { get; }
 
         IWarrior AddWarrior(IWarrior warrior);
 
-        void RemoveWarrior(IWarrior warrior);
+        void DecreaseHenchmenInGroup(IHenchMen warrior);
 
         void IncreaseHenchmenInGroup(IHenchMen warrior);
-
-        void DecreaseHenchmenInGroup(IHenchMen warrior);
 
         bool MaximumAllowedAmountOfWarriorReached(IWarrior warrior);
 
         bool MaximumAllowedAmountOfWarriorsReached();
 
-        event EventHandler WarBandChanged;
+        void RemoveWarrior(IWarrior warrior);
     }
 }

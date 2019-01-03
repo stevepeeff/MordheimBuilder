@@ -136,7 +136,11 @@ namespace MordheimTableTop
 
         private bool WarbandRosterIsSet()
         {
-            return BuilderLogicFactory.Instance.WarbandRoster != null;
+            if (BuilderLogicFactory.Instance.WarbandRoster != null)
+            {
+                return (!BuilderLogicFactory.Instance.WarbandRoster.CostsExceedMaximum);
+            }
+            return false;
         }
 
         private void WarbandSelectionViewModel_WarbandSelected(object sender, WarbandEventArgs e)
