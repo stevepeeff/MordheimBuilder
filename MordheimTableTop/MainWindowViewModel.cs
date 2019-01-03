@@ -31,7 +31,12 @@ namespace MordheimTableTop
             Test();
         }
 
-        public ICommand EditModeCommand { get; set; }
+        public ICommand EditModeCommand => new RelayCommand(x => EditModus());
+
+        private void EditModus()
+        {
+            throw new NotImplementedException();
+        }
 
         public ICommand LoadCommand => new RelayCommand(x => Load());
 
@@ -88,7 +93,6 @@ namespace MordheimTableTop
             if (openFileDialog.ShowDialog() == true)
             {
                 DalProvider.Instance.Load(openFileDialog.FileName);
-                //  WarbandSelectionViewModel_WarbandSelected(this, new WarbandEventArgs(roster.WarBand));
             }
         }
 
