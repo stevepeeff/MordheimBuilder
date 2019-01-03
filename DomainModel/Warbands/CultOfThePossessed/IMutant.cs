@@ -18,6 +18,8 @@ namespace DomainModel.Warbands.CultOfThePossessed
         /// <returns>true if allowed</returns>
         bool AddMutation(IMutation mutation);
 
+        void AddMutations(List<string> mutations);
+
         void RemoveMutation(IMutation mutation);
     }
 }

@@ -51,7 +51,6 @@ namespace DomainModel.Warbands.CultOfThePossessed
 
         public override bool AddMutation(IMutation mutation)
         {
-            // base.AddMutation(mutation);
             if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
             {
                 _Mutations.Add(mutation);
@@ -59,6 +58,14 @@ namespace DomainModel.Warbands.CultOfThePossessed
                 return true;
             }
             return false;
+        }
+
+        public void AddMutations(List<string> mutations)
+        {
+            foreach (string mutation in mutations)
+            {
+                _Mutations.Add(MutationsProvider.Instance.Mutations.Single(x => x.Name.Equals(mutation)));
+            }
         }
 
         public override void RemoveMutation(IMutation mutation)

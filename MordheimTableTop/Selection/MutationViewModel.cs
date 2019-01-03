@@ -17,7 +17,7 @@ namespace MordheimTableTop.Selection
 
         public IMutation Mutation { get; }
 
-        public override string Name => Mutation.GetType().Name.SplitCamelCasing();
+        public override string Name => Mutation.Name.SplitCamelCasing();
 
         public override int Costs => Mutation.Cost;
 

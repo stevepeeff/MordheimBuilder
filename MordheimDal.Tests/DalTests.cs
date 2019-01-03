@@ -107,63 +107,29 @@ namespace MordheimDal.Tests
             var cultRoster = new WarBandRoster(new CultOfThePossessedWarband());
             cultRoster.Name = $"{warbandName}{"SaveAndLoad Cult Of the Possessed"}";
 
-            IHero mutant = cultRoster.AddWarrior(new Mutant()) as IHero;
+            IWarrior mutant = cultRoster.AddWarrior(new Mutant());
             mutant.AddMutation(new GreatClaw());
+            mutant.AddMutation(new ClovenHoofs());
             mutant.AddEquipment(new Axe());
+
+            IWarrior possed = cultRoster.AddWarrior(new Possessed());
+            possed.AddMutation(new Spines());
 
             string storagePath = DalProvider.Instance.Save(cultRoster);
             IWarbandRoster roster = new XmlDal().LoadWarband(storagePath);
             Assert.IsNotNull(roster);
 
-            IMutant loadedMutant = roster.Warriors.First() as IMutant;
+            IWarrior firstWarrior = roster.Warriors.First();
+            IMutant loadedMutant = firstWarrior as IMutant;
+            Assert.IsTrue(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new GreatClaw().Name)));
+            Assert.IsTrue(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new ClovenHoofs().Name)));
+            Assert.IsFalse(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new Spines().Name)));
 
-            //IMutant mutant = null;
-            //foreach (var item in roster.Warriors)
-            //{
-            //    if (item is IMutant)
-            //    {
-            //        mutant = item as IMutant;
-            //        break;
-            //    }
-            //}
-            //Assert.IsNotNull(mutant);
-        }
+            Assert.IsTrue(firstWarrior.Equipment.Any(weapon => weapon.Name.Equals(new Axe().Name)));
 
-        [TestMethod]
-        public void SaveAndLoad()
-        {
-            _WarbandRoster.Name = $"{warbandName}{"SaveAndLoad"}";
-            string storagePath = DalProvider.Instance.Save(_WarbandRoster);
-
-            IWarbandRoster roster = new XmlDal().LoadWarband(storagePath);
-            Assert.IsNotNull(roster);
-
-            IHero loadedHero = roster.Warriors.First() as IHero;
-
-            Assert.AreEqual(_WitchHunterCaptain.Equipment.Count, loadedHero.Equipment.Count);
-            Assert.AreEqual(_WitchHunterCaptain.Skills.Count, loadedHero.Skills.Count);
-
-            IMutant mutant = null;
-            foreach (var item in roster.Warriors)
-            {
-                if (item is IMutant)
-                {
-                    mutant = item as IMutant;
-                    break;
-                }
-            }
-            Assert.IsNotNull(mutant);
-
-            IHenchMen loadedHenchMen1 = roster.Warriors.ElementAt(1) as IHenchMen;
-            Assert.AreEqual(_ZealotGroup1.AmountInGroup, loadedHenchMen1.AmountInGroup);
-            Assert.AreEqual(_ZealotGroup1.Equipment.Count, loadedHenchMen1.Equipment.Count);
-
-            IHenchMen loadedHenchMen2 = roster.Warriors.ElementAt(2) as IHenchMen;
-            Assert.AreEqual(_ZealotGroup2.AmountInGroup, loadedHenchMen2.AmountInGroup);
-            Assert.AreEqual(_ZealotGroup2.Equipment.Count, loadedHenchMen2.Equipment.Count);
-
-            IWizard loadedWizard = roster.Warriors.ElementAt(3) as IWizard;
-            Assert.IsTrue(loadedWizard.DrawnSpells.Any(x => x.SpellName.Equals(nameof(TheHammerOfSigmar))));
+            IMutant loadedPossed = roster.Warriors.ElementAt(1) as IMutant;
+            Assert.AreEqual("Possessed", loadedPossed.GetType().Name);
+            Assert.IsTrue(loadedPossed.Mutations.Any(mutation => mutation.Name.Equals(new Spines().Name)));
         }
     }
 }

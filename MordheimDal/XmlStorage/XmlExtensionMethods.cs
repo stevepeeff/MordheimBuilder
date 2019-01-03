@@ -93,6 +93,11 @@ namespace MordheimDal.XmlStorage
                     wizard.AddSpell(item);
                 }
             }
+            if (warrior is IMutant)
+            {
+                IMutant mutant = warrior as IMutant;
+                mutant.AddMutations(xmlWarrior.MutationList);
+            }
 
             return warrior;
         }
