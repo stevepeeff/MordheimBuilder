@@ -35,7 +35,8 @@ namespace MordheimTableTop
 
         private void EditModus()
         {
-            throw new NotImplementedException();
+            MainWindowContent = new WarBandBuyViewModel();
+            MainWindowRightContent = new WarBandEditViewModel();
         }
 
         public ICommand LoadCommand => new RelayCommand(x => Load());
