@@ -114,8 +114,6 @@ namespace MordheimTableTop.Warrior
             }
         }
 
-        // public ExperienceView ExperienceView => new ExperienceView(_Warrior);
-
         /// <summary>
         /// Gets the statistics vm.
         /// </summary>
