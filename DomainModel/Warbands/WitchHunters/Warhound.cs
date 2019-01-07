@@ -12,6 +12,7 @@ namespace DomainModel.Warbands.WitchHunters
     {
         public Warhound()
         {
+            Movement.BaseValue = 6;
             WeaponSkill.BaseValue = 4;
             BallisticSkill.BaseValue = 0;
             Strength.BaseValue = 4;

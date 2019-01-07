@@ -38,6 +38,8 @@ namespace DomainModel.Warbands.Undead
 
         public override int HireFee => 110;
 
+        public override int InitialExperience { get; } = 20;
+
         public override int MaximumAllowedInWarBand => 1;
 
         public override IWarrior GetANewInstance()

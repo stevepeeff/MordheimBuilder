@@ -31,6 +31,8 @@ namespace DomainModel.Warbands.Undead
 
         public override int HireFee => 35;
 
+        public override int InitialExperience { get; } = 8;
+
         public override int MaximumAllowedInWarBand => 1;
 
         public IReadOnlyList<ISpell> SpellList =>
