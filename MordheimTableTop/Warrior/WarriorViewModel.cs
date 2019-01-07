@@ -19,7 +19,8 @@ namespace MordheimTableTop.Warrior
         public WarriorViewModel(IWarrior warrior)
         {
             Warrior = warrior;
-            Equipment = warrior.Equipment.ConvertToViewModelCollection();
+            Equipment = warrior.EquipmentAndMutattionsToViewModel();
+            //TODO, move attach only when showing the EQP VM
             Equipment.CollectionChanged += Equipment_CollectionChanged;
             EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
         }

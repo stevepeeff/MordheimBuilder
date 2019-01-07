@@ -2,6 +2,8 @@
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
+using DomainModel.Warbands;
+using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,11 @@ namespace MordheimTableTop.Selection
 {
     internal static class EquipmentViewModelFactory
     {
-        public static ObservableCollection<EquipmentViewModel> ConvertToViewModelCollection(this IReadOnlyCollection<IEquipment> equipmentList)
+        public static ObservableCollection<EquipmentViewModel> EquipmentAndMutattionsToViewModel(this IWarrior warrior)
         {
             var resultList = new ObservableCollection<EquipmentViewModel>();
 
-            foreach (var item in equipmentList)
+            foreach (var item in warrior.Equipment)
             {
                 if (item is IArmour)
                 {
@@ -32,13 +34,19 @@ namespace MordheimTableTop.Selection
                 {
                     resultList.Add(new MissleWeaponViewModel(item as IMisseleWeapon));
                 }
-                else if (item is IMutation)
-                {
-                    resultList.Add(new MutationViewModel(item as IMutation));
-                }
                 else
                 {
                     //TODO Ad  logging
+                }
+            }
+
+            if (warrior is IMutant)
+            {
+                IMutant mutant = warrior as IMutant;
+
+                foreach (var item in mutant.Mutations)
+                {
+                    resultList.Add(new MutationViewModel(item as IMutation));
                 }
             }
 
