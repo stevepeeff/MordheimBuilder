@@ -55,8 +55,6 @@ namespace DomainModel.Warbands.BaseClasses
             };
         }
 
-        //  public event EventHandler PropertiesChanged;
-
         public IRacialAdvantage Advantages { get; protected set; }
         public IReadOnlyCollection<IPsychology> Afflictions { get { return _Afflictions; } }
         public IReadOnlyCollection<IEquipment> AllowedEquipment { get { return _AllowedWeapons; } }

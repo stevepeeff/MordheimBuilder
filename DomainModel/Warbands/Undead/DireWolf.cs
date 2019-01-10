@@ -12,7 +12,7 @@ namespace DomainModel.Warbands.Undead
     {
         public DireWolf()
         {
-            Movement.BaseValue = 6;
+            Movement.BaseValue = 9;
             WeaponSkill.BaseValue = 2;
             BallisticSkill.BaseValue = 0;
             Initiative.BaseValue = 4;
@@ -26,6 +26,21 @@ namespace DomainModel.Warbands.Undead
             AddAffliction(new NoPain());
         }
 
+        /// <summary>
+        /// Gets the maximum experience.
+        /// Dire Wolfs never gain experience
+        /// </summary>
+        /// <value>
+        /// The maximum experience.
+        /// </value>
+        public override int MaximumExperience => 0;
+
+        /// <summary>
+        /// Gets the hire fee.
+        /// </summary>
+        /// <value>
+        /// The hire fee.
+        /// </value>
         public override int HireFee => 50;
 
         public override int MaximumAllowedInWarBand => 5;

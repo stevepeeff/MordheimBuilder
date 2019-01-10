@@ -72,7 +72,7 @@
                         </DockPanel>
                     </StackPanel>
                 </DockPanel>
-                <local:ExperienceView DataContext="{Binding Warrior}" />
+                <local:ExperienceView DataContext="{Binding Warrior}" Visibility="{Binding ShowExperience}" />
             </StackPanel>
         </GroupBox>
     </Grid>

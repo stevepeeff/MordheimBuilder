@@ -30,6 +30,21 @@ namespace MordheimTableTop.Warrior
         public AfflictionViewModel AfflictionVM { get { return new AfflictionViewModel(this); } }
 
         /// <summary>
+        /// Gets the show experience.
+        /// </summary>
+        /// <value>
+        /// The show experience.
+        /// </value>
+        public Visibility ShowExperience
+        {
+            get
+            {
+                if (Warrior.MaximumExperience == 0) { return Visibility.Collapsed; }
+                return Visibility.Visible;
+            }
+        }
+
+        /// <summary>
         /// Gets the decrease henchmen command.
         /// </summary>
         /// <value>
