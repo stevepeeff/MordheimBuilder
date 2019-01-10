@@ -10,6 +10,7 @@ using MordheimTableTop.Warband;
 using MordheimTableTop.Warrior;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
