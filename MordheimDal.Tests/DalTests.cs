@@ -104,10 +104,13 @@ namespace MordheimDal.Tests
         [TestMethod]
         public void SaveAndLoadCultOfThePossed()
         {
+            string rosterName = $"{warbandName}{"SaveAndLoad Cult Of the Possessed"}";
+            string warriorName = "Unit Test Warrior";
             var cultRoster = new WarBandRoster(new CultOfThePossessedWarband());
-            cultRoster.Name = $"{warbandName}{"SaveAndLoad Cult Of the Possessed"}";
+            cultRoster.Name = rosterName;
 
             IWarrior mutant = cultRoster.AddWarrior(new Mutant());
+            mutant.Name = warriorName;
             mutant.AddMutation(new GreatClaw());
             mutant.AddMutation(new ClovenHoofs());
             mutant.AddEquipment(new Axe());
@@ -124,6 +127,7 @@ namespace MordheimDal.Tests
             Assert.IsTrue(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new GreatClaw().Name)));
             Assert.IsTrue(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new ClovenHoofs().Name)));
             Assert.IsFalse(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new Spines().Name)));
+            Assert.AreEqual(warriorName, firstWarrior.Name);
 
             Assert.IsTrue(firstWarrior.Equipment.Any(weapon => weapon.Name.Equals(new Axe().Name)));
 

@@ -62,6 +62,7 @@ namespace MordheimDal.XmlStorage
             IWarrior warrior = warbandRoster.WarBand.GetWarrior(xmlWarrior.TypeOfWarrior);
 
             warrior = warbandRoster.AddWarrior(warrior);
+            warrior.Name = xmlWarrior.Name;
             foreach (string item in xmlWarrior.EquipmentList)
             {
                 warrior.AddEquipment(item);
