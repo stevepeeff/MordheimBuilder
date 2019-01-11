@@ -18,8 +18,8 @@ namespace DomainModel.Warbands.Undead
             Initiative.BaseValue = 4;
             LeaderShip.BaseValue = 4;
 
-            //AddAffliction(new Animal());
-            //AddAffliction(new Animal());
+            AddAffliction(new Animal());
+            AddAffliction(new SlaveringCharge());
             AddAffliction(new Fear());
             AddAffliction(new ImmuneToPsychology());
             AddAffliction(new ImmuneToPoison());

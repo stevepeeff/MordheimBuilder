@@ -28,12 +28,9 @@ namespace MordheimTableTop.Warrior
             DataContextChanged += ExperienceView_DataContextChanged;
         }
 
-        private void ExperienceView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        ~ExperienceView()
         {
-            if (DataContext is IWarrior)
-            {
-                BuildRoster(DataContext as IWarrior);
-            }
+            DataContextChanged -= ExperienceView_DataContextChanged;
         }
 
         private void BuildRoster(IWarrior warrior)
@@ -57,6 +54,22 @@ namespace MordheimTableTop.Warrior
                     dockPanel.Children.Add(experienceCheckBox);
                 }
                 _StackPanel.Children.Add(dockPanel);
+            }
+        }
+
+        private void ExperienceView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (DataContext is IWarrior)
+            {
+                IWarrior warrior = DataContext as IWarrior;
+                if (warrior.MaximumExperience == 0)
+                {
+                    this.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    BuildRoster(warrior);
+                }
             }
         }
     }
