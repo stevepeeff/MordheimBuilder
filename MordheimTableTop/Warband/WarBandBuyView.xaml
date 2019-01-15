@@ -42,8 +42,8 @@
                 </StackPanel>
             </GroupBox>
             <Line Height="10"></Line>
-            <ScrollViewer 
-                HorizontalScrollBarVisibility="Disabled" Height="700"
+            <ScrollViewer
+                HorizontalScrollBarVisibility="Disabled" MaxHeight="900"
                 VerticalScrollBarVisibility="Auto">
                 <ItemsControl ItemsSource="{Binding Warriors}" />
             </ScrollViewer>
