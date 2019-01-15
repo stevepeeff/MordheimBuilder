@@ -13,12 +13,14 @@ namespace DomainModel.Warbands.Undead
         public DireWolf()
         {
             Movement.BaseValue = 9;
-            WeaponSkill.BaseValue = 2;
+            //WeaponSkill.BaseValue = 3;
             BallisticSkill.BaseValue = 0;
+            Strength.BaseValue = 4;
             Initiative.BaseValue = 4;
             LeaderShip.BaseValue = 4;
 
             AddAffliction(new Animal());
+            AddAffliction(new MayNotRun());
             AddAffliction(new SlaveringCharge());
             AddAffliction(new Fear());
             AddAffliction(new ImmuneToPsychology());
