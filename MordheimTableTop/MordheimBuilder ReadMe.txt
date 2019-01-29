@@ -1,7 +1,6 @@
 ﻿TODO LIST
 * Maximize the number of equipped  weapons (2 CC 2Ms see page 47) DONE,
 	=> show user max is reached, 
-	=> make exception to Extra arm DONE
 * Save does not override the saved file
 * Improve the Special rules view
 * Miscellaneous Equipment
@@ -14,6 +13,7 @@
 * Test Comment (tooltip) when adding skills/injuries
 * incorporate the ultimate ref sheet.
 * Warband description
+* The 'Tooltip' on Characteristic Sv is not updated correctly (E.g. buy Light Armour = Shield, change to Heavy Armor )
 
 Version 2.0
 * Progress in game (Out of action etc)
