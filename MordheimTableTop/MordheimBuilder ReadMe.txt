@@ -13,6 +13,8 @@
 * Test Comment (tooltip) when adding skills/injuries
 * incorporate the ultimate ref sheet.
 * Warband description
+* Magic selection (E.g. Warrior Priest)
+* Verify that exp views are disabled on Animal etc.
 * The 'Tooltip' on Characteristic Sv is not updated correctly (E.g. buy Light Armour = Shield, change to Heavy Armor )
 
 Version 2.0

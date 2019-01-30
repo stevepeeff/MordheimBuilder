@@ -1,4 +1,5 @@
-﻿using DomainModel.Psychology;
+﻿using DomainModel.Equipment.Weapons.CloseCombat;
+using DomainModel.Psychology;
 using DomainModel.Warbands.BaseClasses;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,10 @@ namespace DomainModel.Warbands.WitchHunters
             LeaderShip.MaximumValue = 10;
 
             AddAffliction(new Fanatical());
-            _AllowedWeapons.Clear();
-            _EquipmentList.Clear();
+
+            _AllowedWeapons.Add(new Flail());
+            _AllowedWeapons.Add(new MorningStar());
+            _AllowedWeapons.Add(new DoubleHandedWeapon());
         }
 
         public override int HireFee { get; } = 40;
