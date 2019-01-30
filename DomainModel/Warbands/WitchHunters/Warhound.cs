@@ -22,6 +22,8 @@ namespace DomainModel.Warbands.WitchHunters
             AddAffliction(new Animal());
         }
 
+        public override int MaximumExperience => 0;
+
         public override int HireFee { get; } = 15;
 
         public override int MaximumAllowedInWarBand { get; } = 5;

@@ -25,8 +25,25 @@ namespace MordheimTableTop.Warrior
             EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
         }
 
+        /// <summary>
+        /// Finalizes an instance of the <see cref="WarriorViewModel"/> class.
+        /// </summary>
+        ~WarriorViewModel()
+        {
+            Equipment.CollectionChanged -= Equipment_CollectionChanged;
+        }
+
+        /// <summary>
+        /// Occurs when [equipment list changed].
+        /// </summary>
         public event EventHandler EquipmentListChanged;
 
+        /// <summary>
+        /// Gets the affliction vm.
+        /// </summary>
+        /// <value>
+        /// The affliction vm.
+        /// </value>
         public AfflictionViewModel AfflictionVM { get { return new AfflictionViewModel(this); } }
 
         /// <summary>

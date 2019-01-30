@@ -11,11 +11,22 @@ using System.Windows.Media;
 
 namespace MordheimTableTop.Warband
 {
-    internal class WarBandEditViewModel : ViewModelBase, IDisposable
+    internal class WarBandEditViewModel : ViewModelBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WarBandEditViewModel"/> class.
+        /// </summary>
         public WarBandEditViewModel()
         {
             BuilderLogicFactory.Instance.WarbandRoster.WarBandChanged += WarbandRoster_WarBandChanged;
+        }
+
+        /// <summary>
+        /// Finalizes an instance of the <see cref="WarBandEditViewModel"/> class.
+        /// </summary>
+        ~WarBandEditViewModel()
+        {
+            BuilderLogicFactory.Instance.WarbandRoster.WarBandChanged -= WarbandRoster_WarBandChanged;
         }
 
         /// <summary>
@@ -47,14 +58,9 @@ namespace MordheimTableTop.Warband
         /// </value>
         public ObservableCollection<WarriorViewModel> Warriors { get; } = new ObservableCollection<WarriorViewModel>();
 
-        public void Dispose()
-        {
-            BuilderLogicFactory.Instance.WarbandRoster.WarBandChanged -= WarbandRoster_WarBandChanged;
-        }
-
         private void WarbandRoster_WarBandChanged(object sender, EventArgs e)
         {
-            foreach (var item in Warriors)
+            foreach (WarriorViewModel item in Warriors)
             {
                 item.EquipmentListChanged -= WarriorViewModel_EquipmentListChanged;
             }
