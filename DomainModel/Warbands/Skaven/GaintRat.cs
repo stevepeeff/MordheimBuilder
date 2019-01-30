@@ -25,6 +25,8 @@ namespace DomainModel.Warbands.Skaven
 
         public override int MaximumAllowedInWarBand => INFINITE;
 
+        public override int MaximumExperience => 0;
+
         public override IWarrior GetANewInstance()
         {
             return new GaintRat();

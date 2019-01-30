@@ -15,6 +15,7 @@
 * Warband description
 * Magic selection (E.g. Warrior Priest)
 * Verify that exp views are disabled on Animal etc.
+* Make a seperate user control for 'carried' equipment view
 * The 'Tooltip' on Characteristic Sv is not updated correctly (E.g. buy Light Armour = Shield, change to Heavy Armor )
 
 Version 2.0

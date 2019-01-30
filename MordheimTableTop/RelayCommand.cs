@@ -9,8 +9,9 @@ namespace MordheimTableTop
 {
     internal class RelayCommand : ICommand
     {
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
+        private Action<object> _Execute;
+        private Func<object, bool> _CanExecuteFunc = null;
+        private bool? _CanExecute = null;
 
         public event EventHandler CanExecuteChanged
         {
@@ -20,24 +21,26 @@ namespace MordheimTableTop
 
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            this.execute = execute;
-            this.canExecute = canExecute;
+            this._Execute = execute;
+            this._CanExecuteFunc = canExecute;
         }
 
         public RelayCommand(Action<object> execute, bool canExecute)
         {
-            this.execute = execute;
-            this.canExecute = x => canExecute;
+            this._Execute = execute;
+            _CanExecute = canExecute;
         }
 
         public bool CanExecute(object parameter)
         {
-            return this.canExecute == null || this.canExecute(parameter);
+            if (_CanExecute.HasValue) { return _CanExecute.Value; }
+
+            return _CanExecuteFunc == null || this._CanExecuteFunc(parameter);
         }
 
         public void Execute(object parameter)
         {
-            this.execute(parameter);
+            this._Execute(parameter);
         }
     }
 }

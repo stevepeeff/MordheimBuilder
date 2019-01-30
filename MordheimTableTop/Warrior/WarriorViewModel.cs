@@ -14,7 +14,12 @@ using System.Windows.Input;
 
 namespace MordheimTableTop.Warrior
 {
-    public class WarriorViewModel : ViewModelBase, IDisposable
+    /// <summary>
+    /// TODO make this base view model
+    /// </summary>
+    /// <seealso cref="MordheimTableTop.ViewModelBase" />
+    /// <seealso cref="System.IDisposable" />
+    public class WarriorViewModel : ViewModelBase
     {
         public WarriorViewModel(IWarrior warrior)
         {
@@ -57,6 +62,15 @@ namespace MordheimTableTop.Warrior
             get
             {
                 if (Warrior.MaximumExperience == 0) { return Visibility.Collapsed; }
+                return Visibility.Visible;
+            }
+        }
+
+        public Visibility ShowEquipmentList
+        {
+            get
+            {
+                if (Warrior.AllowedEquipment.Count == 0) { return Visibility.Collapsed; }
                 return Visibility.Visible;
             }
         }
@@ -147,7 +161,7 @@ namespace MordheimTableTop.Warrior
 
         public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
 
-        public ICommand ShowEquipmentSelectionCommand => new RelayCommand(x => ShowEquipmentSelection());
+        public ICommand ShowEquipmentSelectionCommand => new RelayCommand(x => ShowEquipmentSelection(), Warrior.AllowedEquipment.Count != 0);
 
         /// <summary>
         /// Gets the show increase decrease buttons.
@@ -169,11 +183,6 @@ namespace MordheimTableTop.Warrior
         public IWarrior Warrior { get; }
 
         public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
-
-        public void Dispose()
-        {
-            Equipment.CollectionChanged -= Equipment_CollectionChanged;
-        }
 
         private void Equipment_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
