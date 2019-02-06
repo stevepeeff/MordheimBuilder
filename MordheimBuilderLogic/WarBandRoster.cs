@@ -112,6 +112,8 @@ namespace MordheimBuilderLogic
             }
         }
 
+        public string SaveFileName { get; set; }
+
         public IWarrior AddWarrior(IWarrior warrior)
         {
             IWarrior newWarrior = warrior.GetAnInstance();

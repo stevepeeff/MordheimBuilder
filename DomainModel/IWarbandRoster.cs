@@ -11,6 +11,8 @@ namespace DomainModel
     {
         event EventHandler WarBandChanged;
 
+        string SaveFileName { get; set; }
+
         /// <summary>Gets a value indicating whether [costs exceed maximum].</summary>
         /// <value>
         ///   <c>true</c> if [costs exceed maximum]; otherwise, <c>false</c>.</value>

@@ -100,7 +100,15 @@ namespace MordheimTableTop
 
         private void Save()
         {
-            ShowSaveSuccessMessage(DalProvider.Instance.Save(BuilderLogicFactory.Instance.WarbandRoster));
+            IWarbandRoster roster = BuilderLogicFactory.Instance.WarbandRoster;
+            if (String.IsNullOrWhiteSpace(roster.SaveFileName))
+            {
+                ShowSaveSuccessMessage(DalProvider.Instance.Save(roster));
+            }
+            else
+            {
+                ShowSaveSuccessMessage(DalProvider.Instance.Save(roster, roster.SaveFileName));
+            }
         }
 
         private void SaveAs()
@@ -111,9 +119,9 @@ namespace MordheimTableTop
             };
             if (saveFileDialog.ShowDialog() == true)
             {
-                ShowSaveSuccessMessage(
-                DalProvider.Instance.Save(BuilderLogicFactory.Instance.WarbandRoster, saveFileDialog.FileName)
-                );
+                IWarbandRoster roster = BuilderLogicFactory.Instance.WarbandRoster;
+                ShowSaveSuccessMessage(DalProvider.Instance.Save(roster, saveFileDialog.FileName));
+                roster.SaveFileName = saveFileDialog.FileName;
             }
         }
 
