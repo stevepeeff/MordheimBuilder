@@ -9,6 +9,8 @@ namespace DomainModel.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            GenericUsage q = new GenericUsage(10);
+            //GenericUsage<int> x = new GenericUsage<int>(10);
         }
     }
 }

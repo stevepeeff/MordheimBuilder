@@ -6,23 +6,9 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Tests
 {
-    internal class GenericBase<T>
+    internal abstract class GenericBase<T> : IGenericBase<T>
     {
-        private T _value;
-
-        public T Value
-        {
-            get
-            {
-                // insert desired logic here
-                return _value;
-            }
-            set
-            {
-                // insert desired logic here
-                _value = value;
-            }
-        }
+        public abstract T Value { get; set; }
 
         //public static implicit operator T(MyProp<T> value)
         //{
