@@ -10,6 +10,8 @@ namespace DomainModel.Tests
     {
         public abstract T Value { get; set; }
 
+        public abstract ValueType TheValueType { get; set; }
+
         //public static implicit operator T(MyProp<T> value)
         //{
         //    return value.Value;

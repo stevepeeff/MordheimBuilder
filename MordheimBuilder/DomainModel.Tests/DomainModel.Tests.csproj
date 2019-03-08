@@ -53,6 +53,8 @@
     <Compile Include="GenericProperty\GenericInt.cs" />
     <Compile Include="GenericProperty\GenericUsage.cs" />
     <Compile Include="GenericProperty\IGenericBase.cs" />
+    <Compile Include="GenericProperty\ValueTyepBase.cs" />
+    <Compile Include="GenericProperty\ValueTypeInt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EquipmentToolsTests.cs" />
     <Compile Include="MutationTests.cs" />

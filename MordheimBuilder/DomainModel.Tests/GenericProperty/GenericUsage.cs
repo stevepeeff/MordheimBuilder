@@ -8,17 +8,19 @@ namespace DomainModel.Tests
 {
     //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/generic-classes
 
-    //internal class GenericUsage<T> //: IGenericUsage : where T is
     internal class GenericUsage : GenericBase<int>
     {
         public GenericUsage(int theValue)
         {
             Value = theValue;
+            TheValueType = theValue;
         }
 
         public GenericUsage()
         {
         }
+
+        public override ValueType TheValueType { get; set; }
 
         public override int Value { get; set; }
 
