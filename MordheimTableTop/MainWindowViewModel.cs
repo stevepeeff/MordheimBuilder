@@ -87,10 +87,12 @@ namespace MordheimTableTop
 
         private void Load()
         {
-            var openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = false;
-            openFileDialog.InitialDirectory = DalProvider.Instance.DefaultStorageDirectory;
-            openFileDialog.Filter = "XML files (*.xml)|*.xml";
+            var openFileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                InitialDirectory = DalProvider.Instance.DefaultStorageDirectory,
+                Filter = "XML files (*.xml)|*.xml"
+            };
 
             if (openFileDialog.ShowDialog() == true)
             {
