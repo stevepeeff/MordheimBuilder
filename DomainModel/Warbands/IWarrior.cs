@@ -271,5 +271,11 @@ namespace DomainModel.Warbands
         /// </summary>
         /// <param name="equipment">The equipment.</param>
         void RemoveEquipment(IEquipment equipment);
+
+        /// <summary>
+        /// Removes the mutation.
+        /// </summary>
+        /// <param name="mutation">The mutation.</param>
+        void RemoveMutation(IMutation mutation);
     }
 }

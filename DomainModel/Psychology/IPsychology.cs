@@ -39,7 +39,8 @@ namespace DomainModel.Psychology
         [Description("Re-roll any failed characteristic tests(climbing, resisting spells or any other reason), and any rolls to hit in close combat or shooting.You must accept the second result.")]
         ReRollAnyFailedCharasteristicAndToHit,
 
-        Mutations
+        Mutations,
+        ExtraAttackOnCharge
     }
 
     public interface IPsychology

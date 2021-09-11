@@ -114,8 +114,6 @@ namespace MordheimTableTop.Warrior
             }
         }
 
-        // public ExperienceView ExperienceView => new ExperienceView(_Warrior);
-
         /// <summary>
         /// Gets the statistics vm.
         /// </summary>
@@ -130,7 +128,19 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The name of the warrior type.
         /// </value>
-        public string WarriorTypeName { get { return _Warrior.TypeName.SplitCamelCasing(); } }
+        public string WarriorTypeName
+        {
+            get
+            {
+                string retval = "(HenchMen) ";
+                if (_Warrior is IHero)
+                {
+                    retval = "(Hero) ";
+                }
+
+                return (retval + _Warrior.TypeName.SplitCamelCasing());
+            }
+        }
 
         public IWarrior _Warrior { get; }
 

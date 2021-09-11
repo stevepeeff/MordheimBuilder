@@ -19,13 +19,13 @@
             <StackPanel>
                 <GroupBox BorderBrush="Black">
                     <GroupBox.Header>
-                        <TextBlock Text="{Binding Path=HeaderText, Mode=OneWay, FallbackValue=Xx}">
-                        </TextBlock>
+                        <TextBlock Text="{Binding Path=HeaderText, Mode=OneWay, FallbackValue=Xx}" />
                     </GroupBox.Header>
-                    <TextBox Foreground="{Binding TextColor, Mode=OneWay}" Text="{Binding ContentValue, Mode=OneWay}" FontWeight="Bold" TextAlignment="Center">
-                        <TextBox.ToolTip>
-                            <TextBlock Text="{Binding ToolTipText, Mode=OneWay}"   TextAlignment="Left" />
-                        </TextBox.ToolTip>
+                    <TextBox Foreground="{Binding TextColor, Mode=OneWay}" Text="{Binding ContentValue, Mode=OneWay}"
+                             FontWeight="Bold" TextAlignment="Center" ToolTipService.ShowDuration="50000">
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="{Binding  ToolTipText}" />
+                        </ToolTipService.ToolTip>
                     </TextBox>
                 </GroupBox>
             </StackPanel>

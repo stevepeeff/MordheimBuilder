@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MordheimTableTop.Warrior
 {
-    internal class StatisticsViewModel : ViewModelBase
+    public class StatisticsViewModel : ViewModelBase
     {
         private IWarrior _Warrior;
 

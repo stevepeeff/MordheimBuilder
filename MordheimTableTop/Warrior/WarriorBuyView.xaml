@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MordheimTableTop.Warrior"
              mc:Ignorable="d"
-             d:DesignHeight="140" Width="780"
+             d:DesignHeight="140" MinWidth="500"
              d:DataContext="{d:DesignInstance local:WarriorBuyViewModel}">
     <UserControl.Resources>
     </UserControl.Resources>
@@ -16,11 +16,11 @@
                     <StackPanel>
                         <local:StatisticsView DataContext="{Binding StatisticsVM}"></local:StatisticsView>
                         <DockPanel>
-                            <Label FontStyle="Oblique">Allowed Skills:</Label>
+                            <Label FontStyle="Oblique" FontFamily="FrankRuehl">Allowed Skills:</Label>
                             <Label Content="{Binding SkillSummary}" Width="400" FontStyle="Oblique"></Label>
                         </DockPanel>
                         <DockPanel>
-                            <Label FontStyle="Oblique">Special Rules:</Label>
+                            <Label FontStyle="Oblique" FontFamily="Franklin Gothic">Special Rules:</Label>
                             <Label Content="{Binding SpecialRulesSummary}" FontStyle="Oblique"></Label>
                         </DockPanel>
                     </StackPanel>

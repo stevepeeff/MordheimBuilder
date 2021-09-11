@@ -104,12 +104,20 @@ namespace MordheimBuilderLogic
         /// </value>
         public string Name { get; set; }
 
+        public bool CostsExceedMaximum
+        {
+            get
+            {
+                return TotalCosts > WarBand.StartingCash;
+            }
+        }
+
+        public string SaveFileName { get; set; }
+
         public IWarrior AddWarrior(IWarrior warrior)
         {
             IWarrior newWarrior = warrior.GetAnInstance();
             Warriors.Add(newWarrior);
-
-            // newWarrior.PropertiesChanged += NewWarrior_PropertiesChanged;
 
             if (newWarrior is IHenchMen)
             {
@@ -118,7 +126,6 @@ namespace MordheimBuilderLogic
             }
 
             InvokeEvent(WarBandChanged);
-            // InvokeEvent(WarBandWariorListChanged);
 
             return newWarrior;
         }
@@ -159,7 +166,6 @@ namespace MordheimBuilderLogic
         {
             Warriors.Remove(warrior);
             InvokeEvent(WarBandChanged);
-            //InvokeEvent(WarBandWariorListChanged);
         }
 
         private void InvokeEvent(EventHandler handler)
@@ -168,11 +174,6 @@ namespace MordheimBuilderLogic
             {
                 handler(this, EventArgs.Empty);
             }
-        }
-
-        private void NewWarrior_PropertiesChanged(object sender, EventArgs e)
-        {
-            InvokeEvent(WarBandChanged);
         }
 
         private int NumberOffWarriorsOfThisTypeInRoster(IWarrior warrior)

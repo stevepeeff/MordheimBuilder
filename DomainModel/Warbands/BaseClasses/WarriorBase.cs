@@ -55,8 +55,6 @@ namespace DomainModel.Warbands.BaseClasses
             };
         }
 
-        //  public event EventHandler PropertiesChanged;
-
         public IRacialAdvantage Advantages { get; protected set; }
         public IReadOnlyCollection<IPsychology> Afflictions { get { return _Afflictions; } }
         public IReadOnlyCollection<IEquipment> AllowedEquipment { get { return _AllowedWeapons; } }
@@ -85,7 +83,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         public IReadOnlyCollection<IEquipment> Equipment { get { return _EquipmentList; } }
 
-        public int EquipmentCosts
+        public virtual int EquipmentCosts
         {
             get
             {
@@ -329,7 +327,12 @@ namespace DomainModel.Warbands.BaseClasses
 
         public virtual bool AddMutation(IMutation mutation)
         {
-            return false;
+            throw new NotImplementedException();
+        }
+
+        public virtual void RemoveMutation(IMutation mutation)
+        {
+            throw new NotImplementedException();
         }
     }
 }

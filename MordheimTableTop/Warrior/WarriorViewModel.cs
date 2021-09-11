@@ -14,33 +14,66 @@ using System.Windows.Input;
 
 namespace MordheimTableTop.Warrior
 {
-    internal class WarriorViewModel : ViewModelBase
+    /// <summary>
+    /// TODO make this base view model
+    /// </summary>
+    /// <seealso cref="MordheimTableTop.ViewModelBase" />
+    /// <seealso cref="System.IDisposable" />
+    public class WarriorViewModel : ViewModelBase
     {
         public WarriorViewModel(IWarrior warrior)
         {
             Warrior = warrior;
-            EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
+            Equipment = warrior.EquipmentAndMutattionsToViewModel();
+            //TODO, move attach only when showing the EQP VM
             Equipment.CollectionChanged += Equipment_CollectionChanged;
-        }
-
-        private void Equipment_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            NotifiyPropertyChangedEvent(nameof(GroupCosts));
-            NotifiyPropertyChangedEvent(nameof(EquipmentCosts));
-
-            if (EquipmentListChanged != null)
-            {
-                EquipmentListChanged.Invoke(this, EventArgs.Empty);
-            }
+            EquipmentSelectionVM = new EquipmentSelectionViewModel(this);
         }
 
         /// <summary>
-        /// Gets the equipment costs.
+        /// Finalizes an instance of the <see cref="WarriorViewModel"/> class.
+        /// </summary>
+        ~WarriorViewModel()
+        {
+            Equipment.CollectionChanged -= Equipment_CollectionChanged;
+        }
+
+        /// <summary>
+        /// Occurs when [equipment list changed].
+        /// </summary>
+        public event EventHandler EquipmentListChanged;
+
+        /// <summary>
+        /// Gets the affliction vm.
         /// </summary>
         /// <value>
-        /// The equipment costs.
+        /// The affliction vm.
         /// </value>
-        public int EquipmentCosts { get { return Warrior.EquipmentCosts; } }
+        public AfflictionViewModel AfflictionVM { get { return new AfflictionViewModel(this); } }
+
+        /// <summary>
+        /// Gets the show experience.
+        /// </summary>
+        /// <value>
+        /// The show experience.
+        /// </value>
+        public Visibility ShowExperience
+        {
+            get
+            {
+                if (Warrior.MaximumExperience == 0) { return Visibility.Collapsed; }
+                return Visibility.Visible;
+            }
+        }
+
+        public Visibility ShowEquipmentList
+        {
+            get
+            {
+                if (Warrior.AllowedEquipment.Count == 0) { return Visibility.Collapsed; }
+                return Visibility.Visible;
+            }
+        }
 
         /// <summary>
         /// Gets the decrease henchmen command.
@@ -50,9 +83,15 @@ namespace MordheimTableTop.Warrior
         /// </value>
         public ICommand DecreaseHenchmenCommand => new DecreaseBuyAmount(Warrior);
 
-        public ObservableCollection<EquipmentViewModel> Equipment { get; } = new ObservableCollection<EquipmentViewModel>();
+        public ObservableCollection<EquipmentViewModel> Equipment { get; }
 
-        public event EventHandler EquipmentListChanged;
+        /// <summary>
+        /// Gets the equipment costs.
+        /// </summary>
+        /// <value>
+        /// The equipment costs.
+        /// </value>
+        public int EquipmentCosts { get { return Warrior.EquipmentCosts; } }
 
         /// <summary>
         /// Gets the equipment selection vm.
@@ -78,18 +117,6 @@ namespace MordheimTableTop.Warrior
             }
         }
 
-        public string GroupCountFormatted
-        {
-            get
-            {
-                if (Warrior is IHenchMen)
-                {
-                    return $"({GroupCount})";
-                }
-                return String.Empty;
-            }
-        }
-
         public int? GroupCount
         {
             get
@@ -101,6 +128,18 @@ namespace MordheimTableTop.Warrior
                 }
 
                 return null;
+            }
+        }
+
+        public string GroupCountFormatted
+        {
+            get
+            {
+                if (Warrior is IHenchMen)
+                {
+                    return $"({GroupCount})";
+                }
+                return String.Empty;
             }
         }
 
@@ -122,7 +161,7 @@ namespace MordheimTableTop.Warrior
 
         public ICommand RemoveWarriorCommand => new RelayCommand(x => BuilderLogicFactory.Instance.WarbandRoster.RemoveWarrior(Warrior));
 
-        public ICommand ShowEquipementSelectionCommand => new RelayCommand(x => ShowEquipmentSeelection());
+        public ICommand ShowEquipmentSelectionCommand => new RelayCommand(x => ShowEquipmentSelection(), Warrior.AllowedEquipment.Count != 0);
 
         /// <summary>
         /// Gets the show increase decrease buttons.
@@ -145,7 +184,18 @@ namespace MordheimTableTop.Warrior
 
         public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
 
-        private void ShowEquipmentSeelection()
+        private void Equipment_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            NotifiyPropertyChangedEvent(nameof(GroupCosts));
+            NotifiyPropertyChangedEvent(nameof(EquipmentCosts));
+
+            if (EquipmentListChanged != null)
+            {
+                EquipmentListChanged.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private void ShowEquipmentSelection()
         {
             Window window = new Window()
             {

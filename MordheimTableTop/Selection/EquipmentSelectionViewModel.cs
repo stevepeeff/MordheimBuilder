@@ -46,10 +46,10 @@ namespace MordheimTableTop.Selection
         public List<CloseCombatWeaponViewModel> CloseCombatWeapons { get; } = new List<CloseCombatWeaponViewModel>();
 
         public ObservableCollection<EquipmentViewModel> Equipment { get { return WarriorVM.Equipment; } }
-
         public List<MissleWeaponViewModel> MisseleWeapons { get; } = new List<MissleWeaponViewModel>();
 
         public List<MutationViewModel> Mutations { get; } = new List<MutationViewModel>();
+        public ICommand RmovEqpuimentCommand => new RelayCommand((parameter) => RmEquipment(parameter));
 
         /// <summary>
         /// Gets the show armour selection.
@@ -62,6 +62,40 @@ namespace MordheimTableTop.Selection
             get
             {
                 if (Armours.Any()) { return Visibility.Visible; }
+                return Visibility.Collapsed;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether [maximum close combat cap not reached].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [maximum close combat cap not reached]; otherwise, <c>false</c>.
+        /// </value>
+        public bool MaximumCloseCombatCapNotReached
+        {
+            get { return !Warrior.MaximumCloseCombatWeaponsReached(); }
+        }
+
+        /// <summary>Gets a value indicating whether [maximum missile weapon cap not reached].</summary>
+        /// <value>
+        ///   <c>true</c> if [maximum missile weapon cap not reached]; otherwise, <c>false</c>.</value>
+        public bool MaximumMisseleWeaponCapNotReached
+        {
+            get { return !Warrior.Equipment.MaximumRangedWeaponsReached(); }
+        }
+
+        /// <summary>
+        /// Gets the show close combat weapon selection.
+        /// </summary>
+        /// <value>
+        /// The show close combat weapon selection.
+        /// </value>
+        public Visibility ShowCloseCombatWeaponSelection
+        {
+            get
+            {
+                if (CloseCombatWeapons.Any()) { return Visibility.Visible; }
                 return Visibility.Collapsed;
             }
         }
@@ -96,24 +130,9 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        /// <summary>
-        /// Gets the show close combat weapon selection.
-        /// </summary>
-        /// <value>
-        /// The show close combat weapon selection.
-        /// </value>
-        public Visibility ShowCloseCombatWeaponSelection
-        {
-            get
-            {
-                if (CloseCombatWeapons.Any()) { return Visibility.Visible; }
-                return Visibility.Collapsed;
-            }
-        }
-
         public IWarrior Warrior { get { return WarriorVM.Warrior; } }
 
-        internal WarriorViewModel WarriorVM { get; }
+        public WarriorViewModel WarriorVM { get; }
 
         private void BuyEquipment(object parameter)
         {
@@ -123,6 +142,7 @@ namespace MordheimTableTop.Selection
                 if (Warrior.AddEquipment(ccWpn.CloseCombatWeapon))
                 {
                     Equipment.Add(ccWpn);
+                    NotifiyPropertyChangedEvent(nameof(MaximumCloseCombatCapNotReached));
                 }
             }
             if (parameter is MissleWeaponViewModel)
@@ -132,6 +152,7 @@ namespace MordheimTableTop.Selection
                 if (Warrior.AddEquipment(mslWpn.MisseleWeapon))
                 {
                     Equipment.Add(mslWpn);
+                    NotifiyPropertyChangedEvent(nameof(MaximumMisseleWeaponCapNotReached));
                     mslWpn.CanBeSelected = false;
                 }
             }
@@ -150,6 +171,41 @@ namespace MordheimTableTop.Selection
                 {
                     Equipment.Add(mutation);
                 }
+            }
+        }
+
+        private void RmEquipment(object parameter)
+        {
+            IEquipment equipment = null;
+
+            if (parameter is CloseCombatWeaponViewModel)
+            {
+                var ccWpn = parameter as CloseCombatWeaponViewModel;
+                equipment = ccWpn.CloseCombatWeapon;
+                Warrior.RemoveEquipment(equipment);
+                Equipment.Remove(ccWpn);
+                NotifiyPropertyChangedEvent(nameof(MaximumCloseCombatCapNotReached));
+            }
+            if (parameter is MissleWeaponViewModel)
+            {
+                var mslWpn = parameter as MissleWeaponViewModel;
+                equipment = mslWpn.MisseleWeapon;
+                Warrior.RemoveEquipment(equipment);
+                Equipment.Remove(mslWpn);
+                NotifiyPropertyChangedEvent(nameof(MaximumMisseleWeaponCapNotReached));
+            }
+            if (parameter is ArmourViewModel)
+            {
+                var armrourViwModl = parameter as ArmourViewModel;
+                equipment = armrourViwModl.Armour;
+                Warrior.RemoveEquipment(equipment);
+                Equipment.Remove(armrourViwModl);
+            }
+            if (parameter is MutationViewModel)
+            {
+                var mutationViewModel = parameter as MutationViewModel;
+                Warrior.RemoveMutation(mutationViewModel.Mutation);
+                Equipment.Remove(mutationViewModel);
             }
         }
     }

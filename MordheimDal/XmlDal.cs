@@ -45,26 +45,17 @@ namespace MordheimDal
             return warbandRoster;
         }
 
-        public void Save(IWarbandRoster roster)
+        public string Save(IWarbandRoster roster)
         {
             if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
 
             string rosterName = roster.Name;
             string filename = BuildFileNameAndCreateStoragerDirectory(rosterName);
 
-            XmlHeadNode xmlHeadNode = new XmlHeadNode();
-            xmlHeadNode.WarbandRoster.Name = rosterName;
-            xmlHeadNode.WarbandRoster.Warband = roster.WarBand.WarBandName;
-
-            foreach (IWarrior warrior in roster.Warriors)
-            {
-                xmlHeadNode.WarbandRoster.WarriorList.Add(warrior.ToXml());
-            }
-
-            XMLUtils.AtomicSave<XmlHeadNode>(xmlHeadNode, Path.Combine(STORAGE_PATH, filename));
+            return Save(roster, Path.Combine(STORAGE_PATH, filename));
         }
 
-        public void Save(IWarbandRoster roster, string specificFileName)
+        public string Save(IWarbandRoster roster, string specificFileName)
         {
             if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
 
@@ -76,6 +67,8 @@ namespace MordheimDal
             }
 
             SaveXml(specificFileName, xmlHeadNode);
+
+            return specificFileName;
         }
 
         private static string BuildFileNameAndCreateStoragerDirectory(string rosterName)

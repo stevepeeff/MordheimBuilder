@@ -7,14 +7,26 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace MordheimTableTop.Warband
 {
     internal class WarBandEditViewModel : ViewModelBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WarBandEditViewModel"/> class.
+        /// </summary>
         public WarBandEditViewModel()
         {
             BuilderLogicFactory.Instance.WarbandRoster.WarBandChanged += WarbandRoster_WarBandChanged;
+        }
+
+        /// <summary>
+        /// Finalizes an instance of the <see cref="WarBandEditViewModel"/> class.
+        /// </summary>
+        ~WarBandEditViewModel()
+        {
+            BuilderLogicFactory.Instance.WarbandRoster.WarBandChanged -= WarbandRoster_WarBandChanged;
         }
 
         /// <summary>
@@ -29,6 +41,15 @@ namespace MordheimTableTop.Warband
         public int TotalCosts { get { return Roster.TotalCosts; } }
         public int WarbandRating { get { return Roster.WarbandRating; } }
 
+        public SolidColorBrush CostsColour
+        {
+            get
+            {
+                if (Roster.CostsExceedMaximum) { return Brushes.Red; }
+                return Brushes.Black;
+            }
+        }
+
         /// <summary>
         /// Gets the warriors.
         /// </summary>
@@ -39,7 +60,7 @@ namespace MordheimTableTop.Warband
 
         private void WarbandRoster_WarBandChanged(object sender, EventArgs e)
         {
-            foreach (var item in Warriors)
+            foreach (WarriorViewModel item in Warriors)
             {
                 item.EquipmentListChanged -= WarriorViewModel_EquipmentListChanged;
             }
@@ -55,12 +76,14 @@ namespace MordheimTableTop.Warband
 
             NotifiyPropertyChangedEvent(nameof(TotalNumberOfWarriors));
             NotifiyPropertyChangedEvent(nameof(TotalCosts));
+            NotifiyPropertyChangedEvent(nameof(CostsColour));
             NotifiyPropertyChangedEvent(nameof(WarbandRating));
         }
 
         private void WarriorViewModel_EquipmentListChanged(object sender, EventArgs e)
         {
             NotifiyPropertyChangedEvent(nameof(TotalCosts));
+            NotifiyPropertyChangedEvent(nameof(CostsColour));
         }
     }
 }

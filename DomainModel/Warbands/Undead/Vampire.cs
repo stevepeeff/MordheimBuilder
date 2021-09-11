@@ -13,7 +13,7 @@ namespace DomainModel.Warbands.Undead
     {
         public Vampire()
         {
-            Movement.BaseValue = 5;
+            Movement.BaseValue = 6;
             WeaponSkill.BaseValue = 4;
             BallisticSkill.BaseValue = 4;
             Strength.BaseValue = 4;
@@ -37,6 +37,8 @@ namespace DomainModel.Warbands.Undead
         }
 
         public override int HireFee => 110;
+
+        public override int InitialExperience { get; } = 20;
 
         public override int MaximumAllowedInWarBand => 1;
 

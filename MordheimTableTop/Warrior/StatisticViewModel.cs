@@ -9,14 +9,28 @@ using System.Windows.Media;
 
 namespace MordheimTableTop.Warrior
 {
-    internal class StatisticViewModel : ViewModelBase
+    public class StatisticViewModel : ViewModelBase
     {
         private Characteristic _characteristic;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatisticViewModel"/> class.
+        /// </summary>
+        /// <param name="characteristic">The characteristic.</param>
+        /// <exception cref="ArgumentNullException">characteristic</exception>
         public StatisticViewModel(Characteristic characteristic)
         {
+            if (characteristic == null) { throw new ArgumentNullException("characteristic"); }
             _characteristic = characteristic;
             _characteristic.CharacteristicChanged += Characteristic_CharacteristicChanged;
+        }
+
+        /// <summary>
+        /// Finalizes an instance of the <see cref="StatisticViewModel"/> class.
+        /// </summary>
+        ~StatisticViewModel()
+        {
+            _characteristic.CharacteristicChanged -= Characteristic_CharacteristicChanged;
         }
 
         /// <summary>
@@ -84,7 +98,7 @@ namespace MordheimTableTop.Warrior
                 {
                     return "No modifications on this characteristic";
                 }
-                return _characteristic.ModifierSummary;
+                return _characteristic.ModifierSummary.SplitCamelCasing();
             }
         }
 
