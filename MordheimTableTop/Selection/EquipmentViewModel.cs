@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MordheimTableTop.Selection
 {
@@ -13,6 +14,36 @@ namespace MordheimTableTop.Selection
     {
         public virtual string Save { get; } = "-";
         public abstract string Name { get; }
+
+        //private FontWeight mFont = FontWeight.
+
+        //public FontWeight Font
+        //{
+        //    get { return mFont; }
+        //    set
+        //    {
+        //        if (value != mFont)
+        //        {
+        //            mFont = value;
+        //            NotifiyPropertyChangedEvent();
+        //        }
+        //    }
+        //}
+
+        private bool mCanBeSelected = true;
+
+        public bool CanBeSelected
+        {
+            get { return mCanBeSelected; }
+            set
+            {
+                if (value != mCanBeSelected)
+                {
+                    mCanBeSelected = value;
+                    NotifiyPropertyChangedEvent();
+                }
+            }
+        }
 
         public abstract int Costs { get; }
 

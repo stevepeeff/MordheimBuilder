@@ -37,6 +37,12 @@
                                       Command="{Binding BuyEqpuimentCommand}"
                                       CommandParameter="{Binding SelectedItem , ElementName=DgMssWpn}" />
                     </DataGrid.InputBindings>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="FontStyle" Value="Italic"></Setter>
+                            <Setter Property="IsHitTestVisible" Value="{Binding CanBeSelected}" />
+                        </Style>
+                    </DataGrid.RowStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="180" />
                         <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50" />

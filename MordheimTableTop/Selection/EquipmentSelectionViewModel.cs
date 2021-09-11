@@ -128,9 +128,11 @@ namespace MordheimTableTop.Selection
             if (parameter is MissleWeaponViewModel)
             {
                 var mslWpn = parameter as MissleWeaponViewModel;
+
                 if (Warrior.AddEquipment(mslWpn.MisseleWeapon))
                 {
                     Equipment.Add(mslWpn);
+                    mslWpn.CanBeSelected = false;
                 }
             }
             if (parameter is ArmourViewModel)
