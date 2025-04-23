@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Magic.LesserMagic
+﻿namespace DomainModel.Magic.LesserMagic
 {
-    class SilverArrowsOfArha
+    internal class SilverArrowsOfArha
     {
     }
 }

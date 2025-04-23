@@ -1,16 +1,10 @@
-﻿using DomainModel.Equipment;
-using DomainModel.Equipment.Armour;
+﻿using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Warbands;
 using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimTableTop.Selection
 {

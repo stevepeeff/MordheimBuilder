@@ -1,5 +1,4 @@
-﻿using System;
-using DomainModel.Warbands.CultOfThePossessed;
+﻿using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

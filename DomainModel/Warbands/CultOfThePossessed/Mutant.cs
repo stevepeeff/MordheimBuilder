@@ -1,11 +1,4 @@
-﻿using DomainModel.Psychology;
-using DomainModel.Skills;
-using DomainModel.Warbands.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DomainModel.Skills;
 
 namespace DomainModel.Warbands.CultOfThePossessed
 {

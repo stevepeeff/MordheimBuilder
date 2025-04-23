@@ -1,13 +1,4 @@
-﻿using DomainModel.Equipment;
-using DomainModel.Equipment.Armour;
-using DomainModel.Equipment.Weapons.CloseCombat;
-using DomainModel.Equipment.Weapons.Missile;
-using DomainModel.RacialAdvantages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DomainModel.RacialAdvantages;
 
 namespace DomainModel.Warbands.BaseClasses
 {

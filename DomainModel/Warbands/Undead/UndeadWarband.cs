@@ -3,11 +3,7 @@ using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Equipment.Weapons.Missile;
 using DomainModel.Warbands.BaseClasses;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.Undead
 {
@@ -24,7 +20,7 @@ namespace DomainModel.Warbands.Undead
             HenchMenList.Add(new DireWolf());
         }
 
-        static public List<IEquipment> UndeadEquipmentList { get; } = new List<IEquipment>()
+        public static List<IEquipment> UndeadEquipmentList { get; } = new List<IEquipment>()
         {
              new Dagger(), new Axe(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(), new Spear(), new Halberd(),
             new Bow(), new ShortBow(),

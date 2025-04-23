@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DomainModel.Equipment;
-using DomainModel.Equipment.Armour;
-using DomainModel.Equipment.Weapons.CloseCombat;
-using DomainModel.Injuries;
+﻿using DomainModel.Injuries;
 using DomainModel.Skills;
 using DomainModel.Skills.Strength;
 using DomainModel.Warbands;
 using DomainModel.Warbands.BaseClasses;
-using DomainModel.Warbands.Middenheim;
 using DomainModel.Warbands.Reikland;
 using DomainModel.Warbands.Skaven;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DomainModel.Tests
 {

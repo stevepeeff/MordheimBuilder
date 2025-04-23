@@ -1,14 +1,9 @@
-﻿using DomainModel.Equipment.Weapons.CloseCombat;
-using DomainModel.Warbands;
+﻿using DomainModel.Warbands;
 using MordheimBuilderLogic;
 using MordheimTableTop.Selection;
 using MordheimTableTop.Warrior.Commands;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -49,7 +44,8 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The affliction vm.
         /// </value>
-        public AfflictionViewModel AfflictionVM { get { return new AfflictionViewModel(this); } }
+        public AfflictionViewModel AfflictionVM
+        { get { return new AfflictionViewModel(this); } }
 
         /// <summary>
         /// Gets the show experience.
@@ -91,7 +87,8 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The equipment costs.
         /// </value>
-        public int EquipmentCosts { get { return Warrior.EquipmentCosts; } }
+        public int EquipmentCosts
+        { get { return Warrior.EquipmentCosts; } }
 
         /// <summary>
         /// Gets the equipment selection vm.
@@ -178,11 +175,13 @@ namespace MordheimTableTop.Warrior
             }
         }
 
-        public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(Warrior); } }
+        public StatisticsViewModel StatisticsVM
+        { get { return new StatisticsViewModel(Warrior); } }
 
         public IWarrior Warrior { get; }
 
-        public string WarriorTypeName { get { return Warrior.TypeName.SplitCamelCasing(); } }
+        public string WarriorTypeName
+        { get { return Warrior.TypeName.SplitCamelCasing(); } }
 
         private void Equipment_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {

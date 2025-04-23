@@ -1,16 +1,6 @@
-﻿using DomainModel.Equipment.Armour;
-using DomainModel.Equipment.Weapons.CloseCombat;
-using DomainModel.Equipment.Weapons.Missile;
-using DomainModel.Injuries;
-using DomainModel.Psychology;
+﻿using DomainModel.Psychology;
 using DomainModel.Skills;
-using DomainModel.Skills.Academic;
 using DomainModel.Warbands.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.WitchHunters
 {

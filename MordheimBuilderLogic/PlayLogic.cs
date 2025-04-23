@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainModel;
+﻿using DomainModel;
 using DomainModel.ProgressionLogs;
 using DomainModel.Warbands;
 using DomainModel.WarriorStatus;
+using System;
 
 namespace MordheimBuilderLogic
 {

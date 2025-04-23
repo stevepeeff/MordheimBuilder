@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainModel.Equipment;
+﻿using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
@@ -12,6 +7,9 @@ using DomainModel.RacialAdvantages;
 using DomainModel.Skills;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using DomainModel.WarriorStatus;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DomainModel.Warbands.BaseClasses
 {
@@ -56,9 +54,16 @@ namespace DomainModel.Warbands.BaseClasses
         }
 
         public IRacialAdvantage Advantages { get; protected set; }
-        public IReadOnlyCollection<IPsychology> Afflictions { get { return _Afflictions; } }
-        public IReadOnlyCollection<IEquipment> AllowedEquipment { get { return _AllowedWeapons; } }
-        public IReadOnlyCollection<ISkill> AllowedSkills { get { return _AllowedSkills; } }
+
+        public IReadOnlyCollection<IPsychology> Afflictions
+        { get { return _Afflictions; } }
+
+        public IReadOnlyCollection<IEquipment> AllowedEquipment
+        { get { return _AllowedWeapons; } }
+
+        public IReadOnlyCollection<ISkill> AllowedSkills
+        { get { return _AllowedSkills; } }
+
         public int AmountInGroup { get; private set; } = 0;
         public Characteristic Attacks { get; private set; }
         public Characteristic BallisticSkill { get; private set; }
@@ -81,7 +86,8 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
-        public IReadOnlyCollection<IEquipment> Equipment { get { return _EquipmentList; } }
+        public IReadOnlyCollection<IEquipment> Equipment
+        { get { return _EquipmentList; } }
 
         public virtual int EquipmentCosts
         {
@@ -153,10 +159,16 @@ namespace DomainModel.Warbands.BaseClasses
         public Characteristic Movement { get; private set; }
         public string Name { get; set; }
         public Characteristic Save { get; private set; }
-        public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }
+
+        public IReadOnlyCollection<ISkill> Skills
+        { get { return _Skills; } }
+
         public Characteristic Strength { get; private set; }
         public Characteristic Toughness { get; private set; }
-        public string TypeName { get { return this.GetType().Name; } }
+
+        public string TypeName
+        { get { return this.GetType().Name; } }
+
         public IWarriorStatus WarriorStatus { get; private set; } = new InAction();
 
         public Characteristic WeaponSkill { get; private set; }

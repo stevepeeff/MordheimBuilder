@@ -2,10 +2,6 @@
 using DomainModel.Warbands;
 using MordheimBuilderLogic;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MordheimTableTop.Warrior
@@ -35,7 +31,8 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The hire fee.
         /// </value>
-        public int HireFee { get { return _Warrior.HireFee; } }
+        public int HireFee
+        { get { return _Warrior.HireFee; } }
 
         /// <summary>
         /// Gets the maximum in warband.
@@ -120,7 +117,8 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The statistics vm.
         /// </value>
-        public StatisticsViewModel StatisticsVM { get { return new StatisticsViewModel(_Warrior); } }
+        public StatisticsViewModel StatisticsVM
+        { get { return new StatisticsViewModel(_Warrior); } }
 
         /// <summary>
         /// Gets the name of the warrior type.

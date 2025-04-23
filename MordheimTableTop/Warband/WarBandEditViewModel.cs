@@ -2,11 +2,7 @@
 using MordheimBuilderLogic;
 using MordheimTableTop.Warrior;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace MordheimTableTop.Warband
@@ -37,9 +33,14 @@ namespace MordheimTableTop.Warband
         /// </value>
         public IWarbandRoster Roster { get; } = BuilderLogicFactory.Instance.WarbandRoster;
 
-        public int TotalNumberOfWarriors { get { return Roster.TotalNumberOfWarriors; } }
-        public int TotalCosts { get { return Roster.TotalCosts; } }
-        public int WarbandRating { get { return Roster.WarbandRating; } }
+        public int TotalNumberOfWarriors
+        { get { return Roster.TotalNumberOfWarriors; } }
+
+        public int TotalCosts
+        { get { return Roster.TotalCosts; } }
+
+        public int WarbandRating
+        { get { return Roster.WarbandRating; } }
 
         public SolidColorBrush CostsColour
         {

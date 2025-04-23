@@ -1,10 +1,6 @@
 ﻿using DomainModel;
 using DomainModel.Warbands;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace MordheimTableTop.Warrior
@@ -82,7 +78,8 @@ namespace MordheimTableTop.Warrior
         /// <value>
         /// The header text.
         /// </value>
-        public string HeaderText { get { return _characteristic.LabelName; } }
+        public string HeaderText
+        { get { return _characteristic.LabelName; } }
 
         /// <summary>
         /// Gets the tool tip text.

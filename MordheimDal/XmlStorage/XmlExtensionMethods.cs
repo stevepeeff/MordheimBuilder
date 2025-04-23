@@ -1,14 +1,8 @@
 ﻿using DomainModel;
-using DomainModel.Equipment;
 using DomainModel.Warbands;
-using DomainModel.Warbands.BaseClasses;
 using DomainModel.Warbands.CultOfThePossessed;
 using MordheimXmlDal.XmlStorage;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimDal.XmlStorage
 {

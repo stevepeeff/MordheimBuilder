@@ -99,8 +99,10 @@ namespace MordheimDal.Tests
         {
             string rosterName = $"{warbandName}{"SaveAndLoad Cult Of the Possessed"}";
             string warriorName = "Unit Test Warrior";
-            var cultRoster = new WarBandRoster(new CultOfThePossessedWarband());
-            cultRoster.Name = rosterName;
+            var cultRoster = new WarBandRoster(new CultOfThePossessedWarband())
+            {
+                Name = rosterName
+            };
 
             IWarrior mutant = cultRoster.AddWarrior(new Mutant());
             mutant.Name = warriorName;

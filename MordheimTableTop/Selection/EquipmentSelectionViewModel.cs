@@ -6,12 +6,9 @@ using DomainModel.Warbands;
 using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using MordheimTableTop.Warrior;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -45,7 +42,9 @@ namespace MordheimTableTop.Selection
 
         public List<CloseCombatWeaponViewModel> CloseCombatWeapons { get; } = new List<CloseCombatWeaponViewModel>();
 
-        public ObservableCollection<EquipmentViewModel> Equipment { get { return WarriorVM.Equipment; } }
+        public ObservableCollection<EquipmentViewModel> Equipment
+        { get { return WarriorVM.Equipment; } }
+
         public List<MissleWeaponViewModel> MisseleWeapons { get; } = new List<MissleWeaponViewModel>();
 
         public List<MutationViewModel> Mutations { get; } = new List<MutationViewModel>();
@@ -130,7 +129,8 @@ namespace MordheimTableTop.Selection
             }
         }
 
-        public IWarrior Warrior { get { return WarriorVM.Warrior; } }
+        public IWarrior Warrior
+        { get { return WarriorVM.Warrior; } }
 
         public WarriorViewModel WarriorVM { get; }
 

@@ -3,11 +3,7 @@ using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Equipment.Weapons.Missile;
 using DomainModel.Warbands.BaseClasses;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.SistersOfSigmar
 {
@@ -23,14 +19,14 @@ namespace DomainModel.Warbands.SistersOfSigmar
             HenchMenList.Add(new Novice());
         }
 
-        static public List<IEquipment> WeaponList { get; } = new List<IEquipment>()
+        public static List<IEquipment> WeaponList { get; } = new List<IEquipment>()
         {
             new Dagger(), new ClubMaceHammer(), new SigmariteWarhammer(), new Flail(), new SteelWhip(), new DoubleHandedWeapon(),
             new Sling(),
         };
 
         //TODO add Miscelianes equipment (heroes only)
-        static public List<IEquipment> ArmourList { get; } = new List<IEquipment>()
+        public static List<IEquipment> ArmourList { get; } = new List<IEquipment>()
         {
             new LightArmour(), new HeavyArmour(), new Shield(), new Buckler(), new Helmet(),
         };

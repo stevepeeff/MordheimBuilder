@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using DomainModel.Equipment;
+﻿using DomainModel.Equipment;
 using DomainModel.Equipment.Miscellaneous;
 using DomainModel.Warbands.SistersOfSigmar;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace DomainModel.Tests
 {

@@ -2,11 +2,8 @@
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Warbands;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Equipment
 {

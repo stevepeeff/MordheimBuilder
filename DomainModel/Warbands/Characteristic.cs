@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DomainModel.Equipment;
+﻿using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Injuries;
 using DomainModel.Skills;
 using DomainModel.Warbands.BaseClasses;
-using DomainModel.Warbands.CultOfThePossessed;
-using DomainModel.Warbands.CultOfThePossessed.Mutations;
+using System;
 
 namespace DomainModel.Warbands
 {

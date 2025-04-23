@@ -1,13 +1,8 @@
 ﻿using DomainModel;
 using DomainModel.Warbands;
-using DomainModel.Warbands.Skaven;
-using DomainModel.Warbands.WitchHunters;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimBuilderLogic
 {
@@ -23,7 +18,8 @@ namespace MordheimBuilderLogic
 
         public event EventHandler<WarBandRosterEventArgs> WarbandRosterChanged;
 
-        public IReadOnlyCollection<IWarBand> AvailableWarbands { get { return WarBandProvider.Instance.WarBands; } }
+        public IReadOnlyCollection<IWarBand> AvailableWarbands
+        { get { return WarBandProvider.Instance.WarBands; } }
 
         public IWarBand CurrentWarband { get; private set; }
 

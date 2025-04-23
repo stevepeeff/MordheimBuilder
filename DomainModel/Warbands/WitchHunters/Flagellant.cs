@@ -1,11 +1,6 @@
 ﻿using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Psychology;
 using DomainModel.Warbands.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.WitchHunters
 {

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainModel.Equipment;
+﻿using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Equipment.Weapons.Missile;
-using DomainModel.RacialAdvantages;
 using DomainModel.Warbands.BaseClasses;
+using System.Collections.Generic;
 
 namespace DomainModel.Warbands.WitchHunters
 {
@@ -25,7 +20,7 @@ namespace DomainModel.Warbands.WitchHunters
             HenchMenList.Add(new Warhound());
         }
 
-        static public List<IEquipment> HeroEquipmentList { get; } = new List<IEquipment>()
+        public static List<IEquipment> HeroEquipmentList { get; } = new List<IEquipment>()
             {
                 new Axe(), new Dagger(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(),
                 new CrossBow(), new Pistol(), new BraceOfPistols(), new CrossbowPistol(),

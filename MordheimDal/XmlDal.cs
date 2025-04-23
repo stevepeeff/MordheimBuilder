@@ -5,11 +5,7 @@ using MordheimDal.Interface;
 using MordheimDal.XmlStorage;
 using MordheimXmlDal.XmlStorage;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimDal
 {
@@ -55,6 +51,13 @@ namespace MordheimDal
             return Save(roster, Path.Combine(STORAGE_PATH, filename));
         }
 
+        /// <summary>
+        /// Saves the specified roster.
+        /// </summary>
+        /// <param name="roster">The roster.</param>
+        /// <param name="specificFileName">Name of the specific file.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">The IWarbandRoster is null</exception>
         public string Save(IWarbandRoster roster, string specificFileName)
         {
             if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }

@@ -4,11 +4,8 @@ using DomainModel.Skills.Shooting;
 using DomainModel.Skills.SkavenSpecial;
 using DomainModel.Skills.Speed;
 using DomainModel.Skills.Strength;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Skills
 {

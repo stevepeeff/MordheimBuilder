@@ -1,5 +1,4 @@
-﻿using System;
-using DomainModel.Tests.GenericProperty;
+﻿using DomainModel.Tests.GenericProperty;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DomainModel.Tests
