@@ -27,22 +27,23 @@ namespace MordheimDal
         {
             try
             {
-                XmlReaderSettings settings = new XmlReaderSettings();
+                var settings = new XmlReaderSettings()
+                {
+                    ValidationType = ValidationType.Schema,
+                };
                 settings.Schemas.Add(null, xsdFile);
-                settings.ValidationType = ValidationType.Schema;
-                XmlDocument document = new XmlDocument();
+
+                var document = new XmlDocument();
                 document.Load(xmlFile);
 
-                using (XmlReader xmlReader = XmlReader.Create(new StringReader(document.InnerXml), settings))
+                using (var xmlReader = XmlReader.Create(new StringReader(document.InnerXml), settings))
                 {
                     while (xmlReader.Read()) { }
                 }
             }
             catch (Exception ex)
             {
-                string error = String.Format(CultureInfo.InvariantCulture, "Failed to validate XML File: {0} to XSD file: {1}. Exception: {2}", xmlFile, xsdFile, ex.Message);
-
-                throw new XmlException(error, ex);
+                throw new XmlException($"Failed to validate XML File: {xmlFile} to XSD file: {xsdFile}. Exception: {ex.Message}", ex);
             }
         }
 
@@ -56,15 +57,12 @@ namespace MordheimDal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "object"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times")]
         private static void Save(string path, Object objectToSerialize)
         {
-            if (objectToSerialize == null)
-            {
-                throw new ArgumentNullException("objectToSerialize");
-            }
+            if (objectToSerialize == null) { throw new ArgumentNullException("objectToSerialize"); }
 
             try
             {
-                Type type = objectToSerialize.GetType();
-                XmlSerializer xmlserializer = new XmlSerializer(type);
+                var type = objectToSerialize.GetType();
+                var xmlserializer = new XmlSerializer(type);
 
                 using (Stream fileStream = new FileStream(path, FileMode.Create))
                 {
@@ -118,10 +116,7 @@ namespace MordheimDal
         /// <param name="path">string path to store the serialized object T</param>
         /// <exception cref="ArgumentNullException">Thrown when the object to serialize is null.</exception>
         /// <exception cref="XmlException">Thrown when the object could not be saved to Xml.</exception>
-        public static void Save<T>(T objectToSerialize, string path) where T : class
-        {
-            Save(path, objectToSerialize);
-        }
+        public static void Save<T>(T objectToSerialize, string path) where T : class => Save(path, objectToSerialize);
 
         /// <summary>
         /// Load a serialized object from a file on harddisk
@@ -132,15 +127,14 @@ namespace MordheimDal
         /// <exception cref="XmlException">Thrown when loading the Xml file failed.</exception>
         private static object Load(string path, Type type)
         {
-            object obj = null;
             if (File.Exists(path))
             {
                 try
                 {
-                    using (FileStream fs = new FileStream(path, FileMode.Open))
+                    using (var filestream = new FileStream(path, FileMode.Open))
                     {
                         XmlSerializer serializer = new XmlSerializer(type);
-                        obj = serializer.Deserialize(fs);
+                        return serializer.Deserialize(filestream);
                     }
                 }
                 catch (Exception ex)
@@ -149,7 +143,7 @@ namespace MordheimDal
                 }
             }
 
-            return obj;
+            return default;
         }
 
         /// <summary>
@@ -161,22 +155,19 @@ namespace MordheimDal
         /// <exception cref="XmlException">Thrown when the stream could not be deserialized.</exception>
         private static object Load(Stream objectStream, Type type)
         {
-            object obj = null;
-
             if (objectStream != null)
             {
                 try
                 {
-                    XmlSerializer serializer = new XmlSerializer(type);
-                    obj = serializer.Deserialize(objectStream);
+                    var serializer = new XmlSerializer(type);
+                    return serializer.Deserialize(objectStream);
                 }
                 catch (Exception ex)
                 {
                     throw new XmlException(XML_LOADING_FAILED_MESSAGE, ex);
                 }
             }
-
-            return obj;
+            return default;
         }
 
         /// <summary>
@@ -186,10 +177,7 @@ namespace MordheimDal
         /// <param name="path">string path to file</param>
         /// <returns>desirialized object T</returns>
         /// <exception cref="XmlException">Thrown when the stream could not be laoded.</exception>
-        public static T Load<T>(string path)
-        {
-            return (T)Load(path, typeof(T));
-        }
+        public static T Load<T>(string path) => (T)Load(path, typeof(T));
 
         /// <summary>
         /// Load a serialized object T from a file on harddisk
@@ -200,9 +188,6 @@ namespace MordheimDal
         /// desirialized object T
         /// </returns>
         /// <exception cref="XmlException">Thrown when the stream could not be loaded.</exception>
-        public static T Load<T>(Stream stream)
-        {
-            return (T)Load(stream, typeof(T));
-        }
+        public static T Load<T>(Stream stream) => (T)Load(stream, typeof(T));
     }
 }
