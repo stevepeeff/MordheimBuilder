@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DomainModel;
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Equipment.Weapons.Missile;
-using DomainModel.Warbands;
-using DomainModel.Warbands.WitchHunters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
-
-using DomainModel.Skills;
-using DomainModel.Skills.Strength;
-using DomainModel;
-using MordheimBuilderLogic;
-
-using System.IO;
-using MordheimXmlDal;
 using DomainModel.Magic.Prayers_of_Sigmar;
-using System.Threading;
+using DomainModel.Skills.Strength;
+using DomainModel.Warbands;
 using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
+using DomainModel.Warbands.WitchHunters;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MordheimBuilderLogic;
+using System.IO;
+using System.Linq;
 
 namespace MordheimDal.Tests
 {
