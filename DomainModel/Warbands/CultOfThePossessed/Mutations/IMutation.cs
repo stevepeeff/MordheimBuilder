@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DomainModel.Warbands.CultOfThePossessed.Mutations
 {
@@ -13,5 +9,7 @@ namespace DomainModel.Warbands.CultOfThePossessed.Mutations
         IReadOnlyCollection<Statistic> Statistics { get; }
 
         string Description { get; }
+
+        string Name { get; }
     }
 }

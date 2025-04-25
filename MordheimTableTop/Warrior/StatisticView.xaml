@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="MordheimTableTop.Warrior.StatisticView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimTableTop.Warrior"
+             mc:Ignorable="d"
+             Height="45" Width="40"
+             d:DataContext="{d:DesignInstance local:StatisticViewModel}">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="12" />
+            <!--<Setter Property="Foreground" Value="Blue" />-->
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="1">
+        <DockPanel>
+            <StackPanel>
+                <GroupBox BorderBrush="Black">
+                    <GroupBox.Header>
+                        <TextBlock Text="{Binding Path=HeaderText, Mode=OneWay, FallbackValue=Xx}" />
+                    </GroupBox.Header>
+                    <TextBox Foreground="{Binding TextColor, Mode=OneWay}" Text="{Binding ContentValue, Mode=OneWay}"
+                             FontWeight="Bold" TextAlignment="Center" ToolTipService.ShowDuration="50000">
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="{Binding  ToolTipText}" />
+                        </ToolTipService.ToolTip>
+                    </TextBox>
+                </GroupBox>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>

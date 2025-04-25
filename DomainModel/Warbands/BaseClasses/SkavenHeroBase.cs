@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainModel.Equipment;
+﻿using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Equipment.Weapons.Missile;
-using DomainModel.Injuries;
-using DomainModel.Skills;
+using System.Collections.Generic;
 
 namespace DomainModel.Warbands.BaseClasses
 {
@@ -31,7 +25,7 @@ namespace DomainModel.Warbands.BaseClasses
             _AllowedWeapons.AddRange(HeroEquipmentList);
         }
 
-        static protected List<IEquipment> HeroEquipmentList { get; } = new List<IEquipment>()
+        protected static List<IEquipment> HeroEquipmentList { get; } = new List<IEquipment>()
         {
             new Dagger(), new Sword(), new Flail(), new Spear(), new Halberd(), new WeepingBlades(), new FightingClaws(),
             new Sling(), new ThrowingStarKnive(), new BlowPipe(), new WarplockPistol(),

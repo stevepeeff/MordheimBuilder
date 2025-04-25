@@ -2,11 +2,8 @@
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Warbands;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Equipment
 {
@@ -136,13 +133,11 @@ namespace DomainModel.Equipment
         /// Maximums the close combat weapons reached.
         /// </summary>
         /// <param name="list">The list.</param>
-        /// <returns>true if the Maximum of 2 is reached</returns>
+        /// <returns>true if the Maximum of 2 is reached or the warrior is carrying a Double handed weapon</returns>
         public static bool MaximumCloseCombatWeaponsReached(this IWarrior warrior)
         {
-            if (CountNumberOf<ICloseCombatWeapon>(warrior.Equipment) >= warrior.MaximumCloseCombatWeapons)
-            {
-                return true;
-            }
+            if (CountNumberOf<ICloseCombatWeapon>(warrior.Equipment) >= warrior.MaximumCloseCombatWeapons) { return true; }
+            if (warrior.Equipment.Any(x => x is DoubleHandedWeapon)) { return true; }
 
             List<ICloseCombatWeapon> closeCombatList = new List<ICloseCombatWeapon>();
             foreach (var item in warrior.Equipment)

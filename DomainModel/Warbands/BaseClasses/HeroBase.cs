@@ -1,12 +1,7 @@
 ﻿using DomainModel.Injuries;
 using DomainModel.Magic;
 using DomainModel.Skills;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.BaseClasses
 {
@@ -16,7 +11,9 @@ namespace DomainModel.Warbands.BaseClasses
 
         private List<ISpell> _DrawnSpells = new List<ISpell>();
         public IReadOnlyList<ISpell> DrawnSpells => _DrawnSpells;
-        public IReadOnlyCollection<Injury> Injuries { get { return _Injuries; } }
+
+        public IReadOnlyCollection<Injury> Injuries
+        { get { return _Injuries; } }
 
         public override int MaximumExperience { get; } = 30;
 

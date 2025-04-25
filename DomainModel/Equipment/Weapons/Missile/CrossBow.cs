@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Equipment.Weapons.Missile
+﻿namespace DomainModel.Equipment.Weapons.Missile
 {
     public class CrossBow : EquipmentBase, IMisseleWeapon
     {
         public override int Cost { get; } = 25;
 
-        public override int ArmorSaveModifier { get; } = 1;
+        public override int ArmorSaveModifier { get; } = -1;
 
         public override int Strength { get; } = 4;
 

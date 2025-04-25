@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="MordheimTableTop.Warrior.StatisticsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimTableTop.Warrior"
+             mc:Ignorable="d"
+             Height="45" Width="400"
+             d:DataContext="{d:DesignInstance local:StatisticsViewModel}">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type local:StatisticViewModel}">
+            <local:StatisticView />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <DockPanel>
+            <local:StatisticView DataContext="{Binding Movement}" />
+            <local:StatisticView DataContext="{Binding WeaponSkill}" />
+            <local:StatisticView DataContext="{Binding BallisticSkill}" />
+            <local:StatisticView DataContext="{Binding Strength}" />
+            <local:StatisticView DataContext="{Binding Toughness}" />
+            <local:StatisticView DataContext="{Binding Wounds}" />
+            <local:StatisticView DataContext="{Binding Initiative}" />
+            <local:StatisticView DataContext="{Binding Attacks}" />
+            <local:StatisticView DataContext="{Binding LeaderShip}" />
+            <local:StatisticView DataContext="{Binding Save}" />
+        </DockPanel>
+    </Grid>
+</UserControl>

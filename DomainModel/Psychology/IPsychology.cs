@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace DomainModel.Psychology
 {
@@ -39,7 +34,8 @@ namespace DomainModel.Psychology
         [Description("Re-roll any failed characteristic tests(climbing, resisting spells or any other reason), and any rolls to hit in close combat or shooting.You must accept the second result.")]
         ReRollAnyFailedCharasteristicAndToHit,
 
-        Mutations
+        Mutations,
+        ExtraAttackOnCharge
     }
 
     public interface IPsychology

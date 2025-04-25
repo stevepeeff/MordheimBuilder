@@ -5,11 +5,7 @@ using MordheimDal.Interface;
 using MordheimDal.XmlStorage;
 using MordheimXmlDal.XmlStorage;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimDal
 {
@@ -45,26 +41,24 @@ namespace MordheimDal
             return warbandRoster;
         }
 
-        public void Save(IWarbandRoster roster)
+        public string Save(IWarbandRoster roster)
         {
             if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
 
             string rosterName = roster.Name;
             string filename = BuildFileNameAndCreateStoragerDirectory(rosterName);
 
-            XmlHeadNode xmlHeadNode = new XmlHeadNode();
-            xmlHeadNode.WarbandRoster.Name = rosterName;
-            xmlHeadNode.WarbandRoster.Warband = roster.WarBand.WarBandName;
-
-            foreach (IWarrior warrior in roster.Warriors)
-            {
-                xmlHeadNode.WarbandRoster.WarriorList.Add(warrior.ToXml());
-            }
-
-            XMLUtils.AtomicSave<XmlHeadNode>(xmlHeadNode, Path.Combine(STORAGE_PATH, filename));
+            return Save(roster, Path.Combine(STORAGE_PATH, filename));
         }
 
-        public void Save(IWarbandRoster roster, string specificFileName)
+        /// <summary>
+        /// Saves the specified roster.
+        /// </summary>
+        /// <param name="roster">The roster.</param>
+        /// <param name="specificFileName">Name of the specific file.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">The IWarbandRoster is null</exception>
+        public string Save(IWarbandRoster roster, string specificFileName)
         {
             if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
 
@@ -76,6 +70,8 @@ namespace MordheimDal
             }
 
             SaveXml(specificFileName, xmlHeadNode);
+
+            return specificFileName;
         }
 
         private static string BuildFileNameAndCreateStoragerDirectory(string rosterName)

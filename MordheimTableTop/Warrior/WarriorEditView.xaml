@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="MordheimTableTop.Warrior.WarriorEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimTableTop.Warrior"
+             xmlns:selection="clr-namespace:MordheimTableTop.Selection"
+             mc:Ignorable="d"
+             d:DesignHeight="450" MinWidth="500"
+             d:DataContext="{d:DesignInstance local:WarriorViewModel}">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Grid>
+        <GroupBox Header="{Binding WarriorTypeName}" BorderBrush="Black">
+            <StackPanel>
+                <DockPanel>
+                    <StackPanel Width="150">
+                        <Label>Name</Label>
+                        <TextBox Text="{Binding Name}" Width="140"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="5">
+                        <local:StatisticsView DataContext="{Binding StatisticsVM}" HorizontalAlignment="Left" />
+                        <GroupBox Header="Equipment" Width="400">
+                            <!--<GroupBox.InputBindings>
+                                <MouseBinding Gesture="LeftClick" Command="{Binding ShowEquipmentSelectionCommand}" />
+                            </GroupBox.InputBindings>-->
+                            <DataGrid
+                                ItemsSource="{Binding Equipment}" AutoGenerateColumns="False" IsReadOnly="True"
+                                d:DataContext="{d:DesignInstance selection:EquipmentViewModel}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name"  Binding="{Binding Name}" />
+                                    <DataGridTextColumn Header="St Md" Binding="{Binding StrengthModifier}" />
+                                    <!--<DataGridTextColumn Header="A Md"  Binding="{Binding  Att}" />-->
+                                    <DataGridTextColumn Header="S" Binding="{Binding Strength}" />
+                                    <DataGridTextColumn Header="Sv Md" Binding="{Binding ArmourSaveModifier}" />
+                                    <DataGridTextColumn Header="R"  Binding="{Binding Range}" />
+                                    <DataGridTextColumn Header="Sv" Binding="{Binding Save}" />
+                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </GroupBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <DockPanel>
+                            <GroupBox Header="Details" Width="120" Margin="5">
+                                <StackPanel>
+                                    <DockPanel>
+                                        <Label FontStyle="Oblique">Hire Fee</Label>
+                                        <Label Content="{Binding Warrior.HireFee}" HorizontalAlignment="Right" />
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Label FontStyle="Oblique">Equipment</Label>
+                                        <Label Content="{Binding EquipmentCosts}" HorizontalAlignment="Right" />
+                                    </DockPanel>
+                                    <Line Width="50" ></Line>
+                                    <DockPanel>
+                                        <Label FontStyle="Oblique">Total</Label>
+                                        <Label Content="{Binding GroupCountFormatted}" />
+                                        <Label Content="{Binding GroupCosts}" HorizontalAlignment="Right" />
+                                    </DockPanel>
+                                </StackPanel>
+                            </GroupBox>
+                            <local:AfflictionView DataContext="{Binding AfflictionVM}" Width="180"></local:AfflictionView>
+                        </DockPanel>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
+                        <Button Command="{Binding ShowEquipmentSelectionCommand}" Width="80" Height="20" Margin="3">Equipment</Button>
+                        <Button Command="{Binding RemoveWarriorCommand}" Width="80" Height="20" Margin="3">Remove</Button>
+                        <DockPanel Visibility="{Binding ShowIncreaseDecreaseButtons}">
+                            <Button Command="{Binding DecreaseHenchmenCommand}" Width="35" Height="20" Margin="3" >-</Button>
+                            <Button Command="{Binding IncreaseHenchmenCommand}" Width="35" Height="20" Margin="3" HorizontalAlignment="Right">+</Button>
+                        </DockPanel>
+                    </StackPanel>
+                </DockPanel>
+                <local:ExperienceView DataContext="{Binding Warrior}" Visibility="{Binding ShowExperience}" />
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

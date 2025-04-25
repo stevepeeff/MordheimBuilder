@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DomainModel;
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Equipment.Weapons.Missile;
+using DomainModel.Magic.Prayers_of_Sigmar;
+using DomainModel.Skills.Strength;
 using DomainModel.Warbands;
+using DomainModel.Warbands.CultOfThePossessed;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
-
-using DomainModel.Skills;
-using DomainModel.Skills.Strength;
-using DomainModel;
 using MordheimBuilderLogic;
-
 using System.IO;
-using MordheimXmlDal;
-using DomainModel.Magic.Prayers_of_Sigmar;
-using System.Threading;
+using System.Linq;
 
 namespace MordheimDal.Tests
 {
@@ -97,33 +92,43 @@ namespace MordheimDal.Tests
             int secondHash = file.GetHashCode();
 
             Assert.AreEqual(initialHash, secondHash, "Hash of same file should be identical");
-            // _WarbandRoster.a
         }
 
-        [Ignore("Save and Save As use different implementations")]
         [TestMethod]
-        public void SaveAndLoad()
+        public void SaveAndLoadCultOfThePossed()
         {
-            _WarbandRoster.Name = $"{warbandName}{"SaveAndLoad"}";
-            DalProvider.Instance.Save(_WarbandRoster);
-            IWarbandRoster roster = new XmlDal().LoadWarband(Path.Combine(XmlDal.STORAGE_PATH, $"{_WarbandRoster.Name}.xml"));
+            string rosterName = $"{warbandName}{"SaveAndLoad Cult Of the Possessed"}";
+            string warriorName = "Unit Test Warrior";
+            var cultRoster = new WarBandRoster(new CultOfThePossessedWarband())
+            {
+                Name = rosterName
+            };
+
+            IWarrior mutant = cultRoster.AddWarrior(new Mutant());
+            mutant.Name = warriorName;
+            mutant.AddMutation(new GreatClaw());
+            mutant.AddMutation(new ClovenHoofs());
+            mutant.AddEquipment(new Axe());
+
+            IWarrior possed = cultRoster.AddWarrior(new Possessed());
+            possed.AddMutation(new Spines());
+
+            string storagePath = DalProvider.Instance.Save(cultRoster);
+            IWarbandRoster roster = new XmlDal().LoadWarband(storagePath);
             Assert.IsNotNull(roster);
 
-            IHero loadedHero = roster.Warriors.First() as IHero;
+            IWarrior firstWarrior = roster.Warriors.First();
+            IMutant loadedMutant = firstWarrior as IMutant;
+            Assert.IsTrue(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new GreatClaw().Name)));
+            Assert.IsTrue(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new ClovenHoofs().Name)));
+            Assert.IsFalse(loadedMutant.Mutations.Any(mutation => mutation.Name.Equals(new Spines().Name)));
+            Assert.AreEqual(warriorName, firstWarrior.Name);
 
-            Assert.AreEqual(_WitchHunterCaptain.Equipment.Count, loadedHero.Equipment.Count);
-            Assert.AreEqual(_WitchHunterCaptain.Skills.Count, loadedHero.Skills.Count);
+            Assert.IsTrue(firstWarrior.Equipment.Any(weapon => weapon.Name.Equals(new Axe().Name)));
 
-            IHenchMen loadedHenchMen1 = roster.Warriors.ElementAt(1) as IHenchMen;
-            Assert.AreEqual(_ZealotGroup1.AmountInGroup, loadedHenchMen1.AmountInGroup);
-            Assert.AreEqual(_ZealotGroup1.Equipment.Count, loadedHenchMen1.Equipment.Count);
-
-            IHenchMen loadedHenchMen2 = roster.Warriors.ElementAt(2) as IHenchMen;
-            Assert.AreEqual(_ZealotGroup2.AmountInGroup, loadedHenchMen2.AmountInGroup);
-            Assert.AreEqual(_ZealotGroup2.Equipment.Count, loadedHenchMen2.Equipment.Count);
-
-            IWizard loadedWizard = roster.Warriors.ElementAt(3) as IWizard;
-            Assert.IsTrue(loadedWizard.DrawnSpells.Any(x => x.SpellName.Equals(nameof(TheHammerOfSigmar))));
+            IMutant loadedPossed = roster.Warriors.ElementAt(1) as IMutant;
+            Assert.AreEqual("Possessed", loadedPossed.GetType().Name);
+            Assert.IsTrue(loadedPossed.Mutations.Any(mutation => mutation.Name.Equals(new Spines().Name)));
         }
     }
 }

@@ -1,11 +1,4 @@
-﻿using DomainModel.Psychology;
-using DomainModel.Skills;
-using DomainModel.Warbands.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DomainModel.Skills;
 
 namespace DomainModel.Warbands.CultOfThePossessed
 {
@@ -23,10 +16,10 @@ namespace DomainModel.Warbands.CultOfThePossessed
             Attacks.BaseValue = 1;
             LeaderShip.BaseValue = 7;
 
+            _AllowedWeapons.AddRange(CultOfThePossessedWarband.PossessedEquipmentList);
+
             _AllowedSkills.AddRange(SkillProvider.Instance.CombatSkills);
             _AllowedSkills.AddRange(SkillProvider.Instance.SpeedSkills);
-
-            AddAffliction(new Mutation());
         }
 
         public override int HireFee => 25;

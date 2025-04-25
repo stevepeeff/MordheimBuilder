@@ -1,5 +1,4 @@
-﻿using System;
-using DomainModel.Warbands.CultOfThePossessed;
+﻿using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -21,6 +20,24 @@ namespace DomainModel.Tests
             warrior.AddMutation(new ExtraArm());// Ensuring each mutation can be added only once
 
             Assert.AreEqual(3, warrior.MaximumCloseCombatWeapons);
+        }
+
+        [TestMethod]
+        public void MutationCosts()
+        {
+            Mutant warrior = new Mutant();
+
+            Assert.AreEqual(0, warrior.EquipmentCosts);
+
+            warrior.AddMutation(new GreatClaw());
+
+            Assert.AreNotEqual(0, warrior.EquipmentCosts);
+        }
+
+        [TestMethod]
+        public void CountNumberOfMutations()
+        {
+            Assert.AreEqual(9, MutationsProvider.Instance.Mutations.Count);
         }
 
         [TestMethod]

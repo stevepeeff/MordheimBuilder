@@ -1,9 +1,4 @@
 ﻿using DomainModel.RacialAdvantages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.BaseClasses
 {
@@ -15,6 +10,8 @@ namespace DomainModel.Warbands.BaseClasses
             Movement.MaximumValue = 4;
 
             Advantages = new ExpertSwordMenAdvantage();
+
+            _AllowedWeapons.AddRange(MercenaryCaptain.MercenaryEquipmentList);
         }
 
         public override int HireFee { get; } = 25;

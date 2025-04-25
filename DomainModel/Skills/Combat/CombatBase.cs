@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Skills.Combat
+﻿namespace DomainModel.Skills.Combat
 {
     public class CombatBase : SkillBase, ICombat
     {

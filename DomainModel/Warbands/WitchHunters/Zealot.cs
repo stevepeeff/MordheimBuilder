@@ -1,11 +1,7 @@
-﻿using DomainModel.Equipment.Weapons.CloseCombat;
+﻿using DomainModel.Equipment.Armour;
+using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Equipment.Weapons.Missile;
 using DomainModel.Warbands.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.WitchHunters
 {
@@ -16,8 +12,19 @@ namespace DomainModel.Warbands.WitchHunters
             WeaponSkill.BaseValue = 2;
             BallisticSkill.BaseValue = 2;
 
+            _AllowedWeapons.Add(new Dagger());
+            _AllowedWeapons.Add(new ClubMaceHammer());
+            _AllowedWeapons.Add(new Axe());
             _AllowedWeapons.Add(new Sword());
+            _AllowedWeapons.Add(new DoubleHandedWeapon());
+            _AllowedWeapons.Add(new Spear());
+
             _AllowedWeapons.Add(new Bow());
+            _AllowedWeapons.Add(new ShortBow());
+
+            _AllowedWeapons.Add(new LightArmour());
+            _AllowedWeapons.Add(new Shield());
+            _AllowedWeapons.Add(new Helmet());
         }
 
         public override int HireFee { get; } = 20;

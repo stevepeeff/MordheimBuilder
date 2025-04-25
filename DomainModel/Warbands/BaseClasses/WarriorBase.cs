@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainModel.Equipment;
+﻿using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Psychology;
 using DomainModel.RacialAdvantages;
 using DomainModel.Skills;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using DomainModel.WarriorStatus;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DomainModel.Warbands.BaseClasses
 {
@@ -52,16 +51,19 @@ namespace DomainModel.Warbands.BaseClasses
             {
                 Movement,WeaponSkill, BallisticSkill, Strength, Toughness, Wounds, Initiative, Attacks, LeaderShip, Save
             };
-
-            _AllowedWeapons.Add(new Dagger());
         }
 
-        public event EventHandler PropertiesChanged;
-
         public IRacialAdvantage Advantages { get; protected set; }
-        public IReadOnlyCollection<IPsychology> Afflictions { get { return _Afflictions; } }
-        public IReadOnlyCollection<IEquipment> AllowedEquipment { get { return _AllowedWeapons; } }
-        public IReadOnlyCollection<ISkill> AllowedSkills { get { return _AllowedSkills; } }
+
+        public IReadOnlyCollection<IPsychology> Afflictions
+        { get { return _Afflictions; } }
+
+        public IReadOnlyCollection<IEquipment> AllowedEquipment
+        { get { return _AllowedWeapons; } }
+
+        public IReadOnlyCollection<ISkill> AllowedSkills
+        { get { return _AllowedSkills; } }
+
         public int AmountInGroup { get; private set; } = 0;
         public Characteristic Attacks { get; private set; }
         public Characteristic BallisticSkill { get; private set; }
@@ -84,9 +86,10 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
-        public IReadOnlyCollection<IEquipment> Equipment { get { return _EquipmentList; } }
+        public IReadOnlyCollection<IEquipment> Equipment
+        { get { return _EquipmentList; } }
 
-        public int EquipmentCosts
+        public virtual int EquipmentCosts
         {
             get
             {
@@ -156,17 +159,23 @@ namespace DomainModel.Warbands.BaseClasses
         public Characteristic Movement { get; private set; }
         public string Name { get; set; }
         public Characteristic Save { get; private set; }
-        public IReadOnlyCollection<ISkill> Skills { get { return _Skills; } }
+
+        public IReadOnlyCollection<ISkill> Skills
+        { get { return _Skills; } }
+
         public Characteristic Strength { get; private set; }
         public Characteristic Toughness { get; private set; }
-        public string TypeName { get { return this.GetType().Name; } }
+
+        public string TypeName
+        { get { return this.GetType().Name; } }
+
         public IWarriorStatus WarriorStatus { get; private set; } = new InAction();
 
         public Characteristic WeaponSkill { get; private set; }
 
         public Characteristic Wounds { get; private set; }
 
-        protected List<IEquipment> _AllowedWeapons { get; } = new List<IEquipment>();
+        protected List<IEquipment> _AllowedWeapons { get; set; } = new List<IEquipment>();
 
         protected List<IEquipment> _EquipmentList { get; } = new List<IEquipment>();
 
@@ -195,15 +204,16 @@ namespace DomainModel.Warbands.BaseClasses
             AddEquipment(EquipmentProvider.Instance.GetEquipment(name));
         }
 
-        public void AddEquipment(IEquipment equipment)
+        public bool AddEquipment(IEquipment equipment)
         {
-            NotifyPropertiesChangedChanged();
+            bool addOfquipmntIsAllowd = false;
             if (equipment is IArmour)
             {
                 if (_EquipmentList.Any(x => x.Name.Equals(equipment.Name)) == false &&
                     _EquipmentList.HasArmourEquipped(equipment) == false)
                 {
                     _EquipmentList.Add(equipment);
+                    addOfquipmntIsAllowd = true;
                 }
             }
             else if (equipment is ICloseCombatWeapon)
@@ -211,6 +221,7 @@ namespace DomainModel.Warbands.BaseClasses
                 if (this.MaximumCloseCombatWeaponsReached() == false)
                 {
                     _EquipmentList.Add(equipment);
+                    addOfquipmntIsAllowd = true;
                 }
             }
             else if (equipment is IMisseleWeapon)
@@ -218,10 +229,12 @@ namespace DomainModel.Warbands.BaseClasses
                 if (_EquipmentList.MaximumRangedWeaponsReached() == false)
                 {
                     _EquipmentList.Add(equipment);
+                    addOfquipmntIsAllowd = true;
                 }
             }
 
             TriggerCharacteristicChanged();
+            return addOfquipmntIsAllowd;
         }
 
         public void AddSkill(ISkill skill)
@@ -278,7 +291,7 @@ namespace DomainModel.Warbands.BaseClasses
         public void DecreaseGroupByOne()
         {
             AmountInGroup--;
-            NotifyPropertiesChangedChanged();
+            //NotifyPropertiesChangedChanged();
         }
 
         public abstract IWarrior GetANewInstance();
@@ -295,7 +308,7 @@ namespace DomainModel.Warbands.BaseClasses
         public void IncreaseGroupByOne()
         {
             AmountInGroup++;
-            NotifyPropertiesChangedChanged();
+            //NotifyPropertiesChangedChanged();
         }
 
         public virtual bool IsLevelUp(int experienceValue)
@@ -306,7 +319,7 @@ namespace DomainModel.Warbands.BaseClasses
         public void RemoveEquipment(IEquipment equipment)
         {
             _EquipmentList.Remove(equipment);
-            NotifyPropertiesChangedChanged();
+            // NotifyPropertiesChangedChanged();
             if (equipment is IArmour)
             {
                 TriggerCharacteristicChanged();
@@ -324,13 +337,14 @@ namespace DomainModel.Warbands.BaseClasses
             }
         }
 
-        private void NotifyPropertiesChangedChanged()
+        public virtual bool AddMutation(IMutation mutation)
         {
-            EventHandler handler = PropertiesChanged;
-            if (handler != null)
-            {
-                handler(this, EventArgs.Empty);
-            }
+            throw new NotImplementedException();
+        }
+
+        public virtual void RemoveMutation(IMutation mutation)
+        {
+            throw new NotImplementedException();
         }
     }
 }

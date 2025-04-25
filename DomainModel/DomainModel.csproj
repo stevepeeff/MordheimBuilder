@@ -170,6 +170,7 @@
     <Compile Include="Psychology\NoBrain.cs" />
     <Compile Include="Psychology\NoPain.cs" />
     <Compile Include="Psychology\PsychologyBase.cs" />
+    <Compile Include="Psychology\SlaveringCharge.cs" />
     <Compile Include="Psychology\Stupid.cs" />
     <Compile Include="RacialAdvantages\ExpertSwordMenAdvantage.cs" />
     <Compile Include="RacialAdvantages\MarienburgAdvantage.cs" />
@@ -224,6 +225,8 @@
     <Compile Include="Warbands\CultOfThePossessed\Mutations\GreatClaw.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\Hideous.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\IMutation.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\MutationBase.cs" />
+    <Compile Include="Warbands\CultOfThePossessed\Mutations\MutationsProvider.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\ScorpionTail.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\Spines.cs" />
     <Compile Include="Warbands\CultOfThePossessed\Mutations\Tentacle.cs" />

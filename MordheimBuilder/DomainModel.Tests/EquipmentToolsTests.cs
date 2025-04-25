@@ -1,9 +1,6 @@
-﻿using System;
-using DomainModel.Equipment;
+﻿using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
-using DomainModel.Warbands.CultOfThePossessed;
-using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using DomainModel.Warbands.WitchHunters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

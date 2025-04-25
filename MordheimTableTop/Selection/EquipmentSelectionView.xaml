@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="MordheimTableTop.Selection.EquipmentSelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MordheimTableTop.Selection"
+             xmlns:domainmodel="clr-namespace:DomainModel.Equipment;assembly=DomainModel"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+              d:DataContext="{d:DesignInstance local:EquipmentSelectionViewModel}">
+    <Grid>
+        <StackPanel>
+            <GroupBox Header="Close Combat Weapons"  Visibility="{Binding ShowCloseCombatWeaponSelection, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid ItemsSource="{Binding CloseCombatWeapons}"  IsEnabled="{Binding MaximumCloseCombatCapNotReached, Mode=OneWay}"  Name="DgCCW"
+                          AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" d:DataContext="{d:DesignInstance local:CloseCombatWeaponViewModel}">
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgCCW}" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="180" />
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="Str Mod" Binding="{Binding StrengthModifier}" Width="60" />
+                        <DataGridTextColumn Header="Arm Mod" Binding="{Binding ArmourSaveModifier}" Width="60" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <GroupBox Header="Missile Weapons"  Visibility="{Binding ShowMissileWeaponSelection}">
+                <DataGrid
+                    IsEnabled="{Binding MaximumMisseleWeaponCapNotReached, Mode=OneWay}" Name="DgMssWpn" ItemsSource="{Binding MisseleWeapons}"
+                    AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
+                    d:DataContext="{d:DesignInstance local:MissleWeaponViewModel}">
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgMssWpn}" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="FontStyle" Value="Italic"></Setter>
+                            <Setter Property="IsHitTestVisible" Value="{Binding CanBeSelected}" />
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="180" />
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="Strength" Binding="{Binding Strength}" Width="60" />
+                        <DataGridTextColumn Header="Sv Mod" Binding="{Binding ArmourSaveModifier}" Width="60" />
+                        <DataGridTextColumn Header="Range" Binding="{Binding Range}" Width="60" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"></DataGridTextColumn>
+                        <!--<DataGridTextColumn Header="Str Mod" Binding="{Binding StrengthModifier}" ></DataGridTextColumn>
+                        <DataGridTextColumn Header="Hit Mod" Binding="{Binding ToHitModifier}"></DataGridTextColumn>-->
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <GroupBox Header="Armour" Visibility="{Binding ShowArmourSelection}">
+                <DataGrid
+                    Name="DgArmr" ItemsSource="{Binding Armours}" AutoGenerateColumns="False"
+                    IsReadOnly="True" SelectionMode="Single"
+                    d:DataContext="{d:DesignInstance local:ArmourViewModel}">
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgArmr}" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"  MinWidth="180" />
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="Save" Binding="{Binding Save}" Width="60" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <GroupBox Header="Mutations" Visibility="{Binding ShowMutationsSelection}" ToolTip="Not tat mutations cannot b bout aftr caractr cration">
+                <DataGrid
+                    Name="DgMutations" ItemsSource="{Binding Mutations}" AutoGenerateColumns="False"
+                    IsReadOnly="True" SelectionMode="Single"
+                    d:DataContext="{d:DesignInstance local:MutationViewModel}">
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding BuyEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgMutations}" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"  MinWidth="180" />
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <GroupBox Header="Equipped">
+                <DataGrid
+                    Name="DgEquipment" ItemsSource="{Binding Equipment}"
+                    AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
+                    d:DataContext="{d:DesignInstance local:EquipmentViewModel}">
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick"
+                                      Command="{Binding RmovEqpuimentCommand}"
+                                      CommandParameter="{Binding SelectedItem , ElementName=DgEquipment}" />
+                    </DataGrid.InputBindings>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name"  Binding="{Binding Name}" MinWidth="180" />
+                        <DataGridTextColumn Header="Cost"  Binding="{Binding Costs}" Width="50" />
+                        <DataGridTextColumn Header="St Md" Binding="{Binding StrengthModifier}" Width="60" />
+                        <!--<DataGridTextColumn Header="A Md"  Binding="{Binding }" Width="60" />-->
+                        <DataGridTextColumn Header="S" Binding="{Binding Strength}" Width="60" />
+                        <DataGridTextColumn Header="Sv Md" Binding="{Binding ArmourSaveModifier}" Width="60" />
+                        <DataGridTextColumn Header="R"  Binding="{Binding Range}" Width="60" />
+                        <DataGridTextColumn Header="Sv" Binding="{Binding Save}"  Width="60" />
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

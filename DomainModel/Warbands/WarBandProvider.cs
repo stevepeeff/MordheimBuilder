@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainModel.Warbands.CultOfThePossessed;
+﻿using DomainModel.Warbands.CultOfThePossessed;
 using DomainModel.Warbands.Marienburg;
 using DomainModel.Warbands.Middenheim;
 using DomainModel.Warbands.Reikland;
@@ -11,6 +6,8 @@ using DomainModel.Warbands.SistersOfSigmar;
 using DomainModel.Warbands.Skaven;
 using DomainModel.Warbands.Undead;
 using DomainModel.Warbands.WitchHunters;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DomainModel.Warbands
 {
@@ -18,7 +15,8 @@ namespace DomainModel.Warbands
     {
         public static WarBandProvider Instance { get; } = new WarBandProvider();
 
-        public IReadOnlyCollection<IWarBand> WarBands { get { return _Warbands; } }
+        public IReadOnlyCollection<IWarBand> WarBands
+        { get { return _Warbands; } }
 
         private List<IWarBand> _Warbands = new List<IWarBand>();
 

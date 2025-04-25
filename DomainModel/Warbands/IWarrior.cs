@@ -1,14 +1,9 @@
 ﻿using DomainModel.Equipment;
-using DomainModel.Equipment.Weapons;
 using DomainModel.Psychology;
-using DomainModel.RacialAdvantages;
 using DomainModel.Skills;
+using DomainModel.Warbands.CultOfThePossessed.Mutations;
 using DomainModel.WarriorStatus;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands
 {
@@ -17,11 +12,6 @@ namespace DomainModel.Warbands
     /// </summary>
     public interface IWarrior
     {
-        /// <summary>
-        /// Occurs when [properties changed].
-        /// </summary>
-        event EventHandler PropertiesChanged;
-
         /// <summary>
         /// Gets the afflictions.
         /// </summary>
@@ -226,13 +216,21 @@ namespace DomainModel.Warbands
         /// Adds the equipment.
         /// </summary>
         /// <param name="equipment">The equipment.</param>
-        void AddEquipment(IEquipment equipment);
+        /// <returns>true if allowed</returns>
+        bool AddEquipment(IEquipment equipment);
 
         /// <summary>
         /// Adds the equipment.
         /// </summary>
         /// <param name="name">The name.</param>
         void AddEquipment(string name);
+
+        /// <summary>
+        /// Adds the mutation.
+        /// </summary>
+        /// <param name="mutation">The mutation.</param>
+        /// <returns>true if allowed</returns>
+        bool AddMutation(IMutation mutation);
 
         /// <summary>
         /// Amounts the type of the of this.
@@ -267,5 +265,11 @@ namespace DomainModel.Warbands
         /// </summary>
         /// <param name="equipment">The equipment.</param>
         void RemoveEquipment(IEquipment equipment);
+
+        /// <summary>
+        /// Removes the mutation.
+        /// </summary>
+        /// <param name="mutation">The mutation.</param>
+        void RemoveMutation(IMutation mutation);
     }
 }

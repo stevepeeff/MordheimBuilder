@@ -1,10 +1,5 @@
 ﻿using DomainModel.Psychology;
 using DomainModel.Warbands.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.WitchHunters
 {
@@ -12,6 +7,7 @@ namespace DomainModel.Warbands.WitchHunters
     {
         public Warhound()
         {
+            Movement.BaseValue = 6;
             WeaponSkill.BaseValue = 4;
             BallisticSkill.BaseValue = 0;
             Strength.BaseValue = 4;
@@ -20,6 +16,8 @@ namespace DomainModel.Warbands.WitchHunters
 
             AddAffliction(new Animal());
         }
+
+        public override int MaximumExperience => 0;
 
         public override int HireFee { get; } = 15;
 

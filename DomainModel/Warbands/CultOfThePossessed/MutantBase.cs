@@ -1,10 +1,8 @@
-﻿using DomainModel.Warbands.BaseClasses;
+﻿using DomainModel.Psychology;
+using DomainModel.Warbands.BaseClasses;
 using DomainModel.Warbands.CultOfThePossessed.Mutations;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.CultOfThePossessed
 {
@@ -12,26 +10,22 @@ namespace DomainModel.Warbands.CultOfThePossessed
     {
         private List<IMutation> _Mutations = new List<IMutation>();
 
-        public IReadOnlyCollection<IMutation> Mutations => _Mutations;
-
-        public void AddMutation(IMutation mutation)
+        public MutantBase()
         {
-            if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
-            {
-                _Mutations.Add(mutation);
-            }
+            AddAffliction(new Mutation());
         }
 
-        protected override void CalculateCharacteristicsModifiers()
+        public override int EquipmentCosts
         {
-            base.CalculateCharacteristicsModifiers();
-
-            foreach (IMutation mutation in Mutations)
+            get
             {
-                foreach (var statistic in mutation.Statistics)
+                int totalCosts = base.EquipmentCosts;
+
+                foreach (var item in _Mutations)
                 {
-                    _CharacteristicModifiers.Add(new CharacteristicModifier(statistic));
+                    totalCosts += item.Cost;
                 }
+                return totalCosts;
             }
         }
 
@@ -50,9 +44,44 @@ namespace DomainModel.Warbands.CultOfThePossessed
             }
         }
 
-        public void RemoveMutation(IMutation mutation)
+        public IReadOnlyCollection<IMutation> Mutations => _Mutations;
+
+        public override bool AddMutation(IMutation mutation)
+        {
+            if (_Mutations.Any(x => x.GetType().Equals(mutation.GetType())) == false)
+            {
+                _Mutations.Add(mutation);
+                TriggerCharacteristicChanged();
+                return true;
+            }
+            return false;
+        }
+
+        public void AddMutations(List<string> mutations)
+        {
+            foreach (string mutation in mutations)
+            {
+                _Mutations.Add(MutationsProvider.Instance.Mutations.Single(x => x.Name.Equals(mutation)));
+            }
+        }
+
+        public override void RemoveMutation(IMutation mutation)
         {
             _Mutations.Remove(mutation);
+            TriggerCharacteristicChanged();
+        }
+
+        protected override void CalculateCharacteristicsModifiers()
+        {
+            base.CalculateCharacteristicsModifiers();
+
+            foreach (IMutation mutation in Mutations)
+            {
+                foreach (var statistic in mutation.Statistics)
+                {
+                    _CharacteristicModifiers.Add(new CharacteristicModifier(statistic));
+                }
+            }
         }
     }
 }

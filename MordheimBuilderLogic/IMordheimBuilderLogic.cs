@@ -2,9 +2,6 @@
 using DomainModel.Warbands;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimBuilderLogic
 {
@@ -56,14 +53,11 @@ namespace MordheimBuilderLogic
         IWarbandRoster WarbandRoster { get; }
 
         /// <summary>
-        /// Occurs when [war band selected].
-        /// </summary>
-        event EventHandler WarBandSelected;
-
-        /// <summary>
         /// Occurs when [play modus changes].
         /// </summary>
         event EventHandler PlayModusChanges;
+
+        event EventHandler<WarBandRosterEventArgs> WarbandRosterChanged;
 
         /// <summary>
         /// Gets the starting cash.

@@ -1,10 +1,5 @@
 ﻿using DomainModel.Psychology;
 using DomainModel.Warbands.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.Skaven
 {
@@ -24,6 +19,8 @@ namespace DomainModel.Warbands.Skaven
         public override int HireFee => 15;
 
         public override int MaximumAllowedInWarBand => INFINITE;
+
+        public override int MaximumExperience => 0;
 
         public override IWarrior GetANewInstance()
         {

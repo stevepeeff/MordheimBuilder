@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Warbands.BaseClasses
+﻿namespace DomainModel.Warbands.BaseClasses
 {
     public abstract class YoungBlood : HumanHeroBase
     {
@@ -13,6 +7,8 @@ namespace DomainModel.Warbands.BaseClasses
             WeaponSkill.BaseValue = 2;
             BallisticSkill.BaseValue = 2;
             LeaderShip.BaseValue = 6;
+
+            _AllowedWeapons.AddRange(MercenaryCaptain.MercenaryEquipmentList);
         }
 
         public override int HireFee { get; } = 15;

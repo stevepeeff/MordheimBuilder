@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Equipment
+﻿namespace DomainModel.Equipment
 {
     public class VariabeleCosts
     {
@@ -38,7 +32,8 @@ namespace DomainModel.Equipment
         /// <value>
         /// The total costs.
         /// </value>
-        public int TotalCosts { get { return D6Roll * Multiplier * GoldCrowns; } }
+        public int TotalCosts
+        { get { return D6Roll * Multiplier * GoldCrowns; } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VariabeleCosts"/> class.

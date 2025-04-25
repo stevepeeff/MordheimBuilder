@@ -3,11 +3,7 @@ using DomainModel.Equipment.Armour;
 using DomainModel.Equipment.Weapons.CloseCombat;
 using DomainModel.Equipment.Weapons.Missile;
 using DomainModel.Skills;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.BaseClasses
 {
@@ -35,7 +31,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         public override int MaximumAllowedInWarBand { get; } = 1;
 
-        static internal List<IEquipment> MercenaryEquipmentList { get; } = new List<IEquipment>()
+        internal static List<IEquipment> MercenaryEquipmentList { get; } = new List<IEquipment>()
         {
             new Axe(), new Dagger(), new ClubMaceHammer(), new Sword(), new DoubleHandedWeapon(), new MorningStar(), new Spear(), new Halberd(),
             new CrossBow(), new Pistol(), new BraceOfPistols(), new CrossbowPistol(), new DuellingPistol(), new BraceOfDuellingPistols(), new Bow(),

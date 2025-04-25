@@ -1,18 +1,17 @@
 ﻿using DomainModel;
-using DomainModel.Warbands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimDal.Interface
 {
     public interface IDAL
     {
-        void Save(IWarbandRoster roster);
+        /// <summary>Saves the specified roster.</summary>
+        /// <param name="roster">The roster.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        string Save(IWarbandRoster roster);
 
-        void Save(IWarbandRoster roster, string specificFileName);
+        string Save(IWarbandRoster roster, string specificFileName);
 
         string DefaultStorageDirectory { get; }
 

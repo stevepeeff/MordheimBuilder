@@ -3,9 +3,6 @@ using DomainModel.Skills;
 using DomainModel.Warbands.BaseClasses;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DomainModel.Warbands.Undead
 {
@@ -30,6 +27,8 @@ namespace DomainModel.Warbands.Undead
         }
 
         public override int HireFee => 35;
+
+        public override int InitialExperience { get; } = 8;
 
         public override int MaximumAllowedInWarBand => 1;
 

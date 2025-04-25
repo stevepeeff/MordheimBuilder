@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Equipment.Weapons.Missile
+﻿namespace DomainModel.Equipment.Weapons.Missile
 {
     public class HandGun : EquipmentBase, IMisseleWeapon
     {
         public HandGun()
         {
-            _MisseleWeaponRules.Add(MisseleWeaponRules.Prepare);
+            _MisseleWeaponRules.Add(MisseleWeaponRules.PrepareShot);
             _MisseleWeaponRules.Add(MisseleWeaponRules.MoveOrFire);
         }
 

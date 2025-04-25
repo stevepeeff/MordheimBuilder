@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Injuries
+﻿namespace DomainModel.Injuries
 {
     public abstract class InjuryBase : Injury
     {
@@ -18,6 +12,7 @@ namespace DomainModel.Injuries
 
         public Durations Duration { get; protected set; }
 
-        public string Name { get { return GetType().Name; } }
+        public string Name
+        { get { return GetType().Name; } }
     }
 }

@@ -1,13 +1,8 @@
 ﻿using DomainModel;
-using DomainModel.Equipment;
 using DomainModel.Warbands;
-using DomainModel.Warbands.BaseClasses;
+using DomainModel.Warbands.CultOfThePossessed;
 using MordheimXmlDal.XmlStorage;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimDal.XmlStorage
 {
@@ -38,6 +33,11 @@ namespace MordheimDal.XmlStorage
                 IWizard wizard = warrior as IWizard;
                 xmlWarrior.SpellList.AddRange(wizard.DrawnSpells.Select(x => x.SpellName).ToList());
             }
+            if (warrior is IMutant)
+            {
+                IMutant mutant = warrior as IMutant;
+                xmlWarrior.MutationList.AddRange(mutant.Mutations.Select(x => x.Name).ToList());
+            }
 
             return xmlWarrior;
         }
@@ -56,6 +56,7 @@ namespace MordheimDal.XmlStorage
             IWarrior warrior = warbandRoster.WarBand.GetWarrior(xmlWarrior.TypeOfWarrior);
 
             warrior = warbandRoster.AddWarrior(warrior);
+            warrior.Name = xmlWarrior.Name;
             foreach (string item in xmlWarrior.EquipmentList)
             {
                 warrior.AddEquipment(item);
@@ -86,6 +87,11 @@ namespace MordheimDal.XmlStorage
                 {
                     wizard.AddSpell(item);
                 }
+            }
+            if (warrior is IMutant)
+            {
+                IMutant mutant = warrior as IMutant;
+                mutant.AddMutations(xmlWarrior.MutationList);
             }
 
             return warrior;

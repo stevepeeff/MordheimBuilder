@@ -1,13 +1,8 @@
 ﻿using DomainModel;
 using DomainModel.Warbands;
-using DomainModel.Warbands.Skaven;
-using DomainModel.Warbands.WitchHunters;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordheimBuilderLogic
 {
@@ -21,9 +16,10 @@ namespace MordheimBuilderLogic
 
         public event EventHandler PlayModusChanges;
 
-        public event EventHandler WarBandSelected;
+        public event EventHandler<WarBandRosterEventArgs> WarbandRosterChanged;
 
-        public IReadOnlyCollection<IWarBand> AvailableWarbands { get { return WarBandProvider.Instance.WarBands; } }
+        public IReadOnlyCollection<IWarBand> AvailableWarbands
+        { get { return WarBandProvider.Instance.WarBands; } }
 
         public IWarBand CurrentWarband { get; private set; }
 
@@ -55,14 +51,28 @@ namespace MordheimBuilderLogic
             }
         }
 
-        public IWarbandRoster WarbandRoster { get; private set; }
+        private IWarbandRoster _WarbandRoster;
+
+        public IWarbandRoster WarbandRoster
+        {
+            get
+            {
+                return _WarbandRoster;
+            }
+            private set
+            {
+                _WarbandRoster = value;
+                if (WarbandRosterChanged != null)
+                {
+                    WarbandRosterChanged.Invoke(this, new WarBandRosterEventArgs(_WarbandRoster));
+                }
+            }
+        }
 
         public void SelectWarBand(IWarBand warband)
         {
             CurrentWarband = warband;
             WarbandRoster = new WarBandRoster(CurrentWarband);
-
-            InvokeEvent(WarBandSelected);
         }
 
         public void SelectWarBand(string warbandName)

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DomainModel.Equipment;
+﻿using DomainModel.Equipment;
 using DomainModel.Equipment.Armour;
 using DomainModel.Injuries;
 using DomainModel.Skills;
 using DomainModel.Warbands.BaseClasses;
-using DomainModel.Warbands.CultOfThePossessed;
-using DomainModel.Warbands.CultOfThePossessed.Mutations;
+using System;
 
 namespace DomainModel.Warbands
 {
@@ -245,10 +241,9 @@ namespace DomainModel.Warbands
         /// </summary>
         public void InvokeCharacteristicChanged()
         {
-            EventHandler handler = CharacteristicChanged;
-            if (handler != null)
+            if (CharacteristicChanged != null)
             {
-                handler(this, EventArgs.Empty);
+                CharacteristicChanged.Invoke(this, EventArgs.Empty);
             }
         }
 

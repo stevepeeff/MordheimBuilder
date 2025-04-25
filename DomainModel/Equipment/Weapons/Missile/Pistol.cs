@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Equipment.Weapons.Missile
+﻿namespace DomainModel.Equipment.Weapons.Missile
 {
     public class Pistol : EquipmentBase, IMisseleWeapon
     {
@@ -20,7 +14,7 @@ namespace DomainModel.Equipment.Weapons.Missile
 
         public Pistol()
         {
-            _MisseleWeaponRules.Add(MisseleWeaponRules.Prepare);
+            _MisseleWeaponRules.Add(MisseleWeaponRules.PrepareShot);
         }
     }
 }

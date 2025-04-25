@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainModel.Magic.MagicOfTheHornedRat
+﻿namespace DomainModel.Magic.MagicOfTheHornedRat
 {
-    class EyeOfTheWarp
+    internal class EyeOfTheWarp
     {
     }
 }

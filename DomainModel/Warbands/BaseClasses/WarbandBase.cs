@@ -1,9 +1,6 @@
-﻿using System;
+﻿using DomainModel.RacialAdvantages;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainModel.RacialAdvantages;
 
 namespace DomainModel.Warbands.BaseClasses
 {
@@ -15,9 +12,11 @@ namespace DomainModel.Warbands.BaseClasses
 
         protected List<IHenchMen> HenchMenList = new List<IHenchMen>();
 
-        public IReadOnlyCollection<IHero> Heroes { get { return HeroList; } }
+        public IReadOnlyCollection<IHero> Heroes
+        { get { return HeroList; } }
 
-        public IReadOnlyCollection<IHenchMen> HenchMen { get { return HenchMenList; } }
+        public IReadOnlyCollection<IHenchMen> HenchMen
+        { get { return HenchMenList; } }
 
         public IWarrior GetWarrior(string typeName)
         {
@@ -72,6 +71,7 @@ namespace DomainModel.Warbands.BaseClasses
 
         //if Characteristics.Wealth, 20, Applications.WarbandStartIncome, increase
 
-        public string WarBandName { get { return this.GetType().Name.Replace("Warband", String.Empty); } }
+        public string WarBandName
+        { get { return this.GetType().Name.Replace("Warband", String.Empty); } }
     }
 }
