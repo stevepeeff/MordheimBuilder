@@ -5,7 +5,7 @@ namespace MordheimTableTop.Warrior
 {
     public class StatisticsViewModel : ViewModelBase
     {
-        private IWarrior _Warrior;
+        private readonly IWarrior _Warrior;
 
         public StatisticsViewModel(IWarrior warrior)
         {
