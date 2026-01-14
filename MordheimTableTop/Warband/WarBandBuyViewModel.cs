@@ -8,8 +8,6 @@ namespace MordheimTableTop.Warband
 {
     internal class WarBandBuyViewModel : ViewModelBase
     {
-        public ObservableCollection<WarriorBuyViewModel> Warriors { get; } = new ObservableCollection<WarriorBuyViewModel>();
-
         public WarBandBuyViewModel()
         {
             foreach (var item in Warband.Heroes)
@@ -30,9 +28,8 @@ namespace MordheimTableTop.Warband
         }
 
         public string Advantages { get; }
-
         public IWarBand Warband { get; } = BuilderLogicFactory.Instance.WarbandRoster.WarBand;
-
         public string WarbandName => Warband.WarBandName.SplitCamelCasing();
+        public ObservableCollection<WarriorBuyViewModel> Warriors { get; } = new ObservableCollection<WarriorBuyViewModel>();
     }
 }
