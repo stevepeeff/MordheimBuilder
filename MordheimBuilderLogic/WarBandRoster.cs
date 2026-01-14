@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MordheimBuilderLogic
 {
-    internal class WarBandRoster : IWarbandRoster
+    public class WarBandRoster : IWarbandRoster
     {
         public WarBandRoster(IWarBand warBand)
         {
