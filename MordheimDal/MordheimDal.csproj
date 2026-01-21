@@ -1,90 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5EFD9B7-ADF1-4C48-A0A5-F70607C7536D}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MordheimDal</RootNamespace>
-    <AssemblyName>MordheimDal</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>net481</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IO.Abstractions, Version=22.0.14.0, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
-      <HintPath>..\MordheimBuilder\packages\System.IO.Abstractions.22.0.14\lib\netstandard2.0\System.IO.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\MordheimBuilder\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\MordheimBuilder\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\MordheimBuilder\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="TestableIO.System.IO.Abstractions, Version=22.0.14.0, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
-      <HintPath>..\MordheimBuilder\packages\TestableIO.System.IO.Abstractions.22.0.14\lib\netstandard2.0\TestableIO.System.IO.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="TestableIO.System.IO.Abstractions.Wrappers, Version=22.0.14.0, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
-      <HintPath>..\MordheimBuilder\packages\TestableIO.System.IO.Abstractions.Wrappers.22.0.14\lib\netstandard2.0\TestableIO.System.IO.Abstractions.Wrappers.dll</HintPath>
-    </Reference>
-    <Reference Include="Testably.Abstractions.FileSystem.Interface, Version=9.0.0.0, Culture=neutral, PublicKeyToken=f24346c8579fcb48, processorArchitecture=MSIL">
-      <HintPath>..\MordheimBuilder\packages\Testably.Abstractions.FileSystem.Interface.9.0.0\lib\netstandard2.0\Testably.Abstractions.FileSystem.Interface.dll</HintPath>
-    </Reference>
+    <PackageReference Include="System.IO.Abstractions" Version="22.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DalProvider.cs" />
-    <Compile Include="Interface\IDAL.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XmlDal.cs" />
-    <Compile Include="XmlIO.cs" />
-    <Compile Include="XmlStorage\XmlExtensionMethods.cs" />
-    <Compile Include="XmlStorage\XmlHeadNode.cs" />
-    <Compile Include="XmlStorage\XmlModel.cs" />
-    <Compile Include="XmlStorage\XmlWarbandRoster.cs" />
-    <Compile Include="XmlStorage\XmlWarrior.cs" />
-    <Compile Include="XMLUtils.cs" />
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
+    <ProjectReference Include="..\MordheimBuilderLogic\MordheimBuilderLogic.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
-      <Project>{d8ed204a-a5ae-44f6-afe4-34cb6cb1a949}</Project>
-      <Name>DomainModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MordheimBuilderLogic\MordheimBuilderLogic.csproj">
-      <Project>{879d23f4-f09b-41cd-8ea7-ecac0555bd8f}</Project>
-      <Name>MordheimBuilderLogic</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

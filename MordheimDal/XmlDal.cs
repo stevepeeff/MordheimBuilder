@@ -9,7 +9,7 @@ using System.IO;
 
 namespace MordheimDal
 {
-    internal class XmlDal : IDAL
+    public class XmlDal : IDAL
     {
         public static string STORAGE_PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), STORAGE_FOLDER);
         private const string FILE_EXTENSION = ".xml";
@@ -43,7 +43,7 @@ namespace MordheimDal
 
         public string Save(IWarbandRoster roster)
         {
-            if (roster == null) { throw new ArgumentNullException("The IWarbandRoster is null"); }
+            if (roster == null) { throw new ArgumentNullException(nameof(roster), "The IWarbandRoster is null"); }
 
             string rosterName = roster.Name;
             string filename = BuildFileNameAndCreateStoragerDirectory(rosterName);

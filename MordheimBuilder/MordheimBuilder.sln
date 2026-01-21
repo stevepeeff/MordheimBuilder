@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34728.123
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11408.102 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Presentation", "03 Presentation", "{90697CC3-E94C-47A7-B3AD-ECA7489FCA9D}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MordheimDal.Tests", "..\MordheimDal.Tests\MordheimDal.Tests.csproj", "{C3E734C2-C280-4E44-9A64-8A051534385D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MordheimTableTop", "..\MordheimTableTop\MordheimTableTop.csproj", "{4BC8DDE6-9258-444A-A1EC-B9858588335E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKTemplate", "SDKTemplate\SDKTemplate.csproj", "{9B0ADB7B-B513-4DFA-9356-B1BB7881CE92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{4BC8DDE6-9258-444A-A1EC-B9858588335E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BC8DDE6-9258-444A-A1EC-B9858588335E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BC8DDE6-9258-444A-A1EC-B9858588335E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B0ADB7B-B513-4DFA-9356-B1BB7881CE92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0ADB7B-B513-4DFA-9356-B1BB7881CE92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0ADB7B-B513-4DFA-9356-B1BB7881CE92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0ADB7B-B513-4DFA-9356-B1BB7881CE92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

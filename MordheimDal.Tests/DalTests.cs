@@ -32,8 +32,10 @@ namespace MordheimDal.Tests
         [TestInitialize]
         public void Setup()
         {
-            _WarbandRoster = new WarBandRoster(new WitchHuntersWarband());
-            _WarbandRoster.Name = "MordheimDalTests";
+            _WarbandRoster = new WarBandRoster(new WitchHuntersWarband())
+            {
+                Name = "MordheimDalTests"
+            };
 
             //Logic requires to add a new warrior
             _WitchHunterCaptain = _WarbandRoster.AddWarrior(new WitchHunterCaptain()) as IHero;

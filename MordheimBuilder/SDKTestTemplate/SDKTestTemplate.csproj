@@ -1,8 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net481</TargetFramework>
   </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
+    <PackageReference Include="MSTest" Version="4.0.1" />
   </ItemGroup>
+
+
 </Project>
